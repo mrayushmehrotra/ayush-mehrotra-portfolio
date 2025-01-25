@@ -1,6 +1,9 @@
 import Image from "next/image";
-
-function CssEffect({ stack, image }) {
+interface CssEffectInterface {
+  stack: string;
+  image: string;
+}
+function CssEffect({ stack, image }: CssEffectInterface) {
   return (
     <div className="group relative flex justify-center items-center text-zinc-600 text-sm font-bold">
       <div className="absolute opacity-0 group-hover:opacity-100 group-hover:-translate-y-[150%] -translate-y-[300%] duration-200 group-hover:delay-500 skew-y-[20deg] group-hover:skew-y-0 shadow-md">
@@ -16,10 +19,10 @@ function CssEffect({ stack, image }) {
       <div className="shadow-md flex items-center group-hover:gap-2 p-3 rounded-full cursor-pointer duration-300">
         <Image
           src={image}
-          width={60} // Increase the width to 150
-          height={60} // Increase the height to 150
+          width={60}
+          height={60}
           alt={stack}
-          className="w-full h-full rounded-lg object-cover" // Updated class for full width/height and cover
+          className="w-full h-full rounded-lg object-cover"
         />
       </div>
     </div>
