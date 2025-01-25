@@ -9,9 +9,10 @@ function CssEffect({ stack, image }: CssEffectInterface) {
   return (
     <div className="group relative flex justify-center items-center text-zinc-600 text-sm font-bold">
       <div className="absolute opacity-0 group-hover:opacity-100 group-hover:-translate-y-[150%] -translate-y-[300%] duration-200 group-hover:delay-500 skew-y-[20deg] group-hover:skew-y-0 shadow-md">
-        <div className="bg-zinc-200 animate-bounce flex items-center gap-1 p-2 rounded-md">
-          <span>{stack}</span>
+        <div className="bg-zinc-900 animate-bounce flex items-center gap-1 p-2 rounded-md ">
+          <span className="text-zinc-400">{stack}</span>
         </div>
+        <div className="absolute scale-150 z-[-10] blur-lg  inset-0 rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 opacity-20 transition-opacity duration-300 group-hover:opacity-40"></div>
         <div className="shadow-md absolute bottom-0 translate-y-1/2 left-1/2 translate-x-full rotate-45 p-1"></div>
         <div className="rounded-md bg-white group-hover:opacity-0 group-hover:scale-[115%] group-hover:delay-700 duration-200 w-full h-full absolute top-0 left-0">
           <div className="border-b border-r border-white bg-white absolute bottom-0 translate-y-1/2 left-1/2 translate-x-full rotate-45 p-1"></div>
