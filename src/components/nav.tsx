@@ -3,6 +3,7 @@ interface NavItem {
   title: string;
   link: string;
 }
+
 export default function Navbar() {
   const navItems: NavItem[] = [
     {
@@ -26,9 +27,11 @@ export default function Navbar() {
     <nav className="flex flex-row sm:text-xl items-center p-4  justify-between">
       {navItems.map((item) => (
         <Link key={item.title} href={item.link}>
-          <p className="font-semibold" key={item.title}>
-            {item.title}{" "}
-          </p>
+          <button>
+            <span className="font-semibold" key={item.title}>
+              {item.title}{" "}
+            </span>
+          </button>
         </Link>
       ))}
     </nav>

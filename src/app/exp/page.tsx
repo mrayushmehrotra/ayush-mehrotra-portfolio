@@ -6,13 +6,17 @@ export default function Page() {
       url: "/exp/Aideation",
     },
     {
-      title: "Shawtify",
+      title: "Shawtify - A Spotify Alternative",
       url: "/exp/Shawtify",
     },
   ];
   return (
-    <section>
-      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">My Blog</h1>
+    <section className="mt-8">
+      <br />
+
+      <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
+        My Experiences
+      </h1>
       <div>
         <section className="mb-4 text-[1.4em] ">
           {MyMdx.map((item) => (

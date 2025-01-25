@@ -1,26 +1,14 @@
-import Link from "next/link";
+import { BlogData } from "./utils";
 export default function Page() {
-  const MyMdx = [
-    {
-      title: "windows Vs Linux",
-      url: "/blogs/windows-vs-linux",
-    },
-    {
-      title: "Vscode vs Neovim",
-      url: "/blogs/vscode-vs-nvim",
-    },
-  ];
   return (
-    <section>
-      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">My Blog</h1>
+    <section className="mt-7">
+      <br />
+
       <div>
-        <section className="mb-4 text-[1.4em] ">
-          {MyMdx.map((item) => (
-            <Link key={item.title} href={item.url}>
-              <p>{item.title}</p>
-            </Link>
-          ))}
-        </section>
+        <h2 className="mb-8 text-2xl font-semibold tracking-tighter">
+          My Blogs
+        </h2>
+        <BlogData />
       </div>
     </section>
   );
