@@ -37,7 +37,7 @@ export default function techstack() {
   const stackdata = {
     frontend: [
       { stack: "React", imageurl: "/react.png" },
-      { stack: "next.js", imageurl: "/Nextjs.png" },
+      { stack: "next.js", imageurl: "/nextjs.png" },
       { stack: "TailwindCSS", imageurl: "/tailwind.png" },
       { stack: "TypeScript", imageurl: "/ts.svg.png" },
     ],
