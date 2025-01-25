@@ -1,8 +1,10 @@
 import Image from "next/image";
+
 interface CssEffectInterface {
   stack: string;
   image: string;
 }
+
 function CssEffect({ stack, image }: CssEffectInterface) {
   return (
     <div className="group relative flex justify-center items-center text-zinc-600 text-sm font-bold">
@@ -10,19 +12,21 @@ function CssEffect({ stack, image }: CssEffectInterface) {
         <div className="bg-zinc-200 flex items-center gap-1 p-2 rounded-md">
           <span>{stack}</span>
         </div>
-        <div className="shadow-md  absolute bottom-0 translate-y-1/2 left-1/2 translate-x-full rotate-45 p-1"></div>
+        <div className="shadow-md absolute bottom-0 translate-y-1/2 left-1/2 translate-x-full rotate-45 p-1"></div>
         <div className="rounded-md bg-white group-hover:opacity-0 group-hover:scale-[115%] group-hover:delay-700 duration-200 w-full h-full absolute top-0 left-0">
           <div className="border-b border-r border-white bg-white absolute bottom-0 translate-y-1/2 left-1/2 translate-x-full rotate-45 p-1"></div>
         </div>
       </div>
 
-      <div className="shadow-md flex items-center group-hover:gap-2 p-3 rounded-full cursor-pointer duration-300">
+      <div className="relative flex items-center group-hover:gap-2 p-3 rounded-full cursor-pointer duration-300">
+        {/* Glow effect */}
+        <div className="absolute inset-0 rounded-full blur-2xl bg-gradient-to-r from-zinc-200 to-slate-100 opacity-30 group-hover:opacity-100 transition-opacity duration-300"></div>
         <Image
           src={image}
           width={60}
           height={60}
           alt={stack}
-          className="w-full h-full rounded-lg object-cover"
+          className="relative w-full h-full rounded-lg object-cover"
         />
       </div>
     </div>
@@ -32,36 +36,39 @@ function CssEffect({ stack, image }: CssEffectInterface) {
 export default function techstack() {
   const stackdata = {
     frontend: [
-      { stack: "react", imageurl: "/react.png" },
-      { stack: "next.js", imageurl: "/nextjs.png" },
-      { stack: "tailwindcss", imageurl: "/tailwind.png" },
-      { stack: "typescript", imageurl: "/ts.svg.png" },
+      { stack: "React", imageurl: "/react.png" },
+      { stack: "next.js", imageurl: "/Nextjs.png" },
+      { stack: "TailwindCSS", imageurl: "/tailwind.png" },
+      { stack: "TypeScript", imageurl: "/ts.svg.png" },
     ],
     backend: [
-      { stack: "node.js", imageurl: "/nodejs.png" },
-      { stack: "express.js", imageurl: "/express.png" },
-      { stack: "python", imageurl: "/python.png" },
-      { stack: "flask", imageurl: "/fastapi.png" },
+      { stack: "Node.JS", imageurl: "/nodejs.png" },
+      { stack: "Express.JS", imageurl: "/express.png" },
+      { stack: "Python", imageurl: "/python.png" },
+      { stack: "FastAPI", imageurl: "/fastapi.png" },
     ],
     databases: [
-      { stack: "mongodb", imageurl: "/mongodb.png" },
-      { stack: "mysql", imageurl: "/mysql.png" },
-      { stack: "prisma", imageurl: "/prisma.png" },
+      { stack: "MongoDB", imageurl: "/Mongodb.png" },
+      { stack: "MySQL", imageurl: "/mysql.png" },
+      { stack: "Prisma", imageurl: "/prisma.png" },
     ],
     tools: [
-      { stack: "git", imageurl: "/github.png" },
-      { stack: "docker", imageurl: "/docker.png" },
-      { stack: "neovim", imageurl: "/neovim.png" },
-      { stack: "postman", imageurl: "/postman.png" },
+      { stack: "Github", imageurl: "/github.png" },
+      { stack: "Git", imageurl: "/git.png" },
+      { stack: "Docker", imageurl: "/docker.png" },
+      { stack: "NeoVim", imageurl: "/vim.png" },
+      { stack: "Postman", imageurl: "/postman.png" },
     ],
     others: [
-      { stack: "graphql", imageurl: "/graphql.png" },
-      { stack: "linux", imageurl: "/linux.png" },
+      { stack: "GraphQL", imageurl: "/graphql.png" },
+      { stack: "Linux", imageurl: "/linux.png" },
     ],
   };
 
   return (
     <div className="p-4">
+      <br />
+
       <div className="mb-6">
         <h2 className="text-xl font-semibold mb-2">frontend</h2>
         <div className="flex flex-wrap gap-4">
@@ -74,6 +81,7 @@ export default function techstack() {
           ))}
         </div>
       </div>
+      <br />
 
       <div className="mb-6">
         <h2 className="text-xl font-semibold mb-2">backend</h2>
@@ -87,6 +95,7 @@ export default function techstack() {
           ))}
         </div>
       </div>
+      <br />
 
       <div className="mb-6">
         <h2 className="text-xl font-semibold mb-2">databases</h2>
@@ -100,6 +109,7 @@ export default function techstack() {
           ))}
         </div>
       </div>
+      <br />
 
       {/* tools section */}
       <div className="mb-6">
@@ -114,6 +124,7 @@ export default function techstack() {
           ))}
         </div>
       </div>
+      <br />
 
       <div className="mb-6">
         <h2 className="text-xl font-semibold mb-2">others</h2>
