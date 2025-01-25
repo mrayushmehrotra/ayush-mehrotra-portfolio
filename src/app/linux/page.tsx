@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 const TerminalPage = () => {
-  const randomId = Math.random() * 7;
+  // const randomId = Math.random() * 7;
 
   const router = useRouter();
   const [inputData, setInputData] = useState<string>(""); // Track input data
