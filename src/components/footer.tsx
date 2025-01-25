@@ -16,20 +16,28 @@ function ArrowIcon() {
     </svg>
   );
 }
+
 const FooterContent = [
   {
     link: "https://github.com/mrayushmehrotra",
-    title: "github",
+    title: "GitHub",
+  },
+  {
+    link: "https://drive.google.com/file/d/187krvDeYrLIQbqPBNhAO89mELC-eGll1/view?usp=sharing",
+    title: "Resume",
   },
 ];
 
 export const Footer = () => {
   return (
-    <div className="mt-8">
+    <div
+      className="mt-8 flex flex-col sm:items-center gap-y-4
+      sm:flex-col md:flex-row md:justify-center lg:justify-between"
+    >
       {FooterContent.map((item) => (
         <Link key={item.title} href={item.link}>
-          <p className="flex text-zinc-400 gap-x-2 text-[1.2em] items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100">
-            <ArrowIcon /> <h1>{item.title}</h1>
+          <p className="flex items-center gap-x-2 text-zinc-400 text-[1.2em] transition-all hover:text-neutral-800 dark:hover:text-neutral-100">
+            <ArrowIcon /> <span>{item.title}</span>
           </p>
         </Link>
       ))}

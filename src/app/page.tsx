@@ -1,3 +1,4 @@
+import TechStack from "@/components/techstack";
 import { BlogData } from "./blogs/utils";
 
 export default function Home() {
@@ -14,9 +15,14 @@ export default function Home() {
         learn quickly, and adapt easily to new situations. I can contribute to
         projects immediately.
       </p>
-      <br />
       <hr className="border-b border-zinc-700  " />
+      <br />
+      <h1 className="mb-8 text-2xl font-semibold tracking-tighter ">
+        Tech Stack
+      </h1>
+      <TechStack />
 
+      <hr className="border-b border-zinc-700  " />
       <br />
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter ">Blogs</h1>
       <BlogData />
