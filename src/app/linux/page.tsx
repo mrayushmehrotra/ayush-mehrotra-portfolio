@@ -14,22 +14,15 @@ const TerminalPage = () => {
 
   // Starter text to show at the beginning
 
-  const starterText = localStorage.getItem("randomId")
-    ? [
-        "huh! it's you again ? okay, fine let's be friends ",
-
-        "just kidding lemme hack you",
-      ]
-    : [
-        "Hi, My Name is Ayush, This is a terminal",
-        "All Commands are resume, ls, social -a, skills -a, about me",
-      ];
+  const starterText =
+    // ? ["huh! it's you again ? okay, fine let's be friends "]
+    [
+      "Hi, My Name is Ayush, This is a terminal",
+      "All Commands are resume, ls, social -a, skills -a, about me",
+    ];
 
   // Function to gradually print starter text
   useEffect(() => {
-    if (typeof window !== undefined) {
-      localStorage.setItem("randomId", randomId.toString());
-    }
     if (!starterTextPrinted) {
       const printStarterText = () => {
         let delay = 1000;
