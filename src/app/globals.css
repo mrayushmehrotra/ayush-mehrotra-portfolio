@@ -23,9 +23,23 @@ body {
   background: var(--background);
   font-family: "MyFont", Arial, Helvetica, sans-serif;
 }
-/* not found css  */
-/* From Uiverse.io by Praashoo7 */
-/* Design Inspired by one of Stefan Devai's Design on Dribble */
+/* Custom scrollbar styling for Webkit-based browsers (Chrome, Edge, Safari) */
+body::-webkit-scrollbar {
+  width: 9px; /* Set the width of the scrollbar */
+  border-radius: 500px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #000; /* Black track background */
+  border: 2px solid #fff; /* White border */
+  border-radius: 50px; /* Rounded corners for the track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #555; /* Dark gray scrollbar thumb */
+  border: 2px solid #fff; /* White border around the thumb */
+  border-radius: 10px; /* Rounded corners for the thumb */
+}
 
 .main_wrapper {
   display: flex;

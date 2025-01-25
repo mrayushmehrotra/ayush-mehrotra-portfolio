@@ -8,6 +8,7 @@ export default {
   ],
   theme: {
     extend: {
+      scrollbar: ["responsive", "hover"],
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
