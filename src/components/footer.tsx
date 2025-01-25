@@ -32,7 +32,7 @@ export const Footer = () => {
   return (
     <div
       className="mt-8 flex flex-col sm:items-center gap-y-4
-      sm:flex-col md:flex-row md:justify-center lg:justify-between"
+      sm:flex-col md:flex-row md:justify-between lg:justify-between"
     >
       {FooterContent.map((item) => (
         <Link key={item.title} href={item.link}>

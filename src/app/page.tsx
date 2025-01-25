@@ -1,5 +1,6 @@
 import TechStack from "@/components/techstack";
 import { BlogData } from "./blogs/utils";
+import { MarioAnimation } from "@/components/marioAnimation";
 
 export default function Home() {
   return (
@@ -24,8 +25,17 @@ export default function Home() {
 
       <hr className="border-b border-zinc-700  " />
       <br />
-      <h1 className="mb-8 text-2xl font-semibold tracking-tighter ">Blogs</h1>
-      <BlogData />
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="mb-8 text-2xl font-semibold tracking-tighter ">
+            Blogs
+          </h1>
+          <BlogData />
+        </div>
+        <div className="scale-150 mr-5  ">
+          <MarioAnimation />
+        </div>
+      </div>
     </section>
   );
 }

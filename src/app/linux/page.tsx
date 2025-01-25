@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useRef, useEffect } from "react";
 
 const TerminalPage = () => {
@@ -108,40 +109,42 @@ const TerminalPage = () => {
   };
 
   return (
-    <div>
-      <aside
-        className="bg-black text-white p-6 rounded-lg w-full max-w-screen overflow-hidden font-mono"
-        onClick={() => inputElement.current?.focus()}
-      >
-        <div className="flex justify-between items-center">
-          <div className="flex space-x-2 text-red-500">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+    <>
+      <div>
+        <aside
+          className="bg-black text-white p-6 rounded-lg w-full max-w-screen overflow-hidden font-mono"
+          onClick={() => inputElement.current?.focus()}
+        >
+          <div className="flex justify-between items-center">
+            <div className="flex space-x-2 text-red-500">
+              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <p className="text-sm">bash</p>
           </div>
-          <p className="text-sm">bash</p>
-        </div>
-        <div className="mt-4">
-          {/* Output container */}
-          <div
-            id="output"
-            ref={outputElement}
-            className="text-green-400 overflow-auto max-h-[300px]"
-            dangerouslySetInnerHTML={{ __html: outputData.join("") }}
-          />
-          {/* Input field */}
-          <input
-            ref={inputElement}
-            type="text"
-            className="text-green-400 bg-black border-none outline-none w-full mt-4"
-            value={inputData}
-            onChange={(e) => setInputData(e.target.value)}
-            onKeyDown={handleKeyPress}
-            placeholder="$"
-          />
-        </div>
-      </aside>
-    </div>
+          <div className="mt-4">
+            {/* Output container */}
+            <div
+              id="output"
+              ref={outputElement}
+              className="text-green-400 overflow-auto max-h-[300px]"
+              dangerouslySetInnerHTML={{ __html: outputData.join("") }}
+            />
+            {/* Input field */}
+            <input
+              ref={inputElement}
+              type="text"
+              className="text-green-400 bg-black border-none outline-none w-full mt-4"
+              value={inputData}
+              onChange={(e) => setInputData(e.target.value)}
+              onKeyDown={handleKeyPress}
+              placeholder="$"
+            />
+          </div>
+        </aside>
+      </div>
+    </>
   );
 };
 
