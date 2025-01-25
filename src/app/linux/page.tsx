@@ -1,8 +1,12 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-
+import { useRouter } from "next/navigation";
 const TerminalPage = () => {
+  const randomId = Math.random() * 7;
+  localStorage.setItem("randomId", randomId.toString());
+
+  const router = useRouter();
   const [inputData, setInputData] = useState<string>(""); // Track input data
   const [outputData, setOutputData] = useState<string[]>([]); // Track terminal output
   const [starterTextPrinted, setStarterTextPrinted] = useState<boolean>(false); // Track if starter text is printed
@@ -10,10 +14,13 @@ const TerminalPage = () => {
   const outputElement = useRef<HTMLDivElement>(null); // For terminal output container
 
   // Starter text to show at the beginning
-  const starterText = [
-    "Hi, My Name is Ayush, This is a terminal",
-    "All Commands are resume, ls, social -a, skills -a, about me",
-  ];
+
+  const starterText = localStorage.getItem("randomId")
+    ? ["huh! it's you again ? okay, fine let's be friends "]
+    : [
+        "Hi, My Name is Ayush, This is a terminal",
+        "All Commands are resume, ls, social -a, skills -a, about me",
+      ];
 
   // Function to gradually print starter text
   useEffect(() => {
@@ -35,6 +42,7 @@ const TerminalPage = () => {
   // Handle user input and commands
   const handleUserInput = (input: string) => {
     appendToTerminal(`$ <span class="text-green-400">${input}</span>`);
+
     if (input === "ls") {
       appendToTerminal(
         `All Commands are ls, about me, resume, social -a, skills -a`,
@@ -57,6 +65,15 @@ const TerminalPage = () => {
       appendToTerminal(
         `My Name is Ayush Mehrotra\nI Love Computer Technology\nI Love Web Development. My Expertise is in JS and its Frameworks.`,
       );
+    } else if (input == "shutdown") {
+      appendToTerminal(
+        `
+Jan 25 10:18:30 hostname systemd[1]: Starting Shutdown.
+Jan 25 10:18:45 hostname systemd[1]: Reached target Shutdown.
+`,
+      );
+
+      setTimeout(() => router.push("/"), 2000);
     } else if (input === "clear") {
       setOutputData([]); // Clear the terminal output
     } else {
@@ -90,6 +107,10 @@ const TerminalPage = () => {
         link: "https://www.linkedin.com/in/ayush-mehrotra-99419724b/",
       },
       { name: "Instagram", link: "https://www.instagram.com/mein.ayush.hoon/" },
+      {
+        name: "portfolio",
+        link: "https://ayush-mehrotra-portfolio-two.vercel.app/linux",
+      },
     ];
 
     links.forEach((item) => {
@@ -110,7 +131,10 @@ const TerminalPage = () => {
 
   return (
     <>
-      <div>
+      <section className="mt-8">
+        <em>this is a just a demo terminal will not work as a real terminal</em>
+        <br />
+        <br />
         <aside
           className="bg-black text-white p-6 rounded-lg w-full max-w-screen overflow-hidden font-mono"
           onClick={() => inputElement.current?.focus()}
@@ -143,7 +167,7 @@ const TerminalPage = () => {
             />
           </div>
         </aside>
-      </div>
+      </section>
     </>
   );
 };
