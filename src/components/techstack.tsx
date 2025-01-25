@@ -9,7 +9,7 @@ function CssEffect({ stack, image }: CssEffectInterface) {
   return (
     <div className="group relative flex justify-center items-center text-zinc-600 text-sm font-bold">
       <div className="absolute opacity-0 group-hover:opacity-100 group-hover:-translate-y-[150%] -translate-y-[300%] duration-200 group-hover:delay-500 skew-y-[20deg] group-hover:skew-y-0 shadow-md">
-        <div className="bg-zinc-200 flex items-center gap-1 p-2 rounded-md">
+        <div className="bg-zinc-200 animate-bounce flex items-center gap-1 p-2 rounded-md">
           <span>{stack}</span>
         </div>
         <div className="shadow-md absolute bottom-0 translate-y-1/2 left-1/2 translate-x-full rotate-45 p-1"></div>
