@@ -1,10 +1,9 @@
 export default function Loading() {
   return (
-    <div className="flex items-center justify-center h-100vh">
-      <div className="hover:scale-110 transition-all ease-in-out cursor-pointer hover:shadow-xl hover:shadow-neutral-700 delay-250 animate-spin delay-50 duration-1000 bg-gradient-to-br border-4 shadow-inner shadow-neutral-700 border-neutral-950 from-white/80 to-gray-600 rounded-full grid place-items-center z-0 h-20 w-20 relative">
-        <div className="rounded-full bg-neutral-900 absolute rotate-[90deg] z-20 h-20 scale-50 w-2"></div>
-        <div className="rounded-full bg-neutral-900 absolute rotate-[180deg] z-20 h-20 scale-50 w-2"></div>
-      </div>
+    <div className="text-center">
+      <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-zinc-500 mx-auto"></div>
+      <h2 className="text-zinc-900 dark:text-white mt-4">Loading...</h2>
+      <p className="text-zinc-600 dark:text-zinc-400"></p>
     </div>
   );
 }
