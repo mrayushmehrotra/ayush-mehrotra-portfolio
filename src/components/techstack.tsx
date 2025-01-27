@@ -98,7 +98,7 @@ export default function TechStack() {
         <div className="mb-6" key={category}>
           <h2 className="text-xl font-semibold mb-2">{category}</h2>
           <div className="flex flex-wrap gap-4">
-            {items.map((item) => (
+            {items.map((item: StackItem) => (
               <CssEffect
                 stack={item.stack}
                 image={item.imageurl}
