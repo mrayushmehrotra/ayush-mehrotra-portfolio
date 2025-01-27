@@ -1,3 +1,4 @@
+import { GithubMap } from "@/components/githubCalendar";
 import Link from "next/link";
 export default function Page() {
   const MyMdx = [
@@ -26,6 +27,7 @@ export default function Page() {
           ))}
         </section>
       </div>
+      <GithubMap />
     </section>
   );
 }

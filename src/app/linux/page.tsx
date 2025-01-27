@@ -3,8 +3,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 const TerminalPage = () => {
-  // const randomId = Math.random() * 7;
-
   const router = useRouter();
   const [inputData, setInputData] = useState<string>(""); // Track input data
   const [outputData, setOutputData] = useState<string[]>([]); // Track terminal output
@@ -14,14 +12,11 @@ const TerminalPage = () => {
 
   // Starter text to show at the beginning
 
-  const starterText =
-    // ? ["huh! it's you again ? okay, fine let's be friends "]
-    [
-      "Hi, My Name is Ayush, This is a terminal",
-      "All Commands are resume, ls, social -a, skills -a, about me",
-    ];
+  const starterText = [
+    "Hi, My Name is Ayush, This is a terminal",
+    "All Commands are resume, ls, social -a, skills -a, about me",
+  ];
 
-  // Function to gradually print starter text
   useEffect(() => {
     if (!starterTextPrinted) {
       const printStarterText = () => {
@@ -30,13 +25,13 @@ const TerminalPage = () => {
           setTimeout(() => {
             appendToTerminal(text);
           }, delay);
-          delay += 1000; // Adjust the delay here (1 second in this example)
+          delay += 1000;
         });
       };
-      printStarterText(); // Call the function to print the starter text
-      setStarterTextPrinted(true); // Set the state to true after the starter text is printed
+      printStarterText();
+      setStarterTextPrinted(true);
     }
-  }, [starterTextPrinted]); // Only run the effect if the starter text hasn't been printed yet
+  }, [starterTextPrinted, starterText]);
 
   // Handle user input and commands
   const handleUserInput = (input: string) => {
@@ -44,15 +39,15 @@ const TerminalPage = () => {
 
     if (input === "ls") {
       appendToTerminal(
-        `All Commands are ls, about me, resume, social -a, skills -a`,
+        ` all commands are ls, about me, resume, social -a, skills -a`,
       );
     } else if (input === "resume") {
       redirectToResume();
     } else if (input === "social -a") {
       socialLink(); // Display social links
     } else if (input === "skills -a") {
-      appendToTerminal(`Languages: JavaScript, Python, Rust, Lua, SQL`);
-      appendToTerminal(`Frontend: React, HTML, CSS, JS, TS, TailwindCSS`);
+      appendToTerminal(`Languages: JavaScript, Python, Rust, Lua, SQL \n`);
+      appendToTerminal(`Frontend: React, HTML, CSS, JS, TS, TailwindCSS \n`);
       appendToTerminal(`Backend: NodeJS, ExpressJS, Python, Flask`);
       appendToTerminal(
         `IT Constructs & Tools: DSA, OOPs, Linux, Git, Docker, NeoVim, Postman`,
@@ -77,7 +72,7 @@ Jan 25 10:18:45 hostname systemd[1]: Reached target Shutdown.
       setOutputData([]); // Clear the terminal output
     } else {
       appendToTerminal(
-        `${processCommand(input)}: <span class="text-red-700">Command Not Found </span><br>write 'ui' for better user experience`,
+        `${processCommand(input)}: <span class="text-red-700">Command Not Found </span><br>write 'ui' for better user experience or write 'shutdown' to exit terminal`,
       );
     }
   };
@@ -123,7 +118,9 @@ Jan 25 10:18:45 hostname systemd[1]: Reached target Shutdown.
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      handleUserInput(inputData);
+      const inputToLowerCase = inputData.toLowerCase();
+      setInputData(inputToLowerCase);
+      handleUserInput(inputToLowerCase);
       setInputData(""); // Clear input field after processing
     }
   };
