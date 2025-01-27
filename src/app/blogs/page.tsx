@@ -3,11 +3,12 @@ export default function Page() {
   return (
     <section className="mt-7">
       <br />
-
+      <em>
+        this blogs are enitrely written by me, an amature blogger, open at your
+        own risk{" "}
+      </em>
       <div>
-        <h2 className="mb-8 text-2xl font-semibold tracking-tighter">
-          My Blogs
-        </h2>
+        <br />
         <BlogData />
       </div>
     </section>
