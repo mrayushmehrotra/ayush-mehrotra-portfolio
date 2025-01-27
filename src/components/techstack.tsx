@@ -14,7 +14,7 @@ function CssEffect({ stack, image }: CssEffectInterface) {
         </div>
         <div className="absolute scale-150 z-[-10] blur-lg  inset-0 rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 opacity-20 transition-opacity duration-300 group-hover:opacity-40"></div>
         <div className="shadow-md absolute bottom-0 translate-y-1/2 left-1/2 translate-x-full rotate-45 p-1"></div>
-        <div className="rounded-md bg-white group-hover:opacity-0 group-hover:scale-[115%] group-hover:delay-700 duration-200 w-full h-full absolute top-0 left-0">
+        <div className="rounded-md  group-hover:opacity-0 group-hover:scale-[115%] group-hover:delay-700 duration-200 w-full h-full absolute top-0 left-0">
           <div className="border-b border-r border-white bg-white absolute bottom-0 translate-y-1/2 left-1/2 translate-x-full rotate-45 p-1"></div>
         </div>
       </div>
