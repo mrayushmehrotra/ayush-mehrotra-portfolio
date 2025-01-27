@@ -1,4 +1,19 @@
+import { useMemo } from "react";
 import Image from "next/image";
+
+interface StackItem {
+  stack: string;
+  imageurl: string;
+  id?: string; // Optional for initial data, required after unique IDs are added
+}
+
+interface StackData {
+  frontend: StackItem[];
+  backend: StackItem[];
+  databases: StackItem[];
+  tools: StackItem[];
+  others: StackItem[];
+}
 
 interface CssEffectInterface {
   stack: string;
@@ -9,18 +24,13 @@ function CssEffect({ stack, image }: CssEffectInterface) {
   return (
     <div className="group relative flex justify-center items-center text-zinc-600 text-sm font-bold">
       <div className="absolute opacity-0 group-hover:opacity-100 group-hover:-translate-y-[150%] -translate-y-[300%] duration-200 group-hover:delay-500 skew-y-[20deg] group-hover:skew-y-0 shadow-md">
-        <div className="bg-zinc-900 animate-bounce flex items-center gap-1 p-2 rounded-md ">
+        <div className="bg-zinc-900 animate-bounce flex items-center gap-1 p-2 rounded-md">
           <span className="text-zinc-400">{stack}</span>
         </div>
-        <div className="absolute scale-150 z-[-10] blur-lg  inset-0 rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 opacity-20 transition-opacity duration-300 group-hover:opacity-40"></div>
-        <div className="shadow-md absolute bottom-0 translate-y-1/2 left-1/2 translate-x-full rotate-45 p-1"></div>
-        <div className="rounded-md  group-hover:opacity-0 group-hover:scale-[115%] group-hover:delay-700 duration-200 w-full h-full absolute top-0 left-0">
-          <div className="border-b border-r border-white bg-white absolute bottom-0 translate-y-1/2 left-1/2 translate-x-full rotate-45 p-1"></div>
-        </div>
+        <div className="absolute scale-150 z-[-10] blur-lg inset-0 rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 opacity-20 transition-opacity duration-300 group-hover:opacity-40"></div>
       </div>
 
       <div className="relative flex items-center group-hover:gap-2 p-3 rounded-full cursor-pointer duration-300">
-        {/* Glow effect */}
         <div className="absolute inset-0 rounded-full blur-2xl bg-gradient-to-r from-zinc-200 to-slate-100 opacity-30 group-hover:opacity-100 transition-opacity duration-300"></div>
         <Image
           src={image}
@@ -34,11 +44,11 @@ function CssEffect({ stack, image }: CssEffectInterface) {
   );
 }
 
-export default function techstack() {
-  const stackdata = {
+export default function TechStack() {
+  const stackdata: StackData = {
     frontend: [
       { stack: "React", imageurl: "/react.png" },
-      { stack: "next.js", imageurl: "/nextjs.png" },
+      { stack: "Next.js", imageurl: "/nextjs.png" },
       { stack: "TailwindCSS", imageurl: "/tailwind.png" },
       { stack: "TypeScript", imageurl: "/ts.svg.png" },
     ],
@@ -54,7 +64,7 @@ export default function techstack() {
       { stack: "Prisma", imageurl: "/prisma.png" },
     ],
     tools: [
-      { stack: "Github", imageurl: "/github.png" },
+      { stack: "GitHub", imageurl: "/github.png" },
       { stack: "Git", imageurl: "/git.png" },
       { stack: "Docker", imageurl: "/docker.png" },
       { stack: "NeoVim", imageurl: "/vim.png" },
@@ -66,79 +76,38 @@ export default function techstack() {
     ],
   };
 
+  // Memoizing the entire stack data with unique IDs
+  const memoizedStackData: StackData = useMemo(() => {
+    const addUniqueId = (data: StackItem[]): StackItem[] =>
+      data.map((item) => ({
+        ...item,
+        id: `${item.stack}-${Math.random()}`, // Adding a unique ID
+      }));
+    return {
+      frontend: addUniqueId(stackdata.frontend),
+      backend: addUniqueId(stackdata.backend),
+      databases: addUniqueId(stackdata.databases),
+      tools: addUniqueId(stackdata.tools),
+      others: addUniqueId(stackdata.others),
+    };
+  }, []);
+
   return (
     <div className="p-4">
-      <br />
-
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">frontend</h2>
-        <div className="flex flex-wrap gap-4">
-          {stackdata.frontend.map((item) => (
-            <CssEffect
-              stack={item.stack}
-              image={item.imageurl}
-              key={item.stack}
-            />
-          ))}
+      {Object.entries(memoizedStackData).map(([category, items]) => (
+        <div className="mb-6" key={category}>
+          <h2 className="text-xl font-semibold mb-2">{category}</h2>
+          <div className="flex flex-wrap gap-4">
+            {items.map((item) => (
+              <CssEffect
+                stack={item.stack}
+                image={item.imageurl}
+                key={item.id} // Use the unique ID as the key
+              />
+            ))}
+          </div>
         </div>
-      </div>
-      <br />
-
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">backend</h2>
-        <div className="flex flex-wrap gap-4">
-          {stackdata.backend.map((item) => (
-            <CssEffect
-              stack={item.stack}
-              image={item.imageurl}
-              key={item.stack}
-            />
-          ))}
-        </div>
-      </div>
-      <br />
-
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">databases</h2>
-        <div className="flex flex-wrap gap-4">
-          {stackdata.databases.map((item) => (
-            <CssEffect
-              stack={item.stack}
-              image={item.imageurl}
-              key={item.stack}
-            />
-          ))}
-        </div>
-      </div>
-      <br />
-
-      {/* tools section */}
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">tools</h2>
-        <div className="flex flex-wrap gap-4">
-          {stackdata.tools.map((item) => (
-            <CssEffect
-              stack={item.stack}
-              image={item.imageurl}
-              key={item.stack}
-            />
-          ))}
-        </div>
-      </div>
-      <br />
-
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">others</h2>
-        <div className="flex flex-wrap gap-4">
-          {stackdata.others.map((item) => (
-            <CssEffect
-              stack={item.stack}
-              image={item.imageurl}
-              key={item.stack}
-            />
-          ))}
-        </div>
-      </div>
+      ))}
     </div>
   );
 }
