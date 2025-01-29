@@ -21,6 +21,7 @@ const Page = () => {
       const Shawtify = dynamic(() => import("./Shawtify.mdx"), { ssr: false });
       return <Shawtify />;
     }
+
     return <p>Project not found</p>;
   };
 
