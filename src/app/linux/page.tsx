@@ -14,6 +14,7 @@ const TerminalPage = () => {
   const starterText = [
     "Hi, My Name is Ayush, This is a terminal",
     "All Commands are resume, ls, social -a, skills -a, about me",
+    "go to homepage by shutdown ui command",
   ];
 
   useEffect(() => {
