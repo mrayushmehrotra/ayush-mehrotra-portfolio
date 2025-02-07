@@ -23,7 +23,7 @@ const FooterContent = [
     title: "GitHub",
   },
   {
-    link: "https://drive.google.com/file/d/187krvDeYrLIQbqPBNhAO89mELC-eGll1/view?usp=sharing",
+    link: "https://drive.google.com/file/d/1Y3FuHpTCSdUxr2nzRh8v5pPqIXVtmYx3/view?usp=sharing",
     title: "Resume",
   },
 ];

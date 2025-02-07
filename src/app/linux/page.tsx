@@ -83,7 +83,7 @@ Jan 25 10:18:45 hostname systemd[1]: Reached target Shutdown.
 
   const redirectToResume = () => {
     window.location.href =
-      "https://drive.google.com/file/d/1OOZ7zVMmsqcEoiPKyuxVViRdWjNp1HAL/view?pli=1";
+      "https://drive.google.com/file/d/187krvDeYrLIQbqPBNhAO89mELC-eGll1/view?usp=sharing";
   };
 
   const appendToTerminal = (text: string, isOutput = false) => {
