@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import tail from "@codaworks/react-glow/tailwind";
+
 export default {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,5 +15,5 @@ export default {
       },
     },
   },
-  plugins: [tail],
+  plugins: [],
 } satisfies Config;
