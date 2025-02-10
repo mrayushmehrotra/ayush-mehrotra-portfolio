@@ -1,7 +1,6 @@
 import TechStack from "@/components/techstack";
 import { BlogData } from "./blogs/utils";
 import { MarioAnimation } from "@/components/marioAnimation";
-
 export default function Home() {
   return (
     <section className="mt-8">
