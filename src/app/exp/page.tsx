@@ -1,6 +1,8 @@
+"use client";
 import { GithubMap } from "@/components/githubCalendar";
 import Link from "next/link";
 import DaysAtCodeTikki from "@/components/daysAtCodeTikki";
+
 export default function Page() {
   const MyMdx = [
     {

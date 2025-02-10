@@ -1,10 +1,16 @@
+"use client";
 import Link from "next/link";
+import { Moon, MoonIcon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useState } from "react";
 interface NavItem {
   title: string;
   link: string;
 }
 
 export default function Navbar() {
+  const { setTheme } = useTheme();
+  const [isDark, setIsDark] = useState(true);
   const navItems: NavItem[] = [
     {
       title: "home",
@@ -34,6 +40,27 @@ export default function Navbar() {
           </button>
         </Link>
       ))}
+      {isDark ? (
+        <button
+          className="ml-4"
+          onClick={() => {
+            setTheme("light");
+            setIsDark(false);
+          }}
+        >
+          <Moon />
+        </button>
+      ) : (
+        <button
+          className="ml-4"
+          onClick={() => {
+            setTheme("dark");
+            setIsDark(true);
+          }}
+        >
+          <Sun />
+        </button>
+      )}
     </nav>
   );
 }
