@@ -1,6 +1,7 @@
+"use client";
 import { useMemo } from "react";
+import { motion } from "motion/react";
 import Image from "next/image";
-
 interface StackItem {
   stack: string;
   imageurl: string;
@@ -33,6 +34,7 @@ function CssEffect({ stack, image }: CssEffectInterface) {
       <div className="relative flex items-center group-hover:gap-2 p-3 rounded-full cursor-pointer duration-300">
         <div className="absolute inset-0 rounded-full blur-2xl bg-gradient-to-r from-zinc-200 to-slate-100 opacity-30 group-hover:opacity-100 transition-opacity duration-300"></div>
         <Image
+          draggable="false"
           src={image}
           width={60}
           height={60}
@@ -90,24 +92,52 @@ export default function TechStack() {
       tools: addUniqueId(stackdata.tools),
       others: addUniqueId(stackdata.others),
     };
-  }, []);
+  }, [
+    stackdata.backend,
+    stackdata.frontend,
+    stackdata.databases,
+    stackdata.tools,
+    stackdata.others,
+  ]);
 
   return (
-    <div className="p-4">
-      {Object.entries(memoizedStackData).map(([category, items]) => (
-        <div className="mb-6" key={category}>
-          <h2 className="text-xl font-semibold mb-2">{category}</h2>
-          <div className="flex flex-wrap gap-4">
-            {items.map((item: StackItem) => (
-              <CssEffect
-                stack={item.stack}
-                image={item.imageurl}
-                key={item.id} // Use the unique ID as the key
-              />
-            ))}
+    <>
+      <div className="p-4">
+        {Object.entries(memoizedStackData).map(([category, items]) => (
+          <div className="mb-6" key={category}>
+            <h2 className="text-xl font-semibold mb-2">{category}</h2>
+            <div className="flex flex-wrap gap-4">
+              {items.map((item: StackItem) => (
+                <motion.div
+                  key={item.id}
+                  drag
+                  dragSnapToOrigin={true}
+                  dragElastic={0.7}
+                  whileDrag={{ scale: 1.1 }}
+                >
+                  <CssEffect stack={item.stack} image={item.imageurl} />
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+      <motion.button
+        className="relative px-8 py-3 text-lg font-semibold text-white  border-2 border-black rounded-lg overflow-hidden group"
+        whileHover={{
+          backgroundPosition: "0% 0%", // Fill from the hover side
+          transition: { duration: 0.5, ease: "easeOut" },
+        }}
+        initial={{ backgroundPosition: "100% 100%" }} // Start from the opposite side
+        style={{
+          backgroundImage: "linear-gradient(to right, white 50%, black 50%)",
+          backgroundSize: "200% 100%", // Double the width for the gradient
+        }}
+      >
+        <span className="relative z-10 group-hover:text-black transition-colors duration-300">
+          Hover Me
+        </span>
+      </motion.button>{" "}
+    </>
   );
 }
