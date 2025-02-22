@@ -25,16 +25,16 @@ export default function Navbar() {
       link: "/exp",
     },
     {
-      title: "Linux 🥰",
+      title: "Linux",
       link: "/linux",
     },
   ];
   return (
-    <nav className="flex flex-row sm:text-xl items-center p-4  justify-between">
+    <nav className="flex flex-row text-sm md:text-3xl sm:px-2  px-8 items-center  justify-around">
       {navItems.map((item) => (
         <Link key={item.title} href={item.link}>
           <button>
-            <span className="font-semibold" key={item.title}>
+            <span className="font-semibold uppercase" key={item.title}>
               {item.title}{" "}
             </span>
           </button>
@@ -42,7 +42,7 @@ export default function Navbar() {
       ))}
       {isDark ? (
         <button
-          className="ml-4"
+          className="ml-2"
           onClick={() => {
             setTheme("light");
             setIsDark(false);
@@ -52,7 +52,7 @@ export default function Navbar() {
         </button>
       ) : (
         <button
-          className="ml-4"
+          className="ml-2"
           onClick={() => {
             setTheme("dark");
             setIsDark(true);

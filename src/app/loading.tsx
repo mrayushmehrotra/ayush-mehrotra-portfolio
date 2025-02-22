@@ -1,9 +1,35 @@
+"use client"; // Mark this component as a Client Component
+
+import { motion, useAnimation } from "motion/react";
+import { useEffect } from "react";
+
 export default function Loading() {
+  const controls = useAnimation(); // Animation controls
+
+  useEffect(() => {
+    // Animate the count from 0 to 100
+    controls.start({
+      innerHTML: 100,
+      transition: { duration: 2, ease: "circOut" },
+    });
+  }, [controls]);
+
   return (
     <div className="text-center">
-      <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-zinc-500 mx-auto"></div>
-      <h2 className="text-zinc-900 dark:text-white mt-4">Loading...</h2>
-      <p className="text-zinc-600 dark:text-zinc-400"></p>
+      <motion.pre
+        id="count"
+        className="text-[64px] text-[#4ff0b7]"
+        initial={{ innerHTML: 0 }} // Start from 0
+        animate={controls} // Use the animation controls
+        onUpdate={(latest) => {
+          // Round the value and update the innerHTML
+          if (latest.innerHTML !== undefined) {
+            latest.innerHTML = Math.round(latest.innerHTML);
+          }
+        }}
+      >
+        0
+      </motion.pre>
     </div>
   );
 }

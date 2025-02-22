@@ -1,7 +1,9 @@
 "use client";
+
 import { useMemo } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion"; // Corrected import
 import Image from "next/image";
+
 interface StackItem {
   stack: string;
   imageurl: string;
@@ -14,36 +16,6 @@ interface StackData {
   databases: StackItem[];
   tools: StackItem[];
   others: StackItem[];
-}
-
-interface CssEffectInterface {
-  stack: string;
-  image: string;
-}
-
-function CssEffect({ stack, image }: CssEffectInterface) {
-  return (
-    <div className="group relative flex justify-center items-center text-zinc-600 text-sm font-bold">
-      <div className="absolute opacity-0 group-hover:opacity-100 group-hover:-translate-y-[150%] -translate-y-[300%] duration-200 group-hover:delay-500 skew-y-[20deg] group-hover:skew-y-0 shadow-md">
-        <div className="bg-zinc-900 animate-bounce flex items-center gap-1 p-2 rounded-md">
-          <span className="text-zinc-400">{stack}</span>
-        </div>
-        <div className="absolute scale-150 z-[-10] blur-lg inset-0 rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 opacity-20 transition-opacity duration-300 group-hover:opacity-40"></div>
-      </div>
-
-      <div className="relative flex items-center group-hover:gap-2 p-3 rounded-full cursor-pointer duration-300">
-        <div className="absolute inset-0 rounded-full blur-2xl bg-gradient-to-r from-zinc-200 to-slate-100 opacity-30 group-hover:opacity-100 transition-opacity duration-300"></div>
-        <Image
-          draggable="false"
-          src={image}
-          width={60}
-          height={60}
-          alt={stack}
-          className="relative w-full h-full rounded-lg object-cover"
-        />
-      </div>
-    </div>
-  );
 }
 
 export default function TechStack() {
@@ -101,43 +73,61 @@ export default function TechStack() {
   ]);
 
   return (
-    <>
-      <div className="p-4">
+    <div className="w-full overflow-hidden">
+      <h1 className="mb-8 text-6xl text-center font-semibold tracking-tighter">
+        Tech Stack
+      </h1>
+
+      {/* Big 4 List */}
+      <div className="space-y-4">
         {Object.entries(memoizedStackData).map(([category, items]) => (
-          <div className="mb-6" key={category}>
-            <h2 className="text-xl font-semibold mb-2">{category}</h2>
-            <div className="flex flex-wrap gap-4">
-              {items.map((item: StackItem) => (
-                <motion.div
-                  key={item.id}
-                  drag
-                  dragSnapToOrigin={true}
-                  dragElastic={0.7}
-                  whileDrag={{ scale: 1.1 }}
-                >
-                  <CssEffect stack={item.stack} image={item.imageurl} />
-                </motion.div>
-              ))}
-            </div>
-          </div>
+          <motion.div
+            key={category}
+            className="h-[200px] w-full relative overflow-hidden border-t border-b border-white group"
+            style={{ perspective: "1000px" }} // Add perspective for 3D effect
+          >
+            {/* Front Side (Category Name) */}
+            <motion.div
+              className="w-full h-full flex justify-center items-center absolute inset-0"
+              initial={{ rotateY: 0 }}
+              whileHover={{ rotateY: 180 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }} // Spring transition
+              style={{ backfaceVisibility: "hidden" }} // Hide the back side during flip
+            >
+              <div className="lg:text-8xl text-2xl font-bold z-10 text-center">
+                {category.toUpperCase()}
+              </div>
+            </motion.div>
+
+            {/* Back Side (Tech Stack Icons) */}
+            <motion.div
+              className="w-full h-full flex justify-center items-center hover:bg-[#222] absolute inset-0"
+              initial={{ rotateY: 180 }}
+              whileHover={{ rotateY: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }} // Spring transition
+            >
+              <div className="flex   gap-4 z-10">
+                {items.map((item) => (
+                  <motion.div
+                    key={item.id}
+                    whileHover={{ scale: 1.1 }}
+                    className="flex items-center gap-2"
+                  >
+                    <Image
+                      src={item.imageurl}
+                      alt={item.stack}
+                      width={40}
+                      height={40}
+                      className="rounded-full"
+                    />
+                    <span className="text-lg font-semibold">{item.stack}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
         ))}
       </div>
-      <motion.button
-        className="relative px-8 py-3 text-lg font-semibold text-white  border-2 border-black rounded-lg overflow-hidden group"
-        whileHover={{
-          backgroundPosition: "0% 0%", // Fill from the hover side
-          transition: { duration: 0.5, ease: "easeOut" },
-        }}
-        initial={{ backgroundPosition: "100% 100%" }} // Start from the opposite side
-        style={{
-          backgroundImage: "linear-gradient(to right, white 50%, black 50%)",
-          backgroundSize: "200% 100%", // Double the width for the gradient
-        }}
-      >
-        <span className="relative z-10 group-hover:text-black transition-colors duration-300">
-          Hover Me
-        </span>
-      </motion.button>{" "}
-    </>
+    </div>
   );
 }
