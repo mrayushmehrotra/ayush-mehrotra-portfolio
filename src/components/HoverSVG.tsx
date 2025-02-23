@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, useTransform, useSpring } from "framer-motion";
+import { motion, useTransform, useSpring } from "motion/react";
 import { useTheme } from "next-themes"; // Import useTheme
 
 const HoverSvg = () => {

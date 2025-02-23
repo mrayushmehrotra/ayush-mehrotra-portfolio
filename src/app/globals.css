@@ -30,6 +30,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px; /* Rounded corners for the thumb */
 }
 
+
 .main_wrapper {
   display: flex;
   align-items: center;

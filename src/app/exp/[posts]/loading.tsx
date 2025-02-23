@@ -1,9 +1,26 @@
-export default function Loading() {
+
+
+"use client";
+import { motion } from "framer-motion";
+import React from "react";
+
+const Loading = () => {
   return (
-    <div className="text-center">
-      <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-zinc-500 mx-auto"></div>
-      <h2 className="text-zinc-900 dark:text-white mt-4">Loading...</h2>
-      <p className="text-zinc-600 dark:text-zinc-400"></p>
+    <div className="fixed top-0 left-0 w-full z-50">
+      <div className="h-1 bg-[#222]">
+        <motion.div
+          className="h-full bg-white"
+          initial={{ width: "0%" }}
+          animate={{ width: "100%" }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        ></motion.div>
+      </div>
     </div>
   );
-}
+};
+
+export default Loading;

@@ -6,6 +6,7 @@ import Navbar from "@/components/nav";
 import { baseUrl } from "./sitemap";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import CustomMouse from "@/components/customMouse";
+import LoaderWrapper from "@/components/LoaderWrapper";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -68,12 +69,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <LoaderWrapper>
+
           <main className="max-w-xl mx-3 mt-8 lg:max-w-full lg:mx-0">
             <CustomMouse />
             <Navbar />
             {children}
             <Footer />
-          </main>{" "}
+          </main>
+          </LoaderWrapper>
         </ThemeProvider>
       </body>
     </html>

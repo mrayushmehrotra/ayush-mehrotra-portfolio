@@ -1,7 +1,7 @@
 "use client";
 
-import { useMemo } from "react";
-import { motion } from "framer-motion"; // Corrected import
+import { useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 interface StackItem {
@@ -19,6 +19,8 @@ interface StackData {
 }
 
 export default function TechStack() {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+
   const stackdata: StackData = {
     frontend: [
       { stack: "React", imageurl: "/react.png" },
@@ -38,11 +40,11 @@ export default function TechStack() {
       { stack: "Prisma", imageurl: "/prisma.png" },
     ],
     tools: [
-      { stack: "GitHub", imageurl: "/github.png" },
+      // { stack: "GitHub", imageurl: "/github.png" },
       { stack: "Git", imageurl: "/git.png" },
       { stack: "Docker", imageurl: "/docker.png" },
       { stack: "NeoVim", imageurl: "/vim.png" },
-      { stack: "Postman", imageurl: "/postman.png" },
+      // { stack: "Postman", imageurl: "/postman.png" },
     ],
     others: [
       { stack: "GraphQL", imageurl: "/graphql.png" },
@@ -72,61 +74,88 @@ export default function TechStack() {
     stackdata.others,
   ]);
 
+  const handleCategoryClick = (category: string) => {
+    setActiveCategory(activeCategory === category ? null : category);
+  };
+
+  const splitCategoryName = (category: string) => {
+    const half = Math.ceil(category.length / 2);
+    const firstHalf = category.slice(0, half);
+    const secondHalf = category.slice(half);
+    return { firstHalf, secondHalf };
+  };
+
   return (
     <div className="w-full overflow-hidden">
-      <h1 className="mb-8 text-6xl text-center font-semibold tracking-tighter">
+      {/* Responsive Heading */}
+      <motion.h1
+        initial={{ y: -70 }} // Initial state (starting position)
+        animate={{ y: 10 }} // Target state (ending position)
+        transition={{ duration: 3, type: "spring", stiffness: 100, damping: 10 }} // Optional: Add transition
+        className="mb-8 text-4xl md:text-6xl lg:text-8xl text-center font-semibold tracking-tighter"
+      >
         Tech Stack
-      </h1>
+      </motion.h1>
 
       {/* Big 4 List */}
       <div className="space-y-4">
-        {Object.entries(memoizedStackData).map(([category, items]) => (
-          <motion.div
-            key={category}
-            className="h-[200px] w-full relative overflow-hidden border-t border-b border-white group"
-            style={{ perspective: "1000px" }} // Add perspective for 3D effect
-          >
-            {/* Front Side (Category Name) */}
-            <motion.div
-              className="w-full h-full flex justify-center items-center absolute inset-0"
-              initial={{ rotateY: 0 }}
-              whileHover={{ rotateY: 180 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }} // Spring transition
-              style={{ backfaceVisibility: "hidden" }} // Hide the back side during flip
-            >
-              <div className="lg:text-8xl text-2xl font-bold z-10 text-center">
-                {category.toUpperCase()}
-              </div>
-            </motion.div>
+        {Object.entries(memoizedStackData).map(([category, items]) => {
+          const { firstHalf, secondHalf } = splitCategoryName(category);
+          const isActive = activeCategory === category;
 
-            {/* Back Side (Tech Stack Icons) */}
+          return (
             <motion.div
-              className="w-full h-full flex justify-center items-center hover:bg-[#222] absolute inset-0"
-              initial={{ rotateY: 180 }}
-              whileHover={{ rotateY: 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }} // Spring transition
+              key={category}
+              className="h-[100px] md:h-[150px] lg:h-[200px] w-full relative overflow-hidden border-t border-b border-white group"
+              style={{ perspective: "1000px" }} // Add perspective for 3D effect
+              onClick={() => handleCategoryClick(category)}
             >
-              <div className="flex   gap-4 z-10">
-                {items.map((item) => (
-                  <motion.div
-                    key={item.id}
-                    whileHover={{ scale: 1.1 }}
-                    className="flex items-center gap-2"
-                  >
-                    <Image
-                      src={item.imageurl}
-                      alt={item.stack}
-                      width={40}
-                      height={40}
-                      className="rounded-full"
-                    />
-                    <span className="text-lg font-semibold">{item.stack}</span>
-                  </motion.div>
-                ))}
-              </div>
+              {/* Front Side (Category Name) */}
+              <motion.div
+                className="w-full h-full flex justify-center items-center absolute inset-0"
+                initial={{ rotateY: 0 }}
+                animate={{ rotateY: isActive ? 180 : 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }} // Spring transition
+                style={{ backfaceVisibility: "hidden" }} // Hide the back side during flip
+              >
+                <div className="text-2xl md:text-4xl lg:text-8xl uppercase font-bold z-10 text-center">
+                  <span>{firstHalf}</span>
+                  <span>{secondHalf}</span>
+                </div>
+              </motion.div>
+
+              {/* Back Side (Tech Stack Icons) */}
+              <motion.div
+                className="w-full h-full flex justify-center items-center bg-[#222] absolute inset-0"
+                initial={{ rotateY: 180 }} // Start hidden
+                animate={{ rotateY: isActive ? 0 : 180 }} // Rotate to show/hide
+                transition={{ type: "spring", stiffness: 300, damping: 20 }} // Spring transition
+                style={{ backfaceVisibility: "hidden" }} // Hide the back side during flip
+              >
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:flex gap-2 md:gap-4 z-10">
+                  {items.map((item: StackItem) => (
+                    <motion.div
+                      key={item.id}
+                      whileHover={{ scale: 1.1 }}
+                      className="flex items-center gap-2"
+                    >
+                      <Image
+                        src={item.imageurl}
+                        alt={item.stack}
+                        width={40}
+                        height={40}
+                        className="rounded-full"
+                      />
+                      <span className="text-sm md:text-lg font-semibold">
+                        {item.stack}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
