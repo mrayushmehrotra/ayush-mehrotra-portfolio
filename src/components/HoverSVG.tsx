@@ -17,7 +17,7 @@ const HoverSvg = () => {
     ([x, y]) => `M 10 100 Q ${x} ${y} 1590 100`,
   );
 
-  const handleMouseMove = (event) => {
+  const handleMouseMove = (event:React.MouseEvent) => {
     const { clientX, clientY } = event;
     mouseX.set(clientX); // Update X position with spring smoothing
     mouseY.set(clientY); // Update Y position with spring smoothing
