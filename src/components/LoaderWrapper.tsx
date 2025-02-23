@@ -3,7 +3,11 @@
 import { motion, useAnimation } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
-const LoaderWrapper = ({ children }:any) => {
+interface LoaderWrapperProps {
+  children: React.ReactNode
+}
+
+const LoaderWrapper = ({ children }:LoaderWrapperProps) => {
   const [count, setCount] = useState(0); // Track loading progress
   const [isLoading, setIsLoading] = useState(true); // Track loading state
   const controls = useAnimation(); // Animation controls
