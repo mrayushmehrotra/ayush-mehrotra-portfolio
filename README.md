@@ -4,3 +4,7 @@
 just below the navbar which makes progress as page load's an hr tag data
 
 <!-- TODO: -->
+
+
+24 feb => create the Explore blog page properly add card's or better way to represent Blog's first page, then 
+shift to other route's (add gsap stable screen and y axis move from bottom to top like animation in the projects/experience section)

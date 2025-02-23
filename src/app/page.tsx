@@ -71,9 +71,8 @@ export default function Home() {
           <TechStack />
           <hr className="border-b border-zinc-700" />
           <br />
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col px-8 items-center justify-around">
             <div>
-              <h1 className="mb-8 text-2xl font-semibold tracking-tighter">Blogs</h1>
               <BlogData />
             </div>
             <div className="scale-150 mr-5">
