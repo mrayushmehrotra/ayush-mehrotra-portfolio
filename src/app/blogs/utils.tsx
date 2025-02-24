@@ -1,48 +1,59 @@
-'use client'
-import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+'use client';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export function BlogData() {
-  const MyMdx = [
+  const blogs = [
     {
-      title: "Windows vs Linux",
-      url: "/blogs/windows-vs-linux",
+      title: 'Windows vs Linux',
+      url: '/blogs/windows-vs-linux',
+      description: 'A comprehensive comparison between Windows and Linux operating systems.',
     },
     {
-      title: "VS Code vs Neovim",
-      url: "/blogs/vscode-vs-nvim",
+      title: 'VS Code vs Neovim',
+      url: '/blogs/vscode-vs-nvim',
+      description: 'An in-depth look at the features of VS Code and Neovim for developers.',
     },
+    // Add more blog entries as needed
   ];
 
-  // Hook to track scroll progress
-  const { scrollYProgress } = useScroll();
-
-  // Transform scroll progress into y-axis motion
-  const y = useTransform(scrollYProgress, [0, 1], [100, 0]); // Moves from y: 100 to y: 0
-
   return (
-    <motion.div
-      className="p-4"
-      style={{  y }} // Apply the y-axis animation
-    >
+    <div className="p-4">
       <section className="mb-6 text-lg">
-        <h2 className="text-7xl font-bold mb-4">Explore Our Blogs</h2>
-        <ul className="space-y-4 flex ">
-          {MyMdx.map((item) => (
-            <div className="h-[8vh] w-[25vw] border "  >
-
-            <li key={item.title} className="group">
-              <Link
-                href={item.url}
-                className="block text-zinc-700 group-hover:text-emerald-600 font-medium transition-colors duration-300"
-                >
-                {item.title}
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center">
+          Explore Our Blogs
+        </h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {blogs.map((blog, index) => (
+            <motion.div
+              key={blog.title}
+              className="relative h-64 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <Link href={blog.url}>
+                <p className="block h-full">
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-black opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                  <div className="relative p-6 h-full flex flex-col justify-between">
+                    <h3 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">
+                      {blog.title}
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300 mb-4">
+                      {blog.description}
+                    </p>
+                    <span className="mt-auto text-emerald-600 dark:text-emerald-400 font-medium">
+                      Read More →
+                    </span>
+                  </div>
+                </p>
               </Link>
-            </li>
-                </div>
+            </motion.div>
           ))}
-        </ul>
+        </div>
       </section>
-    </motion.div>
+    </div>
   );
 }

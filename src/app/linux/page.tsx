@@ -132,6 +132,7 @@ Jan 25 10:18:45 hostname systemd[1]: Reached target Shutdown.
   return (
     <>
       <section className="mt-8">
+      <hr />
         <em>this is a just a demo terminal will not work as a real terminal</em>
         <br />
         <br />
