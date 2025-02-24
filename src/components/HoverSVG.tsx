@@ -18,7 +18,7 @@ const HoverSvg = () => {
     [mouseX, mouseY],
     ([x, y]) => `M 10 ${svgHeight / 2} Q ${x} ${y} ${svgWidth - 10} ${svgHeight / 2}`,
   );
-
+setSvgHeight(200)
   const handleMouseMove = (event: React.MouseEvent) => {
     const { clientX, clientY } = event;
     const svgRect = svgRef.current?.getBoundingClientRect();

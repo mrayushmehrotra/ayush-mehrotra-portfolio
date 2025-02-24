@@ -27,7 +27,7 @@ export function BlogData() {
      
           {blogs.map((blog, index) => (
           
-          <div className="w-full rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1">
+          <div key={blog.title}  className="w-full rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1">
             <motion.div
               key={blog.title}
               className="relative border0  h-64 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group"

@@ -6,7 +6,6 @@ import { MarioAnimation } from "@/components/marioAnimation";
 import { Typewriter } from "react-simple-typewriter";
 import HoverSvg from "@/components/HoverSVG";
 import {motion} from "motion/react"
-import { Footer } from "@/components/footer";
 export default function Home() {
  
 
