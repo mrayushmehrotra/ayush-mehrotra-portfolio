@@ -42,6 +42,8 @@ export default function Page() {
               <h2 className="text-4xl font-bold mb-8 text-center">My Experiences</h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {experiences.map((item, index) => (
+          <div className="w-full rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1">
+
                   <motion.div
                     key={item.title}
                     className="relative bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group h-64"
@@ -66,6 +68,7 @@ export default function Page() {
                       </div>
                     </Link>
                   </motion.div>
+                  </div>
                 ))}
               </div>
             </section>

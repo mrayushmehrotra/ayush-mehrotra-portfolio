@@ -18,16 +18,19 @@ export function BlogData() {
   ];
 
   return (
-    <div className="p-4">
+    <div className="p-4  ">
       <section className="mb-6 text-lg">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-center">
           Explore Our Blogs
         </h2>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid  gap-6 md:grid-cols-2 lg:grid-cols-3">
+     
           {blogs.map((blog, index) => (
+          
+          <div className="w-full rounded-md bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1">
             <motion.div
               key={blog.title}
-              className="relative h-64 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group"
+              className="relative border0  h-64 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -51,6 +54,7 @@ export function BlogData() {
                 </p>
               </Link>
             </motion.div>
+            </div>
           ))}
         </div>
       </section>

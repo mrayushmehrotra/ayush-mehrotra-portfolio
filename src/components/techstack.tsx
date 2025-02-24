@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import {  useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+
 
 interface StackItem {
   stack: string;
@@ -20,6 +21,7 @@ interface StackData {
 
 export default function TechStack() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const mouseRef = useRef<HTMLDivElement>(null)
 
   const stackdata: StackData = {
     frontend: [
@@ -76,6 +78,9 @@ export default function TechStack() {
     setActiveCategory(activeCategory === category ? null : category);
   };
 
+
+
+
   const splitCategoryName = (category: string) => {
     const half = Math.ceil(category.length / 2);
     const firstHalf = category.slice(0, half);
@@ -84,7 +89,8 @@ export default function TechStack() {
   };
 
   return (
-    <div className="w-full overflow-hidden">
+    <div ref={mouseRef}  className="w-full overflow-hidden">
+   
   <motion.h1
   initial={{ y: -70 }}
   animate={{ y: 10 }}
@@ -100,14 +106,14 @@ export default function TechStack() {
         {Object.entries(memoizedStackData).map(([category, items]) => {
           const { firstHalf, secondHalf } = splitCategoryName(category);
           const isActive = activeCategory === category;
-
+          
           return (
             <motion.div
               key={category}
               className="h-[100px] md:h-[150px] lg:h-[200px] w-full relative overflow-hidden border-t border-b border-gray-300 dark:border-gray-700 group"
               style={{ perspective: "1000px" }} // Add perspective for 3D effect
               onClick={() => handleCategoryClick(category)}
-            >
+              >
               {/* Front Side (Category Name) */}
               <motion.div
                 className="w-full h-full flex justify-center items-center absolute inset-0 bg-white dark:bg-[#222]"
@@ -115,7 +121,7 @@ export default function TechStack() {
                 animate={{ x: isActive ? "-100%" : 0 }} // Swipe left when active
                 transition={{ type: "spring", stiffness: 300, damping: 20 }} // Spring transition
                 style={{ backfaceVisibility: "hidden" }} // Hide the back side during flip
-              >
+                >
               <div className="text-2xl md:text-4xl lg:text-8xl uppercase font-bold z-10 text-center bg-gradient-to-r from-emerald-400 to-zinc-400    bg-clip-text text-transparent transition duration-300 hover:brightness-125 hover:drop-shadow-lg">
   <span>{firstHalf}</span>
   <span>{secondHalf}</span>
@@ -135,6 +141,7 @@ export default function TechStack() {
                   {items.map((item: StackItem) => (
                     <motion.div
                       key={item.id}
+                      drag
                       whileHover={{ scale: 1.1 }}
                       className="flex items-center gap-2"
                     >
