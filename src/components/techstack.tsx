@@ -118,7 +118,7 @@ export default function TechStack() {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }} // Spring transition
                 style={{ backfaceVisibility: "hidden" }} // Hide the back side during flip
               >
-              <div className="text-2xl md:text-4xl lg:text-8xl uppercase font-bold z-10 text-center bg-gradient-to-r from-emerald-400 to-black dark:from-emerald-400   bg-clip-text text-transparent transition duration-300 hover:brightness-125 hover:drop-shadow-lg">
+              <div className="text-2xl md:text-4xl lg:text-8xl uppercase font-bold z-10 text-center bg-gradient-to-r from-emerald-400 to-zinc-400    bg-clip-text text-transparent transition duration-300 hover:brightness-125 hover:drop-shadow-lg">
   <span>{firstHalf}</span>
   <span>{secondHalf}</span>
 </div>

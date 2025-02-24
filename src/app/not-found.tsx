@@ -1,5 +1,7 @@
 export default function NotFound() {
   return (
+    <center>
+
     <div className="main_wrapper">
       <div className="main">
         <div className="antenna">
@@ -69,5 +71,6 @@ export default function NotFound() {
         <div className="text_4043">4</div>
       </div>
     </div>
+    </center>
   );
 }
