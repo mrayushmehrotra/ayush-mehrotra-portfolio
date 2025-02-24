@@ -18,7 +18,6 @@ const HoverSvg = () => {
     [mouseX, mouseY],
     ([x, y]) => `M 10 ${svgHeight / 2} Q ${x} ${y} ${svgWidth - 10} ${svgHeight / 2}`,
   );
-setSvgHeight(200)
   const handleMouseMove = (event: React.MouseEvent) => {
     const { clientX, clientY } = event;
     const svgRect = svgRef.current?.getBoundingClientRect();
@@ -29,12 +28,13 @@ setSvgHeight(200)
       mouseY.set(y);
     }
   };
-
+  
   const handleMouseLeave = () => {
     mouseX.set(svgWidth / 2);
     mouseY.set(svgHeight / 2);
   };
-
+  const fn = ()=> { setSvgHeight(200) }
+  
   // Update SVG dimensions based on viewport size
   useEffect(() => {
     const updateDimensions = () => {
