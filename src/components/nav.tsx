@@ -30,6 +30,7 @@ export default function Navbar() {
     },
   ];
   return (
+      <>
     <nav className="flex flex-row text-sm md:text-3xl sm:px-2  px-8 items-center  justify-around">
       {navItems.map((item) => (
         <Link key={item.title} href={item.link}>
@@ -62,5 +63,8 @@ export default function Navbar() {
         </button>
       )}
     </nav>
+    <br />
+      <hr />
+      </>
   );
 }

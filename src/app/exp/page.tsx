@@ -38,7 +38,6 @@ export default function Page() {
           transition={{ duration: 0.5 }}
         >
           <div className="mt-8">
-            <hr />
             <section className="mt-8">
               <h2 className="text-4xl font-bold mb-8 text-center">My Experiences</h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

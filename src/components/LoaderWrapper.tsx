@@ -21,8 +21,9 @@ const LoaderWrapper = ({ children }:LoaderWrapperProps) => {
         if (i === 100) {
           // Animate the loader sliding up
           await controls.start({
-            y: "-100vh", // Slide up off the screen
-            transition: { duration: 0.5, ease: "easeInOut" },
+            scale: 500, // Slide up off the screen
+            x:90,
+            transition: { duration: 0.5, ease: "easeOut" },
           });
           setIsLoading(false); // Hide the loader
         }

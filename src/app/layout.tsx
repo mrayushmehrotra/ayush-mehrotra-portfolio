@@ -75,8 +75,8 @@ export default function RootLayout({
             <CustomMouse />
             <Navbar />
             {children}
-            <Footer />
           </main>
+            <Footer />
           </LoaderWrapper>
         </ThemeProvider>
       </body>

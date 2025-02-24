@@ -30,10 +30,12 @@ const FooterContent = [
 
 export const Footer = () => {
   return (
-    <div
-      className="mt-8 flex flex-col sm:items-center gap-y-4
-      sm:flex-col md:flex-row md:justify-between lg:justify-between"
-    >
+    <>
+   
+    <footer
+      className="mt-8 flex p-8   flex-col sm:items-center gap-y-4
+      sm:flex-col md:flex-row md:justify-around lg:justify-around"
+      >
       {FooterContent.map((item) => (
         <Link key={item.title} href={item.link}>
           <p className="flex items-center gap-x-2 text-zinc-400 text-[1.2em] transition-all hover:text-neutral-800 dark:hover:text-neutral-100">
@@ -41,6 +43,7 @@ export const Footer = () => {
           </p>
         </Link>
       ))}
-    </div>
+    </footer>
+      </>
   );
 };

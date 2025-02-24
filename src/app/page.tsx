@@ -6,6 +6,7 @@ import { MarioAnimation } from "@/components/marioAnimation";
 import { Typewriter } from "react-simple-typewriter";
 import HoverSvg from "@/components/HoverSVG";
 import {motion} from "motion/react"
+import { Footer } from "@/components/footer";
 export default function Home() {
  
 
@@ -62,7 +63,7 @@ export default function Home() {
   return (
     <>
         <section className="mt-8 w-full">
-          <hr />
+         
           <br />
           <div className="flex gap-y-5 h-[60vh] p-4 flex-col sm:flex-col lg:flex-row">
             <div className="w-full flex flex-col lg:w-[40%] leading-[0.7]">
@@ -122,15 +123,19 @@ export default function Home() {
           <TechStack />
           <hr className="border-b border-zinc-700" />
           <br />
-          <div className="flex flex-col px-8 items-center justify-around">
+          <div className="flex  p-8  flex-col  items-center justify-around">
             <div>
               <BlogData />
             </div>
-            <div className="scale-150 mr-5">
+            <motion.div drag animate={{scale:2}}  whileDrag={{scale: 3}}  dragConstraints={{
+              top:40,
+              bottom:40, left:0, right:0, 
+            }}    className=" scale-150 cursor-grab m-5">
               <MarioAnimation />
-            </div>
+            </motion.div>
           </div>
         </section>
+        
  
     </>
   );
