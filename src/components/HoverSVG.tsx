@@ -6,7 +6,7 @@ const HoverSvg = () => {
   const svgRef = useRef<SVGSVGElement>(null);
   const { theme } = useTheme();
   const [svgWidth, setSvgWidth] = useState(window.innerWidth * 0.8); // 80% of screen width
-  const [svgHeight, setSvgHeight] = useState(200); // Default height
+  const svgHeight = 200; // Default height
 
   // Spring-based motion values for smooth animation
   const springConfig = { stiffness: 300, damping: 20 };
@@ -33,8 +33,7 @@ const HoverSvg = () => {
     mouseX.set(svgWidth / 2);
     mouseY.set(svgHeight / 2);
   };
-  const fn = ()=> { setSvgHeight(200) }
-  fn()
+
   
   // Update SVG dimensions based on viewport size
   useEffect(() => {
