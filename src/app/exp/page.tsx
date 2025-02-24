@@ -4,11 +4,9 @@ import DaysAtCodeTikki from '@/components/daysAtCodeTikki';
 import { GithubMap } from '@/components/githubCalendar';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function Page() {
-  const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
 
   const experiences = [
