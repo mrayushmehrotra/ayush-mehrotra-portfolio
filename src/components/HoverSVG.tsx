@@ -34,6 +34,7 @@ const HoverSvg = () => {
     mouseY.set(svgHeight / 2);
   };
   const fn = ()=> { setSvgHeight(200) }
+  fn()
   
   // Update SVG dimensions based on viewport size
   useEffect(() => {
