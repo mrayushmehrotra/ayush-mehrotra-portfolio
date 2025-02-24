@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import { Briefcase, Code, Rocket, MessageSquare, Bell, Star } from 'lucide-react';
+import { Briefcase, Code, Rocket, MessageSquare, Bell } from 'lucide-react';
 
 const DaysAtCodeTikki = () => {
   return (

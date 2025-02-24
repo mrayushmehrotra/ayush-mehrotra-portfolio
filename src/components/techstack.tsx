@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useTheme } from "next-themes"; // Import useTheme for dark/light mode support
 
 interface StackItem {
   stack: string;
@@ -21,7 +20,6 @@ interface StackData {
 
 export default function TechStack() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const { theme } = useTheme(); // Get the current theme
 
   const stackdata: StackData = {
     frontend: [

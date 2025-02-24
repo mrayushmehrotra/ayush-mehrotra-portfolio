@@ -69,7 +69,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* <LoaderWrapper> */}
+          <LoaderWrapper>
 
           <main className="max-w-xl mx-3 mt-8 lg:max-w-full lg:mx-0">
             <CustomMouse />
@@ -77,7 +77,7 @@ export default function RootLayout({
             {children}
             <Footer />
           </main>
-          {/* </LoaderWrapper> */}
+          </LoaderWrapper>
         </ThemeProvider>
       </body>
     </html>
