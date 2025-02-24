@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTheme } from "next-themes"; // Import useTheme for dark/light mode support
 
 interface StackItem {
   stack: string;
@@ -20,6 +21,7 @@ interface StackData {
 
 export default function TechStack() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const { theme } = useTheme(); // Get the current theme
 
   const stackdata: StackData = {
     frontend: [
@@ -40,11 +42,9 @@ export default function TechStack() {
       { stack: "Prisma", imageurl: "/prisma.png" },
     ],
     tools: [
-      // { stack: "GitHub", imageurl: "/github.png" },
       { stack: "Git", imageurl: "/git.png" },
       { stack: "Docker", imageurl: "/docker.png" },
       { stack: "NeoVim", imageurl: "/vim.png" },
-      // { stack: "Postman", imageurl: "/postman.png" },
     ],
     others: [
       { stack: "GraphQL", imageurl: "/graphql.png" },
@@ -87,15 +87,15 @@ export default function TechStack() {
 
   return (
     <div className="w-full overflow-hidden">
-      {/* Responsive Heading */}
-      <motion.h1
-        initial={{ y: -70 }} // Initial state (starting position)
-        animate={{ y: 10 }} // Target state (ending position)
-        transition={{ duration: 3, type: "spring", stiffness: 100, damping: 10 }} // Optional: Add transition
-        className="mb-8 text-4xl md:text-6xl lg:text-8xl text-center font-semibold tracking-tighter"
-      >
-        Tech Stack
-      </motion.h1>
+  <motion.h1
+  initial={{ y: -70 }}
+  animate={{ y: 10 }}
+  transition={{ duration: 3, type: "spring", stiffness: 100, damping: 10 }}
+  className="mb-8 text-4xl md:text-6xl lg:text-8xl text-center font-semibold tracking-tighter bg-gradient-to-r from-emerald-400 to-black bg-clip-text text-transparent"
+>
+  Tech Stack
+</motion.h1>
+
 
       {/* Big 4 List */}
       <div className="space-y-4">
@@ -106,29 +106,30 @@ export default function TechStack() {
           return (
             <motion.div
               key={category}
-              className="h-[100px] md:h-[150px] lg:h-[200px] w-full relative overflow-hidden border-t border-b border-white group"
+              className="h-[100px] md:h-[150px] lg:h-[200px] w-full relative overflow-hidden border-t border-b border-gray-300 dark:border-gray-700 group"
               style={{ perspective: "1000px" }} // Add perspective for 3D effect
               onClick={() => handleCategoryClick(category)}
             >
               {/* Front Side (Category Name) */}
               <motion.div
-                className="w-full h-full flex justify-center items-center absolute inset-0"
-                initial={{ rotateY: 0 }}
-                animate={{ rotateY: isActive ? 180 : 0 }}
+                className="w-full h-full flex justify-center items-center absolute inset-0 bg-white dark:bg-[#222]"
+                initial={{ x: 0 }} // Start at the center
+                animate={{ x: isActive ? "-100%" : 0 }} // Swipe left when active
                 transition={{ type: "spring", stiffness: 300, damping: 20 }} // Spring transition
                 style={{ backfaceVisibility: "hidden" }} // Hide the back side during flip
               >
-                <div className="text-2xl md:text-4xl lg:text-8xl uppercase font-bold z-10 text-center">
-                  <span>{firstHalf}</span>
-                  <span>{secondHalf}</span>
-                </div>
+              <div className="text-2xl md:text-4xl lg:text-8xl uppercase font-bold z-10 text-center bg-gradient-to-r from-emerald-400 to-black dark:from-emerald-400   bg-clip-text text-transparent transition duration-300 hover:brightness-125 hover:drop-shadow-lg">
+  <span>{firstHalf}</span>
+  <span>{secondHalf}</span>
+</div>
+
               </motion.div>
 
               {/* Back Side (Tech Stack Icons) */}
               <motion.div
-                className="w-full h-full flex justify-center items-center bg-[#222] absolute inset-0"
-                initial={{ rotateY: 180 }} // Start hidden
-                animate={{ rotateY: isActive ? 0 : 180 }} // Rotate to show/hide
+                className="w-full h-full flex justify-center items-center bg-white dark:bg-[#222] absolute inset-0"
+                initial={{ x: "100%" }} // Start off-screen to the right
+                animate={{ x: isActive ? 0 : "100%" }} // Swipe in from the right when active
                 transition={{ type: "spring", stiffness: 300, damping: 20 }} // Spring transition
                 style={{ backfaceVisibility: "hidden" }} // Hide the back side during flip
               >
@@ -146,7 +147,7 @@ export default function TechStack() {
                         height={40}
                         className="rounded-full"
                       />
-                      <span className="text-sm md:text-lg font-semibold">
+                      <span className="text-sm md:text-lg font-semibold text-black dark:text-white">
                         {item.stack}
                       </span>
                     </motion.div>
