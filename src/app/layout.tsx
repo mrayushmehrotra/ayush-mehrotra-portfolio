@@ -23,12 +23,20 @@ export const metadata: Metadata = {
     default: "Ayush Mehrotra Portfolio | Web Developer",
     template: "%s | Ayush Mehrotra Portfolio",
   },
-  description: "This is Ayush Mehrotra's portfolio.",
+    description: "This is Ayush Mehrotra's Portfolio | A Full Stack Software Engineer having expertise in JavaScript and It's frameworks, this portfolio contains some pieces of my frontend knowledge.",
   openGraph: {
     title: "Ayush Mehrotra",
-    description: "This is my portfolio.",
+    description: "This is Ayush Mehrotra's Portfolio | A Full Stack Software Engineer having expertise in JavaScript and It's frameworks, this portfolio contains some pieces of my frontend knowledge.",
     url: baseUrl,
-    siteName: "My Portfolio",
+    siteName: "Ayush Mehrotra's Portfolio",
+    images:[{
+        url:'https://ayush-mehrotra-portfolio-two.vercel.app/favicon.ico',
+      alt: "Favicon",
+      height:64,
+      width:64
+    }
+    
+    ],
     locale: "en_US",
     type: "website",
   },
