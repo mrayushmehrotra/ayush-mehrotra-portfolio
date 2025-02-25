@@ -6,7 +6,10 @@
   font-family: "MyFont";
   src: url("../assets/font.woff2");
 }
-
+@font-face {
+  font-family: Neuka;
+  src: url("../assets/3856NeueMachina.woff2");
+}
 body {
   color: var(--foreground);
   background: var(--background);
@@ -29,7 +32,6 @@ body::-webkit-scrollbar-thumb {
   border: 2px solid #fff; /* White border around the thumb */
   border-radius: 10px; /* Rounded corners for the thumb */
 }
-
 
 .main_wrapper {
   display: flex;
