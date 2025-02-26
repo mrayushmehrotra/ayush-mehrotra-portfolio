@@ -40,9 +40,11 @@ const ScrollingText = () => {
         <motion.div
           key={index}
           className="flex items-center mx-9 gap-x-8 justify-center whitespace-nowrap"
-          initial={{ x: "50%" }} // Start from the middle (50%)
-          animate={{ x: rotate === 0 ? "100%" : "-100%" }} // Scroll to the right or left
-          transition={{ duration: 10, repeat: Infinity, ease: "linear" }} // Smooth animation
+          initial={{ transform: "translateX(-100%)" }} // Start from the middle (50%)
+          animate={{
+            transform: rotate > 0 ? "translateX(-200%)" : "translateX(0%)",
+          }}
+          transition={{ duration: 7, repeat: Infinity, ease: "linear" }}
         >
           <h1 className="mb-8 font-[Neuka] text-4xl md:text-6xl lg:text-8xl text-center font-semibold tracking-tighter text-black">
             {item.text}
