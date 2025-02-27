@@ -1,5 +1,6 @@
 import React from "react";
 import "./mariocss.css";
+
 export const MarioAnimation = () => {
   return (
     <div>
