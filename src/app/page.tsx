@@ -6,8 +6,6 @@ import { MarioAnimation } from "@/components/marioAnimation";
 import { Typewriter } from "react-simple-typewriter";
 import HoverSvg from "@/components/HoverSVG";
 import { motion } from "motion/react";
-import { useState } from "react";
-import CustomMouse from "@/components/customMouse";
 export default function Home() {
   // const [isHoveringTitle, setIsHoveringTitle] = useState(false);
   const typerEffect = () => {
