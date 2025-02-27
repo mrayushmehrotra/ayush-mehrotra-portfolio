@@ -79,7 +79,7 @@ export default function Home() {
                   x: 50,
                 }}
                 transition={{ duration: 2 }}
-                className="lg:mb-8 text-6xl md:text-[120px] font-semibold tracking-tighter"
+                className="lg:mb-8   text-6xl md:text-[120px] font-semibold tracking-tighter textStroke  "
               >
                 Mehrotra
               </motion.h1>
