@@ -4,7 +4,7 @@ import "./globals.css";
 import { Footer } from "@/components/footer";
 import Navbar from "@/components/nav";
 import { baseUrl } from "./sitemap";
-import { ThemeProvider } from "@/components/ThemeProvider";
+
 import CustomMouse from "@/components/customMouse";
 import LoaderWrapper from "@/components/LoaderWrapper";
 const geistSans = Geist({
@@ -23,19 +23,21 @@ export const metadata: Metadata = {
     default: "Ayush Mehrotra Portfolio | Web Developer",
     template: "%s | Ayush Mehrotra Portfolio",
   },
-    description: "This is Ayush Mehrotra's Portfolio | A Full Stack Software Engineer having expertise in JavaScript and It's frameworks, this portfolio contains some pieces of my frontend knowledge.",
+  description:
+    "This is Ayush Mehrotra's Portfolio | A Full Stack Software Engineer having expertise in JavaScript and It's frameworks, this portfolio contains some pieces of my frontend knowledge.",
   openGraph: {
     title: "Ayush Mehrotra",
-    description: "This is Ayush Mehrotra's Portfolio | A Full Stack Software Engineer having expertise in JavaScript and It's frameworks, this portfolio contains some pieces of my frontend knowledge.",
+    description:
+      "This is Ayush Mehrotra's Portfolio | A Full Stack Software Engineer having expertise in JavaScript and It's frameworks, this portfolio contains some pieces of my frontend knowledge.",
     url: baseUrl,
     siteName: "Ayush Mehrotra's Portfolio",
-    images:[{
-        url:'https://ayush-mehrotra-portfolio-two.vercel.app/favicon.ico',
-      alt: "Favicon",
-      height:64,
-      width:64
-    }
-    
+    images: [
+      {
+        url: "https://ayush-mehrotra-portfolio-two.vercel.app/favicon.ico",
+        alt: "Favicon",
+        height: 64,
+        width: 64,
+      },
     ],
     locale: "en_US",
     type: "website",
@@ -71,22 +73,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <LoaderWrapper>
-
+        <LoaderWrapper>
           <main className="max-w-xl mx-3 mt-8 lg:max-w-full lg:mx-0">
             <CustomMouse />
             <Navbar />
             {children}
           </main>
-            <Footer />
-          </LoaderWrapper>
-        </ThemeProvider>
+          <Footer />
+        </LoaderWrapper>
       </body>
     </html>
   );

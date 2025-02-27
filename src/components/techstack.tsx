@@ -8,7 +8,7 @@ import ScrollingText from "./ScrollingText";
 interface StackItem {
   stack: string;
   imageurl: string;
-  id?: string; // Optional for initial data, required after unique IDs are added
+  id?: string;
 }
 
 interface StackData {
@@ -157,4 +157,3 @@ export default function TechStack() {
     </>
   );
 }
-

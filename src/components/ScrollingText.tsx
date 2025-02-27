@@ -35,7 +35,7 @@ const ScrollingText = () => {
   }, []);
 
   return (
-    <div className="bg-emerald-400 w-full p-4 flex flex-nowrap  flex-shrink-0">
+    <div className="bg-emerald-400 w-full sticky top-0  p-4 flex flex-nowrap  flex-shrink-0">
       {items.map((item, index) => (
         <motion.div
           key={index}

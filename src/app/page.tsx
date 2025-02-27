@@ -59,7 +59,7 @@ export default function Home() {
     <>
       <section className="mt-8 w-full">
         <br />
-        <div className="flex gap-y-5 h-[60vh] p-4 flex-col sm:flex-col lg:flex-row">
+        <div className="flex homeContainer  gap-y-5 h-[60vh] p-4 flex-col sm:flex-col lg:flex-row">
           <div className="w-full flex flex-col lg:w-[40%] leading-[0.7]">
             <div className="flex flex-col lg:flex-col lg:items-start lg:justify-between">
               <motion.h1
@@ -146,4 +146,3 @@ export default function Home() {
     </>
   );
 }
-
