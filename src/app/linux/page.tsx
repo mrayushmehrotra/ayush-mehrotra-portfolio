@@ -83,7 +83,7 @@ Jan 25 10:18:45 hostname systemd[1]: Reached target Shutdown.
 
   const redirectToResume = () => {
     window.location.href =
-      "https://drive.google.com/file/d/187krvDeYrLIQbqPBNhAO89mELC-eGll1/view?usp=sharing";
+      "https://drive.google.com/file/d/1feWs9-LVXR3HbcXnOjD-s3_00tHH7E65/view?usp=sharing";
   };
 
   const appendToTerminal = (text: string, isOutput = false) => {
@@ -132,7 +132,6 @@ Jan 25 10:18:45 hostname systemd[1]: Reached target Shutdown.
   return (
     <>
       <section className="mt-8">
-    
         <em>this is a just a demo terminal will not work as a real terminal</em>
         <br />
         <br />
