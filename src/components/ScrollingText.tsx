@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 
 const ScrollingText = () => {
   const [rotate, setRotate] = useState(0);
+  const [touchStartY, setTouchStartY] = useState(0);
 
   const items = [
     { text: "Tech Stack", image: "/arrow-br.svg" },
@@ -16,26 +17,47 @@ const ScrollingText = () => {
     { text: "Tech Stack", image: "/arrow-br.svg" },
   ];
 
-  // Add event listener for wheel event
+  // Handle wheel event for desktop
+  const handleWheel = (dets: WheelEvent) => {
+    if (dets.deltaY > 0) {
+      setRotate(180); // Rotate arrow and change scroll direction
+    } else {
+      setRotate(0); // Reset rotation and scroll direction
+    }
+  };
+
+  // Handle touch start event for mobile
+  const handleTouchStart = (event: TouchEvent) => {
+    setTouchStartY(event.touches[0].clientY);
+  };
+
+  // Handle touch end event for mobile
+  const handleTouchEnd = (event: TouchEvent) => {
+    const touchEndY = event.changedTouches[0].clientY;
+    const deltaY = touchEndY - touchStartY;
+
+    if (deltaY > 0) {
+      setRotate(0); // Swipe down, reset rotation
+    } else {
+      setRotate(180); // Swipe up, rotate arrow
+    }
+  };
+
+  // Add event listeners for wheel and touch events
   useEffect(() => {
-    const handleWheel = (dets: WheelEvent) => {
-      if (dets.deltaY > 0) {
-        setRotate(180); // Rotate arrow and change scroll direction
-      } else {
-        setRotate(0); // Reset rotation and scroll direction
-      }
-    };
-
     window.addEventListener("wheel", handleWheel);
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchend", handleTouchEnd);
 
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("wheel", handleWheel);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
-  }, []);
+  }, [touchStartY, handleTouchEnd]);
 
   return (
-    <div className="bg-emerald-400 w-full sticky top-0  p-4 flex flex-nowrap  flex-shrink-0">
+    <div className="bg-emerald-400 w-full sticky top-0 p-4 flex flex-nowrap flex-shrink-0">
       {items.map((item, index) => (
         <motion.div
           key={index}
