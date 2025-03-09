@@ -98,7 +98,7 @@ export default function TechStack() {
             return (
               <motion.div
                 key={category}
-                className="h-[100px] md:h-[150px] lg:h-[200px] w-full relative overflow-hidden border-t border-b border-gray-300 dark:border-gray-700 group"
+                className="h-[100px] md:h-[150px] lg:h-[200px] w-full relative overflow-hidden border-t border-b  border-gray-700 group"
                 style={{ perspective: "1000px" }} // Add perspective for 3D effect
                 whileInView={{ x: 0 }}
                 initial={{ x: "100%" }}
@@ -107,7 +107,7 @@ export default function TechStack() {
               >
                 {/* Front Side (Category Name) */}
                 <motion.div
-                  className="w-full h-full flex justify-center items-center absolute inset-0 bg-white dark:bg-[#222]"
+                  className="w-full h-full flex justify-center items-center absolute inset-0  bg-[#222]"
                   initial={{ x: 0 }}
                   animate={{ x: isActive ? "-100%" : 0 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -121,7 +121,7 @@ export default function TechStack() {
 
                 {/* Back Side (Tech Stack Icons) */}
                 <motion.div
-                  className="w-full h-full flex justify-center items-center bg-white dark:bg-[#222] absolute inset-0"
+                  className="w-full h-full flex justify-center items-center  bg-[#222] absolute inset-0"
                   initial={{ x: "100%" }} // Start off-screen to the right
                   animate={{ x: isActive ? 0 : "100%" }} // Swipe in from the right when active
                   transition={{ type: "spring", stiffness: 300, damping: 20 }} // Spring transition
@@ -142,7 +142,7 @@ export default function TechStack() {
                           height={40}
                           className="rounded-full"
                         />
-                        <span className="text-sm md:text-lg font-semibold text-black dark:text-white">
+                        <span className="text-sm md:text-lg font-semibold  text-white">
                           {item.stack}
                         </span>
                       </motion.div>

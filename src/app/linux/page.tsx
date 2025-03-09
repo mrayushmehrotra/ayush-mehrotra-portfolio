@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import CustomMouse from "@/components/customMouse";
 
 const TerminalPage = () => {
   const router = useRouter();
@@ -94,7 +95,7 @@ Jan 25 10:18:45 hostname systemd[1]: Reached target Shutdown.
   };
 
   const processCommand = (input: string) => {
-    return input; // Placeholder for processing commands
+    return input;
   };
 
   const socialLink = () => {
@@ -125,12 +126,17 @@ Jan 25 10:18:45 hostname systemd[1]: Reached target Shutdown.
       const inputToLowerCase = inputData.toLowerCase();
       setInputData(inputToLowerCase);
       handleUserInput(inputToLowerCase);
-      setInputData(""); // Clear input field after processing
+      setInputData("");
     }
   };
-
   return (
     <>
+      <CustomMouse
+        colorInTailwind={"bg-zinc-700"}
+        innerText={"🐧"}
+        scale={3}
+        textClassName={"animate-spin transition-all duration-200 "}
+      />
       <section className="mt-8">
         <em>this is a just a demo terminal will not work as a real terminal</em>
         <br />
@@ -148,14 +154,12 @@ Jan 25 10:18:45 hostname systemd[1]: Reached target Shutdown.
             <p className="text-sm">bash</p>
           </div>
           <div className="mt-4">
-            {/* Output container */}
             <div
               id="output"
               ref={outputElement}
               className="text-green-400 overflow-auto max-h-[300px]"
               dangerouslySetInnerHTML={{ __html: outputData.join("") }}
             />
-            {/* Input field */}
             <input
               ref={inputElement}
               type="text"

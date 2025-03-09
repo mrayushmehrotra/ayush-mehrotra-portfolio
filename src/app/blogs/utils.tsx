@@ -78,13 +78,11 @@ export function BlogData() {
                     <p className="block h-full">
                       <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-black opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                       <div className="relative p-6 h-full flex flex-col justify-between z-10">
-                        <h3 className="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">
+                        <h3 className="text-2xl font-semibold mb-2  text-white">
                           {blog.title}
                         </h3>
-                        <p className="text-gray-700 dark:text-gray-300 mb-4">
-                          {blog.description}
-                        </p>
-                        <span className="mt-auto text-emerald-600 dark:text-emerald-400 font-medium">
+                        <p className="text-gray-300 mb-4">{blog.description}</p>
+                        <span className="mt-auto text-emerald-400 font-medium">
                           Read More →
                         </span>
                       </div>
