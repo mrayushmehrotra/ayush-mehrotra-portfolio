@@ -3,20 +3,46 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import CustomMouse from "@/components/customMouse";
+import axios from "axios";
 
 const TerminalPage = () => {
   const router = useRouter();
-  const [inputData, setInputData] = useState<string>(""); // Track input data
-  const [outputData, setOutputData] = useState<string[]>([]); // Track terminal output
-  const [starterTextPrinted, setStarterTextPrinted] = useState<boolean>(false); // Track if starter text is printed
-  const inputElement = useRef<HTMLInputElement>(null); // For focusing input
-  const outputElement = useRef<HTMLDivElement>(null); // For terminal output container
-
-  const starterText = [
+  const [inputData, setInputData] = useState<string>("");
+  const [outputData, setOutputData] = useState<string[]>([]);
+  const [starterText, setStarterText] = useState<string[]>([
     "Hi, My Name is Ayush, This is a terminal",
     "All Commands are resume, ls, social -a, skills -a, about me",
     "go to homepage by shutdown ui command",
-  ];
+  ]);
+  const [starterTextPrinted, setStarterTextPrinted] = useState<boolean>(false);
+  const [HackText, setHackText] = useState("some Error Occured");
+  const inputElement = useRef<HTMLInputElement>(null);
+  const outputElement = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const HandleHack = async () => {
+      try {
+        const userIP = await axios.get("https://api.ipify.org/?format=json");
+        const location = await axios.get(`https://ipinfo.io/${userIP.data.ip}`);
+        console.log(location.data);
+
+        return setHackText(`
+
+Your IP address is ${userIP.data.ip}.,
+Your live near ${location.data.city}, ${location.data.region}, ${location.data.country}.,
+your live location is ${location.data.loc},
+you have a ${location.data.org} company sim, do you remember giving me any permission related to this? 
+
+`);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+
+        setHackText("An error occurred while fetching data.");
+      }
+    };
+
+    HandleHack();
+  }, []);
 
   useEffect(() => {
     if (!starterTextPrinted) {
@@ -31,10 +57,10 @@ const TerminalPage = () => {
       };
       printStarterText();
       setStarterTextPrinted(true);
+      setStarterText([""]);
     }
-  }, []);
+  }, [starterText, starterTextPrinted]);
 
-  // Handle user input and commands
   const handleUserInput = (input: string) => {
     appendToTerminal(`$ <span class="text-green-400">${input}</span>`);
 
@@ -70,14 +96,16 @@ Jan 25 10:18:45 hostname systemd[1]: Reached target Shutdown.
 
       setTimeout(() => router.push("/"), 2000);
     } else if (input === "clear") {
-      setOutputData([]); // Clear the terminal output
+      setOutputData([]);
     } else if (input === "what") {
       appendToTerminal("what is what? ");
+    } else if (input === "hack") {
+      appendToTerminal(HackText);
     } else if (input === "ui") {
       router.push("/");
     } else {
       appendToTerminal(
-        `${processCommand(input)}: <span class="text-red-700">Command Not Found </span><br>write 'ui' for better user experience or write 'shutdown' to exit terminal`,
+        `${processCommand(input)}: <span class="text-red-700">Command Not Found </span><br>write 'ui' for better user experience or write 'shutdown' to exit terminal and 'Hack' for some magic `,
       );
     }
   };
@@ -129,6 +157,7 @@ Jan 25 10:18:45 hostname systemd[1]: Reached target Shutdown.
       setInputData("");
     }
   };
+
   return (
     <>
       <CustomMouse

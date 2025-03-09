@@ -13,6 +13,7 @@
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.1.6",
     "@types/mdx": "^2.0.13",
+    "axios": "^1.8.2",
     "lucide-react": "^0.475.0",
     "motion": "^12.4.7",
     "next": "15.1.6",
