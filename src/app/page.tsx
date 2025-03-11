@@ -6,8 +6,18 @@ import { MarioAnimation } from "@/components/marioAnimation";
 import { Typewriter } from "react-simple-typewriter";
 import HoverSvg from "@/components/HoverSVG";
 import { motion } from "motion/react";
+import Lenis from "lenis";
+import { useEffect } from "react";
 export default function Home() {
-  // const [isHoveringTitle, setIsHoveringTitle] = useState(false);
+  useEffect(() => {
+    const lenis = new Lenis();
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }, []);
+
   const typerEffect = () => {
     return (
       <div>
