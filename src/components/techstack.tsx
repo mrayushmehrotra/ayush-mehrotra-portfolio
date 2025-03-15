@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ScrollingText from "./ScrollingText";
@@ -20,9 +20,6 @@ interface StackData {
 }
 
 export default function TechStack() {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
-  const mouseRef = useRef<HTMLDivElement>(null);
-
   const stackdata: StackData = {
     frontend: [
       { stack: "React", imageurl: "/react.png" },
@@ -52,12 +49,11 @@ export default function TechStack() {
     ],
   };
 
-  // Memoizing the entire stack data with unique IDs
   const memoizedStackData: StackData = useMemo(() => {
     const addUniqueId = (data: StackItem[]): StackItem[] =>
       data.map((item) => ({
         ...item,
-        id: `${item.stack}-${Math.random()}`, // Adding a unique ID
+        id: `${item.stack}-${Math.random()}`,
       }));
     return {
       frontend: addUniqueId(stackdata.frontend),
@@ -66,94 +62,72 @@ export default function TechStack() {
       tools: addUniqueId(stackdata.tools),
       others: addUniqueId(stackdata.others),
     };
-  }, [
-    stackdata.backend,
-    stackdata.frontend,
-    stackdata.databases,
-    stackdata.tools,
-    stackdata.others,
-  ]);
-
-  const handleCategoryClick = (category: string) => {
-    setActiveCategory(activeCategory === category ? null : category);
-  };
-
-  const splitCategoryName = (category: string) => {
-    const half = Math.ceil(category.length / 2);
-    const firstHalf = category.slice(0, half);
-    const secondHalf = category.slice(half);
-    return { firstHalf, secondHalf };
-  };
+  }, [stackdata]);
 
   return (
-    <>
-      <div ref={mouseRef} className="w-full overflow-hidden ">
-        <ScrollingText />
-        {/* Big 4 List */}
-        <div className="space-y-4">
-          {Object.entries(memoizedStackData).map(([category, items]) => {
-            const { firstHalf, secondHalf } = splitCategoryName(category);
-            const isActive = activeCategory === category;
-
-            return (
-              <motion.div
-                key={category}
-                className="h-[100px] md:h-[150px] lg:h-[200px] w-full relative overflow-hidden border-t border-b  border-gray-700 group"
-                style={{ perspective: "1000px" }} // Add perspective for 3D effect
-                whileInView={{ x: 0 }}
-                initial={{ x: "100%" }}
-                transition={{ delay: 0.3 }}
-                onClick={() => handleCategoryClick(category)}
-              >
-                {/* Front Side (Category Name) */}
+    <div className="w-full h-fit overflow-hidden">
+      <ScrollingText />
+      <div className="h-fit p-4 md:p-8 space-y-8">
+        {Object.entries(memoizedStackData).map(([category, items], index) => (
+          <motion.div
+            key={index}
+            className="flex flex-col md:flex-row items-center justify-around px-4 py-8 md:px-8"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{
+              opacity: 1,
+            }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
+            viewport={{ once: true, margin: "-100px 0px 0px 0px" }}
+          >
+            <div className="w-full m-4 md:w-[40%] space-y-4 md:space-y-6">
+              <h1 className="text-4xl md:text-7xl font-bold capitalize font-[neuka]">
+                {category}
+              </h1>
+              <p className="text-base md:text-lg text-neutral-400">
+                {getCategoryDescription(category)}
+              </p>
+            </div>
+            <div className="w-full md:w-[50%] grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 p-4 md:p-8 border rounded-xl bg-neutral-900/50 backdrop-blur-sm">
+              {items.map((item: StackItem) => (
                 <motion.div
-                  className="w-full h-full flex justify-center items-center absolute inset-0  bg-[#222]"
-                  initial={{ x: 0 }}
-                  animate={{ x: isActive ? "-100%" : 0 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  style={{ backfaceVisibility: "hidden" }}
+                  key={item.id}
+                  className="flex items-center   gap-4 p-4 rounded-lg bg-neutral-800 hover:bg-neutral-700 transition-colors"
+                  whileHover={{ scale: 0.95 }}
                 >
-                  <div className="text-2xl md:text-4xl lg:text-8xl uppercase font-bold z-10 text-center bg-gradient-to-r from-emerald-400 to-zinc-400    bg-clip-text text-transparent transition duration-300 hover:brightness-125 hover:drop-shadow-lg">
-                    <span>{firstHalf}</span>
-                    <span>{secondHalf}</span>
-                  </div>
-                </motion.div>
+                  <Image
+                    src={item.imageurl}
+                    alt={item.stack}
+                    width={48}
+                    height={48}
+                    className="object-contain rounded-lg"
+                  />
 
-                {/* Back Side (Tech Stack Icons) */}
-                <motion.div
-                  className="w-full h-full flex justify-center items-center  bg-[#222] absolute inset-0"
-                  initial={{ x: "100%" }} // Start off-screen to the right
-                  animate={{ x: isActive ? 0 : "100%" }} // Swipe in from the right when active
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }} // Spring transition
-                  style={{ backfaceVisibility: "hidden" }} // Hide the back side during flip
-                >
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:flex gap-2 md:gap-4 z-10">
-                    {items.map((item: StackItem) => (
-                      <motion.div
-                        key={item.id}
-                        drag
-                        whileHover={{ scale: 1.1 }}
-                        className="flex items-center gap-2"
-                      >
-                        <Image
-                          src={item.imageurl}
-                          alt={item.stack}
-                          width={40}
-                          height={40}
-                          className="rounded-full"
-                        />
-                        <span className="text-sm md:text-lg font-semibold  text-white">
-                          {item.stack}
-                        </span>
-                      </motion.div>
-                    ))}
-                  </div>
+                  <span className="text-lg md:text-xl font-medium">
+                    {item.stack}
+                  </span>
                 </motion.div>
-              </motion.div>
-            );
-          })}
-        </div>
+              ))}
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </>
+    </div>
   );
+}
+
+function getCategoryDescription(category: string): string {
+  switch (category) {
+    case "frontend":
+      return "Crafting immersive user experiences with modern frontend technologies and responsive design principles.";
+    case "backend":
+      return "Building robust and scalable server-side architectures with performance in mind.";
+    case "databases":
+      return "Designing efficient data storage solutions and optimized query systems.";
+    case "tools":
+      return "Utilizing industry-standard tools for version control, containerization, and development workflows.";
+    case "others":
+      return "Implementing additional technologies to enhance application capabilities and infrastructure.";
+    default:
+      return "Technical expertise in modern development technologies and best practices.";
+  }
 }

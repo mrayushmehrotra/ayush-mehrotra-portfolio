@@ -14,6 +14,7 @@
     "@next/mdx": "^15.1.6",
     "@types/mdx": "^2.0.13",
     "axios": "^1.8.2",
+    "clsx": "^2.1.1",
     "lenis": "^1.2.3",
     "lucide-react": "^0.475.0",
     "motion": "^12.4.7",
@@ -22,7 +23,8 @@
     "react-dom": "^19.0.0",
     "react-github-calendar": "^4.5.4",
     "react-simple-typewriter": "^5.0.1",
-    "react-vertical-timeline-component": "^3.5.3"
+    "react-vertical-timeline-component": "^3.5.3",
+    "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -4,14 +4,13 @@ import { motion, useAnimation } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
 interface LoaderWrapperProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-const LoaderWrapper = ({ children }:LoaderWrapperProps) => {
+const LoaderWrapper = ({ children }: LoaderWrapperProps) => {
   const [count, setCount] = useState(0); // Track loading progress
   const [isLoading, setIsLoading] = useState(true); // Track loading state
   const controls = useAnimation(); // Animation controls
-
   useEffect(() => {
     const animateCount = async () => {
       for (let i = 0; i <= 100; i += 2) {
@@ -22,7 +21,7 @@ const LoaderWrapper = ({ children }:LoaderWrapperProps) => {
           // Animate the loader sliding up
           await controls.start({
             scale: 500, // Slide up off the screen
-            x:90,
+            x: 90,
             transition: { duration: 0.5, ease: "easeOut" },
           });
           setIsLoading(false); // Hide the loader

@@ -71,15 +71,15 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} z-[10]  antialiased`}
       >
         <LoaderWrapper>
-          <main className="max-w-xl mx-3 mt-8 lg:max-w-full lg:mx-0">
-            <CustomMouse />
+          <CustomMouse />
+          <main className="max-w-xl z-[9]  mx-3 mt-8 lg:max-w-full lg:mx-0">
             <Navbar />
             {children}
           </main>
-          <Footer />
+          <div className="h-[80vh] z-[9] w-full bg-transparent"></div>
         </LoaderWrapper>
       </body>
     </html>

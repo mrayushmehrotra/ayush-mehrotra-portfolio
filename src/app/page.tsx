@@ -1,8 +1,6 @@
 "use client";
 
 import TechStack from "@/components/techstack";
-import { BlogData } from "./blogs/utils";
-import { MarioAnimation } from "@/components/marioAnimation";
 import { Typewriter } from "react-simple-typewriter";
 import HoverSvg from "@/components/HoverSVG";
 import { motion } from "motion/react";
@@ -70,21 +68,7 @@ export default function Home() {
     <>
       <section className="mt-8 w-full">
         <br />
-        <motion.div
-          // onMouseEnter={() => setIsHoveringTitle(true)}
-          // onMouseLeave={() => setIsHoveringTitle(false)}
-          className="flex homeContainer  gap-y-5 h-[60vh] p-4 flex-col sm:flex-col lg:flex-row"
-        >
-          {/* <CustomMouse */}
-          {/*   scale={isHoveringTitle ? 2 : 1} */}
-          {/*   innerText={isHoveringTitle ? "Profile" : ""} */}
-          {/*   textClassName="text-[9px] font-semibold" */}
-          {/*   colorInTailwind={ */}
-          {/*     isHoveringTitle */}
-          {/*       ? "bg-zinc-900 transition-all z-10 duration-2s ease-in-out p-6 text-2xl  " */}
-          {/*       : "bg-zinc-401" */}
-          {/*   } */}
-          {/* /> */}
+        <motion.div className="flex homeContainer  gap-y-5 h-[60vh] p-4 flex-col sm:flex-col lg:flex-row">
           <div className="w-full flex flex-col lg:w-[40%] leading-[0.7]">
             <div className="flex flex-col lg:flex-col lg:items-start   lg:justify-between">
               <motion.h1
@@ -149,9 +133,7 @@ export default function Home() {
         <hr className="border-b border-zinc-700" />
         <br />
         <div className="flex  p-8  flex-col  items-center justify-around">
-          <div>
-            <BlogData />
-          </div>
+          <div></div>
           <motion.div
             drag
             animate={{ scale: 2 }}
@@ -163,9 +145,7 @@ export default function Home() {
               right: 0,
             }}
             className=" scale-150 cursor-grab m-5"
-          >
-            <MarioAnimation />
-          </motion.div>
+          ></motion.div>
         </div>
       </section>
     </>
