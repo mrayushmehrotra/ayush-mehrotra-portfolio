@@ -52,7 +52,7 @@ const CustomMouse: React.FC<CustomMouseProps> = ({
       }}
     >
       <div
-        className={`h-[30px] w-[30px] ${colorInTailwind} rounded-full flex items-center justify-center transition-all duration-300`}
+        className={`h-[30px] z-[0]  w-[30px] ${colorInTailwind} rounded-full flex items-center justify-center transition-all duration-300`}
       >
         <p className={`${textClassName}  `}>{innerText}</p>{" "}
         {/* Show text only when hovering */}

@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useMemo } from "react";
+import { motion, useScroll } from "framer-motion";
 import Image from "next/image";
 import ScrollingText from "./ScrollingText";
+import { Button } from "./ui/MovingBorder";
 
 interface StackItem {
   stack: string;
@@ -63,7 +64,10 @@ export default function TechStack() {
       others: addUniqueId(stackdata.others),
     };
   }, [stackdata]);
-
+  const { scrollYProgress } = useScroll();
+  useEffect(() => {
+    console.log(scrollYProgress);
+  }, [scrollYProgress]);
   return (
     <div className="w-full h-fit overflow-hidden">
       <ScrollingText />
@@ -90,21 +94,28 @@ export default function TechStack() {
             <div className="w-full md:w-[50%] grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 p-4 md:p-8 border rounded-xl bg-neutral-900/50 backdrop-blur-sm">
               {items.map((item: StackItem) => (
                 <motion.div
+                  drag
                   key={item.id}
-                  className="flex items-center   gap-4 p-4 rounded-lg bg-neutral-800 hover:bg-neutral-700 transition-colors"
+                  dragConstraints={{ left: 2, right: 20, top: 0, bottom: 0 }}
+                  className="relative p-[2px] overflow-hidden rounded-lg group"
                   whileHover={{ scale: 0.95 }}
                 >
-                  <Image
-                    src={item.imageurl}
-                    alt={item.stack}
-                    width={48}
-                    height={48}
-                    className="object-contain rounded-lg"
-                  />
+                  {/* Moving gradient background */}
+                  <div className="absolute -inset-[2px] rounded-lg bg-gradient-to-r from-zinc-500 via-white  to-zinc-600 animate-moving-background bg-[length:200%_200%]" />
 
-                  <span className="text-lg md:text-xl font-medium">
-                    {item.stack}
-                  </span>
+                  {/* Content container */}
+                  <div className="relative z-10 flex items-center gap-4 p-4 rounded-xl  bg-neutral-800 hover:bg-neutral-700 transition-colors">
+                    <Image
+                      src={item.imageurl}
+                      alt={item.stack}
+                      width={48}
+                      height={48}
+                      className="object-contain  rounded-lg"
+                    />
+                    <span className="text-lg md:text-xl font-medium">
+                      {item.stack}
+                    </span>
+                  </div>
                 </motion.div>
               ))}
             </div>

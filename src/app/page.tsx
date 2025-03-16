@@ -6,6 +6,9 @@ import HoverSvg from "@/components/HoverSVG";
 import { motion } from "motion/react";
 import Lenis from "lenis";
 import { useEffect } from "react";
+import { FeaturesSectionDemo } from "@/components/ui/projectsBento";
+import { WobbleCardDemo } from "@/components/WobbleCardData";
+
 export default function Home() {
   useEffect(() => {
     const lenis = new Lenis();
@@ -127,26 +130,16 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.div>{" "}
-        <HoverSvg />
+        <div className="m-8">
+          <HoverSvg />
+        </div>
+        <br />
+        <WobbleCardDemo />
+        <br />
         <br />
         <TechStack />
         <hr className="border-b border-zinc-700" />
         <br />
-        <div className="flex  p-8  flex-col  items-center justify-around">
-          <div></div>
-          <motion.div
-            drag
-            animate={{ scale: 2 }}
-            whileDrag={{ scale: 3 }}
-            dragConstraints={{
-              top: 40,
-              bottom: 40,
-              left: 0,
-              right: 0,
-            }}
-            className=" scale-150 cursor-grab m-5"
-          ></motion.div>
-        </div>
       </section>
     </>
   );

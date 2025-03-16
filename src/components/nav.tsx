@@ -74,7 +74,7 @@ export default function Navbar() {
   return (
     <>
       <div className="w-full flex items-center sm:justify-center sm:px-2 px-8 relative">
-        <nav className="flex backdrop-blur-lg bg-opacity-80 bg-neutral-900 w-[60%] rounded-full px-8 py-2 flex-row items-center justify-between">
+        <nav className="flex backdrop-blur-lg bg-opacity-80 border-zinc-800 sticky border  bg-neutral-900 w-[60%] rounded-full px-8 py-2 flex-row items-center justify-between">
           <div>
             <h1 className="uppercase font-semibold text-2xl">Ayush Mehrotra</h1>
           </div>
@@ -109,7 +109,6 @@ export default function Navbar() {
         )}
       </div>
       <br />
-      <hr />
     </>
   );
 }
