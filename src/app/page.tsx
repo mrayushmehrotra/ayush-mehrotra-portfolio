@@ -6,7 +6,6 @@ import HoverSvg from "@/components/HoverSVG";
 import { motion } from "motion/react";
 import Lenis from "lenis";
 import { useEffect } from "react";
-import { FeaturesSectionDemo } from "@/components/ui/projectsBento";
 import { WobbleCardDemo } from "@/components/WobbleCardData";
 
 export default function Home() {

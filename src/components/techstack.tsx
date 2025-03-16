@@ -4,7 +4,6 @@ import { useEffect, useMemo } from "react";
 import { motion, useScroll } from "framer-motion";
 import Image from "next/image";
 import ScrollingText from "./ScrollingText";
-import { Button } from "./ui/MovingBorder";
 
 interface StackItem {
   stack: string;

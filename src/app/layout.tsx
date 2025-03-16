@@ -5,7 +5,6 @@ import Navbar from "@/components/nav";
 import { baseUrl } from "./sitemap";
 import CustomMouse from "@/components/customMouse";
 import LoaderWrapper from "@/components/LoaderWrapper";
-import { Footer } from "@/components/footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
