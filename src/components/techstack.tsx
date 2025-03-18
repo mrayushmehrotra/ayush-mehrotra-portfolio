@@ -90,17 +90,17 @@ export default function TechStack() {
                 {getCategoryDescription(category)}
               </p>
             </div>
-            <div className="w-full md:w-[50%] grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 p-4 md:p-8 border rounded-xl bg-neutral-900/50 backdrop-blur-sm">
+            <div className="   w-full md:w-[50%] grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 p-4 md:p-8 border rounded-xl bg-neutral-900/50 backdrop-blur-sm">
               {items.map((item: StackItem) => (
                 <motion.div
                   drag
                   key={item.id}
                   dragConstraints={{ left: 2, right: 20, top: 0, bottom: 0 }}
-                  className="relative p-[1px] overflow-hidden rounded-md group"
+                  className="relative p-[3px] overflow-hidden rounded-md group"
                   whileHover={{ scale: 0.95 }}
                 >
                   {/* Moving gradient background */}
-                  <div className="absolute -inset-[2px] rounded-lg bg-gradient-to-r from-zinc-500 via-white  to-zinc-600 animate-moving-background bg-[length:200%_200%]" />
+                  <div className="absolute -inset-[2px] rounded-lg bg-gradient-to-r from-[#34D399]  via-zinc-500 to-emerald-600 animate-moving-background bg-[length:200%_200%]" />
 
                   {/* Content container */}
                   <div className="relative z-10 flex items-center gap-4 p-4 rounded-lg bg-neutral-800 hover:bg-neutral-700 transition-colors">

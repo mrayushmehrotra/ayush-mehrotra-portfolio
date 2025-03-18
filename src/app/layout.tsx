@@ -5,6 +5,7 @@ import Navbar from "@/components/nav";
 import { baseUrl } from "./sitemap";
 import CustomMouse from "@/components/customMouse";
 import LoaderWrapper from "@/components/LoaderWrapper";
+import { Footer } from "@/components/footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -71,14 +72,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} z-[10]  antialiased`}
       >
-        <LoaderWrapper>
-          <CustomMouse />
-          <main className="max-w-xl z-[9]  mx-3 mt-8 lg:max-w-full lg:mx-0">
-            <Navbar />
-            {children}
-          </main>
-          <div className="h-[80vh] z-[9] w-full bg-transparent"></div>
-        </LoaderWrapper>
+        {/* <LoaderWrapper> */}
+        <CustomMouse />
+        <main className="max-w-xl z-[9]  mx-3 mt-8 lg:max-w-full lg:mx-0">
+          <Navbar />
+          {children}
+        </main>
+        <div className="h-[80vh] relative w-full  ">
+          <Footer />
+        </div>
+        {/* </LoaderWrapper> */}
       </body>
     </html>
   );

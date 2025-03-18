@@ -68,7 +68,12 @@ export default function Home() {
 
   return (
     <>
-      <section className="mt-8 w-full">
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="mt-8 w-full"
+      >
         <br />
         <motion.div className="flex homeContainer  gap-y-5 h-[60vh] p-4 flex-col sm:flex-col lg:flex-row">
           <div className="w-full flex flex-col lg:w-[40%] leading-[0.7]">
@@ -138,8 +143,7 @@ export default function Home() {
         <br />
         <TechStack />
         <hr className="border-b border-zinc-700" />
-        <br />
-      </section>
+      </motion.section>
     </>
   );
 }

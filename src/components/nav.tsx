@@ -11,7 +11,12 @@ interface NavItem {
 
 const StyledTitle = ({ title, link }: { title: string; link: string }) => {
   return (
-    <motion.div className="flex group relative h-fit w-fit px-4 py-2">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="flex group relative h-fit w-fit px-4 py-2"
+    >
       <Link href={link}>
         <motion.span
           className="w-fit font-bold whitespace-nowrap"

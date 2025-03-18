@@ -1,6 +1,6 @@
 "use client"; // Required for client-side interactivity
 
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
 interface LoaderWrapperProps {
@@ -8,43 +8,65 @@ interface LoaderWrapperProps {
 }
 
 const LoaderWrapper = ({ children }: LoaderWrapperProps) => {
-  const [count, setCount] = useState(0); // Track loading progress
-  const [isLoading, setIsLoading] = useState(true); // Track loading state
-  const controls = useAnimation(); // Animation controls
-  useEffect(() => {
-    const animateCount = async () => {
-      for (let i = 0; i <= 100; i += 2) {
-        await controls.start({ opacity: 1, transition: { duration: 0.001 } });
-        setCount(i); // Update progress
-        await controls.start({ opacity: 0.8, transition: { duration: 0.001 } });
-        if (i === 100) {
-          // Animate the loader sliding up
-          await controls.start({
-            scale: 500, // Slide up off the screen
-            x: 90,
-            transition: { duration: 0.5, ease: "easeOut" },
-          });
-          setIsLoading(false); // Hide the loader
-        }
-      }
-    };
+  const [isLoading, setIsLoading] = useState(true);
 
-    animateCount(); // Start the animation
-  }, [controls]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 8000); // Wait for all animations before removing loader
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
       {isLoading && (
-        <motion.div
-          className="fixed inset-0 z-50 flex justify-center items-center bg-black"
-          animate={controls}
-        >
-          <motion.div className="text-[48px] font-semibold text-[#4ff0b7]">
-            {count}
-          </motion.div>
-        </motion.div>
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black overflow-hidden">
+          <motion.video
+            src="/marvel.mp4"
+            autoPlay
+            muted
+            className="absolute z-[9] w-full h-full object-cover md:w-[100vw] md:h-[100vh]"
+            initial={{ y: 0 }} // Offset each video vertically
+            animate={{ translateY: "-100%" }} // Move them up sequentially
+            transition={{
+              type: "spring",
+              delay: 2, // Each video moves 2s after the previous
+              duration: 7,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.video
+            src="/marvel.mp4"
+            autoPlay
+            muted
+            className="absolute z-[8] w-full h-full object-cover md:w-[100vw] md:h-[100vh]"
+            initial={{ y: 0 }} // Offset each video vertically
+            animate={{ translateY: "-100%" }} // Move them up sequentially
+            transition={{
+              delay: 4, // Each video moves 2s after the previous
+              type: "spring",
+              duration: 9,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.video
+            src="/marvel.mp4"
+            autoPlay
+            muted
+            className="absolute z-[7] w-full h-full object-cover md:w-[100vw] md:h-[100vh]"
+            initial={{ y: 0 }} // Offset each video vertically
+            animate={{ translateY: "-100%" }} // Move them up sequentially
+            transition={{
+              delay: 5, // Each video moves 2s after the previous
+              duration: 9,
+              type: "spring",
+              ease: "easeInOut",
+            }}
+          />
+        </div>
       )}
-      {!isLoading && children} {/* Render children when loading is complete */}
+      {!isLoading && children} {/* Show content after animation */}
     </>
   );
 };
