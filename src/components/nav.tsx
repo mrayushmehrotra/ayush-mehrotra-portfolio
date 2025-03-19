@@ -78,8 +78,8 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="w-full flex items-center sm:justify-center sm:px-2 px-8 relative">
-        <nav className="flex backdrop-blur-lg bg-opacity-80 border-zinc-800 sticky border  bg-neutral-900 w-[60%] rounded-full px-8 py-2 flex-row items-center justify-between">
+      <div className="w-full flex items-center sm:justify-center sm:px-2 py-3  px-6 relative">
+        <nav className="flex z-[99] m-2  fixed backdrop-blur-2xl bg-opacity-60 border-zinc-800 border  bg-neutral-900 w-[60%] rounded-full px-8 py-2 flex-row items-center justify-between">
           <div>
             <h1 className="uppercase font-semibold text-2xl">Ayush Mehrotra</h1>
           </div>
