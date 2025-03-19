@@ -1,54 +1,117 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
+const FooterData = [
+  {
+    project: "Admin Dashboard",
+    category: "Development",
+    year: "2023",
+    data: {
+      title:
+        "Fixed Responsiveness of Admin Dashboard UI and integrated working features with Responsiveness",
+      date: "Jan'23 - Mar'23",
+      url: "https://codetikki.in/admin/dashboard",
+      img: "/codetikki_dashboard.jpg",
+    },
+  },
+  {
+    project: "Employee Login Form",
+    category: "Development",
+    year: "2023",
+    data: {
+      title:
+        "Crafted Employee login form single-handedly from scratch while using Figma",
+      date: "Jan'23 - Mar'23",
+      img: "/codetikki_dashboard.jpg",
+      url: "https://codetikki.in/admin/employee/signup",
+    },
+  },
+];
+
 export const Footer = () => {
-  const [isHovering, setIsHovering] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [show, isShow] = useState<number | null>(null);
 
   return (
-    <motion.div className="h-full p-8 w-full">
-      {/* Header Row */}
-      <motion.div className="grid grid-cols-3 text-zinc-400 p-2 border-b">
-        <p className="text-left px-2">Project</p>
-        <p className="text-center">Category</p>
-        <p className="text-right px-2">YEAR</p>
+    <motion.div className="h-screen  p-8 w-full">
+      {/* Header Row - Fixed */}
+      <motion.div className="grid md:grid-cols-3 grid-cols-2 text-zinc-400 p-2">
+        <p className="text-left col-span-1 md:col-span-1">Project</p>
+        <p className="text-center hidden md:block md:col-span-1">Category</p>
+        <p className="text-right col-span-1 md:col-span-1">YEAR</p>
       </motion.div>
 
       {/* Data Rows */}
-      {Array(1)
-        .fill(null)
-        .map((_, index) => (
-          <div key={index} className="relative overflow-hidden">
-            <motion.hr
-              className="bg-white   h-px w-full absolute bottom-0 left-0"
-              initial={{ scaleY: 0 }}
-              animate={{
-                scaleY: isHovering ? -200 : 0,
-                animationDuration: "3s",
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 50,
-                damping: 15,
-                duration: 0.2,
-              }}
-            />
+      {FooterData.map((data, index) => (
+        <div key={index} className="relative overflow-hidden">
+          {/* Expanding Hover Effect */}
+          <motion.hr
+            className="bg-white h-px w-full absolute bottom-0 left-0"
+            initial={{ scaleY: 1 }}
+            animate={{
+              scaleY: hoveredIndex === index && show === null ? 200 : 1,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+            }}
+          />
+
+          <motion.div
+            onClick={() => isShow(show === index ? null : index)}
+            onHoverStart={() => setHoveredIndex(index)}
+            onHoverEnd={() => setHoveredIndex(null)}
+            className={`grid grid-cols-2 md:grid-cols-3 transition-all duration-150 p-2 relative z-10 ${
+              hoveredIndex === index
+                ? "text-black bg-white bg-opacity-10"
+                : "text-white"
+            }`}
+          >
+            <p className="text-left col-span-1 md:col-span-1">{data.project}</p>
+            <p className="text-center hidden md:block md:col-span-1">
+              {data.category}
+            </p>
+            <p className="text-right col-span-1 md:col-span-1">{data.year}</p>
+          </motion.div>
+
+          {show === index && (
             <motion.div
-              onHoverStart={() => setIsHovering(true)}
-              onHoverEnd={() => setIsHovering(false)}
-              className={`grid ${isHovering ? "text-black" : "text-white"} ${isHovering ? "ml-4 mr-4" : "ml-0 mr-0"} transition-all duration-75      grid-cols-3 border-b p-2 relative z-10`}
-              whileHover={{
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
-                color: "#000",
+              className="h-[80vh] flex flex-col w-full text-white p-8"
+              initial={{ z: 0, y: "-50%" }}
+              animate={{ z: 1, y: 0 }}
+              exit={{ opacity: 0, y: "-50%" }}
+              transition={{
+                type: "tween",
+                duration: 0.5,
+                ease: "easeInOut",
               }}
-              transition={{ duration: 0.2, ease: "easeInOut" }}
             >
-              <p className="text-left px-2">Admin Dashboard</p>
-              <p className="text-center">Development</p>
-              <p className="text-right px-2">2023</p>
+              <h1 className="md:text-[5em]   capitalize  text-zinc-300 font-semibold">
+                {data.data.title}
+              </h1>
+              <br />
+              <div className="flex flex-col text-3xl">
+                <p>{data.data.date}</p>
+                <Link href={data.data.url} className="underline text-blue-400">
+                  {data.data.url}
+                </Link>
+              </div>
+              <div className="  mt-5 h-[50%] w-full  ">
+                <Image
+                  src={data.data.img}
+                  height={250}
+                  width={350}
+                  alt={data.data.img}
+                />
+              </div>
             </motion.div>
-          </div>
-        ))}
+          )}
+        </div>
+      ))}
     </motion.div>
   );
 };

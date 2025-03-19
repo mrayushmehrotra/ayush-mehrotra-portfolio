@@ -7,6 +7,7 @@ import { motion } from "motion/react";
 import Lenis from "lenis";
 import { useEffect } from "react";
 import { WobbleCardDemo } from "@/components/WobbleCardData";
+import { GithubMap } from "@/components/githubCalendar";
 
 export default function Home() {
   useEffect(() => {
@@ -139,6 +140,11 @@ export default function Home() {
         </div>
         <br />
         <WobbleCardDemo />
+        <br />
+        <br />
+        <br />
+        <GithubMap />
+        <br />
         <br />
         <br />
         <TechStack />

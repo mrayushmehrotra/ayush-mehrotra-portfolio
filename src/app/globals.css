@@ -31,6 +31,9 @@ body {
   -webkit-text-stroke: 2px white;
   color: transparent;
 }
+.userSelect {
+  user-select: none;
+}
 .textStroke:hover {
   -webkit-text-stroke: none;
   color: white;

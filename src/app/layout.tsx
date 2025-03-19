@@ -78,7 +78,7 @@ export default function RootLayout({
             <Navbar />
             {children}
           </main>
-          <div className="h-[80vh] relative w-full  ">
+          <div className=" relative   ">
             <Footer />
           </div>
         </LoaderWrapper>
