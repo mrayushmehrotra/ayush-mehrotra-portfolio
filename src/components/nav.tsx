@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react"; // Import the hamburger and close icons from Lucide React
+import { X, CircleChevronLeft } from "lucide-react"; // Import the hamburger and close icons from Lucide React
 import { useState } from "react"; // Import useState for managing the hamburger menu state
 
 interface NavItem {
@@ -27,7 +27,7 @@ const StyledTitle = ({ title, link }: { title: string; link: string }) => {
             delay: 0.2,
           }}
         >
-          <button>
+          <button id="Navbutton">
             <div className="text">
               <span>{title}</span>
             </div>
@@ -70,7 +70,7 @@ const navItems: NavItem[] = [
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false); // State to manage the hamburger menu
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -78,22 +78,23 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="w-full flex items-center sm:justify-center sm:px-2 py-3  px-6 relative">
-        {/* TODO: make the navbar padded and responsive */}
-
-        <nav className="flex z-[99] m-2  fixed backdrop-blur-2xl bg-opacity-60 border-zinc-800 border  bg-neutral-900 w-[60%] rounded-full px-8 py-2 flex-row items-center justify-between">
+      <div className="w-full flex items-center sm:justify-center sm:px-2 px-8 relative">
+        {/* Changed nav to be fixed with top positioning */}
+        <nav className="flex  fixed top-4 left-1/2 -translate-x-1/2 z-50 backdrop-blur-lg bg-opacity-80 border-zinc-800 border bg-neutral-900 w-[60%] rounded-full px-8 py-2 flex-row items-center md:justify-between sm:justify-start  ">
           <div>
-            <h1 className="uppercase font-semibold text-2xl">Ayush Mehrotra</h1>
+            <h1 className="uppercase font-semibold text-sm sm:text-base md:text-lg lg:text-xl whitespace-nowrap">
+              Ayush Mehrotra
+            </h1>
           </div>
 
-          {/* Hamburger Menu Icon for small and medium screens */}
-          <div className="md:hidden flex items-center">
-            <button onClick={toggleMenu}>
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {/* Hamburger Menu Icon */}
+          <div className="md:hidden flex sm:mr-5 ">
+            <button id="Navbutton" onClick={toggleMenu}>
+              {isOpen ? <X size={24} /> : <CircleChevronLeft size={24} />}
             </button>
           </div>
 
-          {/* Navigation Items for larger screens */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-4">
             {navItems.map((item, index) => (
               <StyledTitle link={item.link} key={index} title={item.title} />
@@ -104,7 +105,7 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {isOpen && (
           <motion.div
-            className="md:hidden fixed top-20 inset-x-0 bg-neutral-900 bg-opacity-95 backdrop-blur-lg z-50 rounded-lg p-4 flex flex-col items-center gap-4"
+            className="md:hidden fixed top-24 inset-x-0 mx-4 bg-neutral-900 bg-opacity-95 backdrop-blur-lg z-40 rounded-lg p-4 flex flex-col items-center gap-4"
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}

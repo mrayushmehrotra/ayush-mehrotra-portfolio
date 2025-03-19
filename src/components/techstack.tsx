@@ -90,7 +90,7 @@ export default function TechStack() {
                 {getCategoryDescription(category)}
               </p>
             </div>
-            <div className="   w-full md:w-[50%] grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 p-4 md:p-8 border rounded-xl bg-neutral-900/50 backdrop-blur-sm">
+            <div className="   w-full md:w-[50%] grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 p-4 md:p-8 border border-gray-200  rounded-xl bg-neutral-900/50 backdrop-blur-sm">
               {items.map((item: StackItem) => (
                 <motion.div
                   drag

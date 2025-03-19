@@ -41,6 +41,7 @@ const LoaderWrapper = ({ children }: LoaderWrapperProps) => {
             ))}
         </div>
       )}
+
       {!isLoading && children}
     </>
   );
