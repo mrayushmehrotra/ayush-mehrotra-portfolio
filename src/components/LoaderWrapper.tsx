@@ -21,7 +21,7 @@ const LoaderWrapper = ({ children }: LoaderWrapperProps) => {
   return (
     <>
       {isLoading && (
-        <div className="fixed inset-0 z-50 bg-white grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9">
+        <div className="fixed inset-0 z-50 bg-white grid grid-cols-9">
           {Array(9)
             .fill(null)
             .map((_, index) => (
@@ -34,7 +34,7 @@ const LoaderWrapper = ({ children }: LoaderWrapperProps) => {
                   ease: "easeInOut",
                   delay: index * 0.1, // Stagger effect
                 }}
-                className="h-screen border border-white bg-black flex items-center justify-center"
+                className="h-screen bg-black flex items-center justify-center"
               >
                 <div className="text-white text-lg font-semibold"></div>
               </motion.div>
