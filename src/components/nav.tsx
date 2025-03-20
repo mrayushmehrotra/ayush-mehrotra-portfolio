@@ -1,122 +1,161 @@
 "use client";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { X, CircleChevronLeft } from "lucide-react"; // Import the hamburger and close icons from Lucide React
-import { useState } from "react"; // Import useState for managing the hamburger menu state
+import { motion, AnimatePresence } from "framer-motion";
+import { X, Menu } from "lucide-react";
+import { useState } from "react";
+import Image from "next/image";
 
 interface NavItem {
   title: string;
   link: string;
 }
 
-const StyledTitle = ({ title, link }: { title: string; link: string }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      className="flex group relative h-fit w-fit px-4 py-2"
-    >
-      <Link href={link}>
-        <motion.span
-          className="w-fit font-bold whitespace-nowrap"
-          initial={{ y: -10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{
-            duration: 1,
-            delay: 0.2,
-          }}
-        >
-          <button id="Navbutton">
-            <div className="text">
-              <span>{title}</span>
-            </div>
-            <div className="clone">
-              <span>{title}</span>
-            </div>
-            <svg
-              strokeWidth="2"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              fill="none"
-              className="h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              width="20px"
-            >
-              <path
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-                strokeLinejoin="round"
-                strokeLinecap="round"
-              ></path>
-            </svg>
-          </button>
-        </motion.span>
-      </Link>
-    </motion.div>
-  );
-};
-
-const navItems: NavItem[] = [
-  { title: "GitHub", link: "https://github.com/mrayushmehrotra" },
-  {
-    title: "LinkedIn",
-    link: "https://www.linkedin.com/in/ayush-mehrotra-99419724b/",
-  },
-  { title: "Instagram", link: "https://www.instagram.com/mein.ayush.hoon/" },
-  {
-    title: "Resume",
-    link: "https://drive.google.com/file/d/1Y3FuHpTCSdUxr2nzRh8v5pPqIXVtmYx3/view?usp=sharing",
-  },
-];
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [navImgIndex, setNavImgIndex] = useState(0);
+  const navItems: NavItem[] = [
+    { title: "GitHub", link: "https://github.com/mrayushmehrotra" },
+    {
+      title: "LinkedIn",
+      link: "https://www.linkedin.com/in/ayush-mehrotra-99419724b/",
+    },
+    { title: "Instagram", link: "https://www.instagram.com/mein.ayush.hoon/" },
+    {
+      title: "Resume",
+      link: "https://drive.google.com/file/d/1Y3FuHpTCSdUxr2nzRh8v5pPqIXVtmYx3/view?usp=sharing",
+    },
+  ];
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const menuVariants = {
+    open: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+    closed: {
+      x: "100%",
+      opacity: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+        staggerChildren: 0.1,
+        staggerDirection: -1,
+      },
+    },
   };
 
+  const itemVariants = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "easeInOut", duration: 0.5 },
+    },
+    closed: {
+      y: 50,
+      opacity: 0,
+      transition: { type: "easeInOut", duration: 0.3 },
+    },
+  };
+  const navImages = [
+    "/tanjiro_happy.jpg",
+    "/tanjiro_shock.jpg",
+    "/question_mark.png",
+    "/crying.gif",
+  ];
+
+  // Function to cycle through images
+  const cycleNavImage = () => {
+    setNavImgIndex((prev) => (prev + 1) % navImages.length);
+  };
   return (
     <>
-      <div className="w-full flex items-center sm:justify-center sm:px-2 px-8 relative">
-        {/* Changed nav to be fixed with top positioning */}
-        <nav className="flex  fixed top-4 left-1/2 -translate-x-1/2 z-50 backdrop-blur-lg bg-opacity-80 border-zinc-800 border bg-neutral-900 w-[60%] rounded-full px-8 py-2 flex-row items-center md:justify-between sm:justify-start  ">
-          <div>
-            <h1 className="uppercase font-semibold text-sm sm:text-base md:text-lg lg:text-xl whitespace-nowrap">
-              Ayush Mehrotra
-            </h1>
+      <div className="w-full container mx-auto flex items-center justify-between sm:px-2 px-4 relative">
+        <motion.div
+          className="w-[80px] h-[80px] bg-red-300 rounded-sm cursor-pointer relative overflow-hidden"
+          onClick={cycleNavImage}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <div className="absolute inset-0 overflow-hidden rounded-sm">
+            <motion.div
+              className="absolute w-[140%] h-[140%] bg-[conic-gradient(#F1C830_60%,#000_40%)] top-[-20%] left-[-20%]"
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+            />
           </div>
 
-          {/* Hamburger Menu Icon */}
-          <div className="md:hidden flex sm:mr-5 ">
-            <button id="Navbutton" onClick={toggleMenu}>
-              {isOpen ? <X size={24} /> : <CircleChevronLeft size={24} />}
-            </button>
+          {/* Image container */}
+          <div className="absolute top-[2px] left-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)] bg-red-300 rounded-sm overflow-hidden z-10">
+            <Image
+              src={navImages[navImgIndex]}
+              alt="navImg"
+              height={90}
+              width={90}
+              className="object-cover w-full h-full"
+            />
           </div>
+        </motion.div>
+        <motion.button
+          onClick={() => setIsOpen(!isOpen)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Menu size={34} />
+        </motion.button>
+      </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-4">
-            {navItems.map((item, index) => (
-              <StyledTitle link={item.link} key={index} title={item.title} />
-            ))}
-          </div>
-        </nav>
-
-        {/* Mobile Menu */}
+      <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="md:hidden fixed top-24 inset-x-0 mx-4 bg-neutral-900 bg-opacity-95 backdrop-blur-lg z-40 rounded-lg p-4 flex flex-col items-center gap-4"
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            key="menu"
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+            className="fixed inset-0 w-full h-screen bg-zinc-900/95 backdrop-blur-lg z-50"
           >
-            {navItems.map((item, index) => (
-              <StyledTitle link={item.link} key={index} title={item.title} />
-            ))}
+            <div className="container mx-auto p-8 relative">
+              <motion.button
+                onClick={() => setIsOpen(false)}
+                className="absolute top-8 right-8"
+                whileHover={{ rotate: 90 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <X size={34} />
+              </motion.button>
+
+              <motion.ul className="flex flex-col items-center justify-center h-full    gap-8">
+                {navItems.map((item, index) => (
+                  <motion.div key={index} className=" w-full p-2   ">
+                    <motion.li
+                      variants={itemVariants}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="mt-8 w-full gap-8  "
+                    >
+                      <Link
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-2xl    font-[neuka]   md:text-5xl lg:text-8xl font-bold hover:text-emerald-300 transition-colors"
+                      >
+                        {item.title}
+                      </Link>
+                    </motion.li>
+                  </motion.div>
+                ))}
+              </motion.ul>
+            </div>
           </motion.div>
         )}
-      </div>
-      <br />
+      </AnimatePresence>
     </>
   );
 }

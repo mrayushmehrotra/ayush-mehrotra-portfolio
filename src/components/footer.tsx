@@ -1,8 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const FooterData = [
   {
@@ -34,9 +34,13 @@ const FooterData = [
 export const Footer = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [show, isShow] = useState<number | null>(null);
-
+  const mainDiv = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: mainDiv,
+  });
+  console.log(scrollYProgress);
   return (
-    <motion.div className="h-screen  p-8 w-full">
+    <motion.div ref={mainDiv} className=" p-8  ">
       {/* Header Row - Fixed */}
       <motion.div className="grid md:grid-cols-3 grid-cols-2 text-zinc-400 p-2">
         <p className="text-left col-span-1 md:col-span-1">Project</p>

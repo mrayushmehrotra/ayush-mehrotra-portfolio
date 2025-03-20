@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/nav";
+// import Navbar from "@/components/nav";
 import { baseUrl } from "./sitemap";
 import CustomMouse from "@/components/customMouse";
 import LoaderWrapper from "@/components/LoaderWrapper";
@@ -75,7 +75,6 @@ export default function RootLayout({
         <LoaderWrapper>
           <CustomMouse />
           <main className="max-w-xl z-[9]  mx-3 mt-8 lg:max-w-full lg:mx-0">
-            <Navbar />
             {children}
           </main>
           <div className=" relative   ">

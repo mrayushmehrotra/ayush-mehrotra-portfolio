@@ -9,6 +9,11 @@ import { useEffect } from "react";
 import { WobbleCardDemo } from "@/components/WobbleCardData";
 import { GithubMap } from "@/components/githubCalendar";
 
+import dynamic from "next/dynamic";
+const Navbar = dynamic(() => import("@/components/nav"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
 export default function Home() {
   useEffect(() => {
     const lenis = new Lenis();
@@ -69,6 +74,7 @@ export default function Home() {
 
   return (
     <>
+      <Navbar />
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
