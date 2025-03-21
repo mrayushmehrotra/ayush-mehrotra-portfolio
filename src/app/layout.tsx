@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-// import Navbar from "@/components/nav";
 import { baseUrl } from "./sitemap";
 
 import LoaderWrapper from "@/components/LoaderWrapper";
@@ -63,6 +62,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
+        
         <link
           rel="sitemap"
           type="application/xml"
