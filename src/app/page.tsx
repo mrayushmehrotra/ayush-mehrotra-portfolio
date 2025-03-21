@@ -10,6 +10,7 @@ import { WobbleCardDemo } from "@/components/WobbleCardData";
 import { GithubMap } from "@/components/githubCalendar";
 
 import dynamic from "next/dynamic";
+
 const Navbar = dynamic(() => import("@/components/nav"), {
   ssr: false,
   loading: () => <p>Loading...</p>,
@@ -79,7 +80,7 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="mt-8 w-full"
+        className="mt-8 w-full  "
       >
         <br />
         <motion.div className="flex homeContainer  gap-y-5 h-[60vh] p-4 flex-col sm:flex-col lg:flex-row">
@@ -90,6 +91,7 @@ export default function Home() {
                 initial={{ x: -100 }}
                 animate={{
                   x: 10,
+                  mixBlendMode: "difference",
                 }}
                 className="mb-4 text-center text-6xl md:text-[120px] font-semibold tracking-tighter"
               >

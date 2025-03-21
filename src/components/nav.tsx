@@ -13,6 +13,7 @@ interface NavItem {
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [navImgIndex, setNavImgIndex] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
   const navItems: NavItem[] = [
     { title: "GitHub", link: "https://github.com/mrayushmehrotra" },
     {
@@ -74,14 +75,17 @@ export default function Navbar() {
   const cycleNavImage = () => {
     setNavImgIndex((prev) => (prev + 1) % navImages.length);
   };
+
   return (
     <>
-      <div className="w-full container mx-auto flex items-center justify-between sm:px-2 px-4 relative">
+      <div className="w-full container   mx-auto flex items-center justify-between sm:px-2 px-4 relative">
         <motion.div
-          className="w-[80px] h-[80px] bg-red-300 rounded-sm cursor-pointer relative overflow-hidden"
+          className="w-[80px] h-[80px]   cursor-help   rounded-sm  relative overflow-hidden"
           onClick={cycleNavImage}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onHoverStart={() => setIsHovering(true)}
+          onHoverEnd={() => setIsHovering(false)}
         >
           <div className="absolute inset-0 overflow-hidden rounded-sm">
             <motion.div
@@ -92,7 +96,7 @@ export default function Navbar() {
           </div>
 
           {/* Image container */}
-          <div className="absolute top-[2px] left-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)] bg-red-300 rounded-sm overflow-hidden z-10">
+          <div className="absolute top-[2px] left-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)]  rounded-sm overflow-hidden z-10">
             <Image
               src={navImages[navImgIndex]}
               alt="navImg"
@@ -144,7 +148,7 @@ export default function Navbar() {
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-2xl    font-[neuka]   md:text-5xl lg:text-8xl font-bold hover:text-emerald-300 transition-colors"
+                        className="text-3xl    font-[neuka]   md:text-5xl lg:text-8xl font-bold hover:text-emerald-300 transition-colors"
                       >
                         {item.title}
                       </Link>

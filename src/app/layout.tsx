@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 // import Navbar from "@/components/nav";
 import { baseUrl } from "./sitemap";
-import CustomMouse from "@/components/customMouse";
+
 import LoaderWrapper from "@/components/LoaderWrapper";
 import { Footer } from "@/components/footer";
 const geistSans = Geist({
@@ -73,13 +73,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} z-[10]  antialiased`}
       >
         <LoaderWrapper>
-          <CustomMouse />
           <main className="max-w-xl z-[9]  mx-3 mt-8 lg:max-w-full lg:mx-0">
             {children}
           </main>
-          <div className=" relative   ">
-            <Footer />
-          </div>
+
+          <Footer />
         </LoaderWrapper>
       </body>
     </html>
