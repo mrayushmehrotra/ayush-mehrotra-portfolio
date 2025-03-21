@@ -14,7 +14,7 @@ const CustomMouse: React.FC<CustomMouseProps> = ({
   innerText = "",
   textClassName = "",
   scale = 1,
-  props,
+
 }) => {
   const [mouseState, setMouseState] = useState<{ x: number; y: number }>({
     x: 0,
@@ -51,7 +51,7 @@ const CustomMouse: React.FC<CustomMouseProps> = ({
         zIndex: 9999,
         pointerEvents: "none",
       }}
-      {...props}
+   
     >
       <div
         className={`h-[30px] z-[0]  w-[30px] ${colorInTailwind} rounded-full flex items-center justify-center transition-all duration-300`}

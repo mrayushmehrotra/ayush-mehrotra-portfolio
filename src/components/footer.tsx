@@ -134,6 +134,7 @@ export const Footer = () => {
           </div>
         ))}
       </motion.div>
+
     </>
   );
 };
