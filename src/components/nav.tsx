@@ -13,7 +13,6 @@ interface NavItem {
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [navImgIndex, setNavImgIndex] = useState(0);
-  const [isHovering, setIsHovering] = useState(false);
   const navItems: NavItem[] = [
     { title: "GitHub", link: "https://github.com/mrayushmehrotra" },
     {
@@ -84,8 +83,7 @@ export default function Navbar() {
           onClick={cycleNavImage}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onHoverStart={() => setIsHovering(true)}
-          onHoverEnd={() => setIsHovering(false)}
+   
         >
           <div className="absolute inset-0 overflow-hidden rounded-sm">
             <motion.div
