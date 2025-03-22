@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { baseUrl } from "./sitemap";
 import LoaderWrapper from "@/components/LoaderWrapper";
-import { Footer } from "@/components/footer";
+import Footer from "@/components/footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -60,7 +60,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        
         <link
           rel="sitemap"
           type="application/xml"
@@ -71,11 +70,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} z-[10]  antialiased`}
       >
         <LoaderWrapper>
-          <main className="max-w-xl z-[9]  mx-3 mt-8 lg:max-w-full lg:mx-0">
+          <main className="max-w-xl z-[9] lg:max-w-full lg:mx-0">
             {children}
           </main>
-
-          <Footer />
+          <div className="relative h-[40vh]">
+            <Footer />
+          </div>
         </LoaderWrapper>
       </body>
     </html>
