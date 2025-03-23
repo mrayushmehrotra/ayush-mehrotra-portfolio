@@ -3,68 +3,125 @@ import {
   ArrowUpRight,
   Github,
   Instagram,
-  Twitter,
-  Youtube,
+  Linkedin,
+  FileText,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Footer = () => {
+  const [showFooter, setShowFooter] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const { scrollTop, clientHeight, scrollHeight } =
+        document.documentElement;
+      const isBottom = scrollTop + clientHeight >= scrollHeight - 100;
+      setShowFooter(isBottom);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const socialLinks = [
+    {
+      title: "GitHub",
+      link: "https://github.com/mrayushmehrotra",
+      icon: (
+        <Github
+          size={32}
+          className="hover:text-white transition-colors duration-300"
+        />
+      ),
+    },
+    {
+      title: "LinkedIn",
+      link: "https://www.linkedin.com/in/ayush-mehrotra-99419724b/",
+      icon: (
+        <Linkedin
+          size={32}
+          className="hover:text-white transition-colors duration-300"
+        />
+      ),
+    },
+    {
+      title: "Instagram",
+      link: "https://www.instagram.com/mein.ayush.hoon/",
+      icon: (
+        <Instagram
+          size={32}
+          className="hover:text-white transition-colors duration-300"
+        />
+      ),
+    },
+    {
+      title: "Resume",
+      link: "https://drive.google.com/file/d/1Y3FuHpTCSdUxr2nzRh8v5pPqIXVtmYx3/view?usp=sharing",
+      icon: (
+        <FileText
+          size={32}
+          className="hover:text-white transition-colors duration-300"
+        />
+      ),
+    },
+  ];
+
   return (
-    <footer className="relative w-full bg-zinc-900 min-h-[40vh] flex flex-col justify-between">
-      <div
-        style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
-        className="p-4"
-      >
+    <footer
+      className="fixed bottom-0 w-full transition-transform duration-500 ease-in-out"
+      style={{
+        transform: showFooter ? "translateY(0)" : "translateY(100%)",
+        clipPath: "polygon(0 10%, 100% 0, 100% 100%, 0 100%)",
+      }}
+    >
+      <div className="bg-zinc-900 min-h-[40vh] p-4 flex flex-col justify-between">
         {/* Social Icons Section */}
-        <div className="relative md:fixed bottom-0 w-full mb-4 flex justify-center">
-          <div className="w-full md:w-1/2"></div>
-          <div className="w-full md:w-1/2">
-            <ul className="flex items-center justify-center md:justify-start gap-4 md:gap-9">
-              <li>
-                <Youtube
-                  size={44}
-                  className="hover:text-white transition-colors duration-300"
-                />
-              </li>
-              <li>
-                <Twitter
-                  size={44}
-                  className="hover:text-white transition-colors duration-300"
-                />
-              </li>
-              <li>
-                <Github
-                  size={44}
-                  className="hover:text-white transition-colors duration-300"
-                />
-              </li>
-              <li>
-                <Instagram
-                  size={44}
-                  className="hover:text-white transition-colors duration-300"
-                />
-              </li>
+        <div className="w-full mb-4 px-4">
+          <div className="flex justify-end">
+            <ul className="flex gap-3 sm:gap-4 md:gap-6">
+              {socialLinks.map((item, index) => (
+                <li key={index}>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block p-1 sm:p-2 hover:scale-110 transition-transform"
+                  >
+                    {item.icon}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        {/* Footer Content Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between py-8">
-          <div className="text-center md:text-left mb-4 md:mb-0">
-            <pre>Got a Project in Mind?</pre>
-            <h1 className="text-3xl md:text-8xl uppercase">LET&apos;S TALK</h1>
+        {/* Main Content Section */}
+        <div className="flex flex-col md:flex-row items-center justify-between px-4 py-6 md:py-8 gap-4 md:gap-6">
+          <div className="text-center md:text-left space-y-2 md:space-y-4">
+            <pre className="text-xs sm:text-sm md:text-base opacity-80">
+              Got a Project in Mind?
+            </pre>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl xl:text-8xl uppercase leading-tight">
+              LET&apos;S TALK
+            </h1>
           </div>
-          <div>
-            <ArrowUpRight
-              size={80}
-              className="hover:text-white transition-colors duration-300"
-            />
+          <div className="md:self-end">
+            <a
+              href="mailto:ayusmehrotra007@gmail.com"
+              className="block p-2 hover:scale-110 transition-transform"
+            >
+              <ArrowUpRight
+                size={48}
+                className="hover:text-white md:w-16 md:h-16 lg:w-20 lg:h-20"
+              />
+            </a>
           </div>
         </div>
 
         {/* Copyright Section */}
-        <pre className="text-center md:text-left mt-4">
+        <div className="text-center md:text-left text-xs sm:text-sm mt-2 md:mt-4 px-4 pb-2 md:pb-4 opacity-75">
           copyright © ayush mehrotra 2025
-        </pre>
+        </div>
       </div>
     </footer>
   );

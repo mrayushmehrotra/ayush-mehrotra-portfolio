@@ -77,13 +77,12 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="w-full container   mx-auto flex items-center justify-between sm:px-2 px-4 relative">
+      <div className="w-full container py-6   mx-auto flex items-center justify-between sm:px-2 px-4 relative">
         <motion.div
           className="w-[80px] h-[80px]   cursor-help   rounded-sm  relative overflow-hidden"
           onClick={cycleNavImage}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-   
         >
           <div className="absolute inset-0 overflow-hidden rounded-sm">
             <motion.div
