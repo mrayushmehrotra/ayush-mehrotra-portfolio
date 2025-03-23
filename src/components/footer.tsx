@@ -71,7 +71,7 @@ const Footer = () => {
       className="fixed bottom-0 w-full transition-transform duration-500 ease-in-out"
       style={{
         transform: showFooter ? "translateY(0)" : "translateY(100%)",
-        clipPath: "polygon(0 10%, 100% 0, 100% 100%, 0 100%)",
+        clipPath: "polygon(0 0%, 100% 0, 100% 100%, 0 100%)",
       }}
     >
       <div className="bg-zinc-900 min-h-[40vh] p-4 flex flex-col justify-between">
