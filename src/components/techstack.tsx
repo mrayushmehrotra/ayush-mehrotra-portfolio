@@ -106,6 +106,7 @@ export default function TechStack() {
                     <Image
                       src={item.imageurl}
                       alt={item.stack}
+                      draggable={false}
                       width={48}
                       height={48}
                       className="object-contain  rounded-lg"

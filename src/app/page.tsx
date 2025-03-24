@@ -8,7 +8,6 @@ import Lenis from "lenis";
 import { useEffect } from "react";
 import { WobbleCardDemo } from "@/components/WobbleCardData";
 import { GithubMap } from "@/components/githubCalendar";
-
 import dynamic from "next/dynamic";
 
 const Navbar = dynamic(() => import("@/components/nav"), {
