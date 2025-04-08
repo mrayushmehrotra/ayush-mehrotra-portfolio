@@ -24,6 +24,10 @@ export default function Navbar() {
       title: "Resume",
       link: "https://drive.google.com/file/d/1Y3FuHpTCSdUxr2nzRh8v5pPqIXVtmYx3/view?usp=sharing",
     },
+    {
+      title: "Email",
+      link: "mailto:ayusmehrotra007@gmail.com",
+    },
   ];
 
   const menuVariants = {
@@ -122,7 +126,7 @@ export default function Navbar() {
             variants={menuVariants}
             className="fixed inset-0 w-full h-screen bg-zinc-900/95 backdrop-blur-lg z-50"
           >
-            <div className="container mx-auto p-8 relative">
+            <div className="container mx-auto p-6 relative">
               <motion.button
                 onClick={() => setIsOpen(false)}
                 className="absolute top-8 right-8"

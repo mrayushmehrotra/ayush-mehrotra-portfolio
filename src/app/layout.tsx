@@ -4,6 +4,7 @@ import "./globals.css";
 import { baseUrl } from "./sitemap";
 import LoaderWrapper from "@/components/LoaderWrapper";
 import Footer from "@/components/footer";
+import { Experience } from "@/components/Experience";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -67,15 +68,16 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} z-[10]  antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} z-[10]  antialiased overflow-x-hidden  `}
       >
         <LoaderWrapper>
           <main className="max-w-xl z-[9] lg:max-w-full lg:mx-0">
             {children}
           </main>
-          <div className="relative h-[40vh]">
-            <Footer />
-          </div>
+          <Experience />
+          {/* <div className="relative h-[40vh]"> */}
+          {/*   <Footer /> */}
+          {/* </div> */}
         </LoaderWrapper>
       </body>
     </html>
