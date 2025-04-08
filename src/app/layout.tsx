@@ -75,9 +75,7 @@ export default function RootLayout({
             {children}
           </main>
           <Experience />
-          <div className="relative h-[40vh]">
-            <Footer />
-          </div>
+          <Footer />
         </LoaderWrapper>
       </body>
     </html>

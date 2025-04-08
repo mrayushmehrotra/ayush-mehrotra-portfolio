@@ -6,86 +6,54 @@ import {
   Linkedin,
   FileText,
 } from "lucide-react";
-import { useEffect, useState } from "react";
 
 const Footer = () => {
-  const [showFooter, setShowFooter] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const { scrollTop, clientHeight, scrollHeight } =
-        document.documentElement;
-      const isBottom = scrollTop + clientHeight >= scrollHeight - 100;
-      setShowFooter(isBottom);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const socialLinks = [
     {
       title: "GitHub",
       link: "https://github.com/mrayushmehrotra",
-      icon: (
-        <Github
-          size={32}
-          className="hover:text-white transition-colors duration-300"
-        />
-      ),
+      icon: <Github size={24} />,
     },
     {
       title: "LinkedIn",
       link: "https://www.linkedin.com/in/ayush-mehrotra-99419724b/",
-      icon: (
-        <Linkedin
-          size={32}
-          className="hover:text-white transition-colors duration-300"
-        />
-      ),
+      icon: <Linkedin size={24} />,
     },
     {
       title: "Instagram",
       link: "https://www.instagram.com/mein.ayush.hoon/",
-      icon: (
-        <Instagram
-          size={32}
-          className="hover:text-white transition-colors duration-300"
-        />
-      ),
+      icon: <Instagram size={24} />,
     },
     {
       title: "Resume",
       link: "https://drive.google.com/file/d/1Y3FuHpTCSdUxr2nzRh8v5pPqIXVtmYx3/view?usp=sharing",
-      icon: (
-        <FileText
-          size={32}
-          className="hover:text-white transition-colors duration-300"
-        />
-      ),
+      icon: <FileText size={24} />,
+    },
+    {
+      title: "Email",
+      link: "mailto:ayusmehrotra007@gmail.com",
+      icon: <ArrowUpRight size={24} />,
     },
   ];
 
   return (
-    <footer
-      className="fixed bottom-0 w-full transition-transform duration-500 ease-in-out"
-      style={{
-        transform: showFooter ? "translateY(0)" : "translateY(100%)",
-        clipPath: "polygon(0 0%, 100% 0, 100% 100%, 0 100%)",
-      }}
-    >
-      <div className="bg-zinc-900 min-h-[40vh] p-4 flex flex-col justify-between">
-        {/* Social Icons Section */}
-        <div className="w-full mb-4 px-4">
-          <div className="flex justify-end">
-            <ul className="flex gap-3 sm:gap-4 md:gap-6">
+    <>
+      <footer className="w-full   mt-12 border-t border-zinc-700 text-zinc-400">
+        <div className="max-w-6xl mx-auto px-6 py-8">
+          <div className="bg-white  h-[1px]  "></div>
+          <div className="flex border-[20px] rounded-full px-8 py-2   flex-col items-center justify-between md:flex-row">
+            <h1 className="text-lg font-semibold mb-4 md:mb-0 text-center md:text-left">
+              AYUSH MEHROTRA
+            </h1>
+            <ul className="flex gap-4">
               {socialLinks.map((item, index) => (
                 <li key={index}>
                   <a
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block p-1 sm:p-2 hover:scale-110 transition-transform"
+                    className="text-zinc-400 hover:text-white transition duration-300 hover:scale-110 p-2"
+                    aria-label={item.title}
                   >
                     {item.icon}
                   </a>
@@ -93,37 +61,12 @@ const Footer = () => {
               ))}
             </ul>
           </div>
+          <p className="text-sm text-center mt-6 text-zinc-300">
+            © {new Date().getFullYear()} Ayush Mehrotra. All rights reserved.
+          </p>
         </div>
-
-        {/* Main Content Section */}
-        <div className="flex flex-col md:flex-row items-center justify-between px-4 py-6 md:py-8 gap-4 md:gap-6">
-          <div className="text-center md:text-left space-y-2 md:space-y-4">
-            <pre className="text-xs sm:text-sm md:text-base opacity-80">
-              Got a Project in Mind?
-            </pre>
-            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl xl:text-8xl uppercase leading-tight">
-              LET&apos;S TALK
-            </h1>
-          </div>
-          <div className="md:self-end">
-            <a
-              href="mailto:ayusmehrotra007@gmail.com"
-              className="block p-2 hover:scale-110 transition-transform"
-            >
-              <ArrowUpRight
-                size={48}
-                className="hover:text-white md:w-16 md:h-16 lg:w-20 lg:h-20"
-              />
-            </a>
-          </div>
-        </div>
-
-        {/* Copyright Section */}
-        <div className="text-center md:text-left text-xs sm:text-sm mt-2 md:mt-4 px-4 pb-2 md:pb-4 opacity-75">
-          copyright © ayush mehrotra 2025
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 

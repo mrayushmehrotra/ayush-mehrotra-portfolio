@@ -55,8 +55,8 @@ const WorkExp = [
   },
   {
     quote:
-      "Created A Web Assemby (WASM) zip extractor that will be used to extract data which will be provided to AI",
-    name: "Software Engineer intern Aug  ",
-    title: "Codetikki",
+      "Created A Web Assemby (WASM) zip extractor that will be  integrated in the ai & will be provided to AI for context",
+    name: "Software Engineer intern Aug",
+    title: "Arakoo.ai",
   },
 ];
