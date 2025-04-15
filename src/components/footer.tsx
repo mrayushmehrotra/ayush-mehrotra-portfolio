@@ -6,6 +6,7 @@ import {
   Linkedin,
   FileText,
 } from "lucide-react";
+import HoverSvg from "./HoverSVG";
 
 const Footer = () => {
   const socialLinks = [
@@ -40,14 +41,19 @@ const Footer = () => {
     <>
       <footer className="w-full   mt-12 border-t border-zinc-700 text-zinc-400">
         <div className="max-w-6xl mx-auto px-6 py-8">
-          <div className="bg-white  h-[1px]  "></div>
+          <div className="overflow-hidden">
+            <HoverSvg svgHeigh={100} />
+          </div>
           <div className="flex border-[20px] rounded-full px-8 py-2   flex-col items-center justify-between md:flex-row">
             <h1 className="text-lg font-semibold mb-4 md:mb-0 text-center md:text-left">
               AYUSH MEHROTRA
             </h1>
             <ul className="flex gap-4">
               {socialLinks.map((item, index) => (
-                <li key={index}>
+                <li
+                  key={index}
+                  className="hover:translate-x-2 duration-75 ease-in  "
+                >
                   <a
                     href={item.link}
                     target="_blank"

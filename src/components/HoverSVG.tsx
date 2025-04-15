@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useTransform, useSpring } from "framer-motion";
 
-const HoverSvg = () => {
+const HoverSvg = ({ svgHeigh }) => {
   const svgRef = useRef<SVGSVGElement>(null);
 
   const [svgWidth, setSvgWidth] = useState(window.innerWidth * 0.8); // 80% of screen width
-  const svgHeight = 200; // Default height
+  const svgHeight = svgHeigh; // Default height
 
   // Spring-based motion values for smooth animation
   const springConfig = { stiffness: 300, damping: 20 };

@@ -96,10 +96,10 @@ export default function TechStack() {
                   drag
                   key={item.id}
                   dragConstraints={{ left: 2, right: 20, top: 0, bottom: 0 }}
-                  className="relative border-white  p-[1px] overflow-hidden rounded-md group"
+                  className="relative border-white  p-[3px] overflow-hidden rounded-md group"
                   whileHover={{ scale: 0.95 }}
                 >
-                  <div className="absolute -inset-[2px] rounded-lg bg-gradient-to-r from-[#f1c830]    via-zinc-500  to-[#F1C830] animate-moving-background bg-[length:200%_200%]" />
+                  <div className="absolute -inset-[2px] rounded-lg bg-gradient-to-r from-[#34d399] via-zinc-500  to-[#34d399] animate-moving-background bg-[length:200%_200%]" />
 
                   {/* Content container */}
                   <div className="relative z-10 flex items-center gap-4 p-4 rounded-lg bg-neutral-800 hover:bg-neutral-700 transition-colors">

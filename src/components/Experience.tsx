@@ -9,16 +9,22 @@ export function Experience() {
       <br />
       <br />
       <br />
+      <br />
+      <br />
 
       <div className="h-[40rem] scale-110  rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden">
-        <h1 className="text-3xl font-[neuka] p-3">Certifications(3)</h1>
+        <h1 className="text-3xl font-[neuka] p-3 font-semibold  ">
+          Certifications(3)
+        </h1>
         <InfiniteMovingCards
           items={testimonials}
           direction="right"
           speed="normal"
         />
         <br />
-        <h1 className="text-3xl font-[neuka] p-3">Work Experience(2)</h1>
+        <h1 className="text-3xl font-[neuka] p-3 font-semibold  ">
+          Work Experience(2)
+        </h1>
 
         <InfiniteMovingCards items={WorkExp} direction="left" speed="normal" />
       </div>

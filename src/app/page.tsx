@@ -143,7 +143,7 @@ export default function Home() {
           </div>
         </motion.div>{" "}
         <div className="m-8">
-          <HoverSvg />
+          <HoverSvg svgHeigh={200} />
         </div>
         <br />
         <WobbleCardDemo />

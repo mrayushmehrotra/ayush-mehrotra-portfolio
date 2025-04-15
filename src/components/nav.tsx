@@ -67,6 +67,7 @@ export default function Navbar() {
       transition: { type: "easeInOut", duration: 0.3 },
     },
   };
+
   const navImages = [
     "/tanjiro_happy.jpg",
     "/tanjiro_shock.jpg",
@@ -90,7 +91,7 @@ export default function Navbar() {
         >
           <div className="absolute inset-0 overflow-hidden rounded-sm">
             <motion.div
-              className="absolute w-[140%] h-[140%] bg-[conic-gradient(#F1C830_60%,#000_40%)] top-[-20%] left-[-20%]"
+              className="absolute w-[140%] h-[140%] bg-[conic-gradient(#34d399_60%,#000_40%)] top-[-20%] left-[-20%]"
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
             />
@@ -99,6 +100,7 @@ export default function Navbar() {
           {/* Image container */}
           <div className="absolute top-[2px] left-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)]  rounded-sm overflow-hidden z-10">
             <Image
+              priority
               src={navImages[navImgIndex]}
               alt="navImg"
               height={90}
