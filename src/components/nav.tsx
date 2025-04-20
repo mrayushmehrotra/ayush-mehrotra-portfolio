@@ -138,12 +138,15 @@ export default function Navbar() {
                 <X size={34} />
               </motion.button>
 
-              <motion.ul className="flex flex-col items-center justify-center h-full    gap-8">
+              <motion.ul className="flex flex-col w-full h-full gap-8">
                 {navItems.map((item, index) => (
-                  <motion.div key={index} className=" w-full p-2   ">
+                  <motion.div
+                    key={index}
+                    className=" w-full p-2  hover:bg-zinc-800"
+                  >
                     <motion.li
                       variants={itemVariants}
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.05, x: 49 }}
                       whileTap={{ scale: 0.95 }}
                       className="mt-8 w-full gap-8  "
                     >
@@ -151,7 +154,7 @@ export default function Navbar() {
                         href={item.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-3xl    font-[neuka]   md:text-5xl lg:text-8xl font-bold hover:text-emerald-300 transition-colors"
+                        className="text-3xl font-[neuka] md:text-5xl lg:text-8xl font-bold hover:text-emerald-300 transition-colors"
                       >
                         {item.title}
                       </Link>
