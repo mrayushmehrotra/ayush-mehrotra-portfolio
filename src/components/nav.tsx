@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Menu } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
+import PopperButton from "./ui/PopperButton";
 
 interface NavItem {
   title: string;
@@ -98,16 +99,18 @@ export default function Navbar() {
           </div>
 
           {/* Image container */}
-          <div className="absolute top-[2px] left-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)]  rounded-sm overflow-hidden z-10">
-            <Image
-              priority
-              src={navImages[navImgIndex]}
-              alt="navImg"
-              height={90}
-              width={90}
-              className="object-cover w-full h-full"
-            />
-          </div>
+          <PopperButton>
+            <div className="absolute top-[2px] left-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)]  rounded-sm overflow-hidden z-10">
+              <Image
+                priority
+                src={navImages[navImgIndex]}
+                alt="navImg"
+                height={90}
+                width={90}
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </PopperButton>
         </motion.div>
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
