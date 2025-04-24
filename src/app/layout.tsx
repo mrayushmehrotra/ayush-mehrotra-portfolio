@@ -5,6 +5,7 @@ import { baseUrl } from "./sitemap";
 import LoaderWrapper from "@/components/LoaderWrapper";
 import Footer from "@/components/footer";
 import { Experience } from "@/components/Experience";
+import CustomMouse from "@/components/customMouse";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -72,6 +73,7 @@ export default function RootLayout({
       >
         <LoaderWrapper>
           <main className="max-w-xl z-[9] lg:max-w-full lg:mx-0">
+            <CustomMouse />
             {children}
           </main>
           <Experience />

@@ -46,6 +46,27 @@ body {
   transition: all 0.5s;
 }
 
+/* Masonry grid */
+.grid2 {
+  display: grid;
+  grid-auto-rows: minmax(200px, auto);
+  gap: 1rem;
+}
+
+/* Hover effect */
+.grid2:hover .group:not(:hover) {
+  filter: blur(2px);
+  opacity: 0.8;
+}
+.my-border {
+  border-top: 1px solid white;
+}
+.group {
+  transition:
+    filter 0.3s ease,
+    opacity 0.3s ease;
+}
+
 @keyframes movingBackground {
   0% {
     background-position: 0% 50%;

@@ -6,9 +6,10 @@ import HoverSvg from "@/components/HoverSVG";
 import { motion } from "motion/react";
 import Lenis from "lenis";
 import { useEffect } from "react";
-import { WobbleCardDemo } from "@/components/WobbleCardData";
 import { GithubMap } from "@/components/githubCalendar";
+import Projects from "@/components/Projects";
 import dynamic from "next/dynamic";
+import { CutterText } from "@/components/LoaderWrapper";
 
 const Navbar = dynamic(() => import("@/components/nav"), {
   ssr: false,
@@ -84,7 +85,7 @@ export default function Home() {
         <br />
         <motion.div className="flex homeContainer  gap-y-5 h-[60vh] p-4 flex-col sm:flex-col lg:flex-row">
           <div className="w-full flex flex-col lg:w-[40%] leading-[0.7]">
-            <div className="flex flex-col lg:flex-col lg:items-start   lg:justify-between">
+            <div className="flex overflow-hidden  flex-col lg:flex-col lg:items-start   lg:justify-between">
               <motion.h1
                 transition={{ duration: 2 }}
                 initial={{ x: -100 }}
@@ -98,14 +99,13 @@ export default function Home() {
               </motion.h1>
 
               <motion.h1
-                initial={{ x: -100 }}
                 animate={{
-                  x: 50,
+                  x: 10,
                 }}
                 transition={{ duration: 2 }}
-                className="lg:mb-8   text-6xl md:text-[120px] font-semibold tracking-tighter textStroke  "
+                className="lg:mb-8   teyt-6xl md:text-[120px] font-semibold tracking-tighter textStroke  "
               >
-                Mehrotra
+                <CutterText text="Mehrotra" />
               </motion.h1>
             </div>
           </div>
@@ -146,8 +146,8 @@ export default function Home() {
           <HoverSvg svgHeigh={200} />
         </div>
         <br />
-        <WobbleCardDemo />
         <br />
+        <Projects />
         <br />
         <br />
         <GithubMap />

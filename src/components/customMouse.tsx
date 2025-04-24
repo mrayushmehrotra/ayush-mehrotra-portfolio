@@ -10,11 +10,10 @@ interface CustomMouseProps {
 }
 
 const CustomMouse: React.FC<CustomMouseProps> = ({
-  colorInTailwind = "bg-zinc-400",
+  colorInTailwind = "bg-zinc-100",
   innerText = "",
   textClassName = "",
-  scale = 1,
-
+  scale = 0,
 }) => {
   const [mouseState, setMouseState] = useState<{ x: number; y: number }>({
     x: 0,
@@ -48,13 +47,13 @@ const CustomMouse: React.FC<CustomMouseProps> = ({
         position: "fixed",
         top: 0,
         left: 0,
-        zIndex: 9999,
+        zIndex: 1,
+        mixBlendMode: "difference",
         pointerEvents: "none",
       }}
-   
     >
       <div
-        className={`h-[30px] z-[0]  w-[30px] ${colorInTailwind} rounded-full flex items-center justify-center transition-all duration-300`}
+        className={`h-[50px] z-[0]  w-[50px] ${colorInTailwind} rounded-full flex items-center justify-center transition-all duration-300`}
       >
         <p className={`${textClassName}  `}>{innerText}</p>{" "}
         {/* Show text only when hovering */}

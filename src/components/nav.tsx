@@ -5,6 +5,7 @@ import { X, Menu } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 import PopperButton from "./ui/PopperButton";
+import Magnetic from "@/common/Magnetic";
 
 interface NavItem {
   title: string;
@@ -84,41 +85,47 @@ export default function Navbar() {
   return (
     <>
       <div className="w-full container py-6   mx-auto flex items-center justify-between sm:px-2 px-4 relative">
-        <motion.div
-          className="w-[80px] h-[80px]   cursor-help   rounded-sm  relative overflow-hidden"
-          onClick={cycleNavImage}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <div className="absolute inset-0 overflow-hidden rounded-sm">
-            <motion.div
-              className="absolute w-[140%] h-[140%] bg-[conic-gradient(#34d399_60%,#000_40%)] top-[-20%] left-[-20%]"
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-            />
-          </div>
-
-          {/* Image container */}
-          <PopperButton>
-            <div className="absolute top-[2px] left-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)]  rounded-sm overflow-hidden z-10">
-              <Image
-                priority
-                src={navImages[navImgIndex]}
-                alt="navImg"
-                height={90}
-                width={90}
-                className="object-cover w-full h-full"
+        <Magnetic>
+          <motion.div
+            className="w-[80px] h-[80px]   cursor-help   rounded-sm  relative overflow-hidden"
+            onClick={cycleNavImage}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <div className="absolute inset-0 overflow-hidden rounded-sm">
+              <motion.div
+                className="absolute w-[140%] h-[140%] bg-[conic-gradient(#34d399_60%,#000_40%)] top-[-20%] left-[-20%]"
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
               />
             </div>
-          </PopperButton>
-        </motion.div>
-        <motion.button
-          onClick={() => setIsOpen(!isOpen)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Menu size={34} />
-        </motion.button>
+
+            {/* Image container */}
+            <PopperButton>
+              <div className="absolute top-[2px] left-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)]  rounded-sm overflow-hidden z-10">
+                <Image
+                  priority
+                  src={navImages[navImgIndex]}
+                  alt="navImg"
+                  height={90}
+                  width={90}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </PopperButton>
+          </motion.div>
+        </Magnetic>
+        <Magnetic>
+          <motion.button
+            // bg-[#34d399]
+            className=" p-4 rounded-full bg-zinc-800  "
+            onClick={() => setIsOpen(!isOpen)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Menu size={34} />
+          </motion.button>
+        </Magnetic>
       </div>
 
       <AnimatePresence>
@@ -132,14 +139,16 @@ export default function Navbar() {
             className="fixed inset-0 w-full h-screen bg-zinc-900/95 backdrop-blur-lg z-50"
           >
             <div className="container mx-auto p-6 relative">
-              <motion.button
-                onClick={() => setIsOpen(false)}
-                className="absolute top-8 right-8"
-                whileHover={{ rotate: 90 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <X size={34} />
-              </motion.button>
+              <Magnetic>
+                <motion.button
+                  onClick={() => setIsOpen(false)}
+                  className="absolute top-8 right-8  p-4 rounded-full bg-zinc-800 "
+                  whileHover={{ rotate: 90 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <X size={34} />
+                </motion.button>
+              </Magnetic>
 
               <motion.ul className="flex flex-col w-full h-full gap-8">
                 {navItems.map((item, index) => (

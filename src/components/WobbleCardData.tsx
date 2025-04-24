@@ -1,76 +1,102 @@
 "use client";
-import Image from "next/image";
-import React from "react";
-import { WobbleCard } from "@/components/ui/wobble-card";
-import Link from "next/link";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
-export function WobbleCardDemo() {
+gsap.registerPlugin(ScrollTrigger);
+
+const projects = [
+  {
+    title: "Shawitfy",
+    description: "Music player with upload capabilities and ad-free listening",
+    link: "https://spotify-clone-ashy-five.vercel.app/",
+    image: "/spotify.webp",
+  },
+  {
+    title: "AI Subtitle Burner",
+    description: "Automated subtitle generation using HuggingFace models",
+    link: "#",
+    image: "/ai-subtitle.jpg",
+  },
+  {
+    title: "Aideation",
+    description: "AI-powered note taking with image generation",
+    link: "https://notion-clone-peach-six.vercel.app/",
+    image: "/notion.png",
+  },
+];
+
+export default function ProjectsSection() {
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    cardsRef.current.forEach((card) => {
+      const randomX = `${Math.floor(Math.random() * 200 - 100)}vw`; // -100vw to 100vw
+      const randomY = `${Math.floor(Math.random() * 200 - 100)}vh`; // -100vh to 100vh
+
+      gsap.fromTo(
+        card,
+        {
+          x: randomX,
+          y: randomY,
+          opacity: 0,
+        },
+        {
+          x: 0,
+          y: 0,
+          opacity: 1,
+          scrollTrigger: {
+            trigger: card,
+            start: "top bottom",
+            end: "center center",
+            scrub: true,
+          },
+        },
+      );
+    });
+  }, []);
+
   return (
-    <>
-      <div className="p-8">
-        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
-          Project section
-        </h4>
+    <section className="relative h-[300vh] bg-white">
+      {/* Fixed "Projects" Text */}
+      <div className="sticky top-0 h-screen flex items-center justify-center z-0">
+        <h1 className="text-[20vw] font-black text-black opacity-10 select-none">
+          Projects
+        </h1>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full    ">
-        <WobbleCard containerClassName="col-span-1 lg:col-span-2 h-full bg-gradient-to-r from-emerald-800 to-green-700 min-h-[500px] lg:min-h-[300px]">
-          <Link href="https://spotify-clone-ashy-five.vercel.app/">
-            <div className="max-w-xs">
-              <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                Shawitfy
-              </h2>
-              <p className="mt-4 text-left  text-base/6 text-neutral-200">
-                music player, in which user can upload there song, add author
-                details and can also like songs and yeah they can listen to
-                there favourite music without any ad&apos;s interupption :)
-              </p>
-            </div>
-            <Image
-              src="/spotify.webp"
-              width={500}
-              height={500}
-              alt="shawtify.webp"
-              className="absolute -right-4 lg:-right-[40%] filter -bottom-10 object-contain rounded-2xl"
-            />
-          </Link>
-        </WobbleCard>
-        <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-blue-900  ">
-          <Link href="">
-            <h2 className="max-w-80  text-left text-balance text-base    md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-              AI based Subtitle Burner
-            </h2>
-            <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200   ">
-              AI based subtitle burner built in python using huggingface,
-              moviepy
-            </p>
-          </Link>
-        </WobbleCard>
-        <WobbleCard containerClassName="col-span-1 bg-slate-900  lg:col-span-3  min-h-[500px] lg:min-h-[600px] xl:min-h-[300px]">
-          <Link
-            href="https://notion-clone-peach-six.vercel.app/"
-            target="_blank"
+      {/* Floating Project Cards */}
+      <div className="absolute top-0 left-0 w-full h-full z-10 flex flex-col items-center justify-center space-y-20 pt-[150vh]">
+        {projects.map((project, i) => (
+          <div
+            key={i}
+            ref={(el) => (cardsRef.current[i] = el)}
+            className="w-[300px] h-[400px] bg-gradient-to-br from-gray-200 to-gray-400 shadow-xl rounded-3xl flex flex-col items-center justify-center p-6 gap-4"
           >
-            <div className="max-w-sm">
-              <h2 className="max-w-sm md:max-w-lg    text-left text-balance   text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
-                Create Note&apos;s really quick with AIdeation & supercharge
-                your notes with AI powered assistant
-              </h2>
-              <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-                Aideation is a personal Note taking assitant, uses pexel api for
-                image generation and gemini to power it&apos;s AI
-              </p>
-            </div>
-            <Image
-              src="/notion.png"
-              width={500}
-              height={500}
-              alt="linear demo image"
-              className="absolute -right-10 md:-right-[40%] lg:-right-[20%] -bottom-10 object-contain rounded-2xl"
-            />
-          </Link>
-        </WobbleCard>
+            {project.image && (
+              <div className="w-full h-40 bg-gray-300 rounded-xl overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+            <h2 className="text-2xl font-bold text-center">{project.title}</h2>
+            <p className="text-sm text-gray-700 text-center">
+              {project.description}
+            </p>
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 px-6 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
+            >
+              View Project
+            </a>
+          </div>
+        ))}
       </div>
-    </>
+    </section>
   );
 }

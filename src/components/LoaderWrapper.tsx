@@ -7,16 +7,30 @@ interface LoaderWrapperProps {
   children: React.ReactNode;
 }
 
+export const CutterText = ({ text }: { text: string }) => {
+  return (
+    <div className="inline-flex overflow-hidden">
+      {text.split("").map((char, index) => (
+        <motion.span
+          key={index}
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          exit={{ y: 100, opacity: 0 }}
+          transition={{
+            duration: 0.5,
+            delay: index * 0.06,
+            ease: "easeInOut",
+          }}
+          className="inline-block font-extrabold text-8xl  "
+        >
+          {char}
+        </motion.span>
+      ))}
+    </div>
+  );
+};
 const LoaderWrapper = ({ children }: LoaderWrapperProps) => {
   const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const CutterText = ({ text }: { text: string }) => {
     return (
@@ -40,6 +54,14 @@ const LoaderWrapper = ({ children }: LoaderWrapperProps) => {
       </div>
     );
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 4500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>

@@ -13,6 +13,7 @@
     "clsx": "^2.1.1",
     "cobe": "^0.6.3",
     "cursor-effects": "^1.0.17",
+    "gsap": "^3.12.7",
     "lenis": "^1.2.3",
     "lucide-react": "^0.475.0",
     "matter-js": "^0.20.0",
@@ -23,6 +24,7 @@
     "react-github-calendar": "^4.5.4",
     "react-simple-typewriter": "^5.0.1",
     "react-vertical-timeline-component": "^3.5.3",
+    "sass": "^1.87.0",
     "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {
