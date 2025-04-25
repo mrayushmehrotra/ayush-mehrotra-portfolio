@@ -84,7 +84,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="w-full container py-6   mx-auto flex items-center justify-between sm:px-2 px-4 relative">
+      <div className="w-full container py-6 mx-auto flex items-center justify-between sm:px-2 px-4 relative">
         <Magnetic>
           <motion.div
             className="w-[80px] h-[80px]   cursor-help   rounded-sm  relative overflow-hidden"
@@ -96,13 +96,13 @@ export default function Navbar() {
               <motion.div
                 className="absolute w-[140%] h-[140%] bg-[conic-gradient(#34d399_60%,#000_40%)] top-[-20%] left-[-20%]"
                 animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+                transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
               />
             </div>
 
             {/* Image container */}
             <PopperButton>
-              <div className="absolute top-[2px] left-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)]  rounded-sm overflow-hidden z-10">
+              <div className="absolute top-[2px] left-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)]  rounded-sm overflow-hidden z-[100]">
                 <Image
                   priority
                   src={navImages[navImgIndex]}
@@ -118,7 +118,7 @@ export default function Navbar() {
         <Magnetic>
           <motion.button
             // bg-[#34d399]
-            className=" p-4 rounded-full bg-zinc-800  "
+            className=" p-4 rounded-full bg-zinc-800  mr-8 md:mr-0  "
             onClick={() => setIsOpen(!isOpen)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

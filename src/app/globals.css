@@ -13,6 +13,17 @@
   font-family: "MyFont";
   src: url("../assets/font.woff2");
 }
+
+@font-face {
+  font-family: "GreatVibes";
+  src: url("../assets/great_vibes.ttf");
+}
+
+@font-face {
+  font-family: "editorialNew";
+  src: url("../assets/editorialNew.otf");
+}
+
 @font-face {
   font-family: Neuka;
   src: url("../assets/3856NeueMachina.woff2");
@@ -46,73 +57,20 @@ body {
   transition: all 0.5s;
 }
 
-/* Masonry grid */
-.grid2 {
-  display: grid;
-  grid-auto-rows: minmax(200px, auto);
-  gap: 1rem;
-}
-
-/* Hover effect */
-.grid2:hover .group:not(:hover) {
-  filter: blur(2px);
-  opacity: 0.8;
-}
-.my-border {
-  border-top: 1px solid white;
-}
-.group {
-  transition:
-    filter 0.3s ease,
-    opacity 0.3s ease;
-}
-
-@keyframes movingBackground {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-moving-background {
-  animation: movingBackground 3s ease infinite;
-}
 .homeContainer {
-  width: 100%;
-  height: 100%;
+  position: relative;
+}
 
-  --color: #222;
+.homeContainer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background-image:
-    linear-gradient(
-      0deg,
-      transparent 24%,
-      var(--color) 25%,
-      var(--color) 26%,
-      transparent 27%,
-      transparent 74%,
-      var(--color) 75%,
-      var(--color) 76%,
-      transparent 77%,
-      transparent
-    ),
-    linear-gradient(
-      90deg,
-      transparent 24%,
-      var(--color) 25%,
-      var(--color) 26%,
-      transparent 27%,
-      transparent 74%,
-      var(--color) 75%,
-      var(--color) 76%,
-      transparent 77%,
-      transparent
-    );
-  background-size: 55px 55px;
+    linear-gradient(to right, #999 0.1px, transparent 1px),
+    linear-gradient(to bottom, #999 0.1px, transparent 1px);
+  background-size: 5% 10%; /* Adjust these values to get 40 cells (8x5) */
+  z-index: -10;
+  opacity: 0.5;
 }
 
 /* Custom scrollbar styling for Webkit-based browsers (Chrome, Edge, Safari) */

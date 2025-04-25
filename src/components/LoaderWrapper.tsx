@@ -21,7 +21,7 @@ export const CutterText = ({ text }: { text: string }) => {
             delay: index * 0.06,
             ease: "easeInOut",
           }}
-          className="inline-block font-extrabold text-8xl  "
+          className="inline-block font-extrabold  text-6xl md:text-8xl  "
         >
           {char}
         </motion.span>

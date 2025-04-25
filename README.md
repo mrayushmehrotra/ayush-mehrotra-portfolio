@@ -11,3 +11,12 @@ shift to other route's (add gsap stable screen and y axis move from bottom to to
 <!-- TODO: DONE:   18 March => remove the Marvel's Animation and add the 5 or 8 rectangle coveriing the screen remvove effect as loader -->
 
 <!-- TODO: 19 March make the Floating Navbar responsive and a bit padded down on the screen so it will look good -->
+
+<!-- TODO: -->
+
+someday add this loader and remove the grid loader
+<svg><path d="M0 0
+    L1335 0
+    L1335 1081
+    Q667.5 881 0 1081
+    L0 0"></path></svg>
