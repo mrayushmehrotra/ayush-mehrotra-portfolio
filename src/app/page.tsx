@@ -6,14 +6,11 @@ import Lenis from "lenis";
 import { useEffect } from "react";
 import { GithubMap } from "@/components/githubCalendar";
 import Projects from "@/components/Projects";
-import dynamic from "next/dynamic";
-import Main from "@/components/Home";
-import { motion } from "motion/react";
 
-const Navbar = dynamic(() => import("@/components/nav"), {
-  ssr: false,
-  loading: () => <p>Loading...</p>,
-});
+import Footer from "@/components/footer";
+import { Experience } from "@/components/Experience";
+import Main from "@/components/Home";
+
 export default function Home() {
   useEffect(() => {
     const lenis = new Lenis();
@@ -26,30 +23,26 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="mt-8 w-full  "
-      >
+      <section>
         <br />
         <Main />
-        <div className="m-8">
+        <div className="m-8      ">
           <HoverSvg svgHeigh={200} />
-        </div>
-        <br />
-        <br />
-        <Projects />
-        <br />
-        <br />
-        <GithubMap />
+          <br />
+          <br />
+          <Projects />
+          <br />
+          <br />
+          <GithubMap />
 
-        <br />
-        <br />
-        <TechStack />
-        <hr className="border-b border-zinc-700" />
-      </motion.section>
+          <br />
+          <br />
+          <TechStack />
+          <hr className="border-b border-zinc-700" />
+        </div>
+        <Experience />
+        <Footer />
+      </section>
     </>
   );
 }

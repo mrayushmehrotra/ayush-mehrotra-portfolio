@@ -49,17 +49,11 @@ const Footer = () => {
     },
   ];
 
-  const [mouseScale, setMouseScale] = useState(1);
-  const [hoveredItem, setHoveredItem] = useState(null);
-
   return (
     <footer
+      id="footer"
       className="w-full relative overflow-hidden mt-24 border-t border-zinc-700 text-zinc-400 bg-gradient-to-b from-transparent to-zinc-900/20"
-      onMouseEnter={() => setMouseScale(0)}
-      onMouseLeave={() => setMouseScale(1)}
     >
-      <CustomMouse scale={mouseScale} />
-
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden opacity-10">
         <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-500 rounded-full mix-blend-overlay filter blur-3xl"></div>
@@ -67,20 +61,15 @@ const Footer = () => {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 py-12 relative z-10">
-        <div className="overflow-hidden mb-12">
+        <div className="overflow-hidden hidden md:flex  mb-12">
           <HoverSvg svgHeigh={100} />
         </div>
 
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-          <div
-            className="relative group"
-            onMouseEnter={() => setMouseScale(0)}
-            onMouseLeave={() => setMouseScale(1)}
-          >
+          <div>
             <h1 className="text-2xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
               AYUSH MEHROTRA
             </h1>
-            <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></div>
           </div>
 
           <div className="flex flex-wrap justify-center gap-2">
@@ -90,21 +79,20 @@ const Footer = () => {
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`relative p-3 rounded-full transition-all duration-300 ${item.hoverClass} border border-zinc-700 hover:border-transparent`}
+                className={`relative p-3 rounded-full h-[50px] w-[50px] group transition-all duration-300 ${item.hoverClass} border border-zinc-700 hover:border-transparent`}
                 aria-label={item.title}
-                onMouseEnter={() => {
-                  setHoveredItem(index);
-                  setMouseScale(0);
-                }}
-                onMouseLeave={() => {
-                  setHoveredItem(null);
-                  setMouseScale(0);
-                }}
               >
-                <div className="relative z-10">{item.icon}</div>
-                {hoveredItem === index && (
-                  <div className="absolute inset-0 rounded-full bg-current opacity-10 animate-ping"></div>
-                )}
+                {/* Container for stacking icons */}
+                <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+                  {/* Top icon */}
+                  <div className="absolute transition-transform duration-300 group-hover:-translate-y-6">
+                    {item.icon}
+                  </div>
+                  {/* Bottom icon that comes up */}
+                  <div className="absolute transition-transform duration-300 translate-y-6 group-hover:translate-y-0">
+                    {item.icon}
+                  </div>
+                </div>
               </a>
             ))}
           </div>
