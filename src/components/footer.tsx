@@ -7,8 +7,6 @@ import {
   FileText,
 } from "lucide-react";
 import HoverSvg from "./HoverSVG";
-import CustomMouse from "./customMouse";
-import { useState } from "react";
 
 const Footer = () => {
   const socialLinks = [

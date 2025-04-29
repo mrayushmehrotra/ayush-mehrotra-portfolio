@@ -12,10 +12,12 @@ const projects = [
     title: "Shawtify",
     src: "spotify.webp",
     color: "#000000",
+    link: "https://spotify-clone-ashy-five.vercel.app/",
   },
   {
     title: "Aideation",
     src: "notion.png",
+    link: "https://notion-clone-peach-six.vercel.app/",
 
     color: "#8C8C8C",
   },
@@ -23,11 +25,25 @@ const projects = [
     title: "Socializer",
     src: "socializer.png",
     color: "#EFE8D3",
+    link: "https://socializer-gamma.vercel.app/",
   },
   {
-    title: "Silencio",
+    title: "Twitty",
     src: "silencio.png",
     color: "#706D63",
+    link: "https://github.com/mrayushmehrotra/twitter-clone.git",
+  },
+  {
+    title: "Bagfax",
+    src: "silencio.png",
+    color: "#706D63",
+    link: "https://bagfax.vercel.app/",
+  },
+  {
+    title: "AI Native App",
+    src: "silencio.png",
+    color: "#706D63",
+    link: "https://github.com/mrayushmehrotra/llm-bot-in-reactNative.git",
   },
 ];
 
@@ -148,7 +164,12 @@ export default function Home() {
                   style={{ backgroundColor: color }}
                   key={`modal_${index}`}
                 >
-                  <Image src={`/${src}`} width={300} height={0} alt="image" />
+                  <Image
+                    src={`/${src}`}
+                    width={300}
+                    height={0}
+                    alt="Trust me, it exist's"
+                  />
                 </div>
               );
             })}
