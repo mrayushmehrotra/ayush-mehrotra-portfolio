@@ -43,7 +43,7 @@ export default function PopperButton({ children }) {
     <button
       onClick={handleClick}
       style={{
-        cursor: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='%23F58529'/><stop offset='40%' stop-color='%23DD2A7B'/><stop offset='70%' stop-color='%238134AF'/><stop offset='100%' stop-color='%23515BD4'/></linearGradient></defs><text y='20' font-size='30' fill='url(%23g)'>❓</text></svg>") 12 12, auto`,
+        cursor: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='white'/><stop offset='40%' stop-color='white'/><stop offset='70%' stop-color='white'/><stop offset='100%' stop-color='white'/></linearGradient></defs><text y='20' font-size='30' fill='url(%23g)'>❓</text></svg>") 12 12, auto`,
       }}
     >
       {children}
