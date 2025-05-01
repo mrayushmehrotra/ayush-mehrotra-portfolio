@@ -12,7 +12,7 @@ export default function Home() {
       transition={{ delay: 0.1, duration: 0.2 }}
     >
       <Navbar />
-      <div className="h-[90vh] overflow-hidden  relative w-full flex flex-col items-center justify-center rounded-lg">
+      <div className=" h-[80vh]  overflow-hidden  relative w-full flex flex-col items-center justify-center rounded-lg">
         <div className="absolute hidden md:flex   inset-0 w-full h-full z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
 
         <Boxes />

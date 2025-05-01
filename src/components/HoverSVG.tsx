@@ -3,10 +3,12 @@ import { motion, useTransform, useSpring } from "framer-motion";
 
 const HoverSvg = ({ svgHeigh }) => {
   const svgRef = useRef<SVGSVGElement>(null);
+  const [Text, SetText] = useState("you can play with me :)");
+  const [offSetValue, setOffSetValue] = useState(20);
 
   const [svgWidth, setSvgWidth] = useState(window.innerWidth * 0.8); // 80% of screen width
   const svgHeight = svgHeigh; // Default height
-
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   // Spring-based motion values for smooth animation
   const springConfig = { stiffness: 300, damping: 20 };
   const mouseX = useSpring(svgWidth / 2, springConfig);
@@ -19,6 +21,8 @@ const HoverSvg = ({ svgHeigh }) => {
       `M 10 ${svgHeight / 2} Q ${x} ${y} ${svgWidth - 10} ${svgHeight / 2}`,
   );
   const handleMouseMove = (event: React.MouseEvent) => {
+    SetText("Yay!");
+    setOffSetValue(window.innerWidth / 4);
     const { clientX, clientY } = event;
     const svgRect = svgRef.current?.getBoundingClientRect();
     if (svgRect) {
@@ -30,6 +34,15 @@ const HoverSvg = ({ svgHeigh }) => {
   };
 
   const handleMouseLeave = () => {
+    setOffSetValue(window.innerWidth / 4);
+    SetText("Oh oh :(");
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+
+    // Set new timeout
+    timeoutRef.current = setTimeout(() => {
+      SetText("you can play with me :)");
+      setOffSetValue(20);
+    }, 4000);
     mouseX.set(svgWidth / 2);
     mouseY.set(svgHeight / 2);
   };
@@ -42,7 +55,12 @@ const HoverSvg = ({ svgHeigh }) => {
 
     updateDimensions();
     window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
+    return () => {
+      window.removeEventListener("resize", updateDimensions);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, []);
 
   return (
@@ -66,7 +84,20 @@ const HoverSvg = ({ svgHeigh }) => {
             stiffness: 500,
             damping: 40,
           }}
+          id="lineAC"
         />
+        <text
+          style={{ fill: "white" }}
+          className="text-xl md:text-4xl lg:text-8xl  "
+        >
+          <textPath
+            href="#lineAC"
+            className="uppercase font-[neuka]"
+            startOffset={offSetValue}
+          >
+            {Text}
+          </textPath>
+        </text>
       </svg>
     </center>
   );
