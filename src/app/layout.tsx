@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { baseUrl } from "./sitemap";
 import LoaderWrapper from "@/components/LoaderWrapper";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -64,6 +65,12 @@ export default function RootLayout({
           rel="sitemap"
           type="application/xml"
           href={`${baseUrl}/api/sitemap`}
+        />
+        <link
+          rel="icon"
+          className="rounded-full"
+          type="image/x-icon"
+          href="./favicon.svg"
         />
       </head>
       <body

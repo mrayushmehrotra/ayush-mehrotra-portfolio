@@ -26,7 +26,7 @@ const LoaderWrapper = ({ children }: LoaderWrapperProps) => {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5 }}
-            className="fixed scale-[200%]    inset-0 z-50 bg-white overflow-hidden"
+            className="fixed scale-[500%]    inset-0 z-50 bg-white overflow-hidden"
           >
             <motion.svg
               viewBox="0 0 1335 1081"

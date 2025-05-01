@@ -13,9 +13,7 @@ export default function index({ index, title, manageModal }) {
       }}
       className={styles.project}
     >
-      <h2 className="text-sm md:text-3xl sm:text-center  text-red-300  ">
-        {title}
-      </h2>
+      <h2 className="text-2xl md:text-3xl     ">{title}</h2>
       <p className="hidden md:flex">Design & Development</p>
     </div>
   );

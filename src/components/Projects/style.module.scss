@@ -1,8 +1,6 @@
 .projects {
   display: flex;
   align-items: center;
-  padding-left: 200px;
-  padding-right: 200px;
   flex-direction: column;
   margin-top: 300px;
 
@@ -36,6 +34,7 @@
   }
 
   .modal {
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -51,8 +50,7 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: #34d399;
-
+    background-color: #455CE9;
     color: white;
     position: fixed;
     z-index: 3;
@@ -61,7 +59,7 @@
     justify-content: center;
     font-size: 14px;
     font-weight: 300;
-
+    pointer-events: none;
   }
 
   .cursorLabel {

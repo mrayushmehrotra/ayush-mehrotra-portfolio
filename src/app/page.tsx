@@ -27,9 +27,8 @@ export default function Home() {
         <br />
         <Main />
         <div className="m-8      ">
-          <HoverSvg svgHeigh={200} />
-          <br />
-          <br />
+          <HoverSvg svgHeigh={400} />
+
           <Projects />
           <br />
           <br />
