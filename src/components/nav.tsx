@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
-import PopperButton from "./ui/PopperButton";
 
+import confetti from "canvas-confetti";
 interface NavItem {
   title: string;
   link: string;
@@ -23,6 +23,8 @@ export default function Navbar() {
 
   // Function to cycle through images
   const cycleNavImage = () => {
+    confetti();
+
     setNavImgIndex((prev) => (prev + 1) % navImages.length);
   };
 
@@ -43,19 +45,16 @@ export default function Navbar() {
             />
           </div>
 
-          {/* Image container */}
-          <PopperButton>
-            <div className="absolute top-[2px] left-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)]  rounded-sm overflow-hidden ">
-              <Image
-                priority
-                src={navImages[navImgIndex]}
-                alt="navImg"
-                height={90}
-                width={90}
-                className="object-cover w-full h-full"
-              />
-            </div>
-          </PopperButton>
+          <div className="absolute top-[2px] left-[2px] w-[calc(100%-4px)] h-[calc(100%-4px)]  rounded-sm overflow-hidden ">
+            <Image
+              priority
+              src={navImages[navImgIndex]}
+              alt="navImg"
+              height={90}
+              width={90}
+              className="object-cover w-full h-full"
+            />
+          </div>
         </motion.div>
 
         <ul className="flex  gap-8">

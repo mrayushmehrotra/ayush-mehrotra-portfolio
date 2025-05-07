@@ -29,19 +29,19 @@ const projects = [
   },
   {
     title: "Twitty",
-    src: "silencio.png",
+    src: "twitter.png",
     color: "#706D63",
     link: "https://github.com/mrayushmehrotra/twitter-clone.git",
   },
   {
     title: "Bagfax",
-    src: "silencio.png",
+    src: "bagfax.png",
     color: "#706D63",
     link: "https://bagfax.vercel.app/",
   },
   {
     title: "AI Native App",
-    src: "silencio.png",
+    src: "myBoi.jpg",
     color: "#706D63",
     link: "https://github.com/mrayushmehrotra/llm-bot-in-reactNative.git",
   },
