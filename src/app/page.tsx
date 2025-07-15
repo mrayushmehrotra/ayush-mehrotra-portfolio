@@ -2,32 +2,39 @@
 
 import TechStack from "@/components/techstack";
 import HoverSvg from "@/components/HoverSVG";
-import Lenis from "lenis";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+
 import { GithubMap } from "@/components/githubCalendar";
 import Projects from "@/components/Projects";
 
 import Footer from "@/components/footer";
-import { Experience } from "@/components/Experience";
+// import { Experience } from "@/components/Experience";
 import Main from "@/components/Home";
+import Lenis from "lenis";
 
 export default function Home() {
   useEffect(() => {
-    const lenis = new Lenis();
-    function raf(time: number) {
-      lenis.raf(time);
+    (async () => {
+      const lenis = new Lenis();
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
       requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+    })();
   }, []);
 
   return (
     <>
       <section>
         <br />
+
         <Main />
+
         <div className="m-8      ">
-          <HoverSvg svgHeigh={400} />
+          <div className="hidden lg:block  ">
+            <HoverSvg svgHeigh={400} />
+          </div>
 
           <Projects />
           <br />
@@ -35,11 +42,12 @@ export default function Home() {
           <GithubMap />
 
           <br />
+
           <br />
           <TechStack />
           <hr className="border-b border-zinc-700" />
         </div>
-        <Experience />
+        {/* <Experience /> */}
         <Footer />
       </section>
     </>

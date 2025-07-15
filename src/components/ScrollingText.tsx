@@ -1,10 +1,12 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
 const ScrollingText = () => {
   const [rotate, setRotate] = useState(0);
   const [touchStartY, setTouchStartY] = useState(0);
+  const { scrollYProgress } = useScroll();
+  const duration = useTransform(scrollYProgress, [0, 1], [6, 3]);
 
   const items = [
     { text: "Tech Stack", image: "/arrow-br.svg" },
@@ -66,7 +68,11 @@ const ScrollingText = () => {
           animate={{
             transform: rotate > 0 ? "translateX(-200%)" : "translateX(0%)",
           }}
-          transition={{ duration: 7, repeat: Infinity, ease: "linear" }}
+          transition={{
+            duration: duration.get(),
+            repeat: Infinity,
+            ease: "linear",
+          }}
         >
           <h1 className="mb-8 font-[Neuka] text-4xl md:text-6xl lg:text-8xl text-center font-semibold tracking-tighter text-black">
             {item.text}
@@ -74,7 +80,7 @@ const ScrollingText = () => {
           <motion.div
             className="h-[64px] w-[64px]"
             animate={{ rotate: rotate }} // Rotate the arrow
-            transition={{ type: "spring", stiffness: 100 }} // Smooth rotation
+            transition={{ type: "spring", stiffness: 30 }} // Smooth rotation
           >
             <Image src={item.image} height={64} width={64} alt="arrow" />
           </motion.div>

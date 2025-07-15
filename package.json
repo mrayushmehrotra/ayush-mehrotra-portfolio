@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/locomotive-scroll": "^4.1.4",
     "axios": "^1.8.2",
     "canvas-confetti": "^1.9.3",
     "clsx": "^2.1.1",
@@ -16,6 +17,7 @@
     "cursor-effects": "^1.0.17",
     "gsap": "^3.12.7",
     "lenis": "^1.2.3",
+    "locomotive-scroll": "^4.1.4",
     "lucide-react": "^0.475.0",
     "matter-js": "^0.20.0",
     "motion": "^12.4.7",

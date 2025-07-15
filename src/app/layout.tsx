@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { baseUrl } from "./sitemap";
-import LoaderWrapper from "@/components/LoaderWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +13,6 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
   title: {
     default: "Ayush Mehrotra Portfolio | Web Developer",
     template: "%s | Ayush Mehrotra Portfolio",
@@ -26,7 +23,7 @@ export const metadata: Metadata = {
     title: "Ayush Mehrotra",
     description:
       "This is Ayush Mehrotra's Portfolio | A Full Stack Software Engineer having expertise in JavaScript and It's frameworks, this portfolio contains some pieces of my frontend knowledge.",
-    url: baseUrl,
+    url: "https://ayush-mehrotra-portfolio-two.vercel.app/",
     siteName: "Ayush Mehrotra's Portfolio",
     images: [
       {
@@ -63,23 +60,19 @@ export default function RootLayout({
         <link
           rel="sitemap"
           type="application/xml"
-          href={`${baseUrl}/api/sitemap`}
+          href={`https://ayush-mehrotra-portfolio-two.vercel.app/api/sitemap`}
         />
         <link
           rel="icon"
           className="rounded-full"
           type="image/x-icon"
-          href="./favicon.svg"
+          href="./favicon.ico"
         />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} z-[10]  antialiased overflow-x-hidden  `}
       >
-        <LoaderWrapper>
-          <main className="max-w-xl z-[9] lg:max-w-full lg:mx-0">
-            {children}
-          </main>
-        </LoaderWrapper>
+        <main className="max-w-xl z-[9] lg:max-w-full lg:mx-0">{children}</main>
       </body>
     </html>
   );
