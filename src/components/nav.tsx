@@ -12,7 +12,9 @@ interface NavItem {
 
 export default function Navbar() {
   const [navImgIndex, setNavImgIndex] = useState(0);
-  const navItems: NavItem[] = [{ title: "CONTACT", link: "#footer" }];
+  const navItems: NavItem[] = [
+    { title: "Let's Work Together", link: "#footer" },
+  ];
 
   const navImages = [
     "/tanjiro_happy.jpg",
@@ -30,9 +32,9 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="w-full container py-6 mx-auto flex items-center justify-between sm:px-2 px-4 relative">
+      <div className="w-full container py-2  mx-auto flex items-center justify-between sm:px-2 px-4 relative">
         <motion.div
-          className="w-[60px] h-[60px]   cursor-help   rounded-sm  relative overflow-hidden"
+          className="w-[65px] h-[65px]   cursor-help   rounded-sm  relative overflow-hidden"
           onClick={cycleNavImage}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -65,7 +67,16 @@ export default function Navbar() {
                   href={item.link}
                   className="md:text-2xl text-md  font-[MyFont] "
                 >
-                  {item.title}
+                  <button
+                    className="px-4 rounded-lg border-2 border-transparent font-extrabold transition-all duration-300 ease-in-out inline-flex justify-center items-center gap-2 relative light:bg-black bg-white light:text-white text-black disabled:opacity-60 hover:opacity-90 h-12 text-lg"
+                    aria-expanded="false"
+                    aria-haspopup="dialog"
+                  >
+                    <span className="">
+                      <span className="hidden md:inline ">{item.title}</span>
+                      <span className="inline md:hidden">Hire Me</span>
+                    </span>
+                  </button>
                 </a>
               </motion.li>
             </motion.div>

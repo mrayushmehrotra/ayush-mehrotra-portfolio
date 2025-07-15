@@ -25,16 +25,36 @@
 }
 body {
   color: var(--foreground);
-  background-color: #111;
+  background-color: #000;
   color: white;
   font-family: "MyFont", Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
 }
 
-.heroBG {
+/* .heroBG {
   background-image: url("../assets/mesh-gradient-optimized.webp");
   background-size: 100% 400%;
   background-position-y: 84.4573%;
+} */
+
+
+@keyframes zoom {
+  0%,
+  100% {
+    background-position-y: 0%;
+  }
+  50% {
+    background-position-y: 100%;
+  }
+}
+       @keyframes zoom {
+0%,
+100% {
+background-size: 100% 400%;
+}
+50% {
+background-size: 120% 420%;
+}
 }
 
 @keyframes rotate {

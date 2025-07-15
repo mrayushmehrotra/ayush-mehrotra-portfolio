@@ -11,6 +11,7 @@ import Footer from "@/components/footer";
 // import { Experience } from "@/components/Experience";
 import Main from "@/components/Home";
 import Lenis from "lenis";
+import Navbar from "../components/nav";
 
 export default function Home() {
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function Home() {
 
   return (
     <>
+<Navbar />
       <section>
         <br />
 
