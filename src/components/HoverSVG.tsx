@@ -6,7 +6,7 @@ const HoverSvg = ({ svgHeigh }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const [Text, SetText] = useState("you can play with me :)");
 
-  const [svgWidth, setSvgWidth] = useState(window.innerWidth * 0.8); // 80% of screen width
+  const [svgWidth, setSvgWidth] = useState(0);
   const svgHeight = svgHeigh; // Default height
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   // Spring-based motion values for smooth animation
@@ -47,18 +47,7 @@ const HoverSvg = ({ svgHeigh }) => {
 
   // Update SVG dimensions based on viewport size
   useEffect(() => {
-    const updateDimensions = () => {
-      setSvgWidth(window.innerWidth * 0.8); // Always 80% of screen width
-    };
-
-    updateDimensions();
-    window.addEventListener("resize", updateDimensions);
-    return () => {
-      window.removeEventListener("resize", updateDimensions);
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
+    setSvgWidth(window.innerWidth * 0.8);
   }, []);
 
   return (
