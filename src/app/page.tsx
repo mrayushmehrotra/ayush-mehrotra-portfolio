@@ -8,7 +8,7 @@ import { GithubMap } from "@/components/githubCalendar";
 import Projects from "@/components/Projects";
 
 import Footer from "@/components/footer";
-// import { Experience } from "@/components/Experience";
+import { Experience } from "@/components/Experience";
 import Main from "@/components/Home";
 import Lenis from "lenis";
 import Navbar from "../components/nav";
@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <>
-<Navbar />
+      <Navbar />
       <section>
         <br />
 
@@ -49,7 +49,7 @@ export default function Home() {
           <TechStack />
           <hr className="border-b border-zinc-700" />
         </div>
-        {/* <Experience /> */}
+        <Experience />
         <Footer />
       </section>
     </>
