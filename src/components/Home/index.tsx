@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import React, { useState } from "react";
 
 export default function Home() {
@@ -138,7 +139,9 @@ function TechStackSemicircle() {
           const isHovered = hovered === i;
           const isAnyHovered = hovered !== -1;
           return (
-            <img
+            <Image
+              height={300}
+              width={300}
               key={icon.src}
               src={icon.src}
               alt={icon.alt}
