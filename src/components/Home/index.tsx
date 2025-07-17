@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <div className="flex pt-5 ">
         <div className="md:pl-24   pl-12">
-          <div className="md:h-[60vh] md:w-[70vw] h-[50vh]  overflow-hidden relative flex flex-col items-start justify-center ">
+          <div className="md:h-[60vh] md:w-[70vw] h-[50vh] overflow-hidden relative flex flex-col items-start justify-center">
             <div>
               <h1
                 className={cn(

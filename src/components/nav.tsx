@@ -23,7 +23,6 @@ export default function Navbar() {
     "/crying.gif",
   ];
 
-  // Function to cycle through images
   const cycleNavImage = () => {
     confetti();
 
@@ -41,7 +40,7 @@ export default function Navbar() {
         >
           <div className="absolute inset-0 overflow-hidden rounded-sm">
             <motion.div
-              className="absolute w-[140%] h-[140%] bg-[conic-gradient(#34d399_60%,#000_40%)] top-[-20%] left-[-20%]"
+              className="absolute w-[140%] h-[140%] bg-[conic-gradient(#fff_60%,#000_40%)] top-[-20%] left-[-20%]"
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
             />

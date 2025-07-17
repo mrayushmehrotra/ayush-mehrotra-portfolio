@@ -12,6 +12,7 @@ import { Experience } from "@/components/Experience";
 import Main from "@/components/Home";
 import Lenis from "lenis";
 import Navbar from "../components/nav";
+import ProjectSection from "@/components/ProjectSection";
 
 export default function Home() {
   useEffect(() => {
@@ -30,25 +31,23 @@ export default function Home() {
       <Navbar />
       <section>
         <br />
-
         <Main />
-
-        <div className="m-8      ">
-          <div className="hidden lg:block  ">
-            <HoverSvg svgHeigh={400} />
-          </div>
-
-          <Projects />
-          <br />
-          <br />
-          <GithubMap />
-
-          <br />
-
-          <br />
-          <TechStack />
-          <hr className="border-b border-zinc-700" />
+        <div className="hidden lg:flex">
+          <HoverSvg svgHeigh={400} />
         </div>
+        <ProjectSection />
+        <Projects />
+
+        <br />
+        <br />
+        <GithubMap />
+
+        <br />
+
+        <br />
+        <TechStack />
+        <hr className="border-b border-zinc-700" />
+
         <Experience />
         <Footer />
       </section>

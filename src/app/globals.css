@@ -27,7 +27,7 @@ body {
   color: var(--foreground);
   background-color: #000;
   color: white;
-  font-family: "MyFont", Arial, Helvetica, sans-serif;
+  font-family: "editorialNew", Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -36,7 +36,6 @@ body {
   background-size: 100% 400%;
   background-position-y: 84.4573%;
 } */
-
 
 @keyframes zoom {
   0%,
@@ -47,14 +46,14 @@ body {
     background-position-y: 100%;
   }
 }
-       @keyframes zoom {
-0%,
-100% {
-background-size: 100% 400%;
-}
-50% {
-background-size: 120% 420%;
-}
+@keyframes zoom {
+  0%,
+  100% {
+    background-size: 100% 400%;
+  }
+  50% {
+    background-size: 120% 420%;
+  }
 }
 
 @keyframes rotate {
