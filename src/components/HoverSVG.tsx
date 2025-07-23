@@ -51,42 +51,44 @@ const HoverSvg = ({ svgHeigh }) => {
   }, []);
 
   return (
-    <center
-      className="w-full z-20 relative"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
-      <svg ref={svgRef} height={svgHeight} width={svgWidth}>
-        <motion.path
-          d={path}
-          stroke={"white"}
-          strokeWidth="2"
-          fill="transparent"
-          initial={{
-            d: `M 10 ${svgHeight / 2} Q ${svgWidth / 2} ${svgHeight / 2} ${svgWidth - 10} ${svgHeight / 2}`,
-          }}
-          transition={{
-            duration: 1,
-            type: "spring",
-            stiffness: 500,
-            damping: 40,
-          }}
-          id="lineAC"
-        />
-        <text
-          style={{ fill: "white" }}
-          className="text-xl md:text-4xl lg:text-8xl  "
-        >
-          <textPath
-            href="#lineAC"
-            className="uppercase font-[neuka]"
-            startOffset={20}
+    <>
+      <center
+        className="w-full z-20 relative"
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        <svg ref={svgRef} height={svgHeight} width={svgWidth}>
+          <motion.path
+            d={path}
+            stroke={"white"}
+            strokeWidth="2"
+            fill="transparent"
+            initial={{
+              d: `M 10 ${svgHeight / 2} Q ${svgWidth / 2} ${svgHeight / 2} ${svgWidth - 10} ${svgHeight / 2}`,
+            }}
+            transition={{
+              duration: 1,
+              type: "spring",
+              stiffness: 500,
+              damping: 40,
+            }}
+            id="lineAC"
+          />
+          <text
+            style={{ fill: "white" }}
+            className="text-xl md:text-4xl lg:text-8xl  "
           >
-            {Text}
-          </textPath>
-        </text>
-      </svg>
-    </center>
+            <textPath
+              href="#lineAC"
+              className="uppercase font-[editorialNew]"
+              startOffset={20}
+            >
+              {Text}
+            </textPath>
+          </text>
+        </svg>
+      </center>
+    </>
   );
 };
 

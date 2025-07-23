@@ -12,7 +12,6 @@ import { Experience } from "@/components/Experience";
 import Main from "@/components/Home";
 import Lenis from "lenis";
 import Navbar from "../components/nav";
-import ProjectSection from "@/components/ProjectSection";
 
 export default function Home() {
   useEffect(() => {
@@ -32,10 +31,9 @@ export default function Home() {
       <section>
         <br />
         <Main />
-        <div className="hidden lg:flex">
+        <div className="hidden lg:flex items-end h-[60vh]  ">
           <HoverSvg svgHeigh={400} />
         </div>
-        <ProjectSection />
         <Projects />
 
         <br />

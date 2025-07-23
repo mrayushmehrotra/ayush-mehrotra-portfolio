@@ -59,7 +59,7 @@ const ScrollingText = () => {
   }, [touchStartY, handleTouchEnd]);
 
   return (
-    <div className="bg-emerald-400 w-full sticky top-0 p-4 flex flex-nowrap flex-shrink-0">
+    <div className=" bg-[#f5f5f5]  w-full sticky top-0 p-4 flex flex-nowrap flex-shrink-0">
       {items.map((item, index) => (
         <motion.div
           key={index}
@@ -74,7 +74,7 @@ const ScrollingText = () => {
             ease: "linear",
           }}
         >
-          <h1 className="mb-8 font-[Neuka] text-4xl md:text-6xl lg:text-8xl text-center font-semibold tracking-tighter text-black">
+          <h1 className="mb-8 font-[editorialNew] text-4xl md:text-6xl lg:text-8xl text-center font-semibold tracking-tighter text-black">
             {item.text}
           </h1>
           <motion.div

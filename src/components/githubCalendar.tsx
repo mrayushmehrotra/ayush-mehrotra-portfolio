@@ -4,7 +4,7 @@ export function GithubMap() {
   return (
     <div className="p-2 text-center">
       <div className="flex   flex-col items-center">
-        <span className="text-emerald-600 scale-150  font-bold">
+        <span className=" text-[#f2f2f2] scale-[150%]   md:scale-[200%] m-4  font-bold">
           <GitHubCalendar
             blockSize={0}
             hideMonthLabels
@@ -19,7 +19,7 @@ export function GithubMap() {
             href="https://github.com/mrayushmehrotra"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-emerald-500 hover:underline"
+            className=" text-[#f2f2f2]  hover:underline"
           >
             GitHub
           </a>

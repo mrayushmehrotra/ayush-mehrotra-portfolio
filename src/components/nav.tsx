@@ -13,7 +13,7 @@ interface NavItem {
 export default function Navbar() {
   const [navImgIndex, setNavImgIndex] = useState(0);
   const navItems: NavItem[] = [
-    { title: "Let's Work Together", link: "#footer" },
+    { title: "let's work together", link: "#footer" },
   ];
 
   const navImages = [

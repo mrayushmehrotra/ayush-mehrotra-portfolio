@@ -83,7 +83,7 @@ export default function TechStack() {
             viewport={{ once: true, margin: "-100px 0px 0px 0px" }}
           >
             <div className="w-full m-4 md:w-[40%] space-y-4 md:space-y-6">
-              <h1 className="text-4xl md:text-7xl font-bold capitalize font-[neuka]">
+              <h1 className="text-4xl md:text-7xl font-bold font-[editorialNew]">
                 {category}
               </h1>
               <p className="text-base md:text-lg text-neutral-400">

@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 export default function Home() {
-  const Developer = "Web & Android Developer  ";
+  const Developer = "web & android developer  ";
   return (
     <>
       <div className="flex pt-5 ">
@@ -15,9 +15,9 @@ export default function Home() {
                   "  text-7xl md:text-8xl lg:text-9xl 2xl:text-10xl font-bold font-[editorialNew] flex text-4xl text-white animate-fade-in text-left",
                 )}
               >
-                <span>A</span>
+                <span>a</span>
                 yush&nbsp;
-                <span>M</span>
+                <span>m</span>
                 ehrotra
               </h1>
             </div>
