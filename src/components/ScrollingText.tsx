@@ -33,7 +33,6 @@ const ScrollingText = () => {
     setTouchStartY(event.touches[0].clientY);
   };
 
-  // Handle touch end event for mobile
   const handleTouchEnd = (event: TouchEvent) => {
     const touchEndY = event.changedTouches[0].clientY;
     const deltaY = touchEndY - touchStartY;
@@ -80,7 +79,7 @@ const ScrollingText = () => {
           <motion.div
             className="h-[64px] w-[64px]"
             animate={{ rotate: rotate }} // Rotate the arrow
-            transition={{ type: "spring", stiffness: 30 }} // Smooth rotation
+            transition={{ type: "spring", stiffness: 100 }} // Smooth rotation
           >
             <Image src={item.image} height={64} width={64} alt="arrow" />
           </motion.div>

@@ -83,10 +83,10 @@ export default function TechStack() {
             viewport={{ once: true, margin: "-100px 0px 0px 0px" }}
           >
             <div className="w-full m-4 md:w-[40%] space-y-4 md:space-y-6">
-              <h1 className="text-4xl md:text-7xl font-bold font-[editorialNew]">
+              <h1 className="text-4xl uppercase  md:text-7xl font-bold font-[editorialNew]">
                 {category}
               </h1>
-              <p className="text-base md:text-lg text-neutral-400">
+              <p className="text-base  md:text-lg text-neutral-400">
                 {getCategoryDescription(category)}
               </p>
             </div>
@@ -99,9 +99,12 @@ export default function TechStack() {
                   className="relative border-white  p-[3px] overflow-hidden rounded-md group"
                   whileHover={{ scale: 0.95 }}
                 >
-                  <div className="absolute -inset-[2px] rounded-lg bg-gradient-to-r from-[#34d399] via-zinc-500  to-[#34d399] animate-moving-background bg-[length:200%_200%]" />
+                  <div
+                    className="absolute -inset-[2px] rounded-lg bg-gradient-to-r from-[white] via-transparent to-transparent 
+                animate-[spin_8s_linear_infinite] 
+                bg-[length:200%_200%]"
+                  />
 
-                  {/* Content container */}
                   <div className="relative z-10 flex items-center gap-4 p-4 rounded-lg bg-neutral-800 hover:bg-neutral-700 transition-colors">
                     <Image
                       src={item.imageurl}
