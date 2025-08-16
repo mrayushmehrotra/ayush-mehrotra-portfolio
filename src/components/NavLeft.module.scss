@@ -1,0 +1,37 @@
+.container {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  /* same as rounded-sm */
+  cursor: help;
+}
+
+.border {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  background: conic-gradient(white 60%, black 40%);
+  padding: 2px;
+
+  /* Mask to keep only border visible */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.imageBox {
+  position: absolute;
+  inset: 2px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: black;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

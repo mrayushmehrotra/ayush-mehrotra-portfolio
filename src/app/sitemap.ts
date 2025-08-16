@@ -1,43 +1,23 @@
-export const baseUrl = "https://ayush-mehrotra-portfolio-two.vercel.app/";
+import { getPosts } from "@/utils/utils";
+import { baseURL, routes as routesConfig } from "@/resources";
 
 export default async function sitemap() {
-  const staticRoutes = [
-    {
-      url: `${baseUrl}/blogs/windows-vs-linux/`,
-      lastModified: new Date().toISOString(),
-    },
-    {
-      url: `${baseUrl}/blogs`,
-      lastModified: new Date().toISOString(),
-    },
-    {
-      url: `${baseUrl}/blogs/vscode-vs-nvim`,
-      lastModified: new Date().toISOString(),
-    },
-    {
-      url: `${baseUrl}/exp`,
-      lastModified: new Date().toISOString(),
-    },
-    {
-      url: `${baseUrl}/linux`,
-      lastModified: new Date().toISOString(),
-    },
-  ];
-
-  // If you have dynamic routes (e.g., projects fetched from an API or CMS)
-
-  const dynamicRoutes = [
-    {
-      url: `${baseUrl}/*`,
-      lastModified: new Date().toISOString(),
-    },
-  ];
-
-  // Combine static and dynamic routes
-  const routes = [...staticRoutes, ...dynamicRoutes];
-
-  return routes.map((route) => ({
-    url: route.url,
-    lastModified: route.lastModified,
+  const blogs = getPosts(["src", "app", "blog", "posts"]).map((post) => ({
+    url: `${baseURL}/blog/${post.slug}`,
+    lastModified: post.metadata.publishedAt,
   }));
+
+  const works = getPosts(["src", "app", "work", "projects"]).map((post) => ({
+    url: `${baseURL}/work/${post.slug}`,
+    lastModified: post.metadata.publishedAt,
+  }));
+
+  const activeRoutes = Object.keys(routesConfig).filter((route) => routesConfig[route as keyof typeof routesConfig]);
+
+  const routes = activeRoutes.map((route) => ({
+    url: `${baseURL}${route !== "/" ? route : ""}`,
+    lastModified: new Date().toISOString().split("T")[0],
+  }));
+
+  return [...routes, ...blogs, ...works];
 }

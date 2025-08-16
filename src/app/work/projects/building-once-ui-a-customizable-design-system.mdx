@@ -1,0 +1,49 @@
+---
+title: " Aideation – A Notion-Inspired Productivity App"
+publishedAt: "2024-06-15"
+summary: "A full-stack Notion clone built to explore collaborative editing, real-time sync, and a flexible block-based editor."
+images:
+  - "/images/notion.png"
+team:
+  - name: "Ayush Mehrotra"
+    role: "Full Stack Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/ayush-mehrotra"
+---
+
+## Overview
+
+Aideation is a Notion-inspired web app designed to provide a clean, intuitive, and flexible workspace for note-taking, task management, and collaboration. The project was built to deepen my understanding of **real-time systems**, **rich-text editing**, and **scalable backend architecture** while replicating the familiar Notion experience with a personal twist.  
+
+## Key Features
+
+- **Block-Based Editor**: Developed a custom editor that supports text, headings, checkboxes, and media blocks, giving users the flexibility to structure content however they want.  
+- **Real-Time Collaboration**: Implemented live editing and syncing across devices and sessions using websockets.  
+- **Authentication & User Management**: Integrated secure login and role-based access with **Keycloak SSO**, ensuring a consistent identity across sessions.  
+- **Database-Like Pages**: Added support for tables and task lists, making pages more powerful and interactive.  
+- **Responsive UI**: Designed a minimal and fluid interface inspired by Notion’s simplicity, built with **Tailwind CSS** for consistency and speed.  
+
+## Technologies Used
+
+- **Next.js & React**: For building a performant, modern front-end.  
+- **Node.js & Express**: Backend APIs to handle document operations and real-time communication.  
+- **PostgreSQL + Prisma**: For structured data storage and relational modeling of pages, users, and workspaces.  
+- **Supabase Realtime**: For collaborative editing and live sync.  
+- **Tailwind CSS**: For styling and creating a consistent design system.  
+- **Keycloak**: For handling authentication and role-based access.  
+
+## Challenges and Learnings
+
+One of the biggest challenges was designing a **real-time sync system** that could handle multiple users editing the same page without conflicts. Implementing operational transforms and using Supabase Realtime helped ensure smooth collaboration.  
+
+Another learning was building a **block-based editor from scratch**, which required balancing flexibility with performance, especially when handling nested structures and rendering updates efficiently.  
+
+Additionally, integrating **authentication across collaborative features** taught me how critical secure access management is in multi-user applications.  
+
+## Outcome
+
+Aideation now provides a polished, Notion-like experience for creating and organizing content. It demonstrates my ability to:  
+
+- Build **real-time collaborative systems**.  
+- Create a **custom editor experience** from the ground up.  
+- M
