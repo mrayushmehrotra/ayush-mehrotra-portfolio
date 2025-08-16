@@ -4,14 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaHome, FaRegUser, FaRegMoon } from "react-icons/fa";
 import { MdWorkOutline, MdOutlineArticle } from "react-icons/md";
-import { PiImagesSquareDuotone } from "react-icons/pi";
+
+import { GrProjects } from "react-icons/gr";
 
 const navItems = [
   { path: "/", label: "Home", icon: <FaHome /> },
   { path: "/about", label: "About", icon: <FaRegUser /> },
   { path: "/work", label: "Work", icon: <MdWorkOutline /> },
-
-  { path: "/gallery", label: "Gallery", icon: <PiImagesSquareDuotone /> },
+  { path: "/projects", label: "Projects", icon: <GrProjects /> },
 ];
 
 export function Navbar() {

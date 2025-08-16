@@ -111,10 +111,10 @@ const about = {
     projects: {
       experiences: [
         {
-          company: "Space.ai",
-          timeframe: "present",
-          role: "Full Stack Engineer",
-          achievements: [
+          title: "Shawtify",
+
+          techStack: ["Next.js, React, Supabase, PostgreSQL, Stripe"],
+          description: [
             <>
               Implemented Keycloak SSO for all microservices as the single
               authentication system
@@ -129,24 +129,8 @@ const about = {
               through clean, reusable components.
             </>,
           ],
-          images: [],
-        },
-        {
-          company: "CodeTikki",
-          timeframe: "Jan 2023 – Mar 2023",
-          role: "Intern",
-          achievements: [
-            <>
-              Developed web applications using React and Node.js, ensuring
-              responsive and user-friendly interfaces.
-            </>,
-            <>Collaborated on backend APIs with MongoDB integration.</>,
-            <>
-              Participated in code reviews and improved project performance
-              through clean, reusable components.
-            </>,
-          ],
-          images: [],
+          image: "/spotify.webp",
+          videoUrl: "/spotify.mp4",
         },
       ],
     },

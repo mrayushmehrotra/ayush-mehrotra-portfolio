@@ -66,12 +66,14 @@ export const WorkExpSection = ({
     <>
       <section className={` overflow-hidden mt-4 mb-4 p-6  ${className}`}>
         <div className="flex items-center justify-between">
-          <h1 className="flex flex-col gap-y-2">
+          <h1 className="text-2xl tracking-tighter font-semibold">
             <b>{companyTitle}</b>
           </h1>
           <p className="text-zinc-300">{time}</p>
         </div>
-        <span className="text-[#6DB2DA]">{jobTitle}</span>
+        <span className="text-xl tracking-tighter font-semibold">
+          {jobTitle}
+        </span>
         {points.map((item, idx) => (
           <ul>
             <li key={idx} className="flex gap-x-2">
