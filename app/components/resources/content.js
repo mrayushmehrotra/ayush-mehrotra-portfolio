@@ -1,3 +1,5 @@
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+
 const person = {
   firstName: "Ayush",
   lastName: "Mehrotra",
@@ -14,18 +16,18 @@ const person = {
 const social = [
   {
     name: "GitHub",
-    icon: "github",
+    icon: <FaGithub />,
     link: "https://github.com/mrayushmehrotra",
   },
   {
     name: "LinkedIn",
-    icon: "linkedin",
+    icon: <FaLinkedin />,
     link: "https://www.linkedin.com/in/mrayushmehrotra",
   },
 
   {
     name: "Email",
-    icon: "email",
+    icon: <FaEnvelope />,
     link: `mailto:${person.email}`,
   },
 ];
@@ -33,7 +35,7 @@ const social = [
 const home = {
   path: "/",
   image: "/images/og/home.jpg",
-  label: "Home",
+  label: "Introduction",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
   headline: <>Building Web, Mobile & AI Apps</>,
@@ -48,9 +50,9 @@ const home = {
 };
 
 const about = {
+  avatar: "/tanjiro_happy.jpg",
   intro: {
-    display: true,
-    title: "Introduction",
+    title: "About Section",
     description: (
       <>
         Software engineer with 1+ years of experience. Worked for innovative
@@ -186,7 +188,6 @@ const about = {
             deployment.
           </>
         ),
-        images: [],
       },
     ],
   },
@@ -199,4 +200,4 @@ const work = {
   description: `A showcase of apps, experiments, and client projects built by ${person.name}`,
 };
 
-export { person, social, newsletter, home, about, work };
+export { person, social, home, about, work };
