@@ -49,14 +49,12 @@ const Marquee = ({ items, reverse = false, duration = 15 }) => (
           className="w-fit"
           style={{
             display: "flex",
-
             alignItems: "center",
             justifyContent: "left",
             padding: " 1px 38px 1px 19px ",
             gap: "10px",
-
             borderRadius: "555px",
-            backgroundColor: "#ffffff",
+            backgroundColor: "#111",
             boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
             transition: "transform 0.3s",
           }}
@@ -67,14 +65,14 @@ const Marquee = ({ items, reverse = false, duration = 15 }) => (
             width={30}
             height={30}
             style={{
-              filter: "grayscale(100%)",
+              // filter: "grayscale(100%)",
               objectFit: "contain",
             }}
           />
           <span
             style={{
               fontWeight: "600",
-              color: "#111",
+              color: "white",
               fontSize: "14px",
               whiteSpace: "nowrap",
             }}

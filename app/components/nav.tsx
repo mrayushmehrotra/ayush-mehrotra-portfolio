@@ -10,7 +10,7 @@ const navItems = [
   { path: "/", label: "Home", icon: <FaHome /> },
   { path: "/about", label: "About", icon: <FaRegUser /> },
   { path: "/work", label: "Work", icon: <MdWorkOutline /> },
-  { path: "/blog", label: "Blog", icon: <MdOutlineArticle /> },
+
   { path: "/gallery", label: "Gallery", icon: <PiImagesSquareDuotone /> },
 ];
 

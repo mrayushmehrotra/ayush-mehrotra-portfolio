@@ -1,4 +1,7 @@
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { CgWebsite } from "react-icons/cg";
+import { LuServerCrash, LuWorkflow } from "react-icons/lu";
+import { TbCloudDataConnection } from "react-icons/tb";
 
 const person = {
   firstName: "Ayush",
@@ -105,6 +108,48 @@ const about = {
         images: [],
       },
     ],
+    projects: {
+      experiences: [
+        {
+          company: "Space.ai",
+          timeframe: "present",
+          role: "Full Stack Engineer",
+          achievements: [
+            <>
+              Implemented Keycloak SSO for all microservices as the single
+              authentication system
+            </>,
+            <>
+              {" "}
+              Built and deployed a microservices from strach with nginx on{" "}
+              <b>AWS</b>.
+            </>,
+            <>
+              Participated in code reviews and improved project performance
+              through clean, reusable components.
+            </>,
+          ],
+          images: [],
+        },
+        {
+          company: "CodeTikki",
+          timeframe: "Jan 2023 – Mar 2023",
+          role: "Intern",
+          achievements: [
+            <>
+              Developed web applications using React and Node.js, ensuring
+              responsive and user-friendly interfaces.
+            </>,
+            <>Collaborated on backend APIs with MongoDB integration.</>,
+            <>
+              Participated in code reviews and improved project performance
+              through clean, reusable components.
+            </>,
+          ],
+          images: [],
+        },
+      ],
+    },
   },
   studies: {
     display: true,
@@ -159,35 +204,41 @@ const about = {
         title: "Frontend",
         description: (
           <>
-            HTML, CSS, JS, Bootstrap, React, Next.js, TailwindCSS, TypeScript,
-            and Figma etc.
+            HTML, CSS, JS, Bootstrap, React, <b>Next.js</b>,<b>TailwindCSS</b>,{" "}
+            <b>TypeScript</b>, and Figma etc.
           </>
         ),
-        images: [],
+        icons: <CgWebsite />,
       },
       {
         title: "Backend",
         description: (
           <>
-            Node.js, FastAPI, Express, Nest.js, NoSQL, SQL, Prisma, GraphQL, and
-            API development.
+            Node.js, FastAPI, Express, <b>Nest.js</b>, NoSQL, SQL, Prisma,{" "}
+            <b>GraphQL</b>, and API development.
           </>
         ),
-        images: [],
+        icons: <LuServerCrash />,
       },
       {
         title: "AI & Tools",
-        description: <>Worked with OpenAI, Gemini, Supabase, N8n workflows,</>,
-        images: [],
+        description: (
+          <>
+            Worked with OpenAI, Gemini, Supabase,<b>N8n workflows</b>
+          </>
+        ),
+        icons: <LuWorkflow />,
       },
       {
         title: "DevOps & Others",
         description: (
           <>
-            Docker, Git, Linux (Arch OS), Keycloak, Firebase, and AWS for
-            deployment.
+            <b>Docker</b>, Git, <b>Linux (Arch OS)</b>, Keycloak, Firebase, and{" "}
+            <b>AWS</b>
+            for deployment.
           </>
         ),
+        icons: <TbCloudDataConnection />,
       },
     ],
   },

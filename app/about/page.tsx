@@ -81,8 +81,33 @@ const page = () => {
             {about.studies.title}
           </h1>
           {about.studies.institutions.map((item, idx) => (
-            <ul key={idx} className="p-4">
-              <li className=" list-disc  text-gray-700 dark:text-gray-300 text-sm space-y-1">
+            <ul key={idx} className="pl-4">
+              <li className=" list-disc ml-2  text-gray-700 dark:text-gray-300 text-sm space-y-1">
+                {item.description}
+              </li>
+            </ul>
+          ))}
+        </div>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }} // start hidden and slightly below
+        whileInView={{ opacity: 1, y: 0 }} // animate to visible
+        viewport={{ once: true, amount: 0.2 }} // trigger when 20% of element is in view
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="flex flex-col gap-6 p-4 md:p-6"
+      >
+        <div className="flex flex-col gap-4">
+          <h1 className="text-2xl tracking-tighter font-semibold">
+            {about.technical.title}
+          </h1>
+          {about.technical.skills.map((item, idx) => (
+            <ul key={idx} className="pl-4">
+              <ul>
+                <li className="flex  gap-x-2 items-center text-xl font-semibold tracking-tighter ml-2 text-gray-700 dark:text-gray-300  ">
+                  {item.icons} <span>{item.title}</span>
+                </li>
+              </ul>
+              <li className=" list-disc ml-10  text-gray-700 dark:text-gray-300 text-sm space-y-1">
                 {item.description}
               </li>
             </ul>

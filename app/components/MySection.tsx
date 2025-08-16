@@ -75,7 +75,7 @@ export const WorkExpSection = ({
         {points.map((item, idx) => (
           <ul>
             <li key={idx} className="flex gap-x-2">
-              <span className="text-[#6Db2da]">•</span>
+              <span className="">•</span>
               <p> {item}</p>
             </li>
             <br />
