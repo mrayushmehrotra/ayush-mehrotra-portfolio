@@ -1,0 +1,9 @@
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ayush-mehrotra-portfolio-two.vercel.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
