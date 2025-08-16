@@ -112,8 +112,15 @@ const about = {
       experiences: [
         {
           title: "Shawtify",
+          url: "https://spotify-clone-ashy-five.vercel.app/",
 
-          techStack: ["Next.js, React, Supabase, PostgreSQL, Stripe"],
+          techStack: [
+            "nextjs.png",
+            "react.png",
+            "supabase.jpg",
+            "postgresql.png",
+            "stripe.webp",
+          ],
           description: [
             <>
               Implemented Keycloak SSO for all microservices as the single
