@@ -1,0 +1,52 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FaHome, FaRegUser, FaRegMoon } from "react-icons/fa";
+import { MdWorkOutline, MdOutlineArticle } from "react-icons/md";
+import { PiImagesSquareDuotone } from "react-icons/pi";
+
+const navItems = [
+  { path: "/", label: "Home", icon: <FaHome /> },
+  { path: "/about", label: "About", icon: <FaRegUser /> },
+  { path: "/work", label: "Work", icon: <MdWorkOutline /> },
+  { path: "/blog", label: "Blog", icon: <MdOutlineArticle /> },
+  { path: "/gallery", label: "Gallery", icon: <PiImagesSquareDuotone /> },
+];
+
+export function Navbar() {
+  const pathname = usePathname();
+
+  return (
+    <nav className="flex justify-center w-full">
+      <div className="flex items-center gap-6 px-6 py-2 bg-white dark:bg-neutral-900 rounded-full shadow-md">
+        {navItems.map(({ path, label, icon }) => {
+          const isActive = pathname === path;
+
+          return (
+            <Link
+              key={path}
+              href={path}
+              className={`flex items-center rounded-full px-4 py-2 gap-2 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-black dark:hover:text-white transition
+${isActive ? "bg-neutral-200 dark:bg-neutral-700" : ""}
+`}
+            >
+              <div
+                className={`flex items-center justify-center 
+`}
+              >
+                {icon}
+              </div>
+              <span>{label}</span>
+            </Link>
+          );
+        })}
+
+        {/* Dark Mode Toggle */}
+        <button className="ml-2 p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 transition">
+          <FaRegMoon />
+        </button>
+      </div>
+    </nav>
+  );
+}
