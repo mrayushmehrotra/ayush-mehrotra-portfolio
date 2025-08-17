@@ -1,10 +1,12 @@
+"use client";
 import Image from "next/image";
 import Section from "./components/MySection";
 import TechMarquee from "./components/Stack";
 import { home, person } from "./components/resources/content";
+import BlurView from "./components/BlurView";
 export default function Page() {
   return (
-    <>
+    <BlurView>
       <div className="flex mt-4 relative  justify-between">
         <h1 className="  text-2xl font-semibold tracking-tighter">
           {person.name}
@@ -37,6 +39,6 @@ export default function Page() {
           width={300}
         />
       </div>
-    </>
+    </BlurView>
   );
 }

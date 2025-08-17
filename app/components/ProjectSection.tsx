@@ -24,12 +24,14 @@ const ProjectSection = ({ url, img, title, description, video, techStack }) => {
               hovered ? "opacity-0" : "opacity-100"
             }`}
           />
+
           {video && (
             <video
               src={video}
-              autoPlay={hovered}
+              autoPlay
               muted
               loop
+              preload="auto"
               className={`absolute top-0 left-0 w-full h-full object-cover rounded-2xl pointer-events-none transition-opacity duration-300 ${
                 hovered ? "opacity-100" : "opacity-0"
               }`}

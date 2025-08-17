@@ -2,29 +2,12 @@
 import Image from "next/image";
 import { about, person, social } from "../components/resources/content";
 import { FaGlobeAsia, FaLanguage } from "react-icons/fa";
-import Section, { WorkExpSection } from "app/components/MySection";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import BlurView from "app/components/BlurView";
 const page = () => {
   return (
-    <motion.div
-      initial={{
-        filter: "blur(20px)",
-        y: 10,
-        opacity: 0,
-      }}
-      animate={{
-        filter: "blur(0px)",
-        y: 0,
-
-        opacity: 1,
-      }}
-      transition={{
-        duration: 0.5,
-        staggerChildren: 0.5,
-      }}
-      className="mt-4"
-    >
+    <BlurView>
       <div className=" flex items-center justify-center gap-y-4  flex-col">
         <div className="">
           <Image
@@ -114,7 +97,7 @@ const page = () => {
           ))}
         </div>
       </motion.div>
-    </motion.div>
+    </BlurView>
   );
 };
 

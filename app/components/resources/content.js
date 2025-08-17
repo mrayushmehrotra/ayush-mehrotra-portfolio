@@ -113,7 +113,6 @@ const about = {
         {
           title: "Shawtify",
           url: "https://spotify-clone-ashy-five.vercel.app/",
-
           techStack: [
             "nextjs.png",
             "react.png",
@@ -127,17 +126,139 @@ const about = {
               authentication system
             </>,
             <>
-              {" "}
-              Built and deployed a microservices from strach with nginx on{" "}
-              <b>AWS</b>.
+              Built and deployed microservices from scratch with <b>NGINX</b> on{" "}
+              <b>AWS</b>
             </>,
             <>
-              Participated in code reviews and improved project performance
-              through clean, reusable components.
+              Developed a Spotify-inspired music streaming platform with secure
+              subscriptions via <b>Stripe</b>
+            </>,
+            <>
+              Integrated <b>Supabase</b> for database and authentication, with{" "}
+              <b>PostgreSQL</b> as backend storage
+            </>,
+            <>
+              Enhanced performance and UI by creating clean, reusable{" "}
+              <b>React</b> components
             </>,
           ],
           image: "/spotify.webp",
           videoUrl: "/spotify.mp4",
+        },
+        {
+          title: "Sathi | AI",
+          url: "https://sathi-five.vercel.app/",
+          techStack: ["react.png", "tailwind.png", "google.png", "openai.png"],
+          description: [
+            <>
+              Built an AI-powered tool to generate SEO-friendly titles,
+              descriptions, and trending hashtags
+            </>,
+            <>
+              Integrated <b>Google APIs</b> & <b>AI models</b> for real-time
+              content optimization
+            </>,
+            <>
+              Developed an intuitive UI with <b>React</b> & <b>Tailwind CSS</b>
+            </>,
+            <>
+              Enabled creators and businesses to boost their digital presence
+              efficiently
+            </>,
+          ],
+          image: "/sathi.webp",
+          videoUrl: "/sathi.mp4",
+        },
+        {
+          title: "Ecommerce Backend",
+          url: "https://github.com/mrayushmehrotra/ecommerce-backend",
+          techStack: [
+            "node.png",
+            "express.png",
+            "mongodb.png",
+            "jwt.png",
+            "razorpay.png",
+          ],
+          description: [
+            <>
+              Developed a scalable <b>Node.js</b> & <b>Express.js</b> backend
+              for ecommerce
+            </>,
+            <>
+              Implemented email-based OTP authentication with <b>JWT</b>{" "}
+              security
+            </>,
+            <>
+              Integrated <b>Razorpay</b> for seamless payment processing
+            </>,
+            <>
+              Designed REST APIs for product management, cart, and order
+              workflows
+            </>,
+            <>
+              Ensured modular, reusable code with proper error handling and
+              validations
+            </>,
+          ],
+          image: "/ecommerce.webp",
+          videoUrl: "/ecommerce.mp4",
+        },
+        {
+          title: "Caption Generator",
+          url: "https://github.com/mrayushmehrotra/caption-generator",
+          techStack: [
+            "nextjs.png",
+            "moviepy.png",
+            "python.png",
+            "speechrec.png",
+          ],
+          description: [
+            <>Developed a web app for automatic caption generation in videos</>,
+            <>
+              Extracted audio from videos and converted it into subtitles using{" "}
+              <b>SpeechRecognition</b>
+            </>,
+            <>
+              Synced and embedded captions into videos with <b>MoviePy</b>
+            </>,
+            <>
+              Enabled users to upload, preview, and download captioned videos
+              easily
+            </>,
+          ],
+          image: "/caption.webp",
+          videoUrl: "/caption.mp4",
+        },
+        {
+          title: "Agriculture Assistant App",
+          url: "#",
+          techStack: [
+            "react.png",
+            "node.png",
+            "express.png",
+            "mongodb.png",
+            "python.png",
+          ],
+          description: [
+            <>
+              Created an AI-driven app for <b>soil health analysis</b> &{" "}
+              <b>crop recommendations</b>
+            </>,
+            <>
+              Designed smart irrigation planning and fertilizer/pesticide
+              management system
+            </>,
+            <>
+              Integrated backend APIs with <b>Node.js</b>, <b>Express.js</b> and{" "}
+              <b>MongoDB</b>
+            </>,
+            <>
+              Planned integration of AI/ML models for agriculture prediction &
+              optimization
+            </>,
+          ],
+          image: "/agriculture.webp",
+          videoUrl: "/agriculture.mp4",
         },
       ],
     },

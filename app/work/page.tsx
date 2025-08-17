@@ -1,9 +1,10 @@
+import BlurView from "app/components/BlurView";
 import { WorkExpSection } from "app/components/MySection";
 import { about } from "app/components/resources/content";
 
 const page = () => {
   return (
-    <div>
+    <BlurView>
       {about.work.experiences.map((item, idx) => (
         <WorkExpSection
           key={idx * 2}
@@ -13,7 +14,7 @@ const page = () => {
           companyTitle={item.company}
         ></WorkExpSection>
       ))}
-    </div>
+    </BlurView>
   );
 };
 
