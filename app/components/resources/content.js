@@ -220,9 +220,9 @@ const about = {
           url: "#",
           techStack: [
             "react.png",
-            "node.png",
+            "nodejs.png",
             "express.png",
-            "mongodb.png",
+            "mongodb.svg",
             "python.png",
           ],
           description: [
