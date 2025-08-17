@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-const baseUrl = "https://ayush-mehrotra-portfolio-two.vercel.app";
+export const baseUrl = "https://ayush-mehrotra-portfolio-two.vercel.app";
 
 export async function GET() {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
