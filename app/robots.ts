@@ -1,4 +1,4 @@
-import { baseUrl } from "app/sitemap.xml/route";
+import { baseUrl } from "app/sitemap";
 
 export default function robots() {
   return {
