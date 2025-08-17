@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
 import "./global.css";
+import Layout from "./components/GridBG";
 
 export const metadata: Metadata = {
   title: {
@@ -205,14 +206,16 @@ export default function RootLayout({
         />
       </Head>
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
-          <SchemaMarkup />
-          {children}
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-        </main>
+        <Layout>
+          <main className="z-1">
+            <Navbar />
+            <SchemaMarkup />
+            {children}
+            <Footer />
+            <Analytics />
+            <SpeedInsights />
+          </main>
+        </Layout>
       </body>
     </html>
   );

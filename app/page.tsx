@@ -1,10 +1,12 @@
+import Image from "next/image";
 import Section from "./components/MySection";
 import TechMarquee from "./components/Stack";
 import { home, person } from "./components/resources/content";
+import Robot from "./components/Robot";
 export default function Page() {
   return (
     <>
-      <div className="flex mt-4  justify-between">
+      <div className="flex mt-4 relative  justify-between">
         <h1 className="  text-2xl font-semibold tracking-tighter">
           {person.name}
         </h1>
@@ -18,8 +20,24 @@ export default function Page() {
       <Section title={home.label}>
         <p className="mb-4">{home.subline}</p>
       </Section>
-
+      <br />
       <TechMarquee />
+      <div className="flex items-center  justify-around">
+        <div>
+          <h1 className="text-3xl font-extrabold uppercase">
+            Design.
+            <br />
+            Develop. <br />
+            Deploy. <br />
+          </h1>
+        </div>
+        <Image
+          src="/main_icon_dark.svg"
+          alt="heroIcon"
+          height={300}
+          width={300}
+        />
+      </div>
     </>
   );
 }

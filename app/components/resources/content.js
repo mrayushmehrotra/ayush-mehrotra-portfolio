@@ -235,11 +235,4 @@ const about = {
   },
 };
 
-const work = {
-  path: "/work",
-  label: "Work",
-  title: `Projects – ${person.name}`,
-  description: `A showcase of apps, experiments, and client projects built by ${person.name}`,
-};
-
-export { person, social, home, about, work };
+export { person, social, home, about };
