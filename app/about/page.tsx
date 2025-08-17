@@ -97,6 +97,9 @@ const page = () => {
           ))}
         </div>
       </motion.div>
+      <br />
+      <br />
+      <br />
     </BlurView>
   );
 };
