@@ -1,8 +1,7 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from "next/server";
+const baseUrl = "https://ayush-mehrotra-portfolio-two.vercel.app";
 
 export async function GET() {
-  const baseUrl = 'https://ayush-mehrotra-portfolio-two.vercel.app'
-  
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
@@ -34,11 +33,11 @@ export async function GET() {
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-</urlset>`
+</urlset>`;
 
   return new NextResponse(sitemap, {
     headers: {
-      'Content-Type': 'application/xml',
+      "Content-Type": "application/xml",
     },
-  })
+  });
 }

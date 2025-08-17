@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 function ArrowIcon() {
   return (
     <svg
@@ -16,35 +20,22 @@ function ArrowIcon() {
 }
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+  const text = `© ${year} / Ayush Mehrotra • `.repeat(10); // repeat to fill width
+
   return (
-    <footer>
-      <ul className="font-sm mt-8 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="/rss"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">rss</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://github.com/mrayushmehrotra"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">github</p>
-          </a>
-        </li>
-      </ul>
-      <p className="mt-8 text-neutral-600 dark:text-neutral-300">
-        © {new Date().getFullYear()} / Ayush Mehrotra
-      </p>
+    <footer className="relative w-full overflow-hidden border-t border-neutral-700 py-4 bg-black">
+      <motion.div
+        className="flex whitespace-nowrap text-neutral-600 dark:text-neutral-300"
+        animate={{ x: ["0%", "-100%"] }}
+        transition={{
+          repeat: Infinity,
+          duration: 10, // speed (lower = faster)
+          ease: "linear",
+        }}
+      >
+        <span className="mr-8">{text}</span>
+      </motion.div>
     </footer>
   );
 }
