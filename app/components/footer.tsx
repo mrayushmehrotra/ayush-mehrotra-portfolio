@@ -24,13 +24,13 @@ export default function Footer() {
   const text = `© ${year} / Ayush Mehrotra • `.repeat(10); // repeat to fill width
 
   return (
-    <footer className="relative w-full overflow-hidden border-t border-neutral-700 py-4 bg-black">
+    <footer className=" hidden md:flex  relative w-full overflow-hidden border-t border-neutral-700 py-4 bg-black">
       <motion.div
         className="flex whitespace-nowrap text-neutral-600 dark:text-neutral-300"
         animate={{ x: ["0%", "-100%"] }}
         transition={{
           repeat: Infinity,
-          duration: 10, // speed (lower = faster)
+          duration: 20, // speed (lower = faster)
           ease: "linear",
         }}
       >
