@@ -46,7 +46,7 @@ export function Navbar() {
       </nav>
 
       {/* Mobile Bottom Bar */}
-      <nav className="fixed bottom-0 left-0 w-full md:hidden bg-white dark:bg-neutral-900 shadow-t py-2">
+      <nav className="z-[99] fixed bottom-0 left-0 w-full md:hidden bg-white dark:bg-neutral-900 shadow-t py-2">
         <div className="flex justify-around">
           {navItems.map(({ path, icon }) => {
             const isActive = pathname === path;
