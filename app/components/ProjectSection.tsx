@@ -5,8 +5,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const ProjectSection = ({ url, img, title, description, video, techStack }) => {
-  const [hovered, setHovered] = useState(false);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -16,12 +14,10 @@ const ProjectSection = ({ url, img, title, description, video, techStack }) => {
     >
       <Link target="_blank" href={url}>
         <div
-          className="group relative rounded-3xl overflow-hidden shadow-xl 
+          className="  group relative rounded-3xl overflow-hidden shadow-xl 
           bg-gradient-to-br from-white/80 to-white/60 dark:from-neutral-900/80 dark:to-neutral-800/60 
           backdrop-blur-xl border border-white/20 dark:border-white/10 
           transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl"
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
         >
           {/* Image / Video */}
           <div className="relative w-full h-72 md:h-96 overflow-hidden">
@@ -29,24 +25,10 @@ const ProjectSection = ({ url, img, title, description, video, techStack }) => {
               src={img}
               alt={title}
               fill
-              className={`object-cover transition-all duration-700 ease-in-out 
-                ${hovered ? "scale-110 blur-sm opacity-40" : "scale-100 opacity-100"}`}
+              className={`object-cover transition-all duration-700 ease-in-out `}
             />
 
-            {video && (
-              <video
-                src={video}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className={`absolute top-0 left-0 w-full h-full object-cover transition-all duration-700 
-                  ${hovered ? "opacity-100 scale-100" : "opacity-0 scale-105"}`}
-              />
-            )}
-
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
           </div>
 
           {/* Content */}
