@@ -23,22 +23,6 @@ export default function Page() {
       </Section>
       <br />
       <TechMarquee />
-      <div className="flex items-center  justify-around">
-        <div>
-          <h1 className="text-3xl font-extrabold uppercase">
-            Design.
-            <br />
-            Develop. <br />
-            Deploy. <br />
-          </h1>
-        </div>
-        <Image
-          src="/main_icon_dark.svg"
-          alt="heroIcon"
-          height={300}
-          width={300}
-        />
-      </div>
     </BlurView>
   );
 }
