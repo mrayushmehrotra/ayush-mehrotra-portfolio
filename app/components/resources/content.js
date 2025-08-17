@@ -122,14 +122,6 @@ const about = {
           ],
           description: [
             <>
-              Implemented Keycloak SSO for all microservices as the single
-              authentication system
-            </>,
-            <>
-              Built and deployed microservices from scratch with <b>NGINX</b> on{" "}
-              <b>AWS</b>
-            </>,
-            <>
               Developed a Spotify-inspired music streaming platform with secure
               subscriptions via <b>Stripe</b>
             </>,
@@ -148,7 +140,7 @@ const about = {
         {
           title: "Sathi | AI",
           url: "https://sathi-five.vercel.app/",
-          techStack: ["react.png", "tailwind.png", "google.png", "openai.png"],
+          techStack: ["nextjs.png", "tailwind.png", "gemini.webp"],
           description: [
             <>
               Built an AI-powered tool to generate SEO-friendly titles,
@@ -166,17 +158,16 @@ const about = {
               efficiently
             </>,
           ],
-          image: "/sathi.webp",
+          image: "/Saathi3.png",
           videoUrl: "/sathi.mp4",
         },
         {
           title: "Ecommerce Backend",
           url: "https://github.com/mrayushmehrotra/ecommerce-backend",
           techStack: [
-            "node.png",
+            "nodejs.png",
             "express.png",
-            "mongodb.png",
-            "jwt.png",
+            "mongodb.svg",
             "razorpay.png",
           ],
           description: [
@@ -200,18 +191,13 @@ const about = {
               validations
             </>,
           ],
-          image: "/ecommerce.webp",
+          image: "/ecom-backend.avif",
           videoUrl: "/ecommerce.mp4",
         },
         {
           title: "Caption Generator",
           url: "https://github.com/mrayushmehrotra/caption-generator",
-          techStack: [
-            "nextjs.png",
-            "moviepy.png",
-            "python.png",
-            "speechrec.png",
-          ],
+          techStack: ["python.png", "huggingface.svg"],
           description: [
             <>Developed a web app for automatic caption generation in videos</>,
             <>
@@ -226,7 +212,7 @@ const about = {
               easily
             </>,
           ],
-          image: "/caption.webp",
+          image: "/caption_gen.png",
           videoUrl: "/caption.mp4",
         },
         {
@@ -257,7 +243,7 @@ const about = {
               optimization
             </>,
           ],
-          image: "/agriculture.webp",
+          image: "/agriculture_project.jpg",
           videoUrl: "/agriculture.mp4",
         },
       ],

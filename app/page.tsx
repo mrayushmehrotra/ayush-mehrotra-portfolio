@@ -23,6 +23,9 @@ export default function Page() {
       </Section>
       <br />
       <TechMarquee />
+
+      <br />
+      <br />
     </BlurView>
   );
 }
