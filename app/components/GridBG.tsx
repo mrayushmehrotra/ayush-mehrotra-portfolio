@@ -15,18 +15,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <body className="antialiased relative h-full  overflow-x-hidden bg-black ">
+    <body className="antialiased relative min-h-fit    overflow-x-hidden bg-black ">
       {/* WHITE BLUR GLOW FOLLOWING MOUSE */}
       <motion.div
-        className="pointer-events-none absolute z-0 rounded-full"
+        className="pointer-events-none fixed z-0 rounded-full"
         animate={{
           left: mouse.x - 300,
           top: mouse.y - 300,
         }}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
         style={{
           width: 600,
           height: 600,
+          overflowX: "hidden",
           background: "radial-gradient(circle, white, transparent 60%)",
           filter: "blur(150px)",
         }}

@@ -4,10 +4,10 @@ import { generateStructuredData } from "../lib/structured-data";
 import Head from "next/head";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import Footer from "./components/footer";
 import { Navbar } from "./components/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Footer from "./components/footer";
 import "./global.css";
 import Layout from "./components/GridBG";
 
@@ -205,12 +205,13 @@ export default function RootLayout({
           }}
         />
       </Head>
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
+      <body className=" overflow-x-hidden antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
         <Layout>
           <main className="z-1">
             <Navbar />
             <SchemaMarkup />
             {children}
+
             <Footer />
             <Analytics />
             <SpeedInsights />
