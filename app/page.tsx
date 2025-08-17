@@ -2,7 +2,6 @@ import Image from "next/image";
 import Section from "./components/MySection";
 import TechMarquee from "./components/Stack";
 import { home, person } from "./components/resources/content";
-import Robot from "./components/Robot";
 export default function Page() {
   return (
     <>
