@@ -8,6 +8,7 @@ import Footer from "./components/footer";
 import { Navbar } from "./components/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { ViewTransitions } from "next-view-transitions";
 import "./global.css";
 // import Layout from "./components/GridBG";
 
@@ -134,90 +135,95 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={cx(
-        "text-black bg-white dark:text-white dark:bg-black",
-        GeistSans.variable,
-        GeistMono.variable,
-      )}
-    >
-      <Head>
-        <meta
-          name="description"
-          content="Explore the portfolio of Ayush Mehrotra, showcasing expertise in MERN stack, Next.js, Tailwind CSS, TypeScript, and Three.js."
-        />
+    <ViewTransitions>
+      <html
+        lang="en"
+        className={cx(
+          "text-black bg-white dark:text-white dark:bg-black",
+          GeistSans.variable,
+          GeistMono.variable,
+        )}
+      >
+        <Head>
+          <meta
+            name="description"
+            content="Explore the portfolio of Ayush Mehrotra, showcasing expertise in MERN stack, Next.js, Tailwind CSS, TypeScript, and Three.js."
+          />
 
-        {/* Open Graph (OG) Meta Tags */}
-        <meta property="og:title" content="Ayush Mehrotra - Portfolio" />
-        <meta
-          property="og:description"
-          content="Discover the projects and achievements of Ayush Mehrotra, a skilled developer in MERN stack, Next.js, and more."
-        />
-        <meta
-          property="og:image"
-          content="https://ayush-mehrotra-portfolio-two.vercel.app/favicon.png"
-        />
-        <meta
-          property="og:url"
-          content="https://ayush-mehrotra-portfolio-two.vercel.app/"
-        />
-        <meta property="og:type" content="website" />
+          {/* Open Graph (OG) Meta Tags */}
+          <meta property="og:title" content="Ayush Mehrotra - Portfolio" />
+          <meta
+            property="og:description"
+            content="Discover the projects and achievements of Ayush Mehrotra, a skilled developer in MERN stack, Next.js, and more."
+          />
+          <meta
+            property="og:image"
+            content="https://ayush-mehrotra-portfolio-two.vercel.app/favicon.png"
+          />
+          <meta
+            property="og:url"
+            content="https://ayush-mehrotra-portfolio-two.vercel.app/"
+          />
+          <meta property="og:type" content="website" />
 
-        {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ayush Mehrotra - Portfolio" />
-        <meta
-          name="twitter:description"
-          content="Explore the developer portfolio of Ayush Mehrotra, showcasing advanced skills in web development and design."
-        />
-        <meta
-          name="twitter:image"
-          content="https://ayush-mehrotra-portfolio.vercel.app/path-to-your-image.jpg"
-        />
-        <meta name="title" content="Ayush Mehrotra - Portfolio" />
-        <meta
-          name="description"
-          content="Explore the portfolio of Ayush Mehrotra, showcasing web development expertise and innovative projects."
-        />
-        <meta property="og:site_name" content="Ayush Mehrotra Portfolio" />
-        <meta property="og:locale" content="en_US" />
+          {/* Twitter Card Meta Tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Ayush Mehrotra - Portfolio" />
+          <meta
+            name="twitter:description"
+            content="Explore the developer portfolio of Ayush Mehrotra, showcasing advanced skills in web development and design."
+          />
+          <meta
+            name="twitter:image"
+            content="https://ayush-mehrotra-portfolio.vercel.app/path-to-your-image.jpg"
+          />
+          <meta name="title" content="Ayush Mehrotra - Portfolio" />
+          <meta
+            name="description"
+            content="Explore the portfolio of Ayush Mehrotra, showcasing web development expertise and innovative projects."
+          />
+          <meta property="og:site_name" content="Ayush Mehrotra Portfolio" />
+          <meta property="og:locale" content="en_US" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Ayush Mehrotra" />
-        <link rel="apple-touch-icon" href="/myBoi.jpg" />
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(generateStructuredData()),
-          }}
-        />
-      </Head>
-      <body className=" overflow-x-hidden antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        {/* <Layout> */}
-        <main className="relative z-20 flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-xl mx-auto">
-          <Navbar />
-          <SchemaMarkup />
-          {children}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="anonymous"
+          />
+          <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+          <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+          <meta name="theme-color" content="#000000" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="default"
+          />
+          <meta name="apple-mobile-web-app-title" content="Ayush Mehrotra" />
+          <link rel="apple-touch-icon" href="/myBoi.jpg" />
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(generateStructuredData()),
+            }}
+          />
+        </Head>
+        <body className=" overflow-x-hidden antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
+          {/* <Layout> */}
+          <main className="relative z-20 flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-xl mx-auto">
+            <Navbar />
+            <SchemaMarkup />
+            {children}
 
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-        </main>
-        {/* </Layout> */}
-      </body>
-    </html>
+            <Footer />
+            <Analytics />
+            <SpeedInsights />
+          </main>
+          {/* </Layout> */}
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaHome, FaRegUser, FaRegMoon } from "react-icons/fa";
 import { MdWorkOutline, MdOutlineArticle } from "react-icons/md";
+import { Link } from "next-view-transitions";
 
 import { GrProjects } from "react-icons/gr";
 

@@ -24,7 +24,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   // Repeat as an array of React nodes
-  const items = Array.from({ length: 10 }).map((_, i) => (
+  const items = Array.from({ length: 20 }).map((_, i) => (
     <span key={i} className="flex items-center mr-6">
       © {year} / Ayush Mehrotra
       <ArrowIcon />
@@ -38,7 +38,7 @@ export default function Footer() {
         animate={{ x: ["0%", "-100%"] }}
         transition={{
           repeat: Infinity,
-          duration: 20,
+          duration: 40,
           ease: "linear",
         }}
       >
