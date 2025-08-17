@@ -15,7 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <body className="antialiased relative min-h-fit    overflow-x-hidden bg-black ">
+    <body className="antialiased relative min-h-fit    overflow-x-hidden  ">
       {/* WHITE BLUR GLOW FOLLOWING MOUSE */}
       <motion.div
         className=" pointer-events-none fixed z-0 rounded-full"
@@ -60,7 +60,7 @@ function Grid() {
       {Array.from({ length: rows * cols }).map((_, i) => (
         <div
           key={i}
-          className="bg-black rounded-sm border border-zinc-700/20"
+          className="bg-black dark:bg-white rounded-sm border border-zinc-700/20 dark:border-zinc-300/20"
         />
       ))}
     </div>

@@ -139,7 +139,7 @@ export default function RootLayout({
       <html
         lang="en"
         className={cx(
-          "text-black bg-white dark:text-white dark:bg-black",
+
           GeistSans.variable,
           GeistMono.variable,
         )}
@@ -210,18 +210,18 @@ export default function RootLayout({
             }}
           />
         </Head>
-        <body className=" overflow-x-hidden antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-          {/* <Layout> */}
-          <main className="relative z-20 flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-xl mx-auto">
-            <Navbar />
-            <SchemaMarkup />
-            {children}
+        <body className="overflow-x-hidden antialiased max-w-xl mx-4 mt-8 lg:mx-auto ">
+            {/* <Layout> */}
+            <main className="relative z-20 flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-xl mx-auto">
+              <Navbar />
+              <SchemaMarkup />
+              {children}
 
-            <Footer />
-            <Analytics />
-            <SpeedInsights />
-          </main>
-          {/* </Layout> */}
+              <Footer />
+              <Analytics />
+              <SpeedInsights />
+            </main>
+            {/* </Layout> */}
         </body>
       </html>
     </ViewTransitions>

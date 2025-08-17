@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { FaHome, FaRegUser, FaRegMoon } from "react-icons/fa";
+import { FaHome, FaRegUser, FaRegMoon, FaCompactDisc } from "react-icons/fa";
 import { MdWorkOutline, MdOutlineArticle } from "react-icons/md";
 import { Link } from "next-view-transitions";
 
@@ -39,15 +39,15 @@ export function Navbar() {
           })}
 
           {/* Dark Mode Toggle */}
-          <button className="ml-2 p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-700 transition">
-            <FaRegMoon />
-          </button>
+          <div className="ml-2">
+            <FaCompactDisc  />
+          </div>
         </div>
       </nav>
 
       {/* Mobile Bottom Bar */}
-      <nav className="z-[99] fixed bottom-0 left-0 w-full md:hidden bg-white overflow-x-hidden  dark:bg-neutral-900 shadow-t py-2">
-        <div className="flex justify-around">
+      <nav className="z-[99] fixed bottom-0 left-0 w-full md:hidden bg-white overflow-x-hidden dark:bg-neutral-900 shadow-t py-2">
+        <div className="flex justify-around items-center">
           {navItems.map(({ path, icon }) => {
             const isActive = pathname === path;
             return (
@@ -62,6 +62,9 @@ export function Navbar() {
               </Link>
             );
           })}
+          <div className="p-2">
+            <FaCompactDisc  />
+          </div>
         </div>
       </nav>
     </>

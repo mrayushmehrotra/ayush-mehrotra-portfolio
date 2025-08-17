@@ -32,7 +32,7 @@ export default function Footer() {
   ));
 
   return (
-    <footer className="hidden md:flex relative w-full overflow-hidden border-t border-neutral-700 py-4 bg-black">
+    <footer className="hidden md:flex relative w-full overflow-hidden border-t border-neutral-700 py-4  ">
       <motion.div
         className="flex whitespace-nowrap text-neutral-600 dark:text-neutral-300"
         animate={{ x: ["0%", "-100%"] }}

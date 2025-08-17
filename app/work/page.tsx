@@ -14,6 +14,8 @@ const page = () => {
           companyTitle={item.company}
         ></WorkExpSection>
       ))}
+      <br />
+      <br />
     </BlurView>
   );
 };
