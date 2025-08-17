@@ -34,14 +34,6 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "en-US",
     orientation: "portrait-primary",
     scope: "/",
-    screenshots: [
-      {
-        src: "/api/og?title=Ayush%20Mehrotra%20-%20Full%20Stack%20Developer",
-        sizes: "1200x630",
-        type: "image/png",
-        form_factor: "wide",
-      },
-    ],
     shortcuts: [
       {
         name: "View Projects",
