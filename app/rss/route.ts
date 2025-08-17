@@ -1,4 +1,4 @@
-import { baseUrl } from "app/sitemap";
+const baseUrl = "https://ayush-mehrotra-portfolio-two.vercel.app/";
 
 export async function GET() {
   const rssFeed = `<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
