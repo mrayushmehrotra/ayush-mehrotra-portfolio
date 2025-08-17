@@ -1,17 +1,19 @@
-import "./global.css";
 import type { Metadata } from "next";
+import SchemaMarkup from "./components/SchemaMarkup";
+import { generateStructuredData } from "../lib/structured-data";
+import Head from "next/head";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { Navbar } from "./components/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
-import SchemaMarkup from "./components/SchemaMarkup";
-import { generateStructuredData } from "../lib/structured-data";
+import "./global.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Ayush Mehrotra | Expert Full Stack Developer | Next.js, React, Node.js Specialist",
+    default:
+      "Ayush Mehrotra | Expert Full Stack Developer | Next.js, React, Node.js Specialist",
     template: "%s | Ayush Mehrotra",
   },
   description:
@@ -59,7 +61,12 @@ export const metadata: Metadata = {
     "Expert Web Developer",
     "Senior Full Stack Engineer",
   ],
-  authors: [{ name: "Ayush Mehrotra", url: "https://ayush-mehrotra-portfolio-two.vercel.app" }],
+  authors: [
+    {
+      name: "Ayush Mehrotra",
+      url: "https://ayush-mehrotra-portfolio-two.vercel.app",
+    },
+  ],
   creator: "Ayush Mehrotra",
   publisher: "Ayush Mehrotra",
   formatDetection: {
@@ -71,11 +78,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
     types: {
-      "application/rss+xml": "https://ayush-mehrotra-portfolio-two.vercel.app/rss",
+      "application/rss+xml":
+        "https://ayush-mehrotra-portfolio-two.vercel.app/rss",
     },
   },
   openGraph: {
-    title: "Ayush Mehrotra | Expert Full Stack Developer | Next.js, React, Node.js Specialist",
+    title:
+      "Ayush Mehrotra | Expert Full Stack Developer | Next.js, React, Node.js Specialist",
     description:
       "Expert Full Stack Developer with 5+ years experience in Next.js, React, Node.js, TypeScript. Specialized in building scalable web applications, APIs, and cloud solutions. Available for hire.",
     url: "https://ayush-mehrotra-portfolio-two.vercel.app",
@@ -93,12 +102,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ayush Mehrotra | Expert Full Stack Developer | Next.js, React, Node.js Specialist",
+    title:
+      "Ayush Mehrotra | Expert Full Stack Developer | Next.js, React, Node.js Specialist",
     description:
       "Expert Full Stack Developer with 5+ years experience in Next.js, React, Node.js, TypeScript. Specialized in building scalable web applications, APIs, and cloud solutions.",
     site: "@AYUSH070707",
     creator: "@AYUSH070707",
-    images: ["https://ayush-mehrotra-portfolio-two.vercel.app/api/og?title=Ayush%20Mehrotra%20-%20Expert%20Full%20Stack%20Developer"],
+    images: [
+      "https://ayush-mehrotra-portfolio-two.vercel.app/api/og?title=Ayush%20Mehrotra%20-%20Expert%20Full%20Stack%20Developer",
+    ],
   },
   robots: {
     index: true,
@@ -129,9 +141,53 @@ export default function RootLayout({
         GeistMono.variable,
       )}
     >
-      <head>
+      <Head>
+        <meta
+          name="description"
+          content="Explore the portfolio of Ayush Mehrotra, showcasing expertise in MERN stack, Next.js, Tailwind CSS, TypeScript, and Three.js."
+        />
+
+        {/* Open Graph (OG) Meta Tags */}
+        <meta property="og:title" content="Ayush Mehrotra - Portfolio" />
+        <meta
+          property="og:description"
+          content="Discover the projects and achievements of Ayush Mehrotra, a skilled developer in MERN stack, Next.js, and more."
+        />
+        <meta
+          property="og:image"
+          content="https://ayush-mehrotra-portfolio-two.vercel.app/favicon.png"
+        />
+        <meta
+          property="og:url"
+          content="https://ayush-mehrotra-portfolio-two.vercel.app/"
+        />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Ayush Mehrotra - Portfolio" />
+        <meta
+          name="twitter:description"
+          content="Explore the developer portfolio of Ayush Mehrotra, showcasing advanced skills in web development and design."
+        />
+        <meta
+          name="twitter:image"
+          content="https://ayush-mehrotra-portfolio.vercel.app/path-to-your-image.jpg"
+        />
+        <meta name="title" content="Ayush Mehrotra - Portfolio" />
+        <meta
+          name="description"
+          content="Explore the portfolio of Ayush Mehrotra, showcasing web development expertise and innovative projects."
+        />
+        <meta property="og:site_name" content="Ayush Mehrotra Portfolio" />
+        <meta property="og:locale" content="en_US" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <meta name="theme-color" content="#000000" />
@@ -147,7 +203,7 @@ export default function RootLayout({
             __html: JSON.stringify(generateStructuredData()),
           }}
         />
-      </head>
+      </Head>
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
         <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           <Navbar />
