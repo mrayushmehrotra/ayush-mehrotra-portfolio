@@ -102,7 +102,7 @@ const page = () => {
           </h1>
           {about.technical.skills.map((item, idx) => (
             <ul key={idx} className="pl-4">
-              <ul>
+              <ul key={idx}>
                 <li className="flex  gap-x-2 items-center text-xl font-semibold tracking-tighter ml-2 text-gray-700 dark:text-gray-300  ">
                   {item.icons} <span>{item.title}</span>
                 </li>

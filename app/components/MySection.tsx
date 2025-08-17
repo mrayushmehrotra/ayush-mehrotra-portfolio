@@ -75,8 +75,8 @@ export const WorkExpSection = ({
           {jobTitle}
         </span>
         {points.map((item, idx) => (
-          <ul>
-            <li key={idx} className="flex gap-x-2">
+          <ul key={idx}>
+            <li className="flex gap-x-2">
               <span className="">•</span>
               <p> {item}</p>
             </li>

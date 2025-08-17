@@ -13,7 +13,7 @@ const frontend = [
 
 const backend = [
   { name: "Node.js", img: "nodejs.png" },
-  { name: "Express", img: "express.png" },
+  { name: "Express", img: "expressjs.png" },
   { name: "FastAPI", img: "fastapi.png" },
   { name: "Python", img: "python.png" },
 ];
@@ -51,7 +51,7 @@ const Marquee = ({ items, reverse = false, duration = 15 }) => (
             display: "flex",
             alignItems: "center",
             justifyContent: "left",
-            padding: " 1px 38px 1px 19px ",
+            padding: "1px 38px 0px 19px",
             gap: "10px",
             borderRadius: "555px",
             backgroundColor: "#111",
@@ -65,10 +65,11 @@ const Marquee = ({ items, reverse = false, duration = 15 }) => (
             width={30}
             height={30}
             style={{
-              // filter: "grayscale(100%)",
               objectFit: "contain",
+              borderRadius: "50%",
             }}
           />
+
           <span
             style={{
               fontWeight: "600",

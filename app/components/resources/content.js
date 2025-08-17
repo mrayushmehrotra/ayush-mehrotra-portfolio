@@ -25,7 +25,7 @@ const social = [
   {
     name: "LinkedIn",
     icon: <FaLinkedin />,
-    link: "https://www.linkedin.com/in/mrayushmehrotra",
+    link: "https://www.linkedin.com/in/ayush-mehrotra-99419724b",
   },
 
   {
@@ -44,10 +44,10 @@ const home = {
   headline: <>Building Web, Mobile & AI Apps</>,
   subline: (
     <>
-      I'm Ayush, a full-stack engineer passionate about blending{" "}
-      <span>design and code</span>. I build apps that feel intuitive and
-      scalable.
-      <br /> When I’m not coding, i read research papers and books.
+      I’m Ayush, a full-stack engineer passionate about blending design and
+      engineering to craft apps that are fast, intuitive, and built to last.
+      Outside of code, you’ll find me exploring research papers and books to
+      sharpen my perspective.
     </>
   ),
 };

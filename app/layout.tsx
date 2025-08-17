@@ -6,33 +6,60 @@ import { Navbar } from "./components/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
-import Head from "next/head";
-import BlurVignette from "./components/blur-vingette";
+import SchemaMarkup from "./components/SchemaMarkup";
+import { generateStructuredData } from "../lib/structured-data";
 
 export const metadata: Metadata = {
   title: {
-    default: "Ayush Mehrotra | Full Stack Web Developer & JavaScript Expert",
+    default: "Ayush Mehrotra | Expert Full Stack Developer | Next.js, React, Node.js Specialist",
     template: "%s | Ayush Mehrotra",
   },
   description:
-    "Explore the portfolio of Ayush Mehrotra, a passionate Full Stack Web Developer specializing in JavaScript, React, Next.js, Node.js, and modern web technologies. View projects, experience, and technical skills.",
+    "Expert Full Stack Developer Ayush Mehrotra specializes in Next.js, React, Node.js, TypeScript, and modern web technologies. 5+ years building scalable web applications, APIs, and cloud solutions. Available for hire.",
   keywords: [
     "Ayush Mehrotra",
-    "Full Stack Developer",
-    "Web Developer",
-    "JavaScript Developer",
-    "React Developer",
-    "Next.js Developer",
-    "Node.js Developer",
-    "Frontend Developer",
-    "Backend Developer",
-    "Portfolio",
-    "Software Engineer",
-    "Web Development",
-    "React Portfolio",
-    "JavaScript Portfolio",
+    "Full Stack Developer Expert",
+    "Next.js Developer for Hire",
+    "React Developer Specialist",
+    "Node.js Backend Developer",
+    "TypeScript Developer",
+    "JavaScript Full Stack",
+    "MERN Stack Developer",
+    "MEAN Stack Developer",
+    "Web Application Developer",
+    "API Development Expert",
+    "Database Design MongoDB PostgreSQL",
+    "Cloud Deployment AWS Vercel",
+    "Responsive Web Design",
+    "Progressive Web Apps PWA",
+    "E-commerce Development",
+    "SaaS Application Development",
+    "Real-time Applications WebSocket",
+    "Microservices Architecture",
+    "Docker Containerization",
+    "GraphQL API Development",
+    "RESTful API Design",
+    "Performance Optimization Expert",
+    "SEO Optimization Developer",
+    "Technical Consulting Services",
+    "Custom Web Development",
+    "Frontend Backend Integration",
+    "Modern Web Technologies",
+    "Full Stack Development Services",
+    "Remote Full Stack Developer",
+    "Freelance Web Developer",
+    "Software Engineer Portfolio",
+    "React Portfolio Projects",
+    "Next.js Portfolio Examples",
+    "JavaScript Development Portfolio",
+    "Web Developer India",
+    "Full Stack Developer India",
+    "Remote Developer Available",
+    "Hire Full Stack Developer",
+    "Expert Web Developer",
+    "Senior Full Stack Engineer",
   ],
-  authors: [{ name: "Ayush Mehrotra" }],
+  authors: [{ name: "Ayush Mehrotra", url: "https://ayush-mehrotra-portfolio-two.vercel.app" }],
   creator: "Ayush Mehrotra",
   publisher: "Ayush Mehrotra",
   formatDetection: {
@@ -43,19 +70,22 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ayush-mehrotra-portfolio-two.vercel.app"),
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": "https://ayush-mehrotra-portfolio-two.vercel.app/rss",
+    },
   },
   openGraph: {
-    title: "Ayush Mehrotra | Full Stack Web Developer & JavaScript Expert",
+    title: "Ayush Mehrotra | Expert Full Stack Developer | Next.js, React, Node.js Specialist",
     description:
-      "Explore the portfolio of Ayush Mehrotra, a passionate Full Stack Web Developer specializing in JavaScript, React, Next.js, Node.js, and modern web technologies. View projects, experience, and technical skills.",
-    url: "https://ayush-mehrotra-portfolio-two.vercel.app/",
-    siteName: "Ayush Mehrotra's Portfolio",
+      "Expert Full Stack Developer with 5+ years experience in Next.js, React, Node.js, TypeScript. Specialized in building scalable web applications, APIs, and cloud solutions. Available for hire.",
+    url: "https://ayush-mehrotra-portfolio-two.vercel.app",
+    siteName: "Ayush Mehrotra - Full Stack Developer Portfolio",
     images: [
       {
-        url: "https://ayush-mehrotra-portfolio-two.vercel.app/favicon.ico",
-        alt: "Ayush Mehrotra - Full Stack Web Developer",
-        height: 64,
-        width: 64,
+        url: "https://ayush-mehrotra-portfolio-two.vercel.app/api/og?title=Ayush%20Mehrotra%20-%20Expert%20Full%20Stack%20Developer",
+        width: 1200,
+        height: 630,
+        alt: "Ayush Mehrotra - Expert Full Stack Developer Portfolio",
       },
     ],
     locale: "en_US",
@@ -63,12 +93,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ayush Mehrotra | Full Stack Web Developer & JavaScript Expert",
+    title: "Ayush Mehrotra | Expert Full Stack Developer | Next.js, React, Node.js Specialist",
     description:
-      "Explore the portfolio of Ayush Mehrotra, a passionate Full Stack Web Developer specializing in JavaScript, React, Next.js, Node.js, and modern web technologies. View projects, experience, and technical skills.",
+      "Expert Full Stack Developer with 5+ years experience in Next.js, React, Node.js, TypeScript. Specialized in building scalable web applications, APIs, and cloud solutions.",
     site: "@AYUSH070707",
     creator: "@AYUSH070707",
-    images: ["https://ayush-mehrotra-portfolio-two.vercel.app/favicon.ico"],
+    images: ["https://ayush-mehrotra-portfolio-two.vercel.app/api/og?title=Ayush%20Mehrotra%20-%20Expert%20Full%20Stack%20Developer"],
   },
   robots: {
     index: true,
@@ -99,9 +129,29 @@ export default function RootLayout({
         GeistMono.variable,
       )}
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Ayush Mehrotra" />
+        <link rel="apple-touch-icon" href="/myBoi.jpg" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateStructuredData()),
+          }}
+        />
+      </head>
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto  min-w-0 mt-6 flex flex-col px-2 md:px-0">
+        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
           <Navbar />
+          <SchemaMarkup />
           {children}
           <Footer />
           <Analytics />
