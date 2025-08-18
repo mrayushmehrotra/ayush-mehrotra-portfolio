@@ -51,7 +51,7 @@ const page = () => {
         </motion.div>
         <div className="flex gap-x-2">
           {social.map((it, idx) => (
-            <Link href={it.link} key={idx * 2}>
+            <Link href={it.link} key={idx * 3}>
               <span
                 className="flex overflow-hidden items-center justify-center gap-x-2 hover:bg-zinc-900  border border-zinc-700 px-4 py-1 rounded-full "
                 key={idx}

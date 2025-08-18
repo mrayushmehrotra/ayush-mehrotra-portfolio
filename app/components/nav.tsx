@@ -40,7 +40,7 @@ export function Navbar() {
 
           {/* Dark Mode Toggle */}
           <div className="ml-2">
-            <FaCompactDisc  />
+            <FaCompactDisc />
           </div>
         </div>
       </nav>
@@ -63,7 +63,7 @@ export function Navbar() {
             );
           })}
           <div className="p-2">
-            <FaCompactDisc  />
+            <FaCompactDisc />
           </div>
         </div>
       </nav>

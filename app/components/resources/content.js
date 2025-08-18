@@ -139,7 +139,7 @@ const about = {
         },
         {
           title: "Sathi | AI",
-          url: "https://sathi-five.vercel.app/",
+          url: "https://socializer-gamma.vercel.app/",
           techStack: ["nextjs.png", "tailwind.png", "gemini.webp"],
           description: [
             <>
