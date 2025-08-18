@@ -127,8 +127,8 @@ const about = {
               <b>Stripe</b> behind the scene
             </>,
             <>
-              Created and Exposed backend api&apos;s by <b>express</b> for
-              component fetching
+              Created and Exposed backend api by <b>express</b> for component
+              fetching
             </>,
           ],
           image: "/sigma.png",

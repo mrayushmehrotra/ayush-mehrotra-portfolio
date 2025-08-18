@@ -11,6 +11,7 @@ const page = () => {
             techStack={it.techStack}
             img={it.image}
             video={it.videoUrl}
+            // @ts-ignore
             description={it.description}
             title={it.title}
             key={idx}
