@@ -111,6 +111,30 @@ const about = {
     projects: {
       experiences: [
         {
+          title: "SigmaUI",
+          url: "https://sigma-zeta-six.vercel.app/",
+          techStack: [
+            "nextjs.png",
+            "express.png",
+            "react.png",
+            "nodejs.png",
+            "vercel.svg",
+            "shadcn.png",
+          ],
+          description: [
+            <>
+              Developed a Component library which uses
+              <b>Stripe</b> behind the scene
+            </>,
+            <>
+              Created and Exposed backend api&apos;s by <b>express</b> for
+              component fetching
+            </>,
+          ],
+          image: "/sigma.png",
+        },
+
+        {
           title: "Shawtify",
           url: "https://spotify-clone-ashy-five.vercel.app/",
           techStack: [
@@ -135,7 +159,6 @@ const about = {
             </>,
           ],
           image: "/spotify.webp",
-          videoUrl: "/spotify.mp4",
         },
         {
           title: "Sathi | AI",
@@ -153,17 +176,12 @@ const about = {
             <>
               Developed an intuitive UI with <b>React</b> & <b>Tailwind CSS</b>
             </>,
-            <>
-              Enabled creators and businesses to boost their digital presence
-              efficiently
-            </>,
           ],
           image: "/Saathi3.png",
-          videoUrl: "/sathi.mp4",
         },
         {
           title: "Ecommerce Backend",
-          url: "https://github.com/mrayushmehrotra/ecommerce-backend",
+          url: "https://github.com/mrayushmehrotra/ecom-backend/",
           techStack: [
             "nodejs.png",
             "express.png",
@@ -192,14 +210,16 @@ const about = {
             </>,
           ],
           image: "/ecom-backend.avif",
-          videoUrl: "/ecommerce.mp4",
         },
         {
           title: "Caption Generator",
           url: "https://github.com/mrayushmehrotra/caption-generator",
           techStack: ["python.png", "huggingface.svg"],
           description: [
-            <>Developed a web app for automatic caption generation in videos</>,
+            <>
+              Developed a tkinter desktop app for automatic caption generation
+              in videos
+            </>,
             <>
               Extracted audio from videos and converted it into subtitles using{" "}
               <b>SpeechRecognition</b>
@@ -213,11 +233,10 @@ const about = {
             </>,
           ],
           image: "/caption_gen.png",
-          videoUrl: "/caption.mp4",
         },
         {
-          title: "Agriculture Assistant App",
-          url: "#",
+          title: "AgriSense",
+          url: "https://agrisense-three.vercel.app/",
           techStack: [
             "react.png",
             "nodejs.png",
@@ -239,12 +258,11 @@ const about = {
               <b>MongoDB</b>
             </>,
             <>
-              Planned integration of AI/ML models for agriculture prediction &
-              optimization
+              <b> Future</b> Planned integration of AI/ML models for agriculture
+              prediction & optimization
             </>,
           ],
           image: "/agriculture_project.jpg",
-          videoUrl: "/agriculture.mp4",
         },
       ],
     },

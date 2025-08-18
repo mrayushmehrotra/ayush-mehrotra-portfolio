@@ -11,6 +11,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ViewTransitions } from "next-view-transitions";
 import "./global.css";
 // import Layout from "./components/GridBG";
+import LenisProvier from "./components/Lenis";
+import LenisProvider from "./components/Lenis";
 
 export const metadata: Metadata = {
   title: {
@@ -136,14 +138,7 @@ export default function RootLayout({
 }) {
   return (
     <ViewTransitions>
-      <html
-        lang="en"
-        className={cx(
-
-          GeistSans.variable,
-          GeistMono.variable,
-        )}
-      >
+      <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
         <Head>
           <meta
             name="description"
@@ -211,7 +206,8 @@ export default function RootLayout({
           />
         </Head>
         <body className="overflow-x-hidden antialiased max-w-xl mx-4 mt-8 lg:mx-auto ">
-            {/* <Layout> */}
+          {/* <Layout> */}
+          <LenisProvider>
             <main className="relative z-20 flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-xl mx-auto">
               <Navbar />
               <SchemaMarkup />
@@ -221,7 +217,8 @@ export default function RootLayout({
               <Analytics />
               <SpeedInsights />
             </main>
-            {/* </Layout> */}
+          </LenisProvider>
+          {/* </Layout> */}
         </body>
       </html>
     </ViewTransitions>
