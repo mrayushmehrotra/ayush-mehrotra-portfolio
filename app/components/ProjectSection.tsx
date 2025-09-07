@@ -52,7 +52,7 @@ const ProjectSection = ({
           <div className="flex flex-wrap gap-2 mt-4">
             {techStack.map((item, idx) => (
               <div
-                key={idx}
+                key={`${item}-${idx}`}
                 className="flex items-center gap-2 px-3 py-1 rounded-full 
              border border-black/20 dark:border-white/10
              bg-white text-black dark:bg-zinc-900 dark:text-white
@@ -76,7 +76,7 @@ const ProjectSection = ({
           <ul className="mt-5 space-y-2 text-sm leading-relaxed">
             {description.map((desc, idx) => (
               <motion.li
-                key={idx}
+                key={desc}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}

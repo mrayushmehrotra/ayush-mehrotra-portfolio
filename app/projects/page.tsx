@@ -14,7 +14,7 @@ const page = () => {
             // @ts-ignore
             description={it.description}
             title={it.title}
-            key={idx}
+            key={it.url}
           />
         ))}
       </section>
