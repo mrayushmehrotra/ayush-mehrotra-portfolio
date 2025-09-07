@@ -89,7 +89,7 @@ const page = () => {
           </h1>
           {about.studies.institutions.map((item, idx) => (
             <ul key={idx} className="pl-4">
-              <li className=" list-disc ml-2  text-gray-700 dark:text-gray-300 text-sm space-y-1">
+              <li className=" list-disc ml-2  text-sm space-y-1">
                 {item.description}
               </li>
             </ul>
@@ -110,11 +110,11 @@ const page = () => {
           {about.technical.skills.map((item, idx) => (
             <ul key={idx} className="pl-4">
               <ul key={idx}>
-                <li className="flex  gap-x-2 items-center text-xl font-semibold tracking-tighter ml-2 text-gray-700 dark:text-gray-300  ">
+                <li className="flex  gap-x-2 items-center text-xl font-semibold tracking-tighter ml-2    ">
                   {item.icons} <span>{item.title}</span>
                 </li>
               </ul>
-              <li className=" list-disc ml-10  text-gray-700 dark:text-gray-300 text-sm space-y-1">
+              <li className=" list-disc ml-10   text-sm space-y-1">
                 {item.description}
               </li>
             </ul>

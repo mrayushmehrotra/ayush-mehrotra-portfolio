@@ -54,8 +54,9 @@ const ProjectSection = ({
               <div
                 key={idx}
                 className="flex items-center gap-2 px-3 py-1 rounded-full 
-                  bg-white/70 dark:bg-neutral-800/70 border border-white/20 dark:border-white/10 
-                  backdrop-blur-md shadow-sm hover:scale-105 transition"
+             border border-black/20 dark:border-white/10
+             bg-white text-black dark:bg-zinc-900 dark:text-white
+             backdrop-blur-md shadow-sm hover:scale-105 transition"
               >
                 <Image
                   src={`/${item}`}
@@ -64,7 +65,7 @@ const ProjectSection = ({
                   height={20}
                   className="object-contain"
                 />
-                <span className="text-xs font-medium text-neutral-700 dark:text-neutral-200">
+                <span className="text-xs font-medium ">
                   {item.split(".")[0]}
                 </span>
               </div>

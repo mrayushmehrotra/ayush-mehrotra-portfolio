@@ -46,7 +46,7 @@ const Marquee = ({ items, reverse = false, duration = 15 }) => (
       {items.concat(items).map((tech, idx: number) => (
         <div
           key={idx}
-          className="w-fit"
+          className="bg-zinc-300  dark:bg-zinc-800 w-fit py-1 px-4 mt-2 mb-2   rounded-full  "
           style={{
             display: "flex",
             alignItems: "center",
@@ -54,7 +54,6 @@ const Marquee = ({ items, reverse = false, duration = 15 }) => (
             padding: "1px 38px 0px 19px",
             gap: "10px",
             borderRadius: "555px",
-            backgroundColor: "#111",
             boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
             transition: "transform 0.3s",
           }}
@@ -73,7 +72,6 @@ const Marquee = ({ items, reverse = false, duration = 15 }) => (
           <span
             style={{
               fontWeight: "600",
-              color: "white",
               fontSize: "14px",
               whiteSpace: "nowrap",
             }}

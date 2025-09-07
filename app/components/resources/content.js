@@ -275,8 +275,8 @@ const about = {
         name: "Self-Learning",
         description: (
           <>
-            Self-taught software engineer and Linux enthusiast, constantly
-            exploring new tools and technologies.
+            Self-taught software engineer and <b> Linux</b> enthusiast,
+            constantly exploring new tools and technologies.
           </>
         ),
       },
@@ -284,8 +284,9 @@ const about = {
         name: "CS50 ",
         description: (
           <>
-            Strong background in core CS knowledge with DSA, OOP, and system
-            design, applied directly in real-world projects.
+            Strong background in <b>core CS </b> knowledge with{" "}
+            <b>DSA, OOPS, and system design </b> applied directly in real-world
+            projects.
           </>
         ),
       },

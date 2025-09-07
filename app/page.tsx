@@ -13,7 +13,7 @@ export default function Page() {
         </h1>
       </div>
       <div className="flex justify-between">
-        <div className="bg-zinc-800 w-fit py-1 px-4 mt-2 mb-2   rounded-full  ">
+        <div className=" bg-zinc-300  dark:bg-zinc-800 w-fit py-1 px-4 mt-2 mb-2   rounded-full  ">
           {person.role}
         </div>
       </div>

@@ -1,11 +1,12 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { FaHome, FaRegUser, FaRegMoon, FaCompactDisc } from "react-icons/fa";
-import { MdWorkOutline, MdOutlineArticle } from "react-icons/md";
+import { FaHome, FaRegUser } from "react-icons/fa";
+import { MdWorkOutline } from "react-icons/md";
 import { Link } from "next-view-transitions";
 
 import { GrProjects } from "react-icons/gr";
+import { Skiper26 } from "./provider/Theme";
 
 const navItems = [
   { path: "/", label: "Home", icon: <FaHome /> },
@@ -20,8 +21,8 @@ export function Navbar() {
   return (
     <>
       {/* Desktop Navbar */}
-      <nav className="hidden md:flex justify-center w-full">
-        <div className="flex items-center gap-6 px-6 py-2 bg-white dark:bg-neutral-900 rounded-full shadow-md">
+      <nav className="hidden md:flex justify-center w-full bg-white dark:bg-neutral-900 ">
+        <div className="flex items-center gap-6 px-6 py-2  rounded-full shadow-md">
           {navItems.map(({ path, label, icon }) => {
             const isActive = pathname === path;
 
@@ -40,7 +41,7 @@ export function Navbar() {
 
           {/* Dark Mode Toggle */}
           <div className="ml-2">
-            <FaCompactDisc />
+            <Skiper26 />
           </div>
         </div>
       </nav>
@@ -63,7 +64,7 @@ export function Navbar() {
             );
           })}
           <div className="p-2">
-            <FaCompactDisc />
+            <Skiper26 />
           </div>
         </div>
       </nav>

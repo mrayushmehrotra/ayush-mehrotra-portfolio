@@ -7,10 +7,12 @@ interface SectionProps {
   children: ReactNode;
   className?: string;
   title: string;
+  glowColor?: string;
 }
 
 const Section: React.FC<SectionProps> = ({
   children,
+  glowColor = "#555",
   className = "",
   title,
 }) => {
@@ -30,7 +32,11 @@ const Section: React.FC<SectionProps> = ({
 
   return (
     <section
-      className={`relative  overflow-hidden mt-4 mb-4 p-6 border border-zinc-300 dark:border-zinc-700 rounded-lg bg-white dark:bg-neutral-900 shadow-sm ${className}`}
+      className={`relative overflow-hidden mt-4 mb-4 p-6 
+              border border-zinc-300 dark:border-zinc-700 
+              bg-white dark:bg-neutral-900 
+              text-black dark:text-white 
+              rounded-lg shadow-sm ${className}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       onMouseMove={handleMouseMove}
@@ -39,7 +45,7 @@ const Section: React.FC<SectionProps> = ({
       {children}
       {isHovering && (
         <motion.div
-          className="absolute w-24 h-24 bg-gray-400/60 rounded-full blur-3xl pointer-events-none"
+          className="absolute w-24 h-24 bg-gray-500  dark:bg-gray-400/60 rounded-full blur-3xl pointer-events-none"
           style={{
             top: mousePos.y - blurRadius,
             left: mousePos.x - blurRadius,
@@ -69,7 +75,7 @@ export const WorkExpSection = ({
           <h1 className="text-2xl tracking-tighter font-semibold">
             <b>{companyTitle}</b>
           </h1>
-          <p className="text-zinc-300">{time}</p>
+          <p className="text-zinc-500">{time}</p>
         </div>
         <span className="text-xl tracking-tighter font-semibold">
           {jobTitle}
