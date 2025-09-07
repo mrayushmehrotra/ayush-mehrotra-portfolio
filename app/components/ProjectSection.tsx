@@ -28,13 +28,13 @@ const ProjectSection = ({
     >
       <div className="group border-b lg:p-4 border-zinc-700 mt-8 relative rounded-3xl overflow-hidden shadow-xl ">
         {/* Image / Video */}
-        <div className="relative flex items-center justify-center  w-full  overflow-hidden">
+        <div className="relative flex items-center justify-center rounded-3xl  w-full  overflow-hidden">
           <Image
             src={img}
             alt={title}
             height={450}
             width={450}
-            className={`object-cover transition-all duration-700 ease-in-out `}
+            className={`object-cover transition-all duration-700 rounded-3xl ease-in-out `}
           />
 
           {/* Gradient overlay */}

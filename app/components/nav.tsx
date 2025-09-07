@@ -21,8 +21,8 @@ export function Navbar() {
   return (
     <>
       {/* Desktop Navbar */}
-      <nav className="hidden md:flex justify-center w-full bg-white dark:bg-neutral-900 ">
-        <div className="flex items-center gap-6 px-6 py-2  rounded-full shadow-md">
+      <nav className="hidden md:flex justify-center w-full">
+        <div className="flex items-center gap-6 px-6 py-2 bg-white dark:bg-neutral-900 rounded-full shadow-md">
           {navItems.map(({ path, label, icon }) => {
             const isActive = pathname === path;
 
