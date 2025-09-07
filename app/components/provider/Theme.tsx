@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { cn } from "lib/cn";
 import { useTheme } from "next-themes";
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const Skiper26 = () => {
   const variant = "rectangle";
@@ -75,12 +75,12 @@ export const useThemeToggle = ({
       setTheme(theme === "light" ? "dark" : "light");
     };
 
-    if (!document.startViewTransition) {
+    if (!(document as any).startViewTransition) {
       switchTheme();
       return;
     }
 
-    document.startViewTransition(switchTheme);
+    (document as any).startViewTransition(switchTheme);
   }, [
     theme,
     setTheme,
@@ -106,12 +106,12 @@ export const useThemeToggle = ({
       setTheme("light");
     };
 
-    if (!document.startViewTransition) {
+    if (!(document as any).startViewTransition) {
       switchTheme();
       return;
     }
 
-    document.startViewTransition(switchTheme);
+    (document as any).startViewTransition(switchTheme);
   }, [setTheme, variant, start, blur, gifUrl, updateStyles, setIsDark]);
 
   const setCrazyDarkTheme = useCallback(() => {
@@ -127,12 +127,12 @@ export const useThemeToggle = ({
       setTheme("dark");
     };
 
-    if (!document.startViewTransition) {
+    if (!(document as any).startViewTransition) {
       switchTheme();
       return;
     }
 
-    document.startViewTransition(switchTheme);
+    (document as any).startViewTransition(switchTheme);
   }, [setTheme, variant, start, blur, gifUrl, updateStyles, setIsDark]);
 
   return {
