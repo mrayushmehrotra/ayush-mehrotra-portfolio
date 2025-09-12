@@ -16,6 +16,8 @@
   --sh-comment: #a19595;
   --sh-jsxliterals: #6266d1;
   --sh-property: #e25a1c;
+  --bg: white;
+  --text: black;
   --sh-entity: #e25a1c;
 }
 
@@ -31,4 +33,120 @@
 html {
   min-width: 360px;
   margin: 0;
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  min-height: 100vh;
+}
+
+/* Light theme (default) */
+:root,
+.light {
+  --bg: #ffffff;
+  --text: #111827;
+  --sh-class: #2563eb;
+  --sh-identifier: #374151;
+  --sh-sign: #6b7280;
+  --sh-string: #059669;
+  --sh-keyword: #dc2626;
+  --sh-comment: #9ca3af;
+  --sh-jsxliterals: #6366f1;
+  --sh-property: #d97706;
+  --sh-entity: #ea580c;
+
+  --card-bg: #f9fafb;
+  --nav-bg: #f3f4f6;
+  --nav-text: #1f2937;
+  --nav-hover: #94a3b8;
+  --nav-active: #e5e7eb;
+}
+
+/* Dark theme */
+.dark {
+  --bg: #0f172a;
+  --text: #f9fafb;
+  --sh-class: #60a5fa;
+  --sh-identifier: #f3f4f6;
+  --sh-keyword: #f87171;
+  --sh-string: #34d399;
+  --sh-sign: #94a3b8;
+  --sh-comment: #64748b;
+  --sh-property: #fbbf24;
+  --sh-jsxliterals: #818cf8;
+  --sh-entity: #f97316;
+
+  --card-bg: #1e293b;
+  --nav-bg: #1e293b;
+  --nav-text: #e2e8f0;
+  --nav-hover: #38bdf8;
+  --nav-active: #0f172a;
+}
+
+/* ----------------- Catppuccin ----------------- */
+.catppuccin {
+  --bg: #1e1e2e;
+  --text: #cdd6f4;
+  --sh-class: #cba6f7;
+  --sh-identifier: #f2cdcd;
+  --sh-sign: #94e2d5;
+  --sh-string: #a6e3a1;
+  --sh-keyword: #f38ba8;
+  --sh-property: #fab387;
+  --sh-entity: #89b4fa;
+  --sh-jsxliterals: #89b4fa;
+  --sh-comment: #7f849c;
+
+  --card-bg: #313244;
+  --nav-bg: #1e1e2e;
+  --nav-text: #cdd6f4;
+  --nav-hover: #f38ba8;
+  --nav-active: #45475a;
+}
+
+/* ----------------- Zinc (minimal grayscale) ----------------- */
+.zinc {
+  --bg: #18181b;
+  --text: #f4f4f5;
+  --sh-class: #d4d4d8;
+  --sh-identifier: #e4e4e7;
+  --sh-sign: #a1a1aa;
+  --sh-string: #bef264;
+  --sh-keyword: #f87171;
+  --sh-property: #fde047;
+  --sh-entity: #38bdf8;
+  --sh-jsxliterals: #a5b4fc;
+  --sh-comment: #71717a;
+
+  --card-bg: #27272a;
+  --nav-bg: #1c1c1c;
+  --nav-text: #d4d4d8;
+  --nav-hover: #71717a;
+  --nav-active: #27272a;
+}
+
+/* ----------------- Rose Pine ----------------- */
+.rose {
+  --bg: #191724;
+  --text: #e0def4;
+  --sh-class: #9ccfd8;
+  --sh-identifier: #e0def4;
+  --sh-sign: #908caa;
+  --sh-string: #f6c177;
+  --sh-keyword: #eb6f92;
+  --sh-property: #ebbcba;
+  --sh-entity: #31748f;
+  --sh-jsxliterals: #c4a7e7;
+  --sh-comment: #6e6a86;
+
+  --card-bg: #26233a;
+  --nav-bg: #1f1d2e;
+  --nav-text: #e0def4;
+  --nav-hover: #eb6f92;
+  --nav-active: #524f67;
 }

@@ -50,6 +50,7 @@ const Marquee = ({ items, reverse = false, duration = 15 }) => (
           style={{
             display: "flex",
             alignItems: "center",
+            backgroundColor: "var(--card-bg)",
             justifyContent: "left",
             padding: "1px 38px 0px 19px",
             gap: "10px",

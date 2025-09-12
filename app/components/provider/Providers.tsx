@@ -21,6 +21,13 @@ export function Providers({ children }: { children: React.ReactNode }) {
       defaultTheme="system"
       enableSystem
       disableTransitionOnChange
+      value={{
+        light: "light",
+        dark: "dark",
+        catppuccin: "catppuccin",
+        zinc: "zinc",
+        rose: "rose",
+      }}
     >
       {children}
     </NextThemesProvider>

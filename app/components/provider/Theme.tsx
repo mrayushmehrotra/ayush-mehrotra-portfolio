@@ -26,13 +26,15 @@ export const useThemeToggle = ({
   start = "center",
   blur = false,
   gifUrl = "",
+  theme: currentTheme,
 }: {
   variant?: AnimationVariant;
   start?: AnimationStart;
   blur?: boolean;
   gifUrl?: string;
+  theme?: string;
 } = {}) => {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { theme = currentTheme, setTheme, resolvedTheme } = useTheme();
 
   const [isDark, setIsDark] = useState(false);
 
@@ -63,16 +65,24 @@ export const useThemeToggle = ({
   }, []);
 
   const toggleTheme = useCallback(() => {
-    setIsDark(!isDark);
+    console.log("Current theme before toggle:", theme);
+
+    const themes = ["light", "dark", "catppuccin", "zinc", "rose"] as const;
+    const currentIndex = themes.indexOf(theme as (typeof themes)[number]);
+    const nextIndex = (currentIndex + 1) % themes.length;
+    const nextTheme = themes[nextIndex];
+
+    console.log("Next theme:", nextTheme);
+    setIsDark(nextTheme !== "light");
 
     const animation = createAnimation(variant, start, blur, gifUrl);
-
     updateStyles(animation.css, animation.name);
 
     if (typeof window === "undefined") return;
 
     const switchTheme = () => {
-      setTheme(theme === "light" ? "dark" : "light");
+      console.log("Setting theme to:", nextTheme);
+      setTheme(nextTheme);
     };
 
     if (!(document as any).startViewTransition) {
@@ -97,7 +107,6 @@ export const useThemeToggle = ({
     setIsDark(false);
 
     const animation = createAnimation(variant, start, blur, gifUrl);
-
     updateStyles(animation.css, animation.name);
 
     if (typeof window === "undefined") return;
@@ -118,12 +127,12 @@ export const useThemeToggle = ({
     setIsDark(true);
 
     const animation = createAnimation(variant, start, blur, gifUrl);
-
     updateStyles(animation.css, animation.name);
 
     if (typeof window === "undefined") return;
 
     const switchTheme = () => {
+      // Default to dark theme when toggling to dark mode
       setTheme("dark");
     };
 
@@ -151,6 +160,7 @@ export const ThemeToggleButton = ({
   variant = "circle",
   start = "center",
   blur = false,
+  gifUrl = "",
 }: {
   className?: string;
   variant?: AnimationVariant;
@@ -158,11 +168,18 @@ export const ThemeToggleButton = ({
   blur?: boolean;
   gifUrl?: string;
 }) => {
+  const { theme } = useTheme();
   const { isDark, toggleTheme } = useThemeToggle({
     variant,
     start,
     blur,
+    gifUrl,
+    theme, // Pass the current theme to the hook
   });
+
+  useEffect(() => {
+    console.log("Current theme:", theme);
+  }, [theme]);
 
   return (
     <button

@@ -32,10 +32,13 @@ const Section: React.FC<SectionProps> = ({
 
   return (
     <section
+      style={{
+        backgroundColor: "var(--bg)",
+        color: "var(--text)",
+      }}
       className={`relative overflow-hidden mt-4 mb-4 p-6 
               border border-zinc-300 dark:border-zinc-700 
-              bg-white dark:bg-neutral-900 
-              text-black dark:text-white 
+
               rounded-lg shadow-sm ${className}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
