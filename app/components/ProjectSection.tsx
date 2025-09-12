@@ -53,10 +53,12 @@ const ProjectSection = ({
             {techStack.map((item, idx) => (
               <div
                 key={`${item}-${idx}`}
+                style={{
+                  backgroundColor: "var(--card-bg)",
+                  color: "var(--text)",
+                }}
                 className="flex items-center gap-2 px-3 py-1 rounded-full 
-             border border-black/20 dark:border-white/10
-             bg-white text-black dark:bg-zinc-900 dark:text-white
-             backdrop-blur-md shadow-sm hover:scale-105 transition"
+             border border-black/20 backdrop-blur-md shadow-sm hover:scale-105 transition"
               >
                 <Image
                   src={`/${item}`}
