@@ -50,6 +50,22 @@ const home = {
       sharpen my perspective.
     </>
   ),
+
+  medium: (
+    <p>
+      In my free time, I read research papers, explore new technologies, and
+      share what I learn. You can find me on&nbsp;
+      <a
+        className="text-indigo-400 underline"
+        href="https://medium.com/@ayushmehrotra099"
+        target="_blank"
+      >
+        Medium
+      </a>
+      , where I often write about the debugging challenges I encounter—so others
+      don’t have to spend the same amount of time solving them.
+    </p>
+  ),
 };
 
 const about = {
@@ -284,9 +300,9 @@ const about = {
         name: "CS50 ",
         description: (
           <>
-            Strong background in <b>core CS </b> knowledge with{" "}
-            <b>DSA, OOPS, and system design </b> applied directly in real-world
-            projects.
+            know a little bit of &nbsp;<b>core CS </b> knowledge e.g.{" "}
+            <b>DSA, OOPS, Networking, OS and system design </b> applied directly
+            in real-world projects.
           </>
         ),
       },
@@ -321,8 +337,8 @@ const about = {
         title: "Frontend",
         description: (
           <>
-            HTML, CSS, JS, Bootstrap, React, <b>Next.js</b>,<b>TailwindCSS</b>,{" "}
-            <b>TypeScript</b>, and Figma etc.
+            HTML, CSS, JS, Bootstrap, React, React Native (Expo), <b>Next.js</b>
+            ,<b>TailwindCSS</b>, <b>TypeScript</b>, and Figma etc.
           </>
         ),
         icons: <CgWebsite />,
@@ -331,8 +347,9 @@ const about = {
         title: "Backend",
         description: (
           <>
-            Node.js, FastAPI, Express, <b>Nest.js</b>, NoSQL, SQL, Prisma,{" "}
-            <b>GraphQL</b>, and API development.
+            Node.js, Express, <b>Nest.js</b>, NoSQL, SQL, Prisma, <b>GraphQL</b>
+            , FastAPI, <b>torch, scikit-learn,</b>
+            pandas, matplotlib, seaborn
           </>
         ),
         icons: <LuServerCrash />,
@@ -341,7 +358,9 @@ const about = {
         title: "AI & Tools",
         description: (
           <>
-            Worked with OpenAI, Gemini, Supabase,<b>N8n workflows</b>
+            Worked with OpenAI sdk, Gemini, Turborepo, Supabase, &nbsp;
+            betterAuth
+            <b>N8n workflows</b>
           </>
         ),
         icons: <LuWorkflow />,
@@ -350,9 +369,8 @@ const about = {
         title: "DevOps & Others",
         description: (
           <>
-            <b>Docker</b>, Git, <b>Linux (Arch OS)</b>, Keycloak, Firebase, and{" "}
-            <b>AWS</b>
-            for deployment.
+            <b>Docker</b>, Git, <b>Linux (Arch OS)</b>, Keycloak, Firebase,
+            Nginx and <b>AWS</b>
           </>
         ),
         icons: <TbCloudDataConnection />,

@@ -16,10 +16,14 @@ const backend = [
   { name: "Express", img: "expressjs.png" },
   { name: "FastAPI", img: "fastapi.png" },
   { name: "Python", img: "python.png" },
+  { name: "BetterAuth", img: "betterAuth.svg" },
+  { name: "Torch", img: "pyTorch.svg" },
 ];
 
 const databaseTools = [
   { name: "MongoDB", img: "Mongodb.png" },
+  { name: "turborepo", img: "turborepo.png" },
+  { name: "n8n", img: "n8n.png" },
   { name: "MySQL", img: "mysql.png" },
   { name: "Postman", img: "postman.png" },
   { name: "Prisma", img: "prisma.png" },

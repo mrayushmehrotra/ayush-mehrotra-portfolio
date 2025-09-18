@@ -38,7 +38,6 @@ const Section: React.FC<SectionProps> = ({
       }}
       className={`relative overflow-hidden mt-4 mb-4 p-6 
               border border-zinc-300 dark:border-zinc-700 
-
               rounded-lg shadow-sm ${className}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
@@ -48,9 +47,10 @@ const Section: React.FC<SectionProps> = ({
       {children}
       {isHovering && (
         <motion.div
-          className="absolute w-24 h-24 bg-gray-500  dark:bg-gray-400/60 rounded-full blur-3xl pointer-events-none"
+          className="absolute w-24 h-24 rounded-full blur-3xl pointer-events-none"
           style={{
             top: mousePos.y - blurRadius,
+            backgroundColor: "var(--nav-hover)",
             left: mousePos.x - blurRadius,
           }}
           animate={{

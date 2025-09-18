@@ -23,11 +23,12 @@ export default function Page() {
           {person.role}
         </div>
       </div>
-
       <Section title={home.label}>
         <p className="mb-4">{home.subline}</p>
       </Section>
-      <br />
+      <div className="p-4">
+        <p>{home.medium}</p>
+      </div>
       <TechMarquee />
 
       <br />
