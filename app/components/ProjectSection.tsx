@@ -42,7 +42,7 @@ const ProjectSection = ({
         {/* Content */}
         <div className="relative z-10 p-6">
           <div className=" flex items-center justify-between text-2xl tracking-tighter font-semibold">
-            <center>{title}</center>
+            <div className="items-center">{title}</div>
             <Link href={url}>
               <FaExternalLinkAlt />
             </Link>
@@ -78,7 +78,7 @@ const ProjectSection = ({
           <ul className="mt-5 space-y-2 text-sm leading-relaxed">
             {description.map((desc, idx) => (
               <motion.li
-                key={desc}
+                key={`${desc}-${idx}`}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}

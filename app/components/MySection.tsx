@@ -83,8 +83,8 @@ export const WorkExpSection = ({
         <span className="text-xl tracking-tighter font-semibold">
           {jobTitle}
         </span>
-        {points.map((item, idx) => (
-          <ul key={idx}>
+        {points.map((item: any) => (
+          <ul key={item.role}>
             <li className="flex gap-x-2">
               <span className="">•</span>
               <p> {item}</p>

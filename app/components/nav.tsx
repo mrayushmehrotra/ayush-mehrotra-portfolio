@@ -38,12 +38,14 @@ export function Navbar() {
                 href={path}
                 style={{
                   color: isActive ? "var(--nav-active)" : "var(--nav-text)",
-                  backgroundColor: isActive ? "var(--nav-hover)" : "transparent",
+                  backgroundColor: isActive
+                    ? "var(--nav-hover)"
+                    : "transparent",
                 }}
                 className={`flex items-center rounded-full px-4 py-2 gap-2 text-sm font-medium transition
                 hover:opacity-80`}
               >
-                <div className="flex items-center justify-center">{icon}</div>
+                <div className="flex  items-center justify-center">{icon}</div>
                 <span>{label}</span>
               </Link>
             );
@@ -57,7 +59,7 @@ export function Navbar() {
       </nav>
 
       {/* Mobile Bottom Bar */}
-      <nav 
+      <nav
         style={{
           backgroundColor: "var(--nav-bg)",
           color: "var(--nav-text)",

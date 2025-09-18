@@ -318,12 +318,21 @@ const about = {
           </>
         ),
       },
+
       {
         name: "Open Source",
         description: (
           <>
             Gained practical experience by contributing to open-source projects
             and collaborating with global dev communities.
+          </>
+        ),
+      },
+      {
+        name: "basic degree",
+        description: (
+          <>
+            <p>i'm doing Bsc. Mathematics 2nd year</p>
           </>
         ),
       },
@@ -369,7 +378,7 @@ const about = {
         title: "DevOps & Others",
         description: (
           <>
-            <b>Docker</b>, Git, <b>Linux (Arch OS)</b>, Keycloak, Firebase,
+            <b>Docker</b>, Git, <b>Linux (Arch btw)</b>, Keycloak, Firebase,
             Nginx and <b>AWS</b>
           </>
         ),

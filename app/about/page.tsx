@@ -114,7 +114,7 @@ const page = () => {
                   {item.icons} <span>{item.title}</span>
                 </li>
               </ul>
-              <li className=" list-disc ml-10   text-sm space-y-1">
+              <li className=" list-disc ml-10    text-sm space-y-1">
                 {item.description}
               </li>
             </ul>

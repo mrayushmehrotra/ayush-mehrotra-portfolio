@@ -5,9 +5,9 @@ import { about } from "app/components/resources/content";
 const page = () => {
   return (
     <BlurView>
-      {about.work.experiences.map((item, idx) => (
+      {about.work.experiences.map((item) => (
         <WorkExpSection
-          key={idx * 2}
+          key={item.company}
           time={item.timeframe}
           jobTitle={item.role}
           points={item.achievements}
