@@ -112,7 +112,7 @@ export default function Page() {
                                   href={project.github}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                                  className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:opacity-80  transition-colors"
                                   onClick={() =>
                                     track(`${project.title}_github_clicked`)
                                   }
@@ -125,7 +125,7 @@ export default function Page() {
                                   href={project.link}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                                  className="flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:opacity-80 transition-colors"
                                   onClick={() =>
                                     track(`${project.title}_clicked`)
                                   }
