@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import SchemaMarkup from "./components/SchemaMarkup";
+import SchemaMarkup from "../components/SchemaMarkup";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import Footer from "./components/footer";
-import { Navbar } from "./components/nav";
+import { Navbar } from "../components/Navbar";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ViewTransitions } from "next-view-transitions";
 import "./global.css";
 // import Layout from "./components/GridBG";
-import { Providers } from "./components/provider/Providers";
+import { Providers } from "../components/provider/Providers";
 
 export const metadata: Metadata = {
   title: {
@@ -137,20 +136,16 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
         <body className="overflow-x-hidden antialiased max-w-xl mx-4 mt-8 lg:mx-auto ">
-          {/* <Layout> */}
 
           <Providers>
             <main className="relative z-20 flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-xl mx-auto">
               <Navbar />
               <SchemaMarkup />
               {children}
-              <Footer />
               <Analytics />
               <SpeedInsights />
             </main>
           </Providers>
-
-          {/* </Layout> */}
         </body>
       </html>
     </ViewTransitions>

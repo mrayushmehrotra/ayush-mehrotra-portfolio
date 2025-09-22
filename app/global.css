@@ -15,10 +15,11 @@
   --sh-keyword: #e02518;
   --sh-comment: #a19595;
   --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
+  --sh-entity: #e25a1c;
   --bg: white;
   --text: black;
   --sh-entity: #e25a1c;
+  --social-icon: #4b5563;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,11 +36,6 @@ html {
   margin: 0;
   height: 100%;
   scroll-behavior: smooth;
-}
-
-@font-face {
-  font-family: "jetbrains";
-  src: url("../public/assets/fonts/jetbrains.ttf");
 }
 
 body {
@@ -59,7 +55,7 @@ body {
 :root,
 .light {
   --bg: #ffffff;
-  --text: #111827;
+  --text: #000;
   --sh-class: #2563eb;
   --sh-identifier: #374151;
   --sh-sign: #6b7280;
@@ -69,6 +65,7 @@ body {
   --sh-jsxliterals: #6366f1;
   --sh-property: #d97706;
   --sh-entity: #ea580c;
+  --social-icon: #4b5563;
 
   --card-bg: #f9fafb;
   --nav-bg: #f3f4f6;
@@ -80,7 +77,7 @@ body {
 /* Dark theme */
 .dark {
   --bg: #0f172a;
-  --text: #f9fafb;
+  --text: #fff;
   --sh-class: #60a5fa;
   --sh-identifier: #f3f4f6;
   --sh-keyword: #f87171;
@@ -90,6 +87,7 @@ body {
   --sh-property: #fbbf24;
   --sh-jsxliterals: #818cf8;
   --sh-entity: #f97316;
+  --social-icon: #e2e8f0;
 
   --card-bg: #1e293b;
   --nav-bg: #1e293b;
@@ -101,7 +99,7 @@ body {
 /* ----------------- Catppuccin ----------------- */
 .catppuccin {
   --bg: #1e1e2e;
-  --text: #cdd6f4;
+  --text: #fff;
   --sh-class: #cba6f7;
   --sh-identifier: #f2cdcd;
   --sh-sign: #94e2d5;
@@ -122,7 +120,7 @@ body {
 /* ----------------- Zinc (minimal grayscale) ----------------- */
 .zinc {
   --bg: #18181b;
-  --text: #f4f4f5;
+  --text: #fff;
   --sh-class: #d4d4d8;
   --sh-identifier: #e4e4e7;
   --sh-sign: #a1a1aa;
@@ -143,7 +141,7 @@ body {
 /* ----------------- Rose Pine ----------------- */
 .rose {
   --bg: #191724;
-  --text: #e0def4;
+  --text: #fff;
   --sh-class: #9ccfd8;
   --sh-identifier: #e0def4;
   --sh-sign: #908caa;
