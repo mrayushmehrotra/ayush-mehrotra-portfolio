@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Codepen from "./icons/Codepen";
 import Email from "./icons/Email";
 import Github from "./icons/Github";
 import X from "./icons/X";
@@ -16,7 +15,6 @@ const Icon: React.FC<IconProps> = ({ name, ...props }) => {
   const icons: { [key: string]: React.JSX.Element } = {
     instagram: <Instagram {...props} />,
     linkedin: <LinkedIn {...props} />,
-    codepen: <Codepen {...props} />,
     email: <Email {...props} />,
     github: <Github {...props} />,
     x: <X {...props} />,

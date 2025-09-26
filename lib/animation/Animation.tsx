@@ -31,53 +31,55 @@ export function AnimateIn({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
+    let timeout: NodeJS.Timeout;
+    let observer: IntersectionObserver | undefined;
+
+    // Always set up the initial animation
+    timeout = setTimeout(() => {
       setIsVisible(true);
       if (once) setHasAnimated(true);
     }, delay * 1000);
 
-    if (
-      !once &&
-      typeof window !== "undefined" &&
-      "IntersectionObserver" in window
-    ) {
-      const observer = new IntersectionObserver(
+    // Set up intersection observer for scroll-based animations
+    if (typeof window !== "undefined" && "IntersectionObserver" in window) {
+      observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              if (!hasAnimated || !once) {
-                setIsVisible(true);
-              }
+              setIsVisible(true);
+              if (once) setHasAnimated(true);
             } else if (!once) {
               setIsVisible(false);
             }
           });
         },
-        { threshold: 0.1 },
+        { 
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px' // Start animation when element is 50px from viewport
+        },
       );
 
       if (ref.current) {
         observer.observe(ref.current);
       }
-
-      return () => {
-        if (ref.current) {
-          observer.unobserve(ref.current);
-        }
-        clearTimeout(timeout);
-      };
     }
 
-    return () => clearTimeout(timeout);
-  }, [delay, once, hasAnimated]);
+    return () => {
+      clearTimeout(timeout);
+      if (observer && ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [delay, once]);
 
   const getAnimationStyles = () => {
-    if (hasAnimated && once) return {};
+    if (hasAnimated && once) return { opacity: 1, transform: 'none' };
 
     const baseStyles = {
       opacity: isVisible ? 1 : 0,
       transform: "none",
-      transition: `opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1)`,
+      willChange: 'opacity, transform',
+      transition: `opacity 500ms cubic-bezier(0.4, 0, 0.2, 1), transform 500ms cubic-bezier(0.4, 0, 0.2, 1)`,
       transitionDelay: `${delay}s`,
     };
 

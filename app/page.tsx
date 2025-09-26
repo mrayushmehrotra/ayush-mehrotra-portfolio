@@ -14,7 +14,7 @@ export default function Page() {
     <BlurView>
 
       <div className="flex justify-between mt-4">
-        <AnimateIn variant="fadeUp" delay={0.4}>
+        <AnimateIn variant="fadeLeft" delay={0.4}>
           <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-xl mb-8">
             Software Engineer from India. Contact me below. Currently building{" "}
             <a
@@ -52,48 +52,47 @@ export default function Page() {
       </AnimateIn>
 
 
+<div className="flex items-center justify-start" >
 
       <Tabs defaultValue="projects">
-        <AnimateIn variant="fadeUp" delay={0.2}>
-          <TabsList className="mb-4 border-none bg-transparent p-0 -ml-[8px]">
-            <TabsTrigger
-              value="projects"
-              className={cn(
-                "!bg-transparent !border-none !shadow-none",
-                "!font-light data-[state=active]:!font-bold transition-all duration-300 ease-out",
-                "!text-[var(--text)] opacity-70 hover:opacity-100",
-                "data-[state=active]:!text-[var(--text)] data-[state=active]:opacity-100"
-              )}
-            >
-              Projects
-            </TabsTrigger>
-            <TabsTrigger
-              value="experience"
-              className={cn(
-                "!bg-transparent !border-none !shadow-none",
-                "!font-light data-[state=active]:!font-bold transition-all duration-300 ease-out",
-                "!text-[var(--text)] opacity-70 hover:opacity-100",
-                "data-[state=active]:!text-[var(--text)] data-[state=active]:opacity-100"
-              )}
-            >
-              Experience
-            </TabsTrigger>
-            <TabsTrigger
-              value="tools"
-              className={cn(
-                "!bg-transparent !border-none !shadow-none",
-                "!font-light data-[state=active]:!font-bold transition-all duration-300 ease-out",
-                "!text-[var(--text)] opacity-70 hover:opacity-100",
-                "data-[state=active]:!text-[var(--text)] data-[state=active]:opacity-100"
-              )}
-            >
-              Tools
-            </TabsTrigger>
-          </TabsList>
-        </AnimateIn>
+        <TabsList className="mb-8 border-none bg-transparent p-0 -ml-2">
+          <TabsTrigger
+            value="projects"
+            className={cn(
+              "!bg-transparent !border-none !shadow-none !px-3",
+              "!font-light data-[state=active]:!font-bold",
+              "!text-[var(--text)] opacity-70 hover:opacity-100 transition-opacity",
+              "data-[state=active]:!text-[var(--text)] data-[state=active]:opacity-100"
+            )}
+          >
+            Projects
+          </TabsTrigger>
+          <TabsTrigger
+            value="experience"
+            className={cn(
+              "!bg-transparent !border-none !shadow-none !px-3",
+              "!font-light data-[state=active]:!font-bold",
+              "!text-[var(--text)] opacity-70 hover:opacity-100 transition-opacity",
+              "data-[state=active]:!text-[var(--text)] data-[state=active]:opacity-100"
+            )}
+          >
+            Experience
+          </TabsTrigger>
+          <TabsTrigger
+            value="tools"
+            className={cn(
+              "!bg-transparent !border-none !shadow-none !px-3",
+              "!font-light data-[state=active]:!font-bold",
+              "!text-[var(--text)] opacity-70 hover:opacity-100 transition-opacity",
+              "data-[state=active]:!text-[var(--text)] data-[state=active]:opacity-100"
+            )}
+          >
+            Tools
+          </TabsTrigger>
+        </TabsList>
 
-        <TabsContent value="projects">
-          <AnimateIn variant="fadeUp" delay={0}>
+        <TabsContent value="projects" className="mt-0">
+          <AnimateIn variant="fadeLeft" delay={0.1} once={false}>
             <section className="mb-12">
               <div className="space-y-8">
                 <ul className="space-y-8">
@@ -161,8 +160,8 @@ export default function Page() {
           </AnimateIn>
         </TabsContent>
 
-        <TabsContent value="experience">
-          <AnimateIn variant="fadeUp" delay={0}>
+        <TabsContent value="experience" className="mt-0">
+          <AnimateIn variant="fadeLeft" delay={0.1} once={false}>
             <section className="mb-12">
               <div className="space-y-8">
                 <ul className="space-y-8">
@@ -208,15 +207,15 @@ export default function Page() {
             </section>
           </AnimateIn>
         </TabsContent>
-        <TabsContent value="tools">
-          <AnimateIn variant="fadeUp" delay={0}>
+        <TabsContent value="tools" className="mt-0">
+          <AnimateIn variant="fadeLeft" delay={0.1}>
             <h2 className="text-md font-medium mb-4">Frontend</h2>
             <section className="mb-12">
               <div className="flex flex-wrap gap-y-6 gap-x-4 justify-start">
                 {tools.frontend.map(({ Logo, title }, index) => (
                   <AnimateIn
                     key={index}
-                    variant="scale"
+                    variant="fadeLeft"
                     delay={0.1 + index * 0.03}
                     className="w-[calc(25%-12px)] sm:w-[calc(20%-13px)]"
                   >
@@ -233,7 +232,7 @@ export default function Page() {
               </div>
             </section>
           </AnimateIn>
-          <AnimateIn variant="fadeUp" delay={0}>
+          <AnimateIn variant="fadeLeft" delay={0}>
             <h2 className="text-md font-medium mb-4">
               Backend and Infrastructure
             </h2>
@@ -243,7 +242,7 @@ export default function Page() {
                   ({ Logo, title }, index) => (
                     <AnimateIn
                       key={index}
-                      variant="scale"
+                      variant="fadeLeft"
                       delay={0.1 + index * 0.03}
                       className="w-[calc(25%-12px)] sm:w-[calc(20%-13px)]"
                     >
@@ -263,6 +262,8 @@ export default function Page() {
           </AnimateIn>
         </TabsContent>
       </Tabs>
+</div>
+
     </BlurView>
   );
 }
