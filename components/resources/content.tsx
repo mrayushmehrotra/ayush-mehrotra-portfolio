@@ -16,6 +16,8 @@ import Vercel from "../icons/Vercel";
 import ReactRouter from "../icons/ReactRouter";
 import AmazonWebServices from "../icons/Aws";
 import Prisma from "components/icons/Prisma";
+import Nestjs from "components/icons/Nestjs";
+import Docker from "components/icons/Docker";
 export const tools = {
   frontend: [
     {
@@ -82,9 +84,20 @@ export const tools = {
       title: "AWS",
     },
     // {
+    //   Logo: (props: React.SVGProps<SVGSVGElement>) => <Docker {...props} />,
+    //   title: "Docker",
+    // },
+
+    // {
     //   Logo: (props: React.SVGProps<SVGSVGElement>) => <Cloudflare {...props} />,
     //   title: "Cloudflare",
     // },
+    {
+      Logo: (props) => (
+        <Nestjs className="fill-black dark:fill-white" {...props} />
+      ),
+      title: "Nestjs",
+    },
     {
       Logo: (props) => (
         <Vercel className="fill-black dark:fill-white" {...props} />
@@ -104,8 +117,8 @@ export const tools = {
       title: "Bun",
     },
     {
-      Logo: (props) => <Nodejs {...props} />,
-      title: "NodeJS",
+      Logo: (props) => <Docker {...props} />,
+      title: "Docker",
     },
     {
       Logo: (props) => <Postgres {...props} />,
