@@ -27,7 +27,9 @@ export const tools = {
       title: "NextJS",
     },
     {
-      Logo: (props: React.SVGProps<SVGSVGElement>) => <ReactRouter {...props} />,
+      Logo: (props: React.SVGProps<SVGSVGElement>) => (
+        <ReactRouter {...props} />
+      ),
       title: "React Router",
     },
     // {
@@ -74,7 +76,9 @@ export const tools = {
     //   title: "Google Cloud",
     // },
     {
-      Logo: (props: React.SVGProps<SVGSVGElement>) => <AmazonWebServices {...props} />,
+      Logo: (props: React.SVGProps<SVGSVGElement>) => (
+        <AmazonWebServices {...props} />
+      ),
       title: "AWS",
     },
     // {
@@ -148,14 +152,12 @@ export const experience = [
       "Developed and maintained multiple features for the SaaS product, from performance improvements to new features.",
     technologies: ["React.js", "Node.js", "SQL", "Figma", "Facebook APIs"],
   },
- 
 ];
 
 export const projects = [
   {
     title: "Socializer",
-    description:
-      "A CaaS for social media growth hack.",
+    description: "A CaaS for social media growth hack.",
     link: "https://socializer-gamma.vercel.app/",
     github: "https://github.com/mrayushmehrotra/Socializer",
     technologies: [
@@ -171,16 +173,16 @@ export const projects = [
     title: "SigmaUi",
     description:
       "A simple UI registry for components and blocks using the shadcn api.",
-    link: "https://l.ahmet.studio/ui",
-    github: "https://l.ahmet.studio/gh",
+    link: "https://sigma-zeta-six.vercel.app/",
+    github: "https://github.com/mrayushmehrotra/sigma-ui-client",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
   },
   {
     title: "Shawtify",
     description:
       "A full-featured spotify like website focusing on core features like listen to music, song upload and payment processing.",
-    link: "https://payload-ecommerce-app.vercel.app/",
-    github: "https://github.com/ahmetskilinc/payload-ecommerce",
+    link: "https://spotify-clone-ashy-five.vercel.app/",
+    github: "https://github.com/mrayushmehrotra/shawtify-spotify-clone",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -193,8 +195,8 @@ export const projects = [
     title: "Chotu",
     description:
       "A full-featured spotify like website focusing on core features like listen to music, song upload and payment processing.",
-    link: "https://payload-ecommerce-app.vercel.app/",
-    github: "https://github.com/ahmetskilinc/payload-ecommerce",
+    link: "#",
+    github: "https://github.com/mrayushmehrotra/llm-bot-in-reactNative.git",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -203,7 +205,6 @@ export const projects = [
       "Stripe",
     ],
   },
- 
 ];
 
 export const home = {
@@ -234,8 +235,8 @@ export const home = {
 
 export const socialMedia = [
   {
-    name:"calcom",
-    link: "https://cal.com/ayushme/15min"
+    name: "calcom",
+    link: "https://cal.com/ayushme/15min",
   },
   {
     name: "x",
@@ -254,6 +255,4 @@ export const socialMedia = [
     name: "email",
     link: "mailto:ayusmehrotra007@gmail.com",
   },
-
 ];
-
