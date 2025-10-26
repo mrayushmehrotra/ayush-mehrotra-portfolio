@@ -206,17 +206,10 @@ export const projects = [
   },
   {
     title: "Chotu",
-    description:
-      "A full-featured spotify like website focusing on core features like listen to music, song upload and payment processing.",
-    link: "#",
+    description: "A React Native Expo Ai Chatbot App",
+    link: "https://github.com/mrayushmehrotra/llm-bot-in-reactNative.git",
     github: "https://github.com/mrayushmehrotra/llm-bot-in-reactNative.git",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Payload CMS",
-      "Stripe",
-    ],
+    technologies: ["React Native", "TypeScript", "Google APIS"],
   },
 ];
 
