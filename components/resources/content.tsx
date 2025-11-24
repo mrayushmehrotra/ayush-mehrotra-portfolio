@@ -184,7 +184,7 @@ export const projects = [
     ],
   },
   {
-    title: "SigmaUi",
+    title: "SpidyUI",
     description:
       "A simple UI registry for components and blocks using the shadcn api.",
     link: "https://sigma-zeta-six.vercel.app/",
