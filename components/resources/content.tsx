@@ -18,6 +18,7 @@ import AmazonWebServices from "../icons/Aws";
 import Prisma from "components/icons/Prisma";
 import Nestjs from "components/icons/Nestjs";
 import Docker from "components/icons/Docker";
+
 export const tools = {
   frontend: [
     {
@@ -169,17 +170,17 @@ export const experience = [
 
 export const projects = [
   {
-    title: "Socializer",
-    description: "A CaaS for social media growth hack.",
-    link: "https://socializer-gamma.vercel.app/",
-    github: "https://github.com/mrayushmehrotra/Socializer",
+    title: "Invid.ai",
+    description: "A content as a service for social media growth hack.",
+    link: "https://invid-ai.vercel.app/",
+    github: "https://github.com/mrayushmehrotra/invid.ai",
     technologies: [
       "Next.js",
       "TypeScript",
       "Tailwind CSS",
-      "Bun",
       "Google APIs",
-      "Vercel",
+      "Python",
+      "FastAPI",
     ],
   },
   {
