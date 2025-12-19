@@ -11,6 +11,20 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        'star-movement-bottom': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(-100%, 0%)', opacity: '0' },
+        },
+        'star-movement-top': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(100%, 0%)', opacity: '0' },
+        },
+      },
+      animation: {
+        'star-movement-bottom': 'star-movement-bottom 6s linear infinite alternate',
+        'star-movement-top': 'star-movement-top 6s linear infinite alternate',
+      },
       colors: {
         catppucin: {
           light: "#e0f2fe",
@@ -32,5 +46,3 @@ module.exports = {
   },
   plugins: [],
 };
-
-// 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

@@ -13,6 +13,7 @@ import { projects, experience, tools } from "../components/resources/content";
 import { ExternalLink } from "lucide-react";
 import { track } from "@vercel/analytics/react";
 import SocialMedia from "../components/SocialMedia";
+import StarBorder from "components/ui/StarBorder";
 
 export default function Page() {
   return (
@@ -55,6 +56,8 @@ export default function Page() {
       </AnimateIn>
 
       <div className="flex items-center justify-start">
+    
+
         <Tabs defaultValue="projects">
           <TabsList className="mb-8 border-none bg-transparent p-0 -ml-2">
             <TabsTrigger

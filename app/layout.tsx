@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ViewTransitions } from "next-view-transitions";
 import "./global.css";
-// import Layout from "./components/GridBG";
+import ClickSpark from "../components/ui/Spark";
 import { Providers } from "../components/provider/Providers";
 
 export const metadata: Metadata = {
@@ -133,21 +133,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ViewTransitions>
-      <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
-        <body className="overflow-x-hidden antialiased max-w-xl mx-4 mt-8 lg:mx-auto ">
-
-          <Providers>
-            <main className="relative z-20 flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-xl mx-auto">
-              <Navbar />
-              <SchemaMarkup />
-              {children}
-              <Analytics />
-              <SpeedInsights />
-            </main>
-          </Providers>
-        </body>
-      </html>
-    </ViewTransitions>
+    <ClickSpark>
+      <ViewTransitions>
+        <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
+          <body className="overflow-x-hidden antialiased max-w-xl mx-4 mt-8 lg:mx-auto ">
+            <Providers>
+              <main className="relative z-20 flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-xl mx-auto">
+                <Navbar />
+                <SchemaMarkup />
+                {children}
+                <Analytics />
+                <SpeedInsights />
+              </main>
+            </Providers>
+          </body>
+        </html>
+      </ViewTransitions>
+    </ClickSpark>
   );
 }

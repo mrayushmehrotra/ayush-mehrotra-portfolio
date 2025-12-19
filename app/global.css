@@ -39,6 +39,7 @@ html {
 }
 
 body {
+  cursor: pointer;
   background-color: var(--bg);
   color: var(--text);
   transition:
@@ -49,6 +50,8 @@ body {
     Arial,
     Helvetica,
     sans-serif "ibm";
+  position: relative;
+  overflow: hidden;
 }
 
 /* Light theme (default) */
@@ -74,6 +77,19 @@ body {
   --nav-active: #e5e7eb;
 }
 
+.light::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #747272 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+}
+
 /* Dark theme */
 .dark {
   --bg: #0f172a;
@@ -94,6 +110,19 @@ body {
   --nav-text: #e2e8f0;
   --nav-hover: #38bdf8;
   --nav-active: #0f172a;
+}
+
+.dark::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+  background-size: 25px 25px;
+  opacity: 0.6;
 }
 
 /* ----------------- Catppuccin ----------------- */
@@ -117,6 +146,19 @@ body {
   --nav-active: #45475a;
 }
 
+.catppuccin::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #cba6f7 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.4;
+}
+
 /* ----------------- Zinc (minimal grayscale) ----------------- */
 .zinc {
   --bg: #18181b;
@@ -138,6 +180,19 @@ body {
   --nav-active: #27272a;
 }
 
+.zinc::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #888484 1px, transparent 1px);
+  background-size: 15px 15px;
+  opacity: 0.3;
+}
+
 /* ----------------- Rose Pine ----------------- */
 .rose {
   --bg: #191724;
@@ -157,4 +212,17 @@ body {
   --nav-text: #e0def4;
   --nav-hover: #eb6f92;
   --nav-active: #524f67;
+}
+
+.rose::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #eb6f92 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.5;
 }
