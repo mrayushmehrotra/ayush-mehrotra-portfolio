@@ -137,6 +137,10 @@ export default function RootLayout({
       <ViewTransitions>
         <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
           <head>
+            <meta
+              name="google-adsense-account"
+              content="ca-pub-8934404713213041"
+            />
             <script
               async
               src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8934404713213041"
