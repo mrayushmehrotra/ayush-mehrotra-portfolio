@@ -136,6 +136,13 @@ export default function RootLayout({
     <ClickSpark>
       <ViewTransitions>
         <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
+          <head>
+            <script
+              async
+              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8934404713213041"
+              crossOrigin="anonymous"
+            ></script>
+          </head>
           <body className="overflow-x-hidden antialiased max-w-xl mx-4 mt-8 lg:mx-auto ">
             <Providers>
               <main className="relative z-20 flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-xl mx-auto">
