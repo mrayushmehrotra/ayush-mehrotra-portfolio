@@ -150,7 +150,7 @@ export const experience = [
   },
   {
     role: "Freelance Developer",
-    periperiodod: "Mar 2024 - May 2025",
+    period: "Mar 2024 - May 2025",
     description:
       "Delivering custom web solutions for diverse clients, specialising in e-commerce platforms, content management systems, and business automation tools.",
     technologies: [

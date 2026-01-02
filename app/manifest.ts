@@ -5,20 +5,20 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Ayush Mehrotra - Full Stack Developer Portfolio",
     short_name: "Ayush Portfolio",
     description:
-      "Expert Full Stack Developer specializing in Next.js, React, Node.js, TypeScript, and modern web technologies. 5+ years experience building scalable applications.",
+      "Expert Full Stack Developer specializing in Next.js, React, Node.js, TypeScript, and modern web technologies.",
     start_url: "/",
     display: "standalone",
-    background_color: "#000000",
-    theme_color: "#000000",
+    background_color: "#ffffff",
+    theme_color: "#ffffff",
     icons: [
       {
-        src: "/myBoi.jpg",
+        src: "/profile.jpg",
         sizes: "192x192",
         type: "image/jpeg",
-        purpose: "maskable",
+        purpose: "any",
       },
       {
-        src: "/myBoi.jpg",
+        src: "/profile.jpg",
         sizes: "512x512",
         type: "image/jpeg",
         purpose: "maskable",
@@ -34,29 +34,5 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "en-US",
     orientation: "portrait-primary",
     scope: "/",
-    shortcuts: [
-      {
-        name: "View Projects",
-        url: "/projects",
-        icons: [
-          {
-            src: "/myBoi.jpg",
-            sizes: "192x192",
-            type: "image/jpeg",
-          },
-        ],
-      },
-      {
-        name: "About Me",
-        url: "/about",
-        icons: [
-          {
-            src: "/tanjiro_happy.png",
-            sizes: "192x192",
-            type: "image/jpeg",
-          },
-        ],
-      },
-    ],
   };
 }
