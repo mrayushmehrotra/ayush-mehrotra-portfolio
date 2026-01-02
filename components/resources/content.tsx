@@ -183,16 +183,10 @@ export const experience = [
 export const projects = [
   {
     title: "Invid.ai",
-    description: "A content as a service for social media growth hack.",
-    link: "https://invid-ai.vercel.app/",
+    description: "A content as a service for social media growth hack suite for mobile & android",
     github: "https://github.com/mrayushmehrotra/invid.ai",
     technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Google APIs",
-      "Python",
-      "FastAPI",
+      "Next.js", "React Native", "TypeScript", "Tailwind CSS", "Google APIs", "Python", "FastAPI",
     ],
   },
   {
@@ -217,13 +211,7 @@ export const projects = [
       "Stripe",
     ],
   },
-  {
-    title: "Chotu",
-    description: "A React Native Expo Ai Chatbot App",
-    link: "https://github.com/mrayushmehrotra/llm-bot-in-reactNative.git",
-    github: "https://github.com/mrayushmehrotra/llm-bot-in-reactNative.git",
-    technologies: ["React Native", "TypeScript", "Google APIS"],
-  },
+
 ];
 
 export const home = {

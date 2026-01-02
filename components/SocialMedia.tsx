@@ -12,6 +12,16 @@ import { socialMedia } from "./resources/content";
 
 type IconProps = SVGProps<SVGSVGElement> & { name: string };
 
+const iconLabels: { [key: string]: string } = {
+  instagram: "Instagram",
+  linkedin: "LinkedIn",
+  email: "Email",
+  github: "GitHub",
+  x: "X (Twitter)",
+  calcom: "Book a Call",
+  youtube: "YouTube",
+};
+
 const Icon: React.FC<IconProps> = ({ name, ...props }) => {
   const icons: { [key: string]: React.JSX.Element } = {
     instagram: <Instagram {...props} />,
@@ -28,17 +38,21 @@ const Icon: React.FC<IconProps> = ({ name, ...props }) => {
 
 const SocialMedia: React.FC = () => {
   return (
-    <div className="flex flex-row gap-4">
+    <div className="flex flex-row gap-1">
       {socialMedia.map((link) => (
         <Link
           key={link.name}
           href={link.link}
           target="_blank"
-          className="overflow-hidden transition-all text-[var(--social-icon)] hover:text-[var(--sh-identifier)]"
+          className="group relative p-2 rounded-lg overflow-hidden transition-all duration-200 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100"
           onClick={() => track(`${link.name}_link_clicked`)}
+          title={iconLabels[link.name] || link.name}
         >
-          <p className="sr-only">{link.name}</p>
-          <Icon name={link.name} className="transition-all h-5 w-5" />
+          <p className="sr-only">{iconLabels[link.name] || link.name}</p>
+          <Icon
+            name={link.name}
+            className="transition-all duration-200 h-5 w-5 group-hover:scale-110"
+          />
         </Link>
       ))}
     </div>
@@ -46,3 +60,4 @@ const SocialMedia: React.FC = () => {
 };
 
 export default SocialMedia;
+
