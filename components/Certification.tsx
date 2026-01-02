@@ -80,8 +80,8 @@ export default function Certification() {
                                         <div className="absolute -left-8 top-6 w-4 h-4 rounded-full bg-white border-2 border-zinc-300 hidden sm:block group-hover:border-zinc-500 transition-colors" />
 
                                         <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-2 gap-1">
-                                            <h3 className="text-lg font-semibold text-zinc-900">{item.degree}</h3>
-                                            <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-zinc-100 text-zinc-600 whitespace-nowrap">
+                                            <h3 className="text-lg w-fit font-semibold text-zinc-900">{item.degree}</h3>
+                                            <span className="text-xs font-medium px-2.5 py-1 rounded-full  text-zinc-600 whitespace-nowrap">
                                                 {item.period}
                                             </span>
                                         </div>

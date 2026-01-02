@@ -228,7 +228,7 @@ export default function Page() {
                     <ul className="space-y-4">
                       {experience.map((job, index) => {
                         const delay = 0.1 + index * 0.1;
-                        const isPresent = job.period.toLowerCase().includes("present");
+                        const isPresent = job.period?.toLowerCase().includes("present");
                         return (
                           <AnimateIn key={index} variant="fadeLeft" delay={delay}>
                             <li className="group p-5 rounded-xl bg-white shadow-[0_0_20px_rgba(55,65,81,0.12)] hover:shadow-[0_0_30px_rgba(55,65,81,0.18)] hover:translate-x-1 transition-all duration-300 ease-out sm:ml-6 relative">
