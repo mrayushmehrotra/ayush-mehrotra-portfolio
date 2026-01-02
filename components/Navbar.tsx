@@ -1,6 +1,6 @@
 "use client";
 import { AnimateIn } from "lib/animation/Animation";
-import { Skiper26 } from "./provider/Theme";
+import Image from "next/image";
 
 export function Navbar() {
   return (
@@ -11,7 +11,7 @@ export function Navbar() {
             <span>Hey, I&apos;m Ayush</span>
           </h1>
         </AnimateIn>
-        <Skiper26 />
+        <Image src="/profile.jpg" alt="Profile" width={50} height={50} />
       </nav>
     </>
   );

@@ -8,7 +8,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ViewTransitions } from "next-view-transitions";
 import "./global.css";
 import ClickSpark from "../components/ui/Spark";
-import { Providers } from "../components/provider/Providers";
 
 export const metadata: Metadata = {
   title: {
@@ -147,16 +146,14 @@ export default function RootLayout({
               crossOrigin="anonymous"
             ></script>
           </head>
-          <body className="overflow-x-hidden antialiased max-w-xl mx-4 mt-8 lg:mx-auto ">
-            <Providers>
-              <main className="relative z-20 flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-xl mx-auto">
-                <Navbar />
-                <SchemaMarkup />
-                {children}
-                <Analytics />
-                <SpeedInsights />
-              </main>
-            </Providers>
+          <body className="overflow-x-hidden antialiased max-w-3xl mx-4 mt-8 md:mx-auto ">
+            <main className="relative z-20 flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-3xl mx-auto">
+              <Navbar />
+              <SchemaMarkup />
+              {children}
+              <Analytics />
+              <SpeedInsights />
+            </main>
           </body>
         </html>
       </ViewTransitions>

@@ -20,7 +20,7 @@ interface Spark {
 }
 
 const ClickSpark: React.FC<ClickSparkProps> = ({
-  sparkColor = "#fff",
+  sparkColor = "#000",
   sparkSize = 10,
   sparkRadius = 15,
   sparkCount = 8,
@@ -160,10 +160,15 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
   };
 
   return (
-    <div className="relative w-full h-full" onClick={handleClick}>
+    <div
+      className="relative w-full h-full"
+      onClick={handleClick}
+      style={{ touchAction: "pan-y pan-x" }}
+    >
       <canvas
         ref={canvasRef}
         className="absolute inset-0 pointer-events-none"
+        style={{ touchAction: "none" }}
       />
       {children}
     </div>
