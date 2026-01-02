@@ -8,54 +8,6 @@
 }
 
 :root {
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
-  --sh-sign: #8996a3;
-  --sh-string: #007f7a;
-  --sh-keyword: #e02518;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-entity: #e25a1c;
-  --bg: white;
-  --text: black;
-  --sh-entity: #e25a1c;
-  --social-icon: #4b5563;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
-  }
-}
-
-html {
-  min-width: 360px;
-  margin: 0;
-  height: 100%;
-  scroll-behavior: smooth;
-}
-
-body {
-  cursor: pointer;
-  background-color: var(--bg);
-  color: var(--text);
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
-  min-height: 100vh;
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif "ibm";
-  position: relative;
-}
-
-/* Light theme (default) */
-:root,
-.light {
   --bg: #ffffff;
   --text: #000;
   --sh-class: #2563eb;
@@ -76,7 +28,26 @@ body {
   --nav-active: #e5e7eb;
 }
 
-.light::before {
+html {
+  min-width: 360px;
+  margin: 0;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  cursor: pointer;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif "ibm";
+  position: relative;
+}
+
+body::before {
   content: '';
   position: fixed;
   top: 0;
@@ -86,142 +57,5 @@ body {
   pointer-events: none;
   background-image: radial-gradient(circle, #747272 1px, transparent 1px);
   background-size: 20px 20px;
-  opacity: 0.5;
-}
-
-/* Dark theme */
-.dark {
-  --bg: #0f172a;
-  --text: #fff;
-  --sh-class: #60a5fa;
-  --sh-identifier: #f3f4f6;
-  --sh-keyword: #f87171;
-  --sh-string: #34d399;
-  --sh-sign: #94a3b8;
-  --sh-comment: #64748b;
-  --sh-property: #fbbf24;
-  --sh-jsxliterals: #818cf8;
-  --sh-entity: #f97316;
-  --social-icon: #e2e8f0;
-
-  --card-bg: #1e293b;
-  --nav-bg: #1e293b;
-  --nav-text: #e2e8f0;
-  --nav-hover: #38bdf8;
-  --nav-active: #0f172a;
-}
-
-.dark::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #fff 1px, transparent 1px);
-  background-size: 25px 25px;
-  opacity: 0.6;
-}
-
-/* ----------------- Catppuccin ----------------- */
-.catppuccin {
-  --bg: #1e1e2e;
-  --text: #fff;
-  --sh-class: #cba6f7;
-  --sh-identifier: #f2cdcd;
-  --sh-sign: #94e2d5;
-  --sh-string: #a6e3a1;
-  --sh-keyword: #f38ba8;
-  --sh-property: #fab387;
-  --sh-entity: #89b4fa;
-  --sh-jsxliterals: #89b4fa;
-  --sh-comment: #7f849c;
-
-  --card-bg: #313244;
-  --nav-bg: #1e1e2e;
-  --nav-text: #cdd6f4;
-  --nav-hover: #f38ba8;
-  --nav-active: #45475a;
-}
-
-.catppuccin::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #cba6f7 1px, transparent 1px);
-  background-size: 30px 30px;
-  opacity: 0.4;
-}
-
-/* ----------------- Zinc (minimal grayscale) ----------------- */
-.zinc {
-  --bg: #18181b;
-  --text: #fff;
-  --sh-class: #d4d4d8;
-  --sh-identifier: #e4e4e7;
-  --sh-sign: #a1a1aa;
-  --sh-string: #bef264;
-  --sh-keyword: #f87171;
-  --sh-property: #fde047;
-  --sh-entity: #38bdf8;
-  --sh-jsxliterals: #a5b4fc;
-  --sh-comment: #71717a;
-
-  --card-bg: #27272a;
-  --nav-bg: #1c1c1c;
-  --nav-text: #d4d4d8;
-  --nav-hover: #71717a;
-  --nav-active: #27272a;
-}
-
-.zinc::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #888484 1px, transparent 1px);
-  background-size: 15px 15px;
-  opacity: 0.3;
-}
-
-/* ----------------- Rose Pine ----------------- */
-.rose {
-  --bg: #191724;
-  --text: #fff;
-  --sh-class: #9ccfd8;
-  --sh-identifier: #e0def4;
-  --sh-sign: #908caa;
-  --sh-string: #f6c177;
-  --sh-keyword: #eb6f92;
-  --sh-property: #ebbcba;
-  --sh-entity: #31748f;
-  --sh-jsxliterals: #c4a7e7;
-  --sh-comment: #6e6a86;
-
-  --card-bg: #26233a;
-  --nav-bg: #1f1d2e;
-  --nav-text: #e0def4;
-  --nav-hover: #eb6f92;
-  --nav-active: #524f67;
-}
-
-.rose::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background-image: radial-gradient(circle, #eb6f92 1px, transparent 1px);
-  background-size: 22px 22px;
   opacity: 0.5;
 }

@@ -18,6 +18,7 @@ import AmazonWebServices from "../icons/Aws";
 import Prisma from "components/icons/Prisma";
 import Nestjs from "components/icons/Nestjs";
 import Docker from "components/icons/Docker";
+import TanstackQuery from "components/icons/Tanstack-Query";
 
 export const tools = {
   frontend: [
@@ -28,6 +29,10 @@ export const tools = {
     {
       Logo: (props) => <Nextjs {...props} />,
       title: "NextJS",
+    },
+    {
+      Logo: (props) => <TanstackQuery {...props} />,
+      title: "Tanstack Query",
     },
     {
       Logo: (props: React.SVGProps<SVGSVGElement>) => (
@@ -95,13 +100,13 @@ export const tools = {
     // },
     {
       Logo: (props) => (
-        <Nestjs className="fill-black dark:fill-white" {...props} />
+        <Nestjs className="fill-black" {...props} />
       ),
       title: "Nestjs",
     },
     {
       Logo: (props) => (
-        <Vercel className="fill-black dark:fill-white" {...props} />
+        <Vercel className="fill-black" {...props} />
       ),
       title: "Vercel",
     },
@@ -163,8 +168,15 @@ export const experience = [
     company: "Codetikki",
     period: "Jan 2023 - Mar 2023",
     description:
-      "Developed and maintained multiple features for the SaaS product, from performance improvements to new features.",
+      "figma to code dashboard & internal features to track employee and social media plugins",
     technologies: ["React.js", "Node.js", "SQL", "Figma", "Facebook APIs"],
+  },
+  {
+    role: "Self Employeed",
+    period: "2022 - Present",
+    description:
+      "I have profound skills in Full-Stack Web Application Development and a little bit in design too. I have built projects ranging from simple games and mini implementations of data tools to more complex applications like social media platforms, e-commerce stores, and popular app clones. I'm learning new things all the time, so it's a mix of good and bad code on my GitHub.",
+    technologies: ["Rust", "Lua", "Bash", "Go"],
   },
 ];
 
@@ -253,7 +265,10 @@ export const socialMedia = [
     name: "github",
     link: "https://github.com/mrayushmehrotra",
   },
-
+  {
+    name: "youtube",
+    link: "https://www.youtube.com/@ayush_mehrotra_csdev",
+  },
   {
     name: "linkedin",
     link: "https://www.linkedin.com/in/ayush-mehrotra-99419724b",

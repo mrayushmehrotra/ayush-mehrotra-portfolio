@@ -5,6 +5,7 @@ import X from "./icons/X";
 import Instagram from "./icons/Instagram";
 import LinkedIn from "./icons/LinkedIn";
 import Calcom from "./icons/Calcom";
+import Youtube from "./icons/Youtube";
 import React, { SVGProps } from "react";
 import { track } from "@vercel/analytics";
 import { socialMedia } from "./resources/content";
@@ -19,6 +20,7 @@ const Icon: React.FC<IconProps> = ({ name, ...props }) => {
     github: <Github {...props} />,
     x: <X {...props} />,
     calcom: <Calcom {...props} />,
+    youtube: <Youtube {...props} />,
   };
 
   return icons[name];

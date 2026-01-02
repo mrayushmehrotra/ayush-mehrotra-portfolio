@@ -1,17 +1,17 @@
 import Image from "next/image";
-const prismaIcon = "/nestjs.png";
+const nestjsIcon = "/nestjs.png";
 
-interface PrismaIconProps
-  extends Omit<React.ComponentProps<typeof Image>, "src" | "alt"> {}
+interface NestjsIconProps
+  extends Omit<React.ComponentProps<typeof Image>, "src" | "alt"> { }
 
-export default function Prisma({ className, ...props }: PrismaIconProps) {
+export default function Nestjs({ className, ...props }: NestjsIconProps) {
   return (
     <Image
       width={24}
       height={24}
       className={className}
-      src={prismaIcon}
-      alt="Prisma"
+      src={nestjsIcon}
+      alt="nestjs"
       {...props}
     />
   );
