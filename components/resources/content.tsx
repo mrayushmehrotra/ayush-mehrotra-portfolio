@@ -99,15 +99,11 @@ export const tools = {
     //   title: "Cloudflare",
     // },
     {
-      Logo: (props) => (
-        <Nestjs className="fill-black" {...props} />
-      ),
+      Logo: (props) => <Nestjs className="fill-black" {...props} />,
       title: "Nestjs",
     },
     {
-      Logo: (props) => (
-        <Vercel className="fill-black" {...props} />
-      ),
+      Logo: (props) => <Vercel className="fill-black" {...props} />,
       title: "Vercel",
     },
     {
@@ -183,10 +179,17 @@ export const experience = [
 export const projects = [
   {
     title: "Invid.ai",
-    description: "A content as a service for social media growth hack suite for mobile & android",
+    description:
+      "A content as a service for social media growth hack suite for mobile & android",
     github: "https://github.com/mrayushmehrotra/invid.ai",
     technologies: [
-      "Next.js", "React Native", "TypeScript", "Tailwind CSS", "Google APIs", "Python", "FastAPI",
+      "Next.js",
+      "React Native",
+      "TypeScript",
+      "Tailwind CSS",
+      "Google APIs",
+      "Python",
+      "FastAPI",
     ],
   },
   {
@@ -211,7 +214,6 @@ export const projects = [
       "Stripe",
     ],
   },
-
 ];
 
 export const home = {
@@ -264,5 +266,9 @@ export const socialMedia = [
   {
     name: "email",
     link: "mailto:ayusmehrotra007@gmail.com",
+  },
+  {
+    name: "resume",
+    link: "https://ayush-mehrotra-portfolio-two.vercel.app/Ayush_Mehrotra.pdf ",
   },
 ];

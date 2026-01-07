@@ -9,6 +9,7 @@ import Youtube from "./icons/Youtube";
 import React, { SVGProps } from "react";
 import { track } from "@vercel/analytics";
 import { socialMedia } from "./resources/content";
+import Resume from "./icons/Resume";
 
 type IconProps = SVGProps<SVGSVGElement> & { name: string };
 
@@ -20,6 +21,7 @@ const iconLabels: { [key: string]: string } = {
   x: "X (Twitter)",
   calcom: "Book a Call",
   youtube: "YouTube",
+  Resume: "Resume",
 };
 
 const Icon: React.FC<IconProps> = ({ name, ...props }) => {
@@ -30,6 +32,7 @@ const Icon: React.FC<IconProps> = ({ name, ...props }) => {
     github: <Github {...props} />,
     x: <X {...props} />,
     calcom: <Calcom {...props} />,
+    resume: <Resume {...props} />,
     youtube: <Youtube {...props} />,
   };
 
@@ -60,4 +63,3 @@ const SocialMedia: React.FC = () => {
 };
 
 export default SocialMedia;
-
