@@ -7,8 +7,9 @@
   color: #fefefe;
 }
 
-:root {
-  /* --bg: #ffffff; */
+/* Light Theme (default) */
+:root,
+.light {
   --bg: #fbfcf7;
   --text: #000;
   --sh-class: #2563eb;
@@ -22,11 +23,41 @@
   --sh-entity: #ea580c;
   --social-icon: #4b5563;
 
-  --card-bg: #f9fafb;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(55, 65, 81, 0.12);
+  --card-shadow-hover: rgba(55, 65, 81, 0.18);
   --nav-bg: #f3f4f6;
   --nav-text: #1f2937;
   --nav-hover: #94a3b8;
   --nav-active: #e5e7eb;
+  --border-color: rgba(55, 65, 81, 0.2);
+  --dot-color: #747272;
+}
+
+/* Dark Theme */
+.dark {
+  --bg: #0a0a0a;
+  --text: #f5f5f5;
+  --sh-class: #60a5fa;
+  --sh-identifier: #f3f4f6;
+  --sh-sign: #94a3b8;
+  --sh-keyword: #f87171;
+  --sh-string: #34d399;
+  --sh-comment: #64748b;
+  --sh-jsxliterals: #818cf8;
+  --sh-property: #fbbf24;
+  --sh-entity: #f97316;
+  --social-icon: #e2e8f0;
+
+  --card-bg: #171717;
+  --card-shadow: rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: rgba(0, 0, 0, 0.6);
+  --nav-bg: #171717;
+  --nav-text: #e2e8f0;
+  --nav-hover: #38bdf8;
+  --nav-active: #0a0a0a;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --dot-color: #333333;
 }
 
 html {
@@ -46,6 +77,7 @@ body {
     Helvetica,
     sans-serif "ibm";
   position: relative;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body::before {
@@ -56,8 +88,241 @@ body::before {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  background-image: radial-gradient(circle, #747272 1px, transparent 1px);
+  background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
   background-size: 20px 20px;
   opacity: 0.5;
+  transition: background-image 0.3s ease;
 }
 
+/* ================================
+   DARK MODE OVERRIDES
+   ================================ */
+
+/* Card backgrounds */
+.dark .bg-white {
+  background-color: var(--card-bg) !important;
+}
+
+.dark .bg-white\/90 {
+  background-color: rgba(23, 23, 23, 0.9) !important;
+}
+
+/* Text colors */
+.dark .text-zinc-900 {
+  color: #f5f5f5 !important;
+}
+
+.dark .text-zinc-800 {
+  color: #e5e5e5 !important;
+}
+
+.dark .text-zinc-700 {
+  color: #d4d4d4 !important;
+}
+
+.dark .text-zinc-600 {
+  color: #a3a3a3 !important;
+}
+
+.dark .text-zinc-500 {
+  color: #737373 !important;
+}
+
+.dark .text-zinc-400 {
+  color: #a3a3a3 !important;
+}
+
+.dark .text-zinc-300 {
+  color: #525252 !important;
+}
+
+/* Background colors */
+.dark .bg-zinc-50 {
+  background-color: #262626 !important;
+}
+
+.dark .bg-zinc-100 {
+  background-color: #262626 !important;
+}
+
+.dark .bg-zinc-200 {
+  background-color: #333333 !important;
+}
+
+.dark .bg-zinc-200\/50 {
+  background-color: rgba(51, 51, 51, 0.5) !important;
+}
+
+/* Hover states */
+.dark .hover\:bg-zinc-100:hover {
+  background-color: #333333 !important;
+}
+
+.dark .hover\:text-zinc-900:hover {
+  color: #ffffff !important;
+}
+
+.dark .hover\:text-zinc-700:hover {
+  color: #e5e5e5 !important;
+}
+
+.dark .group:hover .group-hover\:text-zinc-900 {
+  color: #ffffff !important;
+}
+
+/* Border colors */
+.dark .border-zinc-200 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .border-zinc-300 {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Shadow overrides */
+.dark .shadow-\[0_0_20px_rgba\(55\,65\,81\,0\.12\)\] {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark .shadow-\[0_0_15px_rgba\(55\,65\,81\,0\.1\)\] {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark .shadow-\[0_0_15px_rgba\(55\,65\,81\,0\.08\)\] {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark .shadow-\[0_0_20px_rgba\(55\,65\,81\,0\.2\)\] {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark .hover\:shadow-\[0_0_30px_rgba\(55\,65\,81\,0\.18\)\]:hover {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark .hover\:shadow-\[0_0_25px_rgba\(55\,65\,81\,0\.3\)\]:hover {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Tech badge colors for dark mode */
+.dark .bg-blue-100 {
+  background-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+.dark .text-blue-700 {
+  color: #93c5fd !important;
+}
+
+.dark .bg-cyan-100 {
+  background-color: rgba(6, 182, 212, 0.2) !important;
+}
+
+.dark .text-cyan-700 {
+  color: #67e8f9 !important;
+}
+
+.dark .bg-sky-100 {
+  background-color: rgba(14, 165, 233, 0.2) !important;
+}
+
+.dark .text-sky-700 {
+  color: #7dd3fc !important;
+}
+
+.dark .bg-green-100 {
+  background-color: rgba(34, 197, 94, 0.2) !important;
+}
+
+.dark .text-green-700 {
+  color: #86efac !important;
+}
+
+.dark .bg-indigo-100 {
+  background-color: rgba(99, 102, 241, 0.2) !important;
+}
+
+.dark .text-indigo-700 {
+  color: #a5b4fc !important;
+}
+
+.dark .bg-emerald-100 {
+  background-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+.dark .text-emerald-700 {
+  color: #6ee7b7 !important;
+}
+
+.dark .bg-yellow-100 {
+  background-color: rgba(234, 179, 8, 0.2) !important;
+}
+
+.dark .text-yellow-700 {
+  color: #fde047 !important;
+}
+
+.dark .bg-teal-100 {
+  background-color: rgba(20, 184, 166, 0.2) !important;
+}
+
+.dark .text-teal-700 {
+  color: #5eead4 !important;
+}
+
+.dark .bg-orange-100 {
+  background-color: rgba(249, 115, 22, 0.2) !important;
+}
+
+.dark .text-orange-700 {
+  color: #fdba74 !important;
+}
+
+.dark .bg-red-100 {
+  background-color: rgba(239, 68, 68, 0.2) !important;
+}
+
+.dark .text-red-700 {
+  color: #fca5a5 !important;
+}
+
+.dark .bg-purple-100 {
+  background-color: rgba(168, 85, 247, 0.2) !important;
+}
+
+.dark .text-purple-700 {
+  color: #d8b4fe !important;
+}
+
+.dark .bg-pink-100 {
+  background-color: rgba(236, 72, 153, 0.2) !important;
+}
+
+.dark .text-pink-700 {
+  color: #f9a8d4 !important;
+}
+
+.dark .bg-amber-100 {
+  background-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+.dark .text-amber-700 {
+  color: #fcd34d !important;
+}
+
+/* Scroll progress bar */
+.dark .from-zinc-600 {
+  --tw-gradient-from: #a3a3a3 !important;
+}
+
+.dark .to-zinc-800 {
+  --tw-gradient-to: #e5e5e5 !important;
+}
+
+/* Prevent hydration flash */
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}

@@ -6,6 +6,7 @@ import { Navbar } from "../components/Navbar";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ViewTransitions } from "next-view-transitions";
+import { ThemeProvider } from "../components/ThemeProvider";
 import "./global.css";
 import ClickSpark from "../components/ui/Spark";
 
@@ -124,7 +125,7 @@ export const metadata: Metadata = {
   },
 };
 
-const cx = (...classes) => classes.filter(Boolean).join(" ");
+const cx = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(" ");
 
 export default function RootLayout({
   children,
@@ -132,31 +133,46 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClickSpark>
-      <ViewTransitions>
-        <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
-          <head>
-            <meta
-              name="google-adsense-account"
-              content="ca-pub-8934404713213041"
-            />
-            <script
-              async
-              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8934404713213041"
-              crossOrigin="anonymous"
-            ></script>
-          </head>
-          <body className="overflow-x-hidden antialiased max-w-3xl mx-4 mt-8 md:mx-auto ">
-            <main className="relative z-20 flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-3xl mx-auto">
-              <Navbar />
-              <SchemaMarkup />
-              {children}
-              <Analytics />
-              <SpeedInsights />
-            </main>
-          </body>
-        </html>
-      </ViewTransitions>
-    </ClickSpark>
+    <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)} suppressHydrationWarning>
+      <head>
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-8934404713213041"
+        />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8934404713213041"
+          crossOrigin="anonymous"
+        ></script>
+        {/* Prevent flash of wrong theme */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const theme = localStorage.getItem('theme') || 
+                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.classList.add(theme);
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
+      <body className="overflow-x-hidden antialiased max-w-3xl mx-4 mt-8 md:mx-auto">
+        <ThemeProvider>
+          <ClickSpark>
+            <ViewTransitions>
+              <main className="relative z-20 flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-3xl mx-auto">
+                <Navbar />
+                <SchemaMarkup />
+                {children}
+                <Analytics />
+                <SpeedInsights />
+              </main>
+            </ViewTransitions>
+          </ClickSpark>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }
+

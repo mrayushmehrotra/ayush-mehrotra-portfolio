@@ -14,7 +14,6 @@ import { ExternalLink, Folder, Briefcase, Wrench } from "lucide-react";
 import { track } from "@vercel/analytics/react";
 import SocialMedia from "../components/SocialMedia";
 import Certification from "components/Certification";
-import StatusBadge from "components/StatusBadge";
 import Footer from "components/Footer";
 import BackToTop from "components/BackToTop";
 import ScrollProgress from "components/ScrollProgress";
@@ -22,30 +21,30 @@ import ScrollProgress from "components/ScrollProgress";
 // Tech badge color mapping for visual variety
 const techColors: { [key: string]: string } = {
   "Next.js": "bg-zinc-900 text-white",
-  "TypeScript": "bg-blue-100 text-blue-700",
+  TypeScript: "bg-blue-100 text-blue-700",
   "Tailwind CSS": "bg-cyan-100 text-cyan-700",
-  "React": "bg-sky-100 text-sky-700",
+  React: "bg-sky-100 text-sky-700",
   "Node.js": "bg-green-100 text-green-700",
-  "PostgreSQL": "bg-indigo-100 text-indigo-700",
-  "Postgres": "bg-indigo-100 text-indigo-700",
-  "MongoDB": "bg-emerald-100 text-emerald-700",
-  "Python": "bg-yellow-100 text-yellow-700",
-  "FastAPI": "bg-teal-100 text-teal-700",
-  "Docker": "bg-blue-100 text-blue-700",
-  "AWS": "bg-orange-100 text-orange-700",
+  PostgreSQL: "bg-indigo-100 text-indigo-700",
+  Postgres: "bg-indigo-100 text-indigo-700",
+  MongoDB: "bg-emerald-100 text-emerald-700",
+  Python: "bg-yellow-100 text-yellow-700",
+  FastAPI: "bg-teal-100 text-teal-700",
+  Docker: "bg-blue-100 text-blue-700",
+  AWS: "bg-orange-100 text-orange-700",
   "Google APIs": "bg-red-100 text-red-700",
-  "Stripe": "bg-purple-100 text-purple-700",
+  Stripe: "bg-purple-100 text-purple-700",
   "Shadcn UI": "bg-zinc-100 text-zinc-700",
   "Payload CMS": "bg-zinc-100 text-zinc-700",
-  "PayloadCMS": "bg-zinc-100 text-zinc-700",
+  PayloadCMS: "bg-zinc-100 text-zinc-700",
   "React Native": "bg-sky-100 text-sky-700",
-  "SQL": "bg-amber-100 text-amber-700",
-  "Figma": "bg-pink-100 text-pink-700",
+  SQL: "bg-amber-100 text-amber-700",
+  Figma: "bg-pink-100 text-pink-700",
   "Facebook APIs": "bg-blue-100 text-blue-700",
-  "Rust": "bg-orange-100 text-orange-700",
-  "Lua": "bg-indigo-100 text-indigo-700",
-  "Bash": "bg-zinc-100 text-zinc-700",
-  "Go": "bg-cyan-100 text-cyan-700",
+  Rust: "bg-orange-100 text-orange-700",
+  Lua: "bg-indigo-100 text-indigo-700",
+  Bash: "bg-zinc-100 text-zinc-700",
+  Go: "bg-cyan-100 text-cyan-700",
   "React.js": "bg-sky-100 text-sky-700",
 };
 
@@ -59,14 +58,15 @@ export default function Page() {
       <ScrollProgress />
       <BlurView>
         {/* Status Badge */}
-        <StatusBadge />
 
         {/* Hero Section */}
         <div className="flex justify-between mt-2">
           <AnimateIn variant="fadeLeft" delay={0.4}>
             <p className="text-base text-zinc-600 max-w-xl mb-6 leading-relaxed">
-              <span className="font-medium text-zinc-900">21 yo Software Engineer</span> from India.
-              Loves to transform ideas into reality.{" "}
+              <span className="font-medium text-zinc-900">
+                21 yo Software Engineer
+              </span>{" "}
+              from India. Loves to transform ideas into reality.{" "}
               <span className="text-zinc-500">Currently building</span>{" "}
               <a
                 href="https://pmspace.ai/"
@@ -156,7 +156,11 @@ export default function Page() {
                       {projects.map((project, index) => {
                         const delay = 0.1 + index * 0.1;
                         return (
-                          <AnimateIn key={index} variant="fadeLeft" delay={delay}>
+                          <AnimateIn
+                            key={index}
+                            variant="fadeLeft"
+                            delay={delay}
+                          >
                             <li className="group p-5 rounded-xl bg-white shadow-[0_0_20px_rgba(55,65,81,0.12)] hover:shadow-[0_0_30px_rgba(55,65,81,0.18)] hover:translate-x-1 transition-all duration-300 ease-out">
                               <div className="flex items-start justify-between mb-2">
                                 <h3 className="text-lg font-semibold text-zinc-900">
@@ -173,7 +177,8 @@ export default function Page() {
                                         track(`${project.title}_github_clicked`)
                                       }
                                     >
-                                      GitHub <ExternalLink className="w-3 h-3" />
+                                      GitHub{" "}
+                                      <ExternalLink className="w-3 h-3" />
                                     </a>
                                   ) : null}
                                   {project.link ? (
@@ -200,7 +205,7 @@ export default function Page() {
                                     key={techIndex}
                                     className={cn(
                                       "text-xs font-medium px-2.5 py-1 rounded-full transition-transform hover:scale-105",
-                                      getTechColor(tech)
+                                      getTechColor(tech),
                                     )}
                                   >
                                     {tech}
@@ -222,22 +227,20 @@ export default function Page() {
               <AnimateIn variant="fadeLeft" delay={0.1} once={false}>
                 <section className="mb-12">
                   <div className="relative">
-                    {/* Timeline line */}
-                    <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gradient-to-b from-zinc-300 via-zinc-200 to-transparent ml-2 hidden sm:block" />
-
                     <ul className="space-y-4">
                       {experience.map((job, index) => {
                         const delay = 0.1 + index * 0.1;
-                        const isPresent = job.period?.toLowerCase().includes("present");
+                        const isPresent = job.period
+                          ?.toLowerCase()
+                          .includes("present");
                         return (
-                          <AnimateIn key={index} variant="fadeLeft" delay={delay}>
-                            <li className="group p-5 rounded-xl bg-white shadow-[0_0_20px_rgba(55,65,81,0.12)] hover:shadow-[0_0_30px_rgba(55,65,81,0.18)] hover:translate-x-1 transition-all duration-300 ease-out sm:ml-6 relative">
+                          <AnimateIn
+                            key={index}
+                            variant="fadeLeft"
+                            delay={delay}
+                          >
+                            <li className="group p-6 rounded-xl bg-white shadow-[0_0_20px_rgba(55,65,81,0.12)] hover:shadow-[0_0_30px_rgba(55,65,81,0.18)] hover:translate-x-1 transition-all duration-300 ease-out relative">
                               {/* Timeline dot */}
-                              <div className="absolute -left-8 top-6 w-4 h-4 rounded-full bg-white border-2 border-zinc-300 hidden sm:block group-hover:border-zinc-500 transition-colors">
-                                {isPresent && (
-                                  <span className="absolute inset-0.5 rounded-full bg-green-500 animate-pulse" />
-                                )}
-                              </div>
 
                               <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-2 gap-1">
                                 <div>
@@ -246,18 +249,20 @@ export default function Page() {
                                   </h3>
                                   {job.company && (
                                     <p className="text-sm text-zinc-600">
-                                      {job.role.toLowerCase().includes("freelance") || job.role.toLowerCase().includes("self")
+                                      {job.role
+                                        .toLowerCase()
+                                        .includes("freelance") ||
+                                      job.role.toLowerCase().includes("self")
                                         ? ""
-                                        : "at "}{job.company}
+                                        : "at "}
+                                      {job.company}
                                     </p>
                                   )}
                                 </div>
-                                <span className={cn(
-                                  "text-xs font-medium px-2.5 py-1 rounded-full whitespace-nowrap",
-                                  isPresent
-                                    ? "bg-green-100 text-green-700"
-                                    : "bg-zinc-100 text-zinc-600"
-                                )}>
+                                <span
+                                  className={cn(
+                                    "text-xs font-medium px-2.5 py-1 rounded-full whitespace-nowrap")}
+                                >
                                   {job.period}
                                 </span>
                               </div>
@@ -270,7 +275,7 @@ export default function Page() {
                                     key={techIndex}
                                     className={cn(
                                       "text-xs font-medium px-2.5 py-1 rounded-full transition-transform hover:scale-105",
-                                      getTechColor(tech)
+                                      getTechColor(tech),
                                     )}
                                   >
                                     {tech}
@@ -335,7 +340,7 @@ export default function Page() {
                             className="w-[calc(25%-12px)] sm:w-[calc(20%-13px)]"
                           >
                             <div className="flex flex-col items-center group cursor-pointer">
-                              <div className="relative h-10 w-10 sm:h-12 sm:w-12 mb-3 p-2 rounded-xl bg-zinc-50 transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-md">
+                              <div className="relative h-10 w-10 sm:h-12 sm:w-12 mb-3 p-2 rounded-xl  transition-all duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-md">
                                 <Logo className="h-full w-full" />
                               </div>
                               <span className="text-xs font-medium text-zinc-600 text-center whitespace-nowrap group-hover:text-zinc-900 transition-colors">

@@ -216,32 +216,32 @@ export const projects = [
   },
 ];
 
-export const home = {
-  main: "Hey, I'm Ayush",
-  details: (
-    <>
-      Software Engineer from India. Contact me below. Currently building{" "}
-      <a
-        style={{
-          color: "--text",
-        }}
-      >
-        SpaceAI
-      </a>
-      and{" "}
-      <a
-        style={{
-          color: "--text",
-        }}
-      >
-        Eco
-      </a>
-    </>
-  ),
+// export const home = {
+//   main: "Hey, I'm Ayush",
+//   details: (
+//     <>
+//       Software Engineer from India. Contact me below. Currently building{" "}
+//       <a
+//         style={{
+//           color: "--text",
+//         }}
+//       >
+//         SpaceAI
+//       </a>
+//       and{" "}
+//       <a
+//         style={{
+//           color: "--text",
+//         }}
+//       >
+//         Eco
+//       </a>
+//     </>
+//   ),
 
-  email: "ayusmehrotra007@gmail.com", // change if needed
-};
-
+//   email: "ayusmehrotra007@gmail.com",
+// };
+//
 export const socialMedia = [
   {
     name: "calcom",
