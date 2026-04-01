@@ -16,6 +16,8 @@ import SocialMedia from "../components/SocialMedia";
 import Certification from "components/Certification";
 import Footer from "components/Footer";
 import BackToTop from "components/BackToTop";
+import MediaProjectCard from "components/MediaProjectCard";
+
 import ScrollProgress from "components/ScrollProgress";
 
 // Tech badge color mapping for visual variety
@@ -63,34 +65,27 @@ export default function Page() {
         <div className="flex justify-between mt-2">
           <AnimateIn variant="fadeLeft" delay={0.4}>
             <p className="text-base text-zinc-600 max-w-xl mb-6 leading-relaxed">
-              <span className="font-medium text-zinc-900">
-                21 yo Software Engineer
-              </span>{" "}
-              from India. Loves to transform ideas into reality.{" "}
-              <span className="text-zinc-500">Currently building</span>{" "}
-              <a
-                href="https://pmspace.ai/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-zinc-900 hover:underline underline-offset-2 transition-all"
-                onClick={() => track("spaceai_email_clicked")}
-              >
-                SpaceAi
-              </a>{" "}
-              <span className="text-zinc-500">and</span>{" "}
-              <a
-                href="https://logchimp.codecarrot.net/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-zinc-900 hover:underline underline-offset-2 transition-all"
-                onClick={() => track("sigma-zeta-six_clicked")}
-              >
-                Logchimp
-              </a>
-              .
+              <h1 className="text-black text-4xl font-bold dark:text-white" >
+                Ayush Mehrotra
+              </h1>
+              <br/>
+              <div className="text-xl">
+
+              Co-Founder of
+              <span className="text-zinc-500 underline cursor-pointer ml-1 mr-1"><a href='https://neurobro.vercel.app/' target="_blank">
+                Neurobro
+              </a></span>{" "}
+              and
+              <span className="text-zinc-500 underline cursor-pointer ml-1"><a href='https://github.com/mrayushmehrotra/quick-speak' target="_blank">
+                QuickSpeak
+              </a> </span>{" "}.
+              <br/>
+              india-based builder across AI, markets, and more.
+              </div>
             </p>
           </AnimateIn>
         </div>
+
 
         {/* Social Media Links */}
         <AnimateIn variant="fadeRight" delay={0.6}>
@@ -99,8 +94,31 @@ export default function Page() {
           </div>
         </AnimateIn>
 
+        <div className="flex justify-between m-2">
+          <AnimateIn variant="fadeLeft" delay={0.4}>
+            <div>
+
+              <MediaProjectCard
+              url="https://github.com/mrayushmehrotra/quick-speak"
+                title="Quick Speak"
+                period="2025 - present"
+                description="Voice-to-clipboard tool with live waveform visualization, automatic transcription, and one-click copy for Linux. for the peoples who are lazy in writing prompts for AI."
+                videoUrl="/quick-speak.mp4"
+              />
+            </div>
+               <div className="mt-8">
+
+              <MediaProjectCard
+              url="https://github.com/mrayushmehrotra/port-slayer"
+                title="Port Slayer"
+                period="2025 - 2025"
+                description="A quick port killer for linux newbies built in Rust tauri and React with simple UI/UX."
+              />
+            </div>
+          </AnimateIn>
+        </div>
         {/* Tabs Section */}
-        <div className="flex items-center justify-start">
+        <div className="flex items-center justify-start mt-4">
           <Tabs defaultValue="projects" className="w-full">
             <TabsList className="mb-8 border-none bg-white/90 backdrop-blur-xl w-fit p-1 rounded-xl shadow-[0_0_15px_rgba(55,65,81,0.08)]">
               <TabsTrigger
@@ -252,7 +270,7 @@ export default function Page() {
                                       {job.role
                                         .toLowerCase()
                                         .includes("freelance") ||
-                                      job.role.toLowerCase().includes("self")
+                                        job.role.toLowerCase().includes("self")
                                         ? ""
                                         : "at "}
                                       {job.company}

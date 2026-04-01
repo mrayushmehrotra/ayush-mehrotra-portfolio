@@ -10,9 +10,9 @@ export function Navbar() {
     <>
       <nav className="flex justify-between w-full">
         <AnimateIn variant="fadeUp" delay={0.5}>
-          <h1 className="text-3xl font-extrabold tracking-tight mb-4 flex items-baseline justify-between">
+          <h1 className="dark:text-zinc-300 text-gray-500 underline text-2xl font-semibold tracking-tight mb-4 flex items-baseline justify-between">
             <span>
-              Hi, I&apos;m Ayush{" "}
+              Ayush Mehrotra{" "}
               <button
                 onClick={toggleTheme}
                 className="inline-block hover:scale-125 active:scale-95 transition-transform cursor-pointer"

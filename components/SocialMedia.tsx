@@ -47,7 +47,7 @@ const SocialMedia: React.FC = () => {
           key={link.name}
           href={link.link}
           target="_blank"
-          className="group relative p-2 rounded-lg overflow-hidden transition-all duration-200 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100"
+          className="group relative p-2 rounded-lg overflow-hidden transition-all duration-200 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-zinc-800"
           onClick={() => track(`${link.name}_link_clicked`)}
           title={iconLabels[link.name] || link.name}
         >

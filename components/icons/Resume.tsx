@@ -3,6 +3,7 @@ import { SVGProps } from "react";
 export default function Resume(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
+      fill="currentColor"
       {...props}
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
