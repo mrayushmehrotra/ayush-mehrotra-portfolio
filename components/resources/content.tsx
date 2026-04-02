@@ -223,8 +223,8 @@ export const projects = [
     technologies: [
       "Next.js",
       "TypeScript",
+      "Zustand",
       "Tailwind CSS",
-      "Payload CMS",
       "Stripe",
     ],
   },
