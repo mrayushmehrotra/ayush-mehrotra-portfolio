@@ -172,7 +172,7 @@ export const experience = [
     period: "2022 - Present",
     description:
       "I have profound skills in Full-Stack Web Application Development and a little bit in design too. I have built projects ranging from simple games and mini implementations of data tools to more complex applications like social media platforms, e-commerce stores, and popular app clones. I'm learning new things all the time, so it's a mix of good and bad code on my GitHub.",
-    technologies: ["Rust", "Lua", "Bash", "Go"],
+    technologies: ["Rust", "Lua", "Bash", "Go", "C"],
   },
 ];
 
@@ -192,6 +192,20 @@ export const projects = [
       "FastAPI",
     ],
   },
+  {
+    title: "Clip.AI",
+    description: "AI powered Web Based Video Editor powered by Groq-AI (beta)",
+    github: "https://github.com/mrayushmehrotra/clip.ai",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Remotion",
+      "ffmpeg",
+      "Redux",
+      "GroqAI",
+    ],
+  },
+
   {
     title: "SpidyUI",
     description:
@@ -213,6 +227,13 @@ export const projects = [
       "Payload CMS",
       "Stripe",
     ],
+  },
+  {
+    title: "Promptier",
+    description:
+      "Curated AI image prompts for model poses with a monthly contest — winners receive exclusive coupons.",
+    github: "https://github.com/mrayushmehrotra/promptier",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
 ];
 

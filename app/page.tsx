@@ -19,6 +19,7 @@ import BackToTop from "components/BackToTop";
 import MediaProjectCard from "components/MediaProjectCard";
 
 import ScrollProgress from "components/ScrollProgress";
+import OpenSource from "components/OpenSource";
 
 // Tech badge color mapping for visual variety
 const techColors: { [key: string]: string } = {
@@ -65,27 +66,33 @@ export default function Page() {
         <div className="flex justify-between mt-2">
           <AnimateIn variant="fadeLeft" delay={0.4}>
             <p className="text-base text-zinc-600 max-w-xl mb-6 leading-relaxed">
-              <h1 className="text-black text-4xl font-bold dark:text-white" >
+              <h1 className="text-black text-4xl font-bold dark:text-white">
                 Ayush Mehrotra
               </h1>
-              <br/>
+              <br />
               <div className="text-xl">
-
-              Co-Founder of
-              <span className="text-zinc-500 underline cursor-pointer ml-1 mr-1"><a href='https://neurobro.vercel.app/' target="_blank">
-                Neurobro
-              </a></span>{" "}
-              and
-              <span className="text-zinc-500 underline cursor-pointer ml-1"><a href='https://github.com/mrayushmehrotra/quick-speak' target="_blank">
-                QuickSpeak
-              </a> </span>{" "}.
-              <br/>
-              india-based builder across AI, markets, and more.
+                Co-Founder of
+                <span className="text-zinc-500 underline cursor-pointer ml-1 mr-1">
+                  <a href="https://neurobro.vercel.app/" target="_blank">
+                    Neurobro
+                  </a>
+                </span>{" "}
+                and
+                <span className="text-zinc-500 underline cursor-pointer ml-1">
+                  <a
+                    href="https://github.com/mrayushmehrotra/quick-speak"
+                    target="_blank"
+                  >
+                    QuickSpeak
+                  </a>{" "}
+                </span>{" "}
+                .
+                <br />
+                india-based builder across AI, markets, and more.
               </div>
             </p>
           </AnimateIn>
         </div>
-
 
         {/* Social Media Links */}
         <AnimateIn variant="fadeRight" delay={0.6}>
@@ -97,19 +104,17 @@ export default function Page() {
         <div className="flex justify-between m-2">
           <AnimateIn variant="fadeLeft" delay={0.4}>
             <div>
-
               <MediaProjectCard
-              url="https://github.com/mrayushmehrotra/quick-speak"
+                url="https://github.com/mrayushmehrotra/quick-speak"
                 title="Quick Speak"
                 period="2025 - present"
                 description="Voice-to-clipboard tool with live waveform visualization, automatic transcription, and one-click copy for Linux. for the peoples who are lazy in writing prompts for AI."
                 videoUrl="/quick-speak.mp4"
               />
             </div>
-               <div className="mt-8">
-
+            <div className="mt-8">
               <MediaProjectCard
-              url="https://github.com/mrayushmehrotra/port-slayer"
+                url="https://github.com/mrayushmehrotra/port-slayer"
                 title="Port Slayer"
                 period="2025 - 2025"
                 description="A quick port killer for linux newbies built in Rust tauri and React with simple UI/UX."
@@ -132,7 +137,7 @@ export default function Page() {
               >
                 <div className="flex items-center gap-1.5">
                   <Folder className="w-4 h-4" />
-                  <span>Projects</span>
+                  <span>Past Projects</span>
                 </div>
               </TabsTrigger>
               <TabsTrigger
@@ -270,7 +275,7 @@ export default function Page() {
                                       {job.role
                                         .toLowerCase()
                                         .includes("freelance") ||
-                                        job.role.toLowerCase().includes("self")
+                                      job.role.toLowerCase().includes("self")
                                         ? ""
                                         : "at "}
                                       {job.company}
@@ -279,7 +284,8 @@ export default function Page() {
                                 </div>
                                 <span
                                   className={cn(
-                                    "text-xs font-medium px-2.5 py-1 rounded-full whitespace-nowrap")}
+                                    "text-xs font-medium px-2.5 py-1 rounded-full whitespace-nowrap",
+                                  )}
                                 >
                                   {job.period}
                                 </span>
@@ -375,7 +381,9 @@ export default function Page() {
             </TabsContent>
           </Tabs>
         </div>
+        {/* Open Source Contributions */}
 
+        <OpenSource />
         {/* Certification & Education */}
         <Certification />
 

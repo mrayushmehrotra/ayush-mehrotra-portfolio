@@ -51,7 +51,7 @@ const education: EducationItem[] = [
   {
     degree: "Bachelor of Science",
     institution: "Maa Shakuntala PG college",
-    period: "2020 - 2024",
+    period: "2024 - 2027",
     description:
       "Focused on software engineering, data structures, and web development.",
   },
@@ -161,4 +161,3 @@ export default function Certification() {
     </div>
   );
 }
-
