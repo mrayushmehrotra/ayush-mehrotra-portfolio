@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Ayush Mehrotra",
   },
   description:
-    "Expert Full Stack Developer Ayush Mehrotra specializes in Next.js, React, Node.js, TypeScript, and modern web technologies. 5+ years building scalable web applications, APIs, and cloud solutions. Available for hire.",
+    "Expert Full Stack Developer Ayush Mehrotra specializes in Next.js, React, Node.js, TypeScript, and modern web technologies. 1+ years building scalable web applications, APIs, and cloud solutions. Available for hire.",
   keywords: [
     "Ayush Mehrotra",
     "Full Stack Developer Expert",
@@ -125,7 +125,8 @@ export const metadata: Metadata = {
   },
 };
 
-const cx = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(" ");
+const cx = (...classes: (string | undefined)[]) =>
+  classes.filter(Boolean).join(" ");
 
 export default function RootLayout({
   children,
@@ -133,12 +134,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={cx(GeistSans.variable, GeistMono.variable)}
+      suppressHydrationWarning
+    >
       <head>
-        <meta
-          name="google-adsense-account"
-          content="ca-pub-8934404713213041"
-        />
+        <meta name="google-adsense-account" content="ca-pub-8934404713213041" />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8934404713213041"
@@ -175,4 +177,3 @@ export default function RootLayout({
     </html>
   );
 }
-

@@ -14,6 +14,14 @@ interface OpenSourceItem {
 
 const projects: OpenSourceItem[] = [
   {
+    title: "stablyai/orca",
+    stars: "2.9k",
+    description:
+      "implementing a hierarchical tree view for PR diff file lists with folder compaction, Flat/Tree toggle UI, and nested indentation",
+    link: "https://github.com/stablyai/orca",
+  },
+
+  {
     title: "Dubinc/Dub",
     stars: "23.3k",
     description:
