@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Ayush Mehrotra",
   },
   description:
-    "Expert Full Stack Developer Ayush Mehrotra specializes in Next.js, React, Node.js, TypeScript, and modern web technologies. 1+ years building scalable web applications, APIs, and cloud solutions. Available for hire.",
+    "Ayush Mehrotra is an Expert Full Stack Developer specializing in Next.js, React, Node.js, TypeScript, and modern web technologies. With a focus on building scalable web applications, APIs, and cloud solutions, Ayush is available for hire as a senior software engineer.",
   keywords: [
     "Ayush Mehrotra",
     "Full Stack Developer Expert",

@@ -132,8 +132,24 @@ export const tools = {
 export const experience = [
   {
     role: "Software Engineer",
+    company: "Wealthfino (India, remote)",
+    period: "June 2026 - present",
+    description:
+      "Built internal tooling that cut API response time from ~60s to 10s (saving $15/month), fixed bugs, and improved accessibility to meet SEBI compliance for registered brokers",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Playwright",
+      "yahoo-finance",
+      "Bun",
+    ],
+  },
+
+  {
+    role: "Software Engineer Part Time",
     company: "Space AI (India, remote)",
-    period: "July 2025 - Present",
+    period: "July 2025 - Nov 2025",
     description:
       "Software engineer responsible for core features and performance optimisations for an innovative AI-powered email client, focusing on intelligent email processing and real-time collaboration.",
     technologies: [
