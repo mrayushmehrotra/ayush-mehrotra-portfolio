@@ -1,178 +1,98 @@
 import type { Metadata } from "next";
 import SchemaMarkup from "../components/SchemaMarkup";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
-import { Navbar } from "../components/Navbar";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ViewTransitions } from "next-view-transitions";
-import { ThemeProvider } from "../components/ThemeProvider";
 import "./global.css";
-import ClickSpark from "../components/ui/Spark";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
-    default:
-      "Ayush Mehrotra | Expert Full Stack Developer | Next.js, React, Node.js Specialist",
+    default: "Ayush Mehrotra — Software Engineer",
     template: "%s | Ayush Mehrotra",
   },
   description:
-    "Ayush Mehrotra is an Expert Full Stack Developer specializing in Next.js, React, Node.js, TypeScript, and modern web technologies. With a focus on building scalable web applications, APIs, and cloud solutions, Ayush is available for hire as a senior software engineer.",
+    "Ayush Mehrotra is a full-stack frontend engineer from India building considered interfaces with React, Next.js, and TypeScript. Four years shipping accessible, performant web experiences.",
   keywords: [
     "Ayush Mehrotra",
-    "Full Stack Developer Expert",
-    "Next.js Developer for Hire",
-    "React Developer Specialist",
-    "Node.js Backend Developer",
+    "Frontend Engineer",
+    "React Developer",
+    "Next.js Developer",
     "TypeScript Developer",
-    "JavaScript Full Stack",
-    "MERN Stack Developer",
-    "MEAN Stack Developer",
-    "Web Application Developer",
-    "API Development Expert",
-    "Database Design MongoDB PostgreSQL",
-    "Cloud Deployment AWS Vercel",
-    "Responsive Web Design",
-    "Progressive Web Apps PWA",
-    "E-commerce Development",
-    "SaaS Application Development",
-    "Real-time Applications WebSocket",
-    "Microservices Architecture",
-    "Docker Containerization",
-    "GraphQL API Development",
-    "RESTful API Design",
-    "Performance Optimization Expert",
-    "SEO Optimization Developer",
-    "Technical Consulting Services",
-    "Custom Web Development",
-    "Frontend Backend Integration",
-    "Modern Web Technologies",
-    "Full Stack Development Services",
-    "Remote Full Stack Developer",
-    "Freelance Web Developer",
-    "Software Engineer Portfolio",
-    "React Portfolio Projects",
-    "Next.js Portfolio Examples",
-    "JavaScript Development Portfolio",
+    "Full Stack Developer",
     "Web Developer India",
-    "Full Stack Developer India",
-    "Remote Developer Available",
-    "Hire Full Stack Developer",
-    "Expert Web Developer",
-    "Senior Full Stack Engineer",
+    "Software Engineer",
+    "UI Engineer",
+    "Accessibility",
+    "Web Performance",
   ],
-  authors: [
-    {
-      name: "Ayush Mehrotra",
-      url: "https://ayush-mehrotra-portfolio-two.vercel.app",
-    },
-  ],
+  authors: [{ name: "Ayush Mehrotra", url: "https://ayush-mehrotra-portfolio-two.vercel.app" }],
   creator: "Ayush Mehrotra",
   publisher: "Ayush Mehrotra",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
   metadataBase: new URL("https://ayush-mehrotra-portfolio-two.vercel.app"),
   alternates: {
     canonical: "/",
     types: {
-      "application/rss+xml":
-        "https://ayush-mehrotra-portfolio-two.vercel.app/rss",
+      "application/rss+xml": "https://ayush-mehrotra-portfolio-two.vercel.app/rss",
     },
   },
   openGraph: {
-    title:
-      "Ayush Mehrotra | Expert Full Stack Developer | Next.js, React, Node.js Specialist",
+    title: "Ayush Mehrotra — Software Engineer",
     description:
-      "Expert Full Stack Developer with 5+ years experience in Next.js, React, Node.js, TypeScript. Specialized in building scalable web applications, APIs, and cloud solutions. Available for hire.",
+      "Full-stack frontend engineer building considered interfaces. React, Next.js, TypeScript.",
     url: "https://ayush-mehrotra-portfolio-two.vercel.app",
-    siteName: "Ayush Mehrotra - Full Stack Developer Portfolio",
-    images: [
-      {
-        url: "https://ayush-mehrotra-portfolio-two.vercel.app/api/og?title=Ayush%20Mehrotra%20-%20Expert%20Full%20Stack%20Developer",
-        width: 1200,
-        height: 630,
-        alt: "Ayush Mehrotra - Expert Full Stack Developer Portfolio",
-      },
-    ],
+    siteName: "Ayush Mehrotra",
+    images: [{
+      url: "https://ayush-mehrotra-portfolio-two.vercel.app/api/og?title=Ayush%20Mehrotra",
+      width: 1200,
+      height: 630,
+      alt: "Ayush Mehrotra — Software Engineer",
+    }],
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Ayush Mehrotra | Expert Full Stack Developer | Next.js, React, Node.js Specialist",
+    title: "Ayush Mehrotra — Software Engineer",
     description:
-      "Expert Full Stack Developer with 5+ years experience in Next.js, React, Node.js, TypeScript. Specialized in building scalable web applications, APIs, and cloud solutions.",
+      "Full-stack frontend engineer building considered interfaces. React, Next.js, TypeScript.",
     site: "@AYUSH070707",
     creator: "@AYUSH070707",
-    images: [
-      "https://ayush-mehrotra-portfolio-two.vercel.app/api/og?title=Ayush%20Mehrotra%20-%20Expert%20Full%20Stack%20Developer",
-    ],
+    images: ["https://ayush-mehrotra-portfolio-two.vercel.app/api/og?title=Ayush%20Mehrotra"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: { index: true, follow: true },
 };
 
-const cx = (...classes: (string | undefined)[]) =>
-  classes.filter(Boolean).join(" ");
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={cx(GeistSans.variable, GeistMono.variable)}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={`${inter.variable} ${cormorant.variable}`} suppressHydrationWarning>
       <head>
         <meta name="google-adsense-account" content="ca-pub-8934404713213041" />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8934404713213041"
-          crossOrigin="anonymous"
-        ></script>
-        {/* Prevent flash of wrong theme */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const theme = localStorage.getItem('theme') || 
-                  (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-                document.documentElement.classList.add(theme);
-              } catch (e) {}
-            `,
-          }}
-        />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8934404713213041" crossOrigin="anonymous" />
       </head>
-      <body className="overflow-x-hidden antialiased max-w-3xl mx-4 mt-8 md:mx-auto">
-        <ThemeProvider>
-          <ClickSpark>
-            <ViewTransitions>
-              <main className="relative z-20 flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0 max-w-3xl mx-auto">
-                <Navbar />
-                <SchemaMarkup />
-                {children}
-                <Analytics />
-                <SpeedInsights />
-              </main>
-            </ViewTransitions>
-          </ClickSpark>
-        </ThemeProvider>
+      <body>
+        <ViewTransitions>
+          <main>
+            <SchemaMarkup />
+            {children}
+            <Analytics />
+            <SpeedInsights />
+          </main>
+        </ViewTransitions>
       </body>
     </html>
   );

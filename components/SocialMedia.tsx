@@ -2,62 +2,56 @@ import Link from "next/link";
 import Email from "./icons/Email";
 import Github from "./icons/Github";
 import X from "./icons/X";
-import Instagram from "./icons/Instagram";
 import LinkedIn from "./icons/LinkedIn";
 import Calcom from "./icons/Calcom";
 import Youtube from "./icons/Youtube";
-import React, { SVGProps } from "react";
-import { track } from "@vercel/analytics";
 import { socialMedia } from "./resources/content";
-import Resume from "./icons/Resume";
 
-type IconProps = SVGProps<SVGSVGElement> & { name: string };
-
-const iconLabels: { [key: string]: string } = {
-  instagram: "Instagram",
-  linkedin: "LinkedIn",
-  email: "Email",
-  github: "GitHub",
-  x: "X (Twitter)",
-  calcom: "Book a Call",
-  youtube: "YouTube",
-  Resume: "Resume",
-};
-
-const Icon: React.FC<IconProps> = ({ name, ...props }) => {
-  const icons: { [key: string]: React.JSX.Element } = {
-    instagram: <Instagram {...props} />,
-    linkedin: <LinkedIn {...props} />,
-    email: <Email {...props} />,
-    github: <Github {...props} />,
-    x: <X {...props} />,
-    calcom: <Calcom {...props} />,
-    resume: <Resume {...props} />,
-    youtube: <Youtube {...props} />,
-  };
-
-  return icons[name];
+const iconComponents: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
+  calcom: Calcom,
+  x: X,
+  github: Github,
+  youtube: Youtube,
+  linkedin: LinkedIn,
+  email: Email,
 };
 
 const SocialMedia: React.FC = () => {
   return (
-    <div className="flex flex-row gap-1">
-      {socialMedia.map((link) => (
-        <Link
-          key={link.name}
-          href={link.link}
-          target="_blank"
-          className="group relative p-2 rounded-lg overflow-hidden transition-all duration-200 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:text-zinc-100 dark:hover:bg-zinc-800"
-          onClick={() => track(`${link.name}_link_clicked`)}
-          title={iconLabels[link.name] || link.name}
-        >
-          <p className="sr-only">{iconLabels[link.name] || link.name}</p>
-          <Icon
-            name={link.name}
-            className="transition-all duration-200 h-5 w-5 group-hover:scale-110"
-          />
-        </Link>
-      ))}
+    <div className="flex flex-wrap gap-3 items-center">
+      {socialMedia
+        .filter((s) => s.name !== "resume")
+        .map((link) => {
+          const Icon = iconComponents[link.name];
+          if (!Icon) return null;
+          return (
+            <Link
+              key={link.name}
+              href={link.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs tracking-widest uppercase transition-all duration-400"
+              style={{
+                border: "1px solid var(--line-strong)",
+                color: "var(--cream)",
+                letterSpacing: "0.16em",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--accent)";
+                (e.currentTarget as HTMLAnchorElement).style.color = "var(--accent)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--line-strong)";
+                (e.currentTarget as HTMLAnchorElement).style.color = "var(--cream)";
+              }}
+            >
+              <Icon className="w-3.5 h-3.5" />
+              {link.name === "calcom"
+                ? "Cal.com"
+                : link.name.charAt(0).toUpperCase() + link.name.slice(1)}
+            </Link>
+          );
+        })}
     </div>
   );
 };
