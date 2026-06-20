@@ -6,6 +6,7 @@ import {
   experience,
   certifications,
   education,
+  openSource,
 } from "../components/resources/content";
 import SocialMedia from "../components/SocialMedia";
 import Footer from "../components/Footer";
@@ -225,12 +226,13 @@ export default function Page() {
                 <text
                   fill="#EDE5D4"
                   fontFamily="Inter"
-                  fontSize="9"
+                  fontSize="19"
                   fontWeight="500"
                   letterSpacing="2.8"
                 >
                   <textPath href="#orbitalPath" startOffset="0%">
-                    FULL-STACK &middot; FRONTEND &middot; ENGINEER &middot;{" "}
+                    FULLSTACK &middot; FRONTEND &middot; BACKEND &middot; ENG
+                    &middot;
                   </textPath>
                 </text>
                 <text
@@ -392,7 +394,7 @@ export default function Page() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 max-w-[1400px] mx-auto">
           {[
             {
-              num: "4",
+              num: "2",
               sup: "+",
               label: "Years shipping",
               desc: "From first commit to production &mdash; across startups, studios, and freelance clients.",
@@ -404,10 +406,10 @@ export default function Page() {
               desc: "Invid.ai, Clip.AI, SpidyUI, Shawtify, Promptier &mdash; and counting.",
             },
             {
-              num: "83",
-              sup: "%",
-              label: "API latency cut",
-              desc: "60s &rarr; 10s on Wealthfino internal tooling &mdash; SEBI-compliant broker access.",
+              num: "3",
+              sup: "+",
+              label: "Freelance projects",
+              desc: "working with offline businesses, startups and pushing them online.",
             },
             {
               num: "15",
@@ -1560,6 +1562,73 @@ export default function Page() {
                   </p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ OPEN SOURCE ============ */}
+      <section className="px-8 py-40">
+        <div className="max-w-[1300px] mx-auto">
+          <span className="eyebrow mb-6 fade-up">Contributions</span>
+          <h2
+            className="font-cormorant text-4xl sm:text-5xl font-medium mb-16 fade-up delay-1"
+            style={{ color: "var(--cream)", lineHeight: 1.15 }}
+          >
+            Open Source
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {openSource.map((item, i) => (
+              <a
+                key={item.title}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="fade-up block group"
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                <div
+                  className="p-8 rounded-xl h-full"
+                  style={{
+                    border: "1px solid var(--line)",
+                    background: "rgba(20,17,13,0.4)",
+                    transition:
+                      "border-color 0.4s var(--ease-quiet), transform 0.4s var(--ease-quiet)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "var(--accent)";
+                    e.currentTarget.style.transform = "translateY(-4px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "var(--line)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <h3
+                      className="font-cormorant text-2xl font-medium"
+                      style={{ color: "var(--cream)" }}
+                    >
+                      {item.title}
+                    </h3>
+                    <span
+                      className="text-xs tracking-widest shrink-0 ml-4"
+                      style={{
+                        color: "var(--accent)",
+                        letterSpacing: "0.16em",
+                      }}
+                    >
+                      &#9733; {item.stars}
+                    </span>
+                  </div>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: "rgba(237,229,212,0.82)" }}
+                  >
+                    {item.description}
+                  </p>
+                </div>
+              </a>
             ))}
           </div>
         </div>

@@ -82,6 +82,7 @@ const ParticleText = () => {
     function init() {
       const w = container!.getBoundingClientRect().width;
       const h = container!.getBoundingClientRect().height;
+      if (w === 0 || h === 0) return;
       particlesArray = [];
       const text = "wanna build :?";
       const fontSize = Math.min(100, w / 8);
