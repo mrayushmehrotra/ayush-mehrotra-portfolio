@@ -1,6 +1,10 @@
 import React, { useRef, useEffect } from "react";
 
-const ParticleText = () => {
+interface ParticleTextProps {
+  text?: string;
+}
+
+const ParticleText = ({ text = "wanna build :?" }: ParticleTextProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouse = useRef({ x: -9999, y: -9999, radius: 150 });
@@ -84,7 +88,7 @@ const ParticleText = () => {
       const h = container!.getBoundingClientRect().height;
       if (w === 0 || h === 0) return;
       particlesArray = [];
-      const text = "wanna build :?";
+      const textContent = text || "wanna build :?";
       const fontSize = Math.min(100, w / 8);
 
       ctx!.font = `bold ${fontSize}px "Arial Black", Gadget, sans-serif`;
@@ -97,7 +101,7 @@ const ParticleText = () => {
       gradient.addColorStop(0.8, "#C9A37A");
       ctx!.fillStyle = gradient;
 
-      ctx!.fillText(text, w / 2, h / 2);
+      ctx!.fillText(textContent, w / 2, h / 2);
       const textCoordinates = ctx!.getImageData(0, 0, w, h);
       ctx!.clearRect(0, 0, w, h);
 

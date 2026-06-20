@@ -1575,7 +1575,7 @@ export default function Page() {
             className="font-cormorant text-4xl sm:text-5xl font-medium mb-16 fade-up delay-1"
             style={{ color: "var(--cream)", lineHeight: 1.15 }}
           >
-            Open Source
+            Open Source {"</>"}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {openSource.map((item, i) => (
@@ -1645,7 +1645,7 @@ export default function Page() {
 
             {/* Desktop: particle text canvas */}
             <div className="hidden lg:block">
-              <ParticleText />
+              <ParticleText text={"wanna build ?"} />
             </div>
 
             {/* Mobile / tablet: static heading */}
@@ -1808,7 +1808,10 @@ export default function Page() {
           clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)",
         }}
       >
-        <div className="fixed bottom-0 h-[300px] w-full" style={{ zIndex: 1 }}>
+        <div
+          className="fixed bottom-[20%] h-[300px] w-full"
+          style={{ zIndex: 1 }}
+        >
           <Footer />
         </div>
       </div>

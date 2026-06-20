@@ -341,29 +341,15 @@ export interface OpenSourceItem {
 export const openSource: OpenSourceItem[] = [
   {
     title: "stablyai/orca",
-    stars: "2.9k",
+    stars: "5.6k",
     description:
       "implementing a hierarchical tree view for PR diff file lists with folder compaction, Flat/Tree toggle UI, and nested indentation",
     link: "https://github.com/stablyai/orca",
   },
   {
-    title: "Dubinc/Dub",
-    stars: "23.3k",
-    description:
-      "Fixed UI modal styling and OAuth login validation errors affecting workspace creation.",
-    link: "https://github.com/Dubinc/dub",
-  },
-  {
     title: "Nestjs/nest-cli",
     stars: "2.2k",
     description: "worked as moderator to close random and fake pr for a month",
-    link: "https://github.com/Nestjs/nest-cli",
-  },
-  {
-    title: "firecrawl/firecrawl",
-    stars: "103k",
-    description:
-      "Fix Worker service leaks temp files in /tmp causing disk full",
     link: "https://github.com/Nestjs/nest-cli",
   },
 ];
