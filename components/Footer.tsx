@@ -4,13 +4,14 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <div className="h-full w-full flex flex-col justify-end relative overflow-hidden">
+    <div className="">
       <video
         autoPlay
         loop
         muted
         playsInline
         className="absolute w-full h-full object-cover lg:hidden"
+        style={{ top: "20%", opacity: 0.7 }}
       >
         <source src="/footer_pikachu_run.mp4" type="video/mp4" />
       </video>
