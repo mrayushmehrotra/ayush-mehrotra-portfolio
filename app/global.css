@@ -112,6 +112,16 @@ a { color: inherit; text-decoration: none; }
 /* ========== Orbital spin ========== */
 @keyframes spin-cw { from { transform: rotate(0); } to { transform: rotate(360deg); } }
 
+/* ========== Page curtain reveal ========== */
+@keyframes page-unveil {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+.page-reveal {
+  clip-path: inset(0 0 100% 0);
+  animation: page-unveil 1.8s var(--ease-emphasis) 0.2s forwards;
+}
+
 /* ========== Reduced motion ========== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -121,5 +131,6 @@ a { color: inherit; text-decoration: none; }
   }
   .fade-up { opacity: 1; transform: none; }
   .hero__portrait { animation: none !important; }
+  .page-reveal { clip-path: none; animation: none; }
   .strip__track { animation: none !important; }
 }

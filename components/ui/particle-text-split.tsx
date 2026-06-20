@@ -83,7 +83,7 @@ const ParticleText = () => {
       const w = container!.getBoundingClientRect().width;
       const h = container!.getBoundingClientRect().height;
       particlesArray = [];
-      const text = "build something";
+      const text = "wanna build :?";
       const fontSize = Math.min(100, w / 8);
 
       ctx!.font = `bold ${fontSize}px "Arial Black", Gadget, sans-serif`;

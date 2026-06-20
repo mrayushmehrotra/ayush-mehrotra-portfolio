@@ -279,6 +279,58 @@ export const projects = [
 //   email: "ayusmehrotra007@gmail.com",
 // };
 //
+export interface CertificationItem {
+  title: string;
+  issuer: string;
+  date: string;
+  description: string;
+  link: string;
+}
+
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  period: string;
+  description: string;
+}
+
+export const certifications: CertificationItem[] = [
+  {
+    title: "Deloitte Data Analytics",
+    issuer: "Forage",
+    date: "2025",
+    description:
+      "Completed a simulation covering data analysis, visualization, and presenting insights to stakeholders.",
+    link: "https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_Zyj746CAXJ5BbCdCK_1760543538830_completion_certificate.pdf",
+  },
+  {
+    title: "Lyft Backend Engineering",
+    issuer: "Forage",
+    date: "2025",
+    description:
+      "Built a Python Flask backend, designed system architecture, and worked with data structures for a ride-sharing platform.",
+    link: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Lyft/xSw9echtixLAoPdsH_Lyft_Zyj746CAXJ5BbCdCK_1700289748124_completion_certificate.pdf",
+  },
+  {
+    title: "Full Stack Web Development",
+    issuer: "Angela Yu (Udemy)",
+    date: "2025",
+    description:
+      "Covered HTML, CSS, JavaScript, React, Node.js, MongoDB, and Git through hands-on projects.",
+    link: "#",
+  },
+];
+
+export const education: EducationItem[] = [
+  {
+    degree: "Bachelor of Science",
+    institution: "Maa Shakuntala PG college",
+    period: "2024 - 2027",
+    description:
+      "Focused on software engineering, data structures, and web development.",
+  },
+];
+
 export const socialMedia = [
   {
     name: "calcom",

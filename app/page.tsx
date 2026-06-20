@@ -1,7 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
-import { projects, experience } from "../components/resources/content";
+import {
+  projects,
+  experience,
+  certifications,
+  education,
+} from "../components/resources/content";
 import SocialMedia from "../components/SocialMedia";
 import Footer from "../components/Footer";
 import { Navbar } from "../components/Navbar";
@@ -57,7 +62,7 @@ export default function Page() {
   useScrollReveal();
 
   return (
-    <>
+    <div className="page-reveal">
       <ScrollProgress />
       <Navbar />
 
@@ -1103,19 +1108,31 @@ export default function Page() {
                   className="text-base leading-relaxed mb-8 max-w-lg"
                   style={{ color: "rgba(237,229,212,0.92)" }}
                 >
-                  A cross-platform mobile billing system built for Dawavale,
-                  an online pharmacy. Designed with a clean, modern interface
-                  to streamline order processing, invoice generation, and
-                  inventory tracking &mdash; making daily billing faster and
-                  more accurate for the pharmacy staff.
+                  A cross-platform mobile billing system built for Dawavale, an
+                  online pharmacy. Designed with a clean, modern interface to
+                  streamline order processing, invoice generation, and inventory
+                  tracking &mdash; making daily billing faster and more accurate
+                  for the pharmacy staff.
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 mb-10">
                   {[
-                    { label: "Smart billing", desc: "Auto-calculated orders with tax & discounts" },
-                    { label: "Invoice PDF", desc: "Digital receipts ready to share or print" },
-                    { label: "Inventory sync", desc: "Real-time stock updates on every sale" },
-                    { label: "Customer history", desc: "Past orders and prescription records" },
+                    {
+                      label: "Smart billing",
+                      desc: "Auto-calculated orders with tax & discounts",
+                    },
+                    {
+                      label: "Invoice PDF",
+                      desc: "Digital receipts ready to share or print",
+                    },
+                    {
+                      label: "Inventory sync",
+                      desc: "Real-time stock updates on every sale",
+                    },
+                    {
+                      label: "Customer history",
+                      desc: "Past orders and prescription records",
+                    },
                   ].map((feature) => (
                     <div
                       key={feature.label}
@@ -1139,22 +1156,26 @@ export default function Page() {
                 </div>
 
                 <div className="flex flex-wrap gap-2 mb-8">
-                  {["React Native", "TypeScript", "Expo", "SQLite", "Zustand"].map(
-                    (tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs tracking-wide uppercase px-3 py-1.5 rounded-full"
-                        style={{
-                          background: "rgba(237,229,212,0.06)",
-                          border: "1px solid var(--line)",
-                          color: "var(--cream)",
-                          letterSpacing: "0.1em",
-                        }}
-                      >
-                        {tech}
-                      </span>
-                    )
-                  )}
+                  {[
+                    "React Native",
+                    "TypeScript",
+                    "Expo",
+                    "SQLite",
+                    "Zustand",
+                  ].map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs tracking-wide uppercase px-3 py-1.5 rounded-full"
+                      style={{
+                        background: "rgba(237,229,212,0.06)",
+                        border: "1px solid var(--line)",
+                        color: "var(--cream)",
+                        letterSpacing: "0.1em",
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
 
@@ -1427,6 +1448,123 @@ export default function Page() {
         </div>
       </section>
 
+      {/* ============ CERTIFICATIONS ============ */}
+      <section className="px-8 py-40">
+        <div className="max-w-[1300px] mx-auto">
+          <span className="eyebrow mb-6 fade-up">Credentials</span>
+          <h2
+            className="font-cormorant text-4xl sm:text-5xl font-medium mb-16 fade-up delay-1"
+            style={{ color: "var(--cream)", lineHeight: 1.15 }}
+          >
+            Certifications
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {certifications.map((cert, i) => (
+              <a
+                key={cert.title}
+                href={cert.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="fade-up block group"
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                <div
+                  className="p-8 rounded-xl h-full"
+                  style={{
+                    border: "1px solid var(--line)",
+                    background: "rgba(20,17,13,0.4)",
+                    transition:
+                      "border-color 0.4s var(--ease-quiet), transform 0.4s var(--ease-quiet)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "var(--accent)";
+                    e.currentTarget.style.transform = "translateY(-4px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "var(--line)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
+                >
+                  <div
+                    className="text-xs tracking-widest uppercase mb-3"
+                    style={{ color: "var(--accent)", letterSpacing: "0.24em" }}
+                  >
+                    {cert.issuer} &middot; {cert.date}
+                  </div>
+                  <h3
+                    className="font-cormorant text-2xl font-medium mb-3"
+                    style={{ color: "var(--cream)" }}
+                  >
+                    {cert.title}
+                  </h3>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: "rgba(237,229,212,0.82)" }}
+                  >
+                    {cert.description}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ EDUCATION ============ */}
+      <section className="px-8 py-40" style={{ background: "var(--earth)" }}>
+        <div className="max-w-[1300px] mx-auto">
+          <span className="eyebrow mb-6 fade-up">Background</span>
+          <h2
+            className="font-cormorant text-4xl sm:text-5xl font-medium mb-16 fade-up delay-1"
+            style={{ color: "var(--cream)", lineHeight: 1.15 }}
+          >
+            Education
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
+            {education.map((edu, i) => (
+              <div
+                key={edu.degree}
+                className="fade-up"
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                <div
+                  className="p-8 rounded-xl"
+                  style={{
+                    border: "1px solid var(--line)",
+                    background: "rgba(20,17,13,0.4)",
+                  }}
+                >
+                  <div
+                    className="text-xs tracking-widest uppercase mb-3"
+                    style={{ color: "var(--accent)", letterSpacing: "0.24em" }}
+                  >
+                    {edu.period}
+                  </div>
+                  <h3
+                    className="font-cormorant text-2xl font-medium mb-2"
+                    style={{ color: "var(--cream)" }}
+                  >
+                    {edu.degree}
+                  </h3>
+                  <div
+                    className="text-sm mb-3"
+                    style={{ color: "rgba(237,229,212,0.82)" }}
+                  >
+                    {edu.institution}
+                  </div>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{ color: "rgba(237,229,212,0.7)" }}
+                  >
+                    {edu.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ============ CONTACT ============ */}
       <section
         id="contact"
@@ -1594,7 +1732,17 @@ export default function Page() {
       </section>
 
       {/* ============ FOOTER ============ */}
-      <Footer />
-    </>
+      <div
+        className="relative"
+        style={{
+          height: "300px",
+          clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)",
+        }}
+      >
+        <div className="fixed bottom-0 h-[300px] w-full" style={{ zIndex: 1 }}>
+          <Footer />
+        </div>
+      </div>
+    </div>
   );
 }
