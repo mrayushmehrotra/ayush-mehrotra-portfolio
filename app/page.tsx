@@ -169,7 +169,7 @@ function FaqSection() {
                   } as React.CSSProperties
                 }
                 onMouseMove={(e) =>
-                  handleMouseMove(e, e.currentTarget as HTMLDivElement)
+                  handleMouseMove(e, e.currentTarget)
                 }
               >
                 {/* Radial spotlight */}
