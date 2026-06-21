@@ -169,7 +169,7 @@ export const metadata: Metadata = {
     template: "%s | Ayush Mehrotra",
   },
   description:
-    "Ayush Mehrotra is a full-stack frontend engineer from India with 4+ years of experience building accessible, performant web apps using React, Next.js, and TypeScript. Currently at Wealthfino.",
+    "Ayush Mehrotra — full-stack frontend engineer, India. 4+ years building accessible, performant apps with React, Next.js & TypeScript. Currently at Wealthfino.",
   keywords: [
     "Ayush Mehrotra",
     "ayush mehrotra developer",

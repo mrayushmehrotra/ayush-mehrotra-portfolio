@@ -1,9 +1,3 @@
-
-User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://ayush-mehrotra-portfolio-two.vercel.app/sitemap.xml
-
-# Crawl-delay
-Crawl-delay: 1
+# This file is intentionally empty.
+# The canonical robots.txt is generated dynamically by /app/robots.ts
+# and served by Next.js at /robots.txt
