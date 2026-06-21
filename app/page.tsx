@@ -91,8 +91,8 @@ function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const handleMouseMove = (
-    e: React.MouseEvent<HTMLDivElement>,
-    el: HTMLDivElement | null
+    e: React.MouseEvent<HTMLElement>,
+    el: HTMLElement | null
   ) => {
     if (!el) return;
     const rect = el.getBoundingClientRect();
