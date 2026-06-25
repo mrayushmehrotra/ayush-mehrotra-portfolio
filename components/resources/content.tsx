@@ -195,6 +195,7 @@ export const experience = [
 export const projects = [
   {
     title: "Invid.ai",
+    image: "InvidAI.png",
     description:
       "A content as a service for social media growth hack suite for mobile & android",
     github: "https://github.com/mrayushmehrotra/invid.ai",
@@ -210,6 +211,7 @@ export const projects = [
   },
   {
     title: "Clip.AI",
+    image: "ClipAI.png",
     description: "AI powered Web Based Video Editor powered by Groq-AI (beta)",
     github: "https://github.com/mrayushmehrotra/clip.ai",
     technologies: [
@@ -224,6 +226,8 @@ export const projects = [
 
   {
     title: "SpidyUI",
+    image: "SpidyUI.png",
+
     description:
       "A simple UI registry for components and blocks using the shadcn api.",
     link: "https://sigma-zeta-six.vercel.app/",
@@ -232,6 +236,7 @@ export const projects = [
   },
   {
     title: "Shawtify",
+    image: "Shawtify.png",
     description:
       "A full-featured spotify like website focusing on core features like listen to music, song upload and payment processing.",
     link: "https://spotify-clone-ashy-five.vercel.app/",
@@ -243,13 +248,6 @@ export const projects = [
       "Tailwind CSS",
       "Stripe",
     ],
-  },
-  {
-    title: "Promptier",
-    description:
-      "Curated AI image prompts for model poses with a monthly contest — winners receive exclusive coupons.",
-    github: "https://github.com/mrayushmehrotra/promptier",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
 ];
 

@@ -34,6 +34,7 @@ import NodejsIcon from "../components/icons/Nodejs";
 import CloudflareIcon from "../components/icons/Cloudflare";
 import GitIcon from "../components/icons/Git";
 import ParticleText from "components/ui/particle-text-split";
+import GradientMesh from "components/ui/gradient-mesh";
 
 /* ---------- Scroll reveal hook ---------- */
 function useScrollReveal() {
@@ -92,7 +93,7 @@ function FaqSection() {
 
   const handleMouseMove = (
     e: React.MouseEvent<HTMLElement>,
-    el: HTMLElement | null
+    el: HTMLElement | null,
   ) => {
     if (!el) return;
     const rect = el.getBoundingClientRect();
@@ -168,9 +169,7 @@ function FaqSection() {
                     boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
                   } as React.CSSProperties
                 }
-                onMouseMove={(e) =>
-                  handleMouseMove(e, e.currentTarget)
-                }
+                onMouseMove={(e) => handleMouseMove(e, e.currentTarget)}
               >
                 {/* Radial spotlight */}
                 <div
@@ -250,7 +249,9 @@ function FaqSection() {
                       <h3
                         className="font-cormorant text-xl md:text-2xl font-medium leading-snug"
                         style={{
-                          color: isOpen ? "var(--cream)" : "rgba(237,229,212,0.75)",
+                          color: isOpen
+                            ? "var(--cream)"
+                            : "rgba(237,229,212,0.75)",
                           letterSpacing: "-0.012em",
                           transition: "color 300ms",
                         }}
@@ -319,20 +320,28 @@ function FaqSection() {
   );
 }
 
-
 export default function Page() {
-
   useScrollReveal();
 
   return (
-    <div
-      className="page-reveal"
-      itemScope
-      itemType="https://schema.org/Person"
-    >
+    <div className="page-reveal" itemScope itemType="https://schema.org/Person">
       {/* Visually hidden but indexed — reinforces entity for Googlebot */}
-      <span itemProp="name" style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0,0,0,0)" }}>Ayush Mehrotra</span>
-      <link itemProp="url" href="https://ayush-mehrotra-portfolio-two.vercel.app" />
+      <span
+        itemProp="name"
+        style={{
+          position: "absolute",
+          width: 1,
+          height: 1,
+          overflow: "hidden",
+          clip: "rect(0,0,0,0)",
+        }}
+      >
+        Ayush Mehrotra
+      </span>
+      <link
+        itemProp="url"
+        href="https://ayush-mehrotra-portfolio-two.vercel.app"
+      />
       <ScrollProgress />
       <Navbar />
 
@@ -356,7 +365,7 @@ export default function Page() {
                   fontFamily: "var(--font-inter)",
                 }}
               >
-                Portfolio &middot; 2024 &mdash; 2025
+                Portfolio &middot; 2026
               </span>
             </div>
 
@@ -444,21 +453,10 @@ export default function Page() {
           </div>
 
           <div className="fade-up delay-2 relative">
-            <div
-              className="aspect-[4/5] overflow-hidden rounded-2xl relative"
+            <GradientMesh
+              className="aspect-[4/5] rounded-2xl"
               style={{ borderRadius: "1.5rem" }}
-            >
-              <Image
-                src="/profile.jpg"
-                alt="Ayush Mehrotra, portrait"
-                fill
-                className="object-cover hero__portrait"
-                style={{
-                  filter: "contrast(1.05) saturate(0.65) brightness(0.82)",
-                }}
-                priority
-              />
-            </div>
+            />
 
             <div
               className="absolute w-[180px] h-[180px] -bottom-15 -left-15 z-5 hidden md:block"
@@ -1080,10 +1078,11 @@ export default function Page() {
                   className="aspect-[4/3] overflow-hidden rounded-xl image-reveal fade-up"
                   style={{ borderRadius: "1.2rem" }}
                 >
-                  <img
-                    src={`https://picsum.photos/seed/work-${project.title.toLowerCase().replace(/\s+/g, "-")}/1200/900`}
+                  <Image
+                    src={`/${project.image}`}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-1500 hover:scale-105"
+                    fill
+                    className="object-cover transition-transform duration-1500 hover:scale-105"
                     style={{
                       filter: "contrast(0.95) saturate(0.72) brightness(0.86)",
                     }}
