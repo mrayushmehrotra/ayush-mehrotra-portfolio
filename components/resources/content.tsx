@@ -193,6 +193,22 @@ export const experience = [
 ];
 
 export const projects = [
+   {
+    title: "Quick Speak",
+    image: "Shawtify.png",
+    video:"",
+    description:
+      "A full-featured spotify like website focusing on core features like listen to music, song upload and payment processing.",
+    link: "https://spotify-clone-ashy-five.vercel.app/",
+    github: "https://github.com/mrayushmehrotra/shawtify-spotify-clone",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Zustand",
+      "Tailwind CSS",
+      "Stripe",
+    ],
+  },
   {
     title: "Invid.ai",
     image: "InvidAI.png",

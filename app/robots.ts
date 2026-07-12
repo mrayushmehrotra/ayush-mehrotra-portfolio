@@ -8,6 +8,18 @@ export default function robots(): MetadataRoute.Robots {
                 allow: "/",
                 disallow: ["/api/", "/_next/"],
             },
+            {
+                userAgent: "GPTBot",
+                allow: "/",
+            },
+            {
+                userAgent: "PerplexityBot",
+                allow: "/",
+            },
+            {
+                userAgent: "ClaudeBot",
+                allow: "/",
+            },
         ],
         sitemap: "https://ayush-mehrotra-portfolio-two.vercel.app/sitemap.xml",
     };

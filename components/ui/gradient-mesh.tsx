@@ -253,6 +253,7 @@ const GradientMesh = ({ className, style }: GradientMeshProps) => {
           filter: "blur(28px) saturate(1.15) contrast(1.05)",
         }}
       />
+      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
     </div>
   );
 };
