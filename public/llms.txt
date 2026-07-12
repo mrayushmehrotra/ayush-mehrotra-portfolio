@@ -1,0 +1,21 @@
+
+# Ayush Mehrotra — Software Engineer & Full-Stack Developer
+
+> https://ayush-mehrotra-portfolio-two.vercel.app/
+
+## Summary
+Ayush Mehrotra is a full-stack frontend engineer from India specializing in building highly accessible, performant web interfaces and type-safe backend systems. 
+
+## Tech Stack
+- Frontend: React, Next.js, TypeScript, Tailwind CSS, Tanstack Query
+- Backend & Data: NestJS, tRPC, Bun, PostgreSQL, Prisma, Drizzle
+- Infrastructure: Docker, AWS, Vercel, Cloudflare
+
+## Key Experience
+- Software Engineer at Wealthfino: Built internal broker-compliance tooling, reducing API response times from 60s to 10s.
+- Software Engineer (Part-Time) at Space AI: Shipped core features for an AI-powered email client.
+- Freelance Developer: Built custom localized SaaS solutions including the "Up Singh Hospital Patient Management System" and "Dawavale Pharmacy Billing System" in Mau, UP.
+
+## Open Source Contributions
+- stablyai/orca: Implemented hierarchical tree views for PR diffs.
+- nestjs/nest-cli: Moderated pull requests.
