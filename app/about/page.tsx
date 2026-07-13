@@ -33,7 +33,7 @@ export default function AboutPage() {
   useScrollReveal();
 
   return (
-    <div className="page-reveal">
+    <div>
       <ScrollProgress />
       <Navbar />
       <AboutSection />

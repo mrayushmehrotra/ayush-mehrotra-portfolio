@@ -33,7 +33,7 @@ export default function WorkPage() {
   useScrollReveal();
 
   return (
-    <div className="page-reveal">
+    <div>
       <ScrollProgress />
       <WorkCarouselSection />
     </div>

@@ -33,7 +33,7 @@ export default function ProjectsPage() {
   useScrollReveal();
 
   return (
-    <div className="page-reveal">
+    <div>
       <ScrollProgress />
       <Navbar />
       <WorkSection />
