@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { Navbar } from "../../components/Navbar";
 import { ScrollProgress } from "../../components/ScrollProgress";
-import WorkSection from "../../components/sections/WorkSection";
+import PlaySection from "../../components/sections/PlaySection";
 import FooterSection from "../../components/sections/FooterSection";
 
 function useScrollReveal() {
@@ -36,7 +36,7 @@ export default function ProjectsPage() {
     <div>
       <ScrollProgress />
       <Navbar />
-      <WorkSection />
+      <PlaySection />
       <FooterSection />
     </div>
   );

@@ -62,8 +62,12 @@ export function Navbar({
     <>
       {/* ===== Desktop static navbar ===== */}
       <div className="hidden md:block w-full px-8 pt-6">
-        <nav className="flex items-center justify-between">
-          <a 
+        <nav className="">
+         
+
+          <ul className="flex  items-center justify-between gap-6 list-none mx-6">
+            <>
+             <a 
           onClick={(e) => {
             e.preventDefault();
             router.push("/", {
@@ -77,8 +81,8 @@ export function Navbar({
           >
             Ayush<span style={{ color: "var(--accent)" }}>.</span>
           </a>
+          <div className="flex gap-6">
 
-          <ul className="flex gap-6 list-none mx-6">
             {navLinks.map((item) => (
               <li key={item.href}>
                 <a
@@ -88,20 +92,22 @@ export function Navbar({
                     onTransitionReady: slideInOut,
                   });
                 }}
-                  href={item.href}
-                  className="text-xs font-normal uppercase transition-colors duration-300"
-                  style={{ color: primaryTextColor, letterSpacing: "0.16em" }}
-                  onMouseEnter={(e) => {
-                    (e.target as HTMLElement).style.color = hoverTextColor;
-                  }}
+                href={item.href}
+                className="text-xs font-normal uppercase transition-colors duration-300"
+                style={{ color: primaryTextColor, letterSpacing: "0.16em" }}
+                onMouseEnter={(e) => {
+                  (e.target as HTMLElement).style.color = hoverTextColor;
+                }}
                   onMouseLeave={(e) => {
                     (e.target as HTMLElement).style.color = primaryTextColor;
                   }}
-                >
+                  >
                   {item.label}
                 </a>
               </li>
             ))}
+            </div>
+            </>
           </ul>
         </nav>
       </div>

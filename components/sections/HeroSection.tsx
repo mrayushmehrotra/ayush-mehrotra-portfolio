@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link, useTransitionRouter } from "next-view-transitions";
 import Image from "next/image";
 
 const navLinks = [
@@ -10,6 +10,43 @@ const navLinks = [
 ];
 
 export default function HeroSection() {
+  const router = useTransitionRouter();
+
+  function slideInOut() {
+    document.documentElement.animate(
+      [
+        {
+          opacity: 1,
+          transform: "translateY(0px)"
+        },
+        {
+          opacity: 0.2,
+          transform: "translateY(-35%)"
+        }
+      ], {
+        duration: 1500,
+        easing: "cubic-bezier(0.87, 0, 0.13, 1)",
+        fill: "forwards",
+        pseudoElement: "::view-transition-old(root)",
+      }
+    );
+    document.documentElement.animate(
+      [
+        {
+          clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)"
+        },
+        {
+          clipPath: "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)"
+        }
+      ], {
+        duration: 1500,
+        easing: "cubic-bezier(0.87, 0, 0.13, 1)",
+        fill: "forwards",
+        pseudoElement: "::view-transition-new(root)",
+      }
+    );
+  }
+
   return (
     <header
       className="min-h-screen relative flex flex-col overflow-hidden px-8"
@@ -33,24 +70,36 @@ export default function HeroSection() {
 
       {/* Inline nav */}
       <nav className="relative z-20 flex items-center justify-between w-full pt-6">
-        <Link
+        <a
+          onClick={(e) => {
+            e.preventDefault();
+            router.push("/", {
+              onTransitionReady: slideInOut,
+            });
+          }}
           href="/"
-          className="flex items-center gap-3 font-cormorant text-xl font-medium tracking-tight"
+          className="flex items-center gap-3 font-cormorant text-xl font-medium tracking-tight cursor-pointer"
           style={{ color: "#FFFFFF" }}
         >
           Ayush<span style={{ color: "var(--accent)" }}>.</span>
-        </Link>
+        </a>
 
         <ul className="flex gap-6 list-none">
           {navLinks.map((item) => (
             <li key={item.href}>
-              <Link
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push(item.href, {
+                    onTransitionReady: slideInOut,
+                  });
+                }}
                 href={item.href}
-                className="text-xs font-normal uppercase transition-opacity duration-300 hover:opacity-60"
+                className="text-xs font-normal uppercase transition-opacity duration-300 hover:opacity-60 cursor-pointer"
                 style={{ color: "#FFFFFF", letterSpacing: "0.16em" }}
               >
                 {item.label}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
