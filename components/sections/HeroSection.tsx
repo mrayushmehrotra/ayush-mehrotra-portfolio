@@ -32,7 +32,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none" />
 
       {/* Inline nav */}
-      <nav className="relative z-10 flex items-center justify-between w-full pt-6">
+      <nav className="relative z-20 flex items-center justify-between w-full pt-6">
         <Link
           href="/"
           className="flex items-center gap-3 font-cormorant text-xl font-medium tracking-tight"
