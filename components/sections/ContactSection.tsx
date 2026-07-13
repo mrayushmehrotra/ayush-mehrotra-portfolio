@@ -8,6 +8,7 @@ export default function ContactSection() {
     <section
       id="contact"
       className="px-8 py-48 pb-32 relative overflow-hidden"
+      style={{ background: "#000" }}
     >
       <div className="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-24 items-end">
         <div>

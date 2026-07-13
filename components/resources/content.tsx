@@ -132,7 +132,7 @@ export const tools = {
 export const experience = [
   {
     role: "Software Engineer",
-    company: "Wealthfino (India, remote)",
+    company: "Wealthfino",
     period: "June 2026 - present",
     description:
       "Built internal tooling that cut API response time from ~60s to 10s (saving $15/month), fixed bugs, and improved accessibility to meet SEBI compliance for registered brokers",
@@ -148,7 +148,7 @@ export const experience = [
 
   {
     role: "Software Engineer Part Time",
-    company: "Space AI (India, remote)",
+    company: "Space AI",
     period: "July 2025 - Nov 2025",
     description:
       "Software engineer responsible for core features and performance optimisations for an innovative AI-powered email client, focusing on intelligent email processing and real-time collaboration.",
@@ -161,7 +161,17 @@ export const experience = [
     ],
   },
   {
+    role: "Junior Web Developer (Intern)",
+    company: "Codetikki",
+    period: "Jan 2023 - Mar 2023",
+    description:
+      "figma to code dashboard & internal features to track employee and social media plugins",
+    technologies: ["React.js", "Node.js", "SQL", "Figma", "Facebook APIs"],
+  },
+
+  {
     role: "Freelance Developer",
+    company: "Remote",
     period: "Mar 2024 - May 2025",
     description:
       "Delivering custom web solutions for diverse clients, specialising in e-commerce platforms, content management systems, and business automation tools.",
@@ -175,28 +185,13 @@ export const experience = [
       "Google APIs",
     ],
   },
-  {
-    role: "Junior Web Developer (Intern)",
-    company: "Codetikki",
-    period: "Jan 2023 - Mar 2023",
-    description:
-      "figma to code dashboard & internal features to track employee and social media plugins",
-    technologies: ["React.js", "Node.js", "SQL", "Figma", "Facebook APIs"],
-  },
-  {
-    role: "Self Employeed",
-    period: "2022 - Present",
-    description:
-      "I have profound skills in Full-Stack Web Application Development and a little bit in design too. I have built projects ranging from simple games and mini implementations of data tools to more complex applications like social media platforms, e-commerce stores, and popular app clones. I'm learning new things all the time, so it's a mix of good and bad code on my GitHub.",
-    technologies: ["Rust", "Lua", "Bash", "Go", "C"],
-  },
 ];
 
 export const projects = [
-   {
+  {
     title: "Quick Speak",
     image: "Shawtify.png",
-    video:"",
+    video: "",
     description:
       "A full-featured spotify like website focusing on core features like listen to music, song upload and payment processing.",
     link: "https://spotify-clone-ashy-five.vercel.app/",
