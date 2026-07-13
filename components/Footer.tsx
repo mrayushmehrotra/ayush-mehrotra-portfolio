@@ -44,11 +44,11 @@ export default function Footer() {
               LET'S CONNECT 🤝
             </span>
             <div className="text-sm font-bold text-zinc-600 flex gap-2">
-              <Link href="https://linkedin.com" target="_blank" className="hover:text-black transition-colors">Linkedin</Link>
+              <Link href="https://www.linkedin.com/in/ayushmehrotraa/" target="_blank" className="hover:text-black transition-colors">Linkedin</Link>
               <span className="text-zinc-300">|</span>
-              <Link href="#" className="hover:text-black transition-colors">Resume</Link>
+              <Link href="/Ayush_Mehrotra.pdf" className="hover:text-black transition-colors">Resume</Link>
               <span className="text-zinc-300">|</span>
-              <Link href="#work" className="hover:text-black transition-colors">Work</Link>
+              <Link href="/work" className="hover:text-black transition-colors">Work</Link>
             </div>
           </div>
 

@@ -3,6 +3,7 @@ import { Inter, Cormorant_Garamond } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ViewTransitions } from "next-view-transitions";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import "./global.css";
 
 const inter = Inter({
@@ -306,11 +307,13 @@ export default function RootLayout({
       </head>
       <body>
         <ViewTransitions>
-          <main>
-            {children}
-            <Analytics />
-            <SpeedInsights />
-          </main>
+          <SmoothScroll>
+            <main>
+              {children}
+              <Analytics />
+              <SpeedInsights />
+            </main>
+          </SmoothScroll>
         </ViewTransitions>
       </body>
     </html>

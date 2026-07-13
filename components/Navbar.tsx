@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import Image from "next/image";
 
 export function Navbar({
@@ -29,6 +29,7 @@ export function Navbar({
       <div className="hidden md:block w-full px-8 pt-6">
         <nav className="flex items-center justify-between">
           <Link
+          aria-label="Ayush Mehrotra"
             href="/"
             className="flex items-center gap-3 font-cormorant text-xl font-medium tracking-tight shrink-0"
             style={{ color: primaryTextColor }}
