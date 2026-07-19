@@ -90,53 +90,18 @@ export default function WorkCarouselSection() {
               {/* Dark overlay to make text readable */}
               <div className={`absolute inset-0 ${bgImage ? "bg-black/75" : "bg-gradient-to-r from-black/80 via-black/30 to-black/60"}`} />
 
-              {/* Content Container */}
-              <div className="relative w-full h-full flex flex-col justify-center px-8 md:px-24 lg:px-40 max-w-[1600px] mx-auto z-10">
-                {/* Left side details */}
-                <div className="absolute top-[30%] md:top-1/2 -translate-y-1/2 left-6 sm:left-8 md:left-24 lg:left-40 flex flex-col space-y-6 md:space-y-10 max-w-[160px] sm:max-w-[280px] md:max-w-[400px] z-20">
+              {/* Content Container — flex column on mobile, absolute on desktop */}
+              <div className="relative w-full h-full z-10 flex flex-col md:block">
 
-                  {/* Role */}
-                  <div>
-                    <h5 className="text-white/60 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] mb-2">Role</h5>
-                    <p className="text-white text-[15px] md:text-[17px] font-medium leading-tight">
-                      {job.role}
-                    </p>
-                  </div>
-
-                  {/* Duration */}
-                  <div>
-                    <h5 className="text-white/60 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] mb-2">Duration</h5>
-                    <p className="text-white text-[14px] md:text-[15px] font-medium">
-                      {job.period}
-                    </p>
-                  </div>
-
-                  {/* Tools */}
-                  {job.technologies && job.technologies.length > 0 && (
-                    <div>
-                      <h5 className="text-white/60 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] mb-2">Tools</h5>
-                      <p className="text-white text-[14px] md:text-[15px] font-medium leading-relaxed">
-                        {job.technologies.join(", ")}
-                      </p>
-                    </div>
-                  )}
-
-                  {/* Description */}
-                  {job.description && (
-                    <div>
-                      <h5 className="text-white/60 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] mb-2">Description</h5>
-                      <p className="text-white/80 text-[13px] md:text-[14px] leading-relaxed">
-                        {job.description}
-                      </p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Center Glowy Company Name / Logo */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10">
+                {/* Logo — top on mobile (below navbar), centered on desktop */}
+                <div className="
+                  flex items-center justify-center pt-20
+                  md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2
+                  md:pt-0 md:pointer-events-none
+                ">
                   {logoSrc ? (
-                    <div className="relative w-28 h-28 sm:w-64 sm:h-64 md:w-96 md:h-96 drop-shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-                      <Image 
+                    <div className="relative w-24 h-24 md:w-96 md:h-96 drop-shadow-[0_0_60px_rgba(255,255,255,0.4)]">
+                      <Image
                         src={logoSrc}
                         alt={`${displayName} Logo`}
                         fill
@@ -145,14 +110,58 @@ export default function WorkCarouselSection() {
                     </div>
                   ) : (
                     <h2
-                      className="text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70 font-bold text-center tracking-tight"
+                      className="text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70 font-bold text-center tracking-tight px-6"
                       style={{
-                        fontSize: "clamp(1.5rem, 6vw, 7rem)",
+                        fontSize: "clamp(2rem, 8vw, 7rem)",
                         textShadow: "0 0 60px rgba(255,255,255,0.3), 0 0 20px rgba(255,255,255,0.15)",
                       }}
                     >
                       {displayName}
                     </h2>
+                  )}
+                </div>
+
+                {/* Text Details — bottom on mobile, left on desktop */}
+                <div className="
+                  flex-1 flex flex-col justify-end
+                  px-6 pb-16 space-y-4
+                  md:absolute md:top-1/2 md:-translate-y-1/2 md:left-24 lg:left-40
+                  md:px-0 md:pb-0 md:flex-none md:justify-start md:space-y-10 md:max-w-[400px]
+                ">
+                  {/* Role */}
+                  <div>
+                    <h5 className="text-white/60 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] mb-1.5 md:mb-2">Role</h5>
+                    <p className="text-white text-[15px] md:text-[17px] font-medium leading-tight">
+                      {job.role}
+                    </p>
+                  </div>
+
+                  {/* Duration */}
+                  <div>
+                    <h5 className="text-white/60 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] mb-1.5 md:mb-2">Duration</h5>
+                    <p className="text-white text-[14px] md:text-[15px] font-medium">
+                      {job.period}
+                    </p>
+                  </div>
+
+                  {/* Tools */}
+                  {job.technologies && job.technologies.length > 0 && (
+                    <div>
+                      <h5 className="text-white/60 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] mb-1.5 md:mb-2">Tools</h5>
+                      <p className="text-white text-[13px] md:text-[15px] font-medium leading-relaxed">
+                        {job.technologies.join(", ")}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Description — hidden on mobile to keep layout clean */}
+                  {job.description && (
+                    <div className="hidden md:block">
+                      <h5 className="text-white/60 text-[11px] font-bold uppercase tracking-[0.2em] mb-2">Description</h5>
+                      <p className="text-white/80 text-[14px] leading-relaxed">
+                        {job.description}
+                      </p>
+                    </div>
                   )}
                 </div>
 
