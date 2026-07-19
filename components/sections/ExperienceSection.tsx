@@ -4,9 +4,9 @@ import { experience } from "../resources/content";
 import { ProjectCard } from "../ui/ProjectCard";
 
 const companyImages: Record<string, string> = {
-  Wealthfino: "/WealthFino_Logo.png",
+  Wealthfino: "/wealthfino.png",
   "Space AI": "/space_ai.png",
-  Codetikki: "/codetikki.jpeg",
+  Codetikki: "/codetikki.png",
 };
 
 export default function ExperienceSection() {
