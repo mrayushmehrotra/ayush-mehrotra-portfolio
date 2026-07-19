@@ -1,139 +1,105 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { projects } from "../resources/content";
 
 export default function PlaySection() {
-  return (
-    <section id="play" className="px-8 py-40">
-      <div className="max-w-[1600px] mx-auto">
-        <div className="text-center mb-28">
-          <span className="eyebrow justify-center mb-8">Playground</span>
-          <h2
-            className="font-cormorant fade-up mt-6"
-            style={{
-              fontSize: "clamp(3rem, 6.5vw, 6rem)",
-              lineHeight: 0.95,
-              letterSpacing: "-0.02em",
-              color: "var(--cream)",
-            }}
-          >
-            Side projects,
-            <br />
-            built for the{" "}
-            <em style={{ color: "var(--accent)", fontStyle: "italic" }}>
-              fun
-            </em>{" "}
-            of it.
-          </h2>
-          <p
-            className="font-cormorant text-lg italic mt-6 fade-up delay-1"
-            style={{ color: "var(--accent)" }}
-          >
-            Experiments, tools &amp; toys
-          </p>
-        </div>
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, i) => (
-            <article
-              key={project.title}
-              className="fade-up group relative overflow-hidden rounded-xl"
-              style={{
-                borderRadius: "1.2rem",
-                background: "rgba(237,229,212,0.03)",
-                border: "1px solid var(--line)",
-                transition: "all 0.5s var(--ease-quiet)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "var(--accent)";
-                e.currentTarget.style.transform = "translateY(-4px)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "var(--line)";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
+  return (
+    <section id="play" className="relative w-full min-h-screen bg-[#FDFDFD] py-32 flex flex-col justify-center overflow-hidden">
+      
+      {/* Decorative text from screenshot */}
+      <div className="absolute top-8 left-8 z-30">
+        <span className="text-[10px] tracking-widest text-black/50 uppercase">Image Tiles Menu Animation ↗</span>
+      </div>
+      <div className="absolute top-8 right-8 z-30 max-w-[200px] text-right hidden md:block">
+        <p className="text-[10px] tracking-widest leading-relaxed text-black/50 uppercase">
+          With Readymag, nothing stands between your ideas and the final result ↗
+        </p>
+      </div>
+      <div className="absolute bottom-8 left-8 z-30">
+        <span className="text-[10px] tracking-widest text-black/50 uppercase border-b border-black/50 pb-1 cursor-pointer">All Demos</span>
+      </div>
+
+      {/* Background Images */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        {projects.map((project, index) => (
+          <div 
+            key={`bg-${index}`} 
+            className="absolute inset-0 transition-opacity duration-700 ease-out"
+            style={{ opacity: hoveredIndex === index ? 1 : 0 }}
+          >
+            {/* Image 1 - Left */}
+            <div 
+              className="absolute top-[20%] left-[5%] w-[35vw] max-w-[450px] aspect-[4/3] shadow-2xl transition-transform duration-[2s] ease-out" 
+              style={{ transform: hoveredIndex === index ? 'scale(1)' : 'scale(1.05)' }}
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={`/${project.image}`}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  style={{
-                    filter: "contrast(0.95) saturate(0.72) brightness(0.86)",
-                  }}
-                />
-              </div>
-              <div className="p-6">
-                <h3
-                  className="font-cormorant font-medium mb-2"
-                  style={{
-                    fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
-                    color: "var(--cream)",
-                    letterSpacing: "-0.018em",
-                  }}
-                >
-                  {project.title}
-                </h3>
-                <p
-                  className="text-sm leading-relaxed mb-4"
-                  style={{ color: "rgba(237,229,212,0.8)" }}
-                >
+              <Image src={`/${project.image}`} fill alt={`${project.title} 1`} className="object-cover" />
+            </div>
+            {/* Image 2 - Top Right */}
+            <div 
+              className="absolute top-[10%] right-[5%] w-[25vw] max-w-[350px] aspect-video shadow-2xl transition-transform duration-[2s] ease-out delay-75" 
+              style={{ transform: hoveredIndex === index ? 'scale(1)' : 'scale(1.05)' }}
+            >
+              <Image src={`/${project.image}`} fill alt={`${project.title} 2`} className="object-cover object-left-top" />
+            </div>
+            {/* Image 3 - Bottom Right */}
+            <div 
+              className="absolute bottom-[15%] right-[25%] w-[20vw] max-w-[300px] aspect-[3/4] shadow-2xl transition-transform duration-[2s] ease-out delay-150" 
+              style={{ transform: hoveredIndex === index ? 'scale(1)' : 'scale(1.05)' }}
+            >
+              <Image src={`/${project.image}`} fill alt={`${project.title} 3`} className="object-cover object-bottom" />
+            </div>
+          </div>
+        ))}
+        {/* Light overlay to make black text readable even over images */}
+        <div className="absolute inset-0 bg-white/50 backdrop-blur-[2px] transition-opacity duration-700" style={{ opacity: hoveredIndex !== null ? 1 : 0 }} />
+      </div>
+
+      {/* Projects List Container */}
+      <div className="relative z-10 w-full flex flex-col">
+        {projects.map((project, index) => {
+          const isHovered = hoveredIndex === index;
+          return (
+            <a
+              key={project.title}
+              href={project.link || project.github || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative w-full border-t border-black/5 flex items-center justify-center py-4 md:py-6 lg:py-8 cursor-pointer transition-colors duration-500 last:border-b"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              {/* Project Title */}
+              <h2 
+                className="font-cormorant transition-all duration-500 z-20 text-center"
+                style={{ 
+                  fontSize: "clamp(3rem, 10vw, 9rem)", 
+                  lineHeight: 0.85,
+                  letterSpacing: "-0.02em",
+                  color: isHovered ? "#000000" : "rgba(0,0,0,0.15)",
+                }}
+              >
+                {project.title}
+              </h2>
+              
+              {/* Description Reveal on Hover */}
+              <div 
+                className="hidden md:block absolute left-[55%] md:left-[60%] lg:left-[55%] top-1/2 -translate-y-1/2 max-w-xs transition-all duration-500 z-20 pointer-events-none"
+                style={{ 
+                  opacity: isHovered ? 1 : 0,
+                  transform: isHovered ? "translateY(-50%) translateX(0)" : "translateY(-50%) translateX(-20px)"
+                }}
+              >
+                <p className="text-[9px] md:text-[10px] tracking-[0.2em] leading-relaxed uppercase text-black/90 font-medium">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-[10px] tracking-wide uppercase px-2 py-1 rounded-full"
-                      style={{
-                        background: "rgba(237,229,212,0.06)",
-                        border: "1px solid var(--line)",
-                        color: "var(--cream)",
-                        letterSpacing: "0.1em",
-                      }}
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-4">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs tracking-widest uppercase inline-flex items-center gap-2 pb-1 transition-all duration-300"
-                      style={{
-                        color: "var(--accent)",
-                        borderBottom: "1px solid var(--accent)",
-                        letterSpacing: "0.18em",
-                      }}
-                    >
-                      GitHub &rarr;
-                    </a>
-                  )}
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs tracking-widest uppercase inline-flex items-center gap-2 pb-1 transition-all duration-300"
-                      style={{
-                        color: "var(--accent)",
-                        borderBottom: "1px solid var(--accent)",
-                        letterSpacing: "0.18em",
-                      }}
-                    >
-                      Live &rarr;
-                    </a>
-                  )}
-                </div>
               </div>
-            </article>
-          ))}
-        </div>
+            </a>
+          );
+        })}
       </div>
     </section>
   );
