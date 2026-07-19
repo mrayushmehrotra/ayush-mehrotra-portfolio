@@ -46,16 +46,20 @@ export default function WorkCarouselSection() {
           const displayName = job.company && job.company !== "Remote" ? job.company : job.role;
           
           let logoSrc: string | null = null;
+          let bgImage: string | null = null;
           let bgStyle: React.CSSProperties = { backgroundColor: "" }; // Default dark
           
           if (displayName === "Wealthfino") {
             logoSrc = "/wealthfino.png";
+            bgImage = "/wealthfino_project_bg.jpeg";
             bgStyle = { backgroundColor: "#79c577" };
           } else if (displayName === "Space AI") {
             logoSrc = "/Space_ai.png";
+            bgImage = "/space_ai_bg.png";
             bgStyle = { background: "linear-gradient(135deg, #a855f7, #ec4899)" }; // purple to pink mix
           } else if (displayName === "Codetikki") {
             logoSrc = "/codetikki.png";
+            bgImage = "/codetikki_bg.png";
             bgStyle = { backgroundColor: "#ee8531" }; // orange
           } else if (index === 2) {
              // Freelance Developer
@@ -69,11 +73,22 @@ export default function WorkCarouselSection() {
 
           return (
             <SwiperSlide key={index} className="relative w-full h-full">
-              {/* Background Color */}
-              <div className="absolute inset-0 w-full h-full" style={bgStyle} />
+              {/* Background */}
+              {bgImage ? (
+                <div className="absolute inset-0 w-full h-full">
+                  <Image
+                    src={bgImage}
+                    alt={`${displayName} background`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="absolute inset-0 w-full h-full" style={bgStyle} />
+              )}
               
-              {/* Overlay gradient to make text readable */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/30 to-black/60" />
+              {/* Dark overlay to make text readable */}
+              <div className={`absolute inset-0 ${bgImage ? "bg-black/75" : "bg-gradient-to-r from-black/80 via-black/30 to-black/60"}`} />
 
               {/* Content Container */}
               <div className="relative w-full h-full flex flex-col justify-center px-8 md:px-24 lg:px-40 max-w-[1600px] mx-auto z-10">

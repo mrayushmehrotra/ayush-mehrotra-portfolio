@@ -37,7 +37,11 @@ export default function Page() {
   useScrollReveal();
 
   return (
-    <div itemScope itemType="https://schema.org/Person">
+    <div
+      className="overflow-hidden"
+      itemScope
+      itemType="https://schema.org/Person"
+    >
       <span
         itemProp="name"
         style={{
