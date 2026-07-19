@@ -78,7 +78,7 @@ export default function WorkCarouselSection() {
               {/* Content Container */}
               <div className="relative w-full h-full flex flex-col justify-center px-8 md:px-24 lg:px-40 max-w-[1600px] mx-auto z-10">
                 {/* Left side details */}
-                <div className="absolute left-8 md:left-24 lg:left-40 top-1/2 -translate-y-1/2 flex flex-col space-y-10 max-w-[280px] sm:max-w-[320px] md:max-w-[400px] z-20">
+                <div className="absolute top-[30%] md:top-1/2 -translate-y-1/2 left-6 sm:left-8 md:left-24 lg:left-40 flex flex-col space-y-6 md:space-y-10 max-w-[160px] sm:max-w-[280px] md:max-w-[400px] z-20">
 
                   {/* Role */}
                   <div>
@@ -120,7 +120,7 @@ export default function WorkCarouselSection() {
                 {/* Center Glowy Company Name / Logo */}
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10">
                   {logoSrc ? (
-                    <div className="relative w-64 h-64 md:w-96 md:h-96 drop-shadow-[0_0_60px_rgba(255,255,255,0.4)]">
+                    <div className="relative w-28 h-28 sm:w-64 sm:h-64 md:w-96 md:h-96 drop-shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                       <Image 
                         src={logoSrc}
                         alt={`${displayName} Logo`}
@@ -132,7 +132,7 @@ export default function WorkCarouselSection() {
                     <h2
                       className="text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70 font-bold text-center tracking-tight"
                       style={{
-                        fontSize: "clamp(3rem, 8vw, 7rem)",
+                        fontSize: "clamp(1.5rem, 6vw, 7rem)",
                         textShadow: "0 0 60px rgba(255,255,255,0.3), 0 0 20px rgba(255,255,255,0.15)",
                       }}
                     >
@@ -153,7 +153,12 @@ export default function WorkCarouselSection() {
       <style dangerouslySetInnerHTML={{
         __html: `
         .swiper-pagination-vertical {
-          right: 30px !important;
+          right: 12px !important;
+        }
+        @media (min-width: 768px) {
+          .swiper-pagination-vertical {
+            right: 30px !important;
+          }
         }
         .swiper-pagination-bullet {
           margin: 16px 0 !important;

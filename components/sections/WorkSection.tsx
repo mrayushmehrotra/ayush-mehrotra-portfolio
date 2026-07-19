@@ -5,9 +5,9 @@ import { projects } from "../resources/content";
 
 export default function WorkSection() {
   return (
-    <section id="work" className="px-8 py-40">
+    <section id="work" className="px-6 sm:px-8 py-16 md:py-40">
       <div className="max-w-[1600px] mx-auto">
-        <div className="text-center mb-28">
+        <div className="text-center mb-16 md:mb-28">
           <span className="eyebrow justify-center mb-8">Selected work</span>
           <h2
             className="font-cormorant fade-up mt-6"
@@ -37,7 +37,7 @@ export default function WorkSection() {
         {projects.map((project, i) => (
           <article
             key={project.title}
-            className={`fade-up grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-36 last:mb-0`}
+            className={`fade-up grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center mb-16 lg:mb-36 last:mb-0`}
           >
             <div className={i % 2 === 1 ? "lg:order-2" : ""}>
               <span
