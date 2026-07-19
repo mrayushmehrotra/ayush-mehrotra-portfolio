@@ -90,17 +90,13 @@ export default function WorkCarouselSection() {
               {/* Dark overlay to make text readable */}
               <div className={`absolute inset-0 ${bgImage ? "bg-black/75" : "bg-gradient-to-r from-black/80 via-black/30 to-black/60"}`} />
 
-              {/* Content Container — flex column on mobile, absolute on desktop */}
-              <div className="relative w-full h-full z-10 flex flex-col md:block">
+              {/* Content Container */}
+              <div className="relative w-full h-full z-10">
 
-                {/* Logo — top on mobile (below navbar), centered on desktop */}
-                <div className="
-                  flex items-center justify-center pt-20
-                  md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2
-                  md:pt-0 md:pointer-events-none
-                ">
+                {/* Logo — dead center on mobile & desktop */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
                   {logoSrc ? (
-                    <div className="relative w-24 h-24 md:w-96 md:h-96 drop-shadow-[0_0_60px_rgba(255,255,255,0.4)]">
+                    <div className="relative w-36 h-36 md:w-96 md:h-96 drop-shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                       <Image
                         src={logoSrc}
                         alt={`${displayName} Logo`}
@@ -121,12 +117,12 @@ export default function WorkCarouselSection() {
                   )}
                 </div>
 
-                {/* Text Details — bottom on mobile, left on desktop */}
+                {/* Text Details — pinned to bottom on mobile, left-center on desktop */}
                 <div className="
-                  flex-1 flex flex-col justify-end
-                  px-6 pb-16 space-y-4
-                  md:absolute md:top-1/2 md:-translate-y-1/2 md:left-24 lg:left-40
-                  md:px-0 md:pb-0 md:flex-none md:justify-start md:space-y-10 md:max-w-[400px]
+                  absolute bottom-0 left-0 right-0
+                  px-6 pb-12 space-y-4
+                  md:bottom-auto md:right-auto md:top-1/2 md:-translate-y-1/2 md:left-24 lg:left-40
+                  md:px-0 md:pb-0 md:space-y-10 md:max-w-[400px]
                 ">
                   {/* Role */}
                   <div>
